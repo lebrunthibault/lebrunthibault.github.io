@@ -2,38 +2,31 @@
 Title: "Software development principles"
 date: 2021-07-17T14:31:07+02:00
 draft: true
-
+summary: "My software development principles memo"
 ---
 
-# Main Principles
+# DRY
 
+## String Literals
+- Where are they allowed
+- Not allowed
+- env vars
+- Enums
 
-# Main Principles
+### Enums
 
+# Design Patterns
 
-# Main Principles
+### Inheritance
+- Problems
 
+### Solutions
+- Interfaces
+- Delegation
+- Mixins
 
-# Main Principles
+### Useful patterns for decoupling
+- Decorator
+- Observable
 
-
-# Main Principles
-
-
-# Main Principles
-
-
-# Main Principles
-
-
-# Main Principles
-
-
-# Main Principles
-
-hellos
-```python
-import lib
-
-lib = 2
-```
+### TDD
