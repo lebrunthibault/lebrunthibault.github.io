@@ -1,7 +1,7 @@
 baseURL = "https://lebrunthibault.github.io/"
 languageCode = "en"
 defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
-title = "T. Lebrun's blog"
+title = "Home"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
@@ -67,7 +67,7 @@ copyright = ""            # default: author.name
   toc = true
   autoCollapseToc = false   # Auto expand and collapse toc
   fancybox = true           # see https://github.com/fancyapps/fancybox
-  postMetaInFooter = true   # contain author, lastMod, markdown link, license
+  postMetaInFooter = false   # contain author, lastMod, markdown link, license
   linkToMarkDown = false    # Only effective when hugo will output .md files.
   contentCopyright = ''     # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
 
@@ -120,9 +120,9 @@ copyright = ""            # default: author.name
     options = ""            # default: "{theme: 'simple'}"
 
   [params.social]
-    a-email = "mailto://thibaultlebrun@live.fr"
+    a-github = "https://github.com/lebrunthibault"
     b-linkedin = "https://www.linkedin.com/in/thibault-lebrun/"
-    c-github = "https://github.com/lebrunthibault"
+    c-email = "mailto://thibaultlebrun@live.fr"
 
 # See https://gohugo.io/about/hugo-and-gdpr/
 [privacy]

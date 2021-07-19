@@ -1,6 +1,6 @@
 ---
 Title: "Software development principles"
-date: 2021-07-17T14:31:07+02:00
+date: 2021-07-17
 draft: true
 summary: "My software development principles memo"
 ---
