@@ -1,8 +1,8 @@
 ---
-Title: "Software development principles"
+Title: "Software development techniques"
 date: 2021-07-17
 draft: true
-summary: "My software development principles memo"
+summary: "My software development techniques memo"
 ---
 
 # DRY
