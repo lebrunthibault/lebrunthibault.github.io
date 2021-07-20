@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.c31723d6035155eb055dae77fbaa454f3d4f8a3ab026d684260ea55a480ef92d.css" rel="stylesheet">
+<link href="/sass/main.min.580c2b5be5db2d71fa67296c3249a29695772ecda2d4a42f2889ff68cec4bc61.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -120,14 +120,14 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#object-model">Object Model</a>
       <ul>
         <li><a href="#track-classes">Track Classes</a>
           <ul>
-            <li></li>
+            <li><a href="#contextual-explanation">Contextual Explanation</a></li>
           </ul>
         </li>
         <li><a href="#global-track-objects-and-lists">Global track objects and lists</a>
@@ -208,6 +208,7 @@
 <p><em>This doc is here to shed some light on the script’s object model, a few techniques I’ve set up and the tools I’m using for development. It goes from global discussion on remote scripting concepts / problems to tiny details about the script but is not a full technical documentation.</em> Please read the GitHub readme first.</p>
 <p><u>NB</u> : This script is a selected_track/clip/scene_control kindof script.  Actions dispatched after moving knobs always apply to what is selected in the set.</p>
 <p>I’ve decided to start with an explanation of the most complex stuff of my object model : tracks. What are the different track objects, and how do I generate them at script initialization and when the LOM changes.</p>
+<br/>
 <h1 id="object-model">Object Model</h1>
 <p>I’ve wrapped most of the Live objects I’m using in my own classes (tracks, clip_slots, clips, devices, parameters.. ). The most complex part is the handling of tracks (not surprisingly).</p>
 <h2 id="track-classes">Track Classes</h2>
@@ -223,7 +224,7 @@
 <li>When I speak about <code>SimpleTrack</code> or <code>AbstractGroupTrack</code>  I’m talking about the classes I defined.</li>
 <li>When I speak about a group track, I just mean a group track in a set (that is foldable and has sub_tracks).</li>
 </ul>
-<h4 id="contextual-explanation">Contextual explanation</h4>
+<h3 id="contextual-explanation">Contextual Explanation</h3>
 <p>I’ve created the <code>SimpleTrack</code> class originally to make handling tracks easier than with the stock <code>Live.Track.Track</code> objects (because I can add my listeners, events, methods etc) and also to get a stronger typing experience. Conceptually they are simple and a one to one mapping to a track.</p>
 <p>But what I really wanted when I started the script was to be able to manipulate group tracks as if they were a non group track (e.g. arming / soloing / recording etc …). This is because I wanted to record midi and audio in a group track at the same track, the group track being actually one instrument.</p>
 <p>So I created the <code>AbstractGroupTrack</code> which is a mapping from a group track. But because all my tracks are already mapped to a <code>SimpleTrack</code> they are indeed mapped from a <code>SimpleTrack</code>. and <code>AbstractGroupTrack.base_track</code> is this <code>SimpleTrack</code> while <code>SimpleTrack.abstract_group_track</code> is the opposite relationship.</p>
