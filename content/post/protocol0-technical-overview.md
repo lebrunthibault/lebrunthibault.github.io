@@ -11,8 +11,9 @@ _This doc is here to shed some light on the script’s object model, a few techn
 
 <u>NB</u> : This script is a selected_track/clip/scene_control kindof script.  Actions dispatched after moving knobs always apply to what is selected in the set.
 
-
 I’ve decided to start with an explanation of the most complex stuff of my object model : tracks. What are the different track objects, and how do I generate them at script initialization and when the LOM changes.
+
+<br/>
 
 
 # Object Model {#object-model}
@@ -23,8 +24,6 @@ I’ve wrapped most of the Live objects I’m using in my own classes (tracks, c
 ## Track Classes {#track-classes}
 
 TLDR :
-
-
 
 * A `Live.Track.Track` is mapped to a `SimpleTrack`
 * A `SimpleTrack` that is also a group track is mapped to an `AbstractGroupTrack` allowing seamless manipulation of different types of group tracks.
@@ -37,7 +36,10 @@ Mini Glossary :
 * When I speak about a group track, I just mean a group track in a set (that is foldable and has sub_tracks).
 
 
-#### Contextual explanation
+
+### Contextual Explanation
+
+
 
 I’ve created the `SimpleTrack` class originally to make handling tracks easier than with the stock `Live.Track.Track` objects (because I can add my listeners, events, methods etc) and also to get a stronger typing experience. Conceptually they are simple and a one to one mapping to a track.
 
@@ -70,6 +72,7 @@ Details :
         * A midi `SimpleTrack`
         * An audio `SimpleTrack`
 * `AbstractTrack `: top of the inheritance hierarchy for any track object (and an abstract class). This class groups all common attributes and methods that are indeed the interface of any track object. Including :
+  
     * self.base_track is always the track itself or the group_track in the case of an `AbstractGroupTrack`
     * self._track is the underlying `Live.Track.Track` object (and == self.base_track._track)
     * self.group_track is the `SimpleTrack` mapping of self._track.group_track

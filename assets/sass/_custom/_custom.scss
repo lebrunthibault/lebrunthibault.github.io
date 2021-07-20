@@ -17,3 +17,15 @@ $header-padding: 20px 20px 0px 20px !default;
   width: 100%;
   height: 2.5rem;            /* Footer height */
 }
+
+.post .post-toc {
+  width: 330px !important;
+}
+
+.post .post-toc .post-toc-content {
+  font-size: 13px !important;
+}
+
+.post-footer {
+  margin-bottom: 35px;
+}

@@ -10,7 +10,7 @@ summary: "My software development techniques memo"
 ## String Literals
 - Where are they allowed
 - Not allowed
-- env vars
+- environment variables
 - Enums
 
 ### Enums
@@ -18,6 +18,13 @@ summary: "My software development techniques memo"
 # Design Patterns
 
 ### Inheritance
+
+
+
+##### The problems with inheritance
+
+- 
+
 - Problems
 
 ### Solutions
