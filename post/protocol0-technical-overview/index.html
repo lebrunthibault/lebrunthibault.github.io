@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Protocol 0 technical overview">
 <meta itemprop="description" content="Protocol0 technical overview"><meta itemprop="datePublished" content="2020-12-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3593">
+<meta itemprop="wordCount" content="3354">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Protocol 0 technical overview"/>
 <meta name="twitter:description" content="Protocol0 technical overview"/>
@@ -139,15 +139,10 @@
         </li>
         <li><a href="#track-clip_slot-and-clip-generation">Track, Clip_slot and Clip generation</a>
           <ul>
-            <li><a href="#maintaining-state-through-lom-changes">Maintaining state through lom changes</a></li>
+            <li><a href="#maintaining-state-through-lom-changes">Maintaining state through LOM changes</a></li>
             <li><a href="#what-happens-on-startup-and-after-tracks-or-scenes-change">What happens on startup and after tracks or scenes change</a></li>
           </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href="#specific-objects-behavior">Specific objects behavior</a>
-      <ul>
-        <li><a href="#clip">Clip</a></li>
       </ul>
     </li>
     <li><a href="#asynchronous-tasks-and-scheduling">Asynchronous tasks and scheduling</a>
@@ -159,8 +154,8 @@
         </li>
         <li><a href="#using-timers">Using timers</a>
           <ul>
-            <li><a href="#via-controlsurface-schedule_message">Via ControlSurface.schedule_message</a></li>
-            <li><a href="#via-live-base-timer">Via Live.Base.Timer</a></li>
+            <li><a href="#via-controlsurface-schedule_message">Via <code>ControlSurface.schedule_message</code></a></li>
+            <li><a href="#via-live-base-timer">Via <code>Live.Base.Timer</code></a></li>
           </ul>
         </li>
       </ul>
@@ -190,7 +185,7 @@
         <li><a href="#typing">Typing</a></li>
         <li><a href="#logging">Logging</a>
           <ul>
-            <li><a href="#powershell-formatting">Powershell formatting</a></li>
+            <li><a href="#powershell-formatting">Log formatting</a></li>
             <li><a href="#data-model-dump">Data model dump</a></li>
           </ul>
         </li>
@@ -207,147 +202,131 @@
   </div>
 </div>
     <div class="post-content">
-      <p>Context and goals on the <a href="https://github.com/lebrunthibault/Protocol-0-Surface-Script">github readme</a></p>
-<p>Some global remote scripting tips <a href="https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing">in this doc</a></p>
-<p><em>This doc is here to shed some light on the script’s object model, a few techniques I’ve set up and the tools I’m using for development. It goes from global discussion on remote scripting concepts / problems to tiny details about my remote script but is not a full technical documentation. Mostly wrote this so that it’s clearer to me ^^</em></p>
-<p>NB : This script is a selected_track/clip/scene_control kindof script and so actions dispatched after moving knobs always apply to what is selected in the set.</p>
-<p>NB : a big chunk of the automation part of the script is gonna be dropped because it is too complicated and not so useful (AutomatedTrack, AbstractAutomationTrack, AutomationAudioTrack, AutomationMidiTrack, automation curves etc ..). I’ll just keep simple methods to show / scroll clip envelope parameters like in Clyphx.</p>
-<p>On the right is a Table of Contents listing all subjects discussed.</p>
-<p>I’ve decided to start with an explanation of the most complex stuff of my object model : tracks. What are the different track objects, and how do I generate them at script initialization and when the lom changes.</p>
+      <blockquote>
+<p>This is technical documentation for my <a href="https://github.com/lebrunthibault/Protocol-0-Surface-Script">Protocol0 Ableton control surface script</a>. Context and goals on the <a href="https://github.com/lebrunthibault/Protocol-0-Surface-Script">GitHub readme</a>. Some global remote scripting tips in <a href="https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing">this google doc</a></p>
+</blockquote>
+<p><em>This doc is here to shed some light on the script’s object model, a few techniques I’ve set up and the tools I’m using for development. It goes from global discussion on remote scripting concepts / problems to tiny details about the script but is not a full technical documentation.</em> Please read the GitHub readme first.</p>
+<p><u>NB</u> : This script is a selected_track/clip/scene_control kindof script.  Actions dispatched after moving knobs always apply to what is selected in the set.</p>
+<p>I’ve decided to start with an explanation of the most complex stuff of my object model : tracks. What are the different track objects, and how do I generate them at script initialization and when the LOM changes.</p>
 <h1 id="object-model">Object Model</h1>
 <p>I’ve wrapped most of the Live objects I’m using in my own classes (tracks, clip_slots, clips, devices, parameters.. ). The most complex part is the handling of tracks (not surprisingly).</p>
 <h2 id="track-classes">Track Classes</h2>
 <p>TLDR :</p>
 <ul>
-<li>A Live.Track.Track is mapped to a SimpleTrack</li>
-<li>A SimpleTrack that is also a group track is mapped to an AbstractGroupTrack allowing seamless manipulation of different types of group tracks.</li>
-<li>All track objects inherits from AbstractTrack enforcing a common interface</li>
+<li>A <code>Live.Track.Track</code> is mapped to a <code>SimpleTrack</code></li>
+<li>A <code>SimpleTrack</code> that is also a group track is mapped to an <code>AbstractGroupTrack</code> allowing seamless manipulation of different types of group tracks.</li>
+<li>All track objects inherits from <code>AbstractTrack</code> enforcing a common interface</li>
 </ul>
-<p>Mini - Glossary :</p>
+<p>Mini Glossary :</p>
 <ul>
-<li>When I speak about Live.Track.Track I speak about the LOM object representing a track</li>
-<li>When I speak about SimpleTrack or AbstractGroupTrack  I’m talking about the classes I defined.</li>
+<li>When I speak about <code>Live.Track.Track</code> I speak about the LOM object representing a track</li>
+<li>When I speak about <code>SimpleTrack</code> or <code>AbstractGroupTrack</code>  I’m talking about the classes I defined.</li>
 <li>When I speak about a group track, I just mean a group track in a set (that is foldable and has sub_tracks).</li>
 </ul>
 <h4 id="contextual-explanation">Contextual explanation</h4>
-<p>I’ve created the SimpleTrack class originally to make handling tracks easier than with the stock Live.Track.Track objects (because I can add my listeners, events, methods etc) and also to get a stronger typing experience. Conceptually they are simple and a one to one mapping to a track.</p>
+<p>I’ve created the <code>SimpleTrack</code> class originally to make handling tracks easier than with the stock <code>Live.Track.Track</code> objects (because I can add my listeners, events, methods etc) and also to get a stronger typing experience. Conceptually they are simple and a one to one mapping to a track.</p>
 <p>But what I really wanted when I started the script was to be able to manipulate group tracks as if they were a non group track (e.g. arming / soloing / recording etc …). This is because I wanted to record midi and audio in a group track at the same track, the group track being actually one instrument.</p>
-<p>So I created the AbstractGroupTrack which is a mapping from a group track. But because all my tracks are already mapped to a SimpleTrack they are indeed mapped from a SimpleTrack. and AbstractGroupTrack.base_track is this SimpleTrack while SimpleTrack.abstract_group_track is the opposite relationship.</p>
-<p>What is conceptual here is that I’m creating a double mapping layer (iterating twice on the track list on set startup). The first layer is just SimpleTrack creation and is straightforward.</p>
-<p>The second layer is the AbstractGroupTrack creation and is not as straightforward. I’m effectively mapping all group tracks of the set into subclasses of AbstractGroupTrack. But I’m still keeping the SimpleTrack mapping, it is necessary for several reasons, notably that the SimpleTrack handles access to the underlying lom objects.</p>
-<p>The only thing complicated here is that each group track is both a SimpleTrack and an AbstractGroupTrack . Both objects can access the other and that’s part of the glue between the 2 layers.</p>
-<p>One touchy thing with this setup is for example if we have nested group tracks then we will effectively have the two layer setup with SimpleTrack group track objects having SimpleTrack sub tracks and AbstractGroupTrack having either AbstractGroupTrack or SimpleTrack sub tracks.</p>
-<p>So it means that when accessing an AbstractGroupTrack sub tracks we have either classes (so actually : List[AbstractTrack]). But when accessing the same Live track from its SimpleTrack object the sub_tracks are : List[SimpleTrack ].</p>
-<p>It’s a bit convoluted but for me it means AbstractTracks are the interface to the controller and what the interface sees. They handle logic but leave implementation details to the lower SimpleTracks layer. The lower layer handles all the tiny lom logic and listeners and emit their own events when necessary.</p>
+<p>So I created the <code>AbstractGroupTrack</code> which is a mapping from a group track. But because all my tracks are already mapped to a <code>SimpleTrack</code> they are indeed mapped from a <code>SimpleTrack</code>. and <code>AbstractGroupTrack.base_track</code> is this <code>SimpleTrack</code> while <code>SimpleTrack.abstract_group_track</code> is the opposite relationship.</p>
+<p>What is conceptual here is that I’m creating a double mapping layer (iterating twice on the track list on set startup). The first layer is just <code>SimpleTrack</code> creation and is straightforward.</p>
+<p>The second layer is the <code>AbstractGroupTrack</code> creation and is not as straightforward. I’m effectively mapping all group tracks of the set into subclasses of <code>AbstractGroupTrack</code>. But I’m still keeping the <code>SimpleTrack</code> mapping, it is necessary for several reasons, notably that the <code>SimpleTrack</code> handles access to the underlying LOM objects.</p>
+<p>The only thing complicated here is that each group track is both a <code>SimpleTrack</code> and an <code>AbstractGroupTrack</code> . Both objects can access the other and that’s part of the glue between the 2 layers.</p>
+<p>One touchy thing with this setup is for example if we have nested group tracks then we will effectively have the two layer setup with <code>SimpleTrack</code> group track objects having <code>SimpleTrack</code> sub tracks and <code>AbstractGroupTrack</code> having either <code>AbstractGroupTrack</code> or <code>SimpleTrack</code> sub tracks.</p>
+<p>So it means that when accessing an <code>AbstractGroupTrack</code> sub tracks we have either classes (so actually : <code>List[AbstractTrack]</code>). But when accessing the same Live track from its <code>SimpleTrack</code> object the sub_tracks are : <code>List[SimpleTrack]</code>.</p>
+<p>It’s a bit convoluted but for me it means <code>AbstractTrack</code>s are the interface to the controller and what the interface sees. They handle logic but leave implementation details to the lower <code>SimpleTrack</code>s layer. The lower layer handles all the tiny lom logic and listeners and emit their own events when necessary.</p>
 <p>Details :</p>
 <ul>
 <li>
-<p>SimpleTrack: one to one mapping with Live.Track.Track. Subclassed by</p>
+<p><code>SimpleTrack</code>: one to one mapping with <code>Live.Track.Track</code>. Subclassed by</p>
 </li>
 <li>
-<p>AbstractGroupTrack (abstract) : One to one on a Live group track (SimpleTrack) and handling actions on sub_tracks. Taking into account sub_tracks can be thought of as a one to many mapping with SimpleTrack.</p>
-<p>Sub tracks of an AbstractGroupTrack can access their SimpleTrack group_track by self.group_track (as any grouped track) and abstract_group_track (AbstractGroupTrack) by self.abstract_group_track</p>
-<p>Subclassed by</p>
+<p><code>AbstractGroupTrack</code> (abstract) : One to one on a Live group track (<code>SimpleTrack</code>) and handling actions on sub_tracks. Taking into account sub_tracks can be thought of as a one to many mapping with <code>SimpleTrack</code>.</p>
+<p>Sub tracks of an <code>AbstractGroupTrack</code> can access their <code>SimpleTrack</code> group_track by <code>self.group_track</code> (as any grouped track) and abstract_group_track (<code>AbstractGroupTrack</code>) by <code>self.abstract_group_track</code>.
+Subclassed by</p>
 <ul>
-<li>SimpleGroupTrack : A group track with no specific behavior.</li>
-<li>ExternalSynthTrack. Allows recording an external synth easily: abstraction track wrapping :
+<li><code>SimpleGroupTrack</code> : A group track with no specific behavior.</li>
+<li><code>ExternalSynthTrack</code>. Allows recording an external synth easily: abstraction track wrapping :
 <ul>
-<li>A midi SimpleTrack</li>
-<li>An audio SimpleTrack</li>
+<li>A midi <code>SimpleTrack</code></li>
+<li>An audio <code>SimpleTrack</code></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p>AbstractTrack : top of the inheritance hierarchy for any track object (and an abstract class). This class groups all common attributes and methods that are indeed the interface of any track object. Including :</p>
+<p><code>AbstractTrack </code>: top of the inheritance hierarchy for any track object (and an abstract class). This class groups all common attributes and methods that are indeed the interface of any track object. Including :</p>
 <ul>
-<li>self.base_track is always the track itself or the group_track in the case of an AbstractGroupTrack</li>
-<li>self._track is the underlying Live.Track.Track object (and == self.base_track._track)</li>
-<li>self.group_track is the SimpleTrack mapping of self._track.group_track</li>
-<li>self.abstract_group_track is the AbstractGroupTrack parent if it exists</li>
+<li>self.base_track is always the track itself or the group_track in the case of an <code>AbstractGroupTrack</code></li>
+<li>self._track is the underlying <code>Live.Track.Track</code> object (and == self.base_track._track)</li>
+<li>self.group_track is the <code>SimpleTrack</code> mapping of self._track.group_track</li>
+<li>self.abstract_group_track is the <code>AbstractGroupTrack</code> parent if it exists</li>
 </ul>
 </li>
 </ul>
 <h2 id="global-track-objects-and-lists">Global track objects and lists</h2>
 <h3 id="songmanager-private-track-lists">SongManager private track lists</h3>
-<p>Starting with a Live.Track.Track object, 2 layers of abstraction are necessary to map the Live track object to our own track object:</p>
+<p>Starting with a <code>Live.Track.Track</code> object, 2 layers of abstraction are necessary to map the Live track object to our own track object:</p>
 <ul>
-<li>_live_track_to_simple_track : maps a Live.Track.Track to a SimpleTrack object</li>
-<li>_simple_track_to_abstract_group_track : maps a SimpleTrack to its AbstractGroupTrack (either from the group_track or any of its sub_tracks)</li>
+<li>_live_track_to_simple_track : maps a <code>Live.Track.Track</code> to a <code>SimpleTrack</code> object</li>
+<li>_simple_track_to_abstract_group_track : maps a <code>SimpleTrack</code> to its <code>AbstractGroupTrack</code> (either from the group_track or any of its sub_tracks)</li>
 </ul>
-<p>With these 2 lists we can reach the right level of abstraction from e.g. Live.Song.Song.selected_track</p>
+<p>With these 2 lists we can reach the right level of abstraction from e.g. <code>Live.Song.Song.selected_track</code></p>
 <h3 id="track-lists-in-song">Track Lists in Song</h3>
 <ul>
-<li>song.simple_tracks : a List of SimpleTrack (that is len(song.simple_tracks) == len(tracks in a Live set except master and return tracks)</li>
-<li>song.abstract_tracks : the top track layer as they most specific form (that is SimpleTrack for lone tracks and AbstractGroupTracks for the group tracks). It also equals the sum of :
+<li><code>song.simple_tracks</code> : a List of <code>SimpleTrack</code> (that is <code>len(song.simple_tracks) == len(tracks)</code> (in a Live set except master and return tracks)</li>
+<li><code>song.abstract_tracks</code> : the top track layer as they most specific form (that is <code>SimpleTrack</code> for lone tracks and <code>AbstractGroupTrack</code>s for the group tracks). It also equals the sum of :
 <ul>
-<li>song.abstract_group_tracks</li>
-<li>song.simple_tracks MINUS simple_tracks that belong to an AbstractGroupTrack</li>
+<li><code>song.abstract_group_tracks</code></li>
+<li><code>song.simple_tracks</code> MINUS simple_tracks that belong to an <code>AbstractGroupTrack</code></li>
 </ul>
 </li>
 </ul>
-<p>Regarding my explanation above, the first list is the lower level and the second a part (because only top tracks) the higher level of the 2 layers track mapping. Actually the controller sees both layers because some controls are specific to SimpleTrack objects.</p>
+<p>Regarding my explanation above, the first list is the lower level and the second a part (because only top tracks) the higher level of the 2 layers track mapping. Actually the controller sees both layers because some controls are specific to <code>SimpleTrack</code> objects.</p>
 <h3 id="track-objects-in-song">Track Objects in Song</h3>
 <ul>
 <li>
-<p>song.selected_track : the selected SimpleTrack object (that is self._live_track_to_simple_track[Live.Track.Track]</p>
+<p><code>song.selected_track</code> : the selected <code>SimpleTrack</code> object (that is <code>self._live_track_to_simple_track[Live.Track.Track]</code></p>
 </li>
 <li>
-<p>song.current_track : the most iconic property of the script. It equals : self._simple_track_to_abstract_group_track[song.selected_track] or song.selected_track. And indeed always outputs the appropriate abstraction level from the currently selected_track.</p>
+<p><code>song.current_track</code> : the most iconic property of the script. It equals : <code>self._simple_track_to_abstract_group_track[song.selected_track]</code> or <code>song.selected_track</code>. And indeed always outputs the appropriate abstraction level from the currently selected_track.</p>
 <p>This property allows transparent track manipulation from the controller</p>
 </li>
 </ul>
 <h2 id="track-clip_slot-and-clip-generation">Track, Clip_slot and Clip generation</h2>
-<h3 id="maintaining-state-through-lom-changes">Maintaining state through lom changes</h3>
-<p>The underlying lom objects do not change (even though the index in e.g. &lt;Track.Track object at 0x000000009AFAD6C8&gt;) changes ..). Moreover the _live_ptr property on all objects will stay the same. It took me a long time to realise this simple fact god knows why.</p>
+<h3 id="maintaining-state-through-lom-changes">Maintaining state through LOM changes</h3>
+<p>The underlying lom objects do not change (even though the index in e.g. <code>&lt;Track.Track object at 0x000000009AFAD6C8&gt;)</code> changes ..). Moreover the <code>_live_ptr</code> property on all objects will stay the same. It took me a long time to realize this simple fact god knows why.</p>
 <p>As objects don’t change it is possible to reuse existing objects so that’s what I’m doing when I have a track change or scene change. Reusing all my tracks objects and taking care of re building my clip slots (e.g. on scene add) while reusing existing ones. Like this my state is preserved while the set is open.</p>
 <h3 id="what-happens-on-startup-and-after-tracks-or-scenes-change">What happens on startup and after tracks or scenes change</h3>
-<p>NB: on tracks or scene change I’m reusing objects as stated above</p>
-<p>NB: everything is done on tick 0 (synchronous, nothing is deferred)</p>
+<p><u>NB</u>: on tracks or scene change I’m reusing objects as stated above</p>
+<p><u>NB</u>: everything is done on tick 0 (synchronous, nothing is deferred)</p>
 <ol>
-<li>All tracks are mapped to Simple Tracks.
+<li>All tracks are mapped to <code>SimpleTrack</code>s.
 <ol>
-<li>ClipSlot are generated</li>
-<li>Clips are generated</li>
+<li><code>ClipSlot</code>s are generated</li>
+<li><code>Clip</code>s are generated</li>
 </ol>
 </li>
 <li>Instrument activation states are mapped back from the stale simple track list. Then stale tracks are disconnected.</li>
-<li>Abstract group tracks are generated by looking up track names and sub_tracks disposition (ExternalSynthTrack and AutomatedTrack)
-3. AutomatedTrack.<strong>init</strong> generates AutomationTracksCouple and links audio and midi dummy tracks
-1. Specific simpleTracks are generated : AutomatedAudioTrack and AutomatedMidiTrack
-2. This includes generation of ClipSlot and Clip specific subclasses
-3. “Basic” SimpleTracks are replaced in the Song and SongManager lists
-4. ExternalSynthTrack.<strong>init</strong> links audio and midi tracks</li>
+<li>Abstract group tracks are generated by looking up track names and sub_tracks disposition (<code>ExternalSynthTrack</code>). <code>ExternalSynthTrack.__init__</code> links audio and midi tracks</li>
 <li>During instantiation of Abstract group tracks, tracks are linked and generate linking for
-5. Clip Slots via ClipSlotSynchronizer
-6. Clips via ClipSynchronizer (handle by the ClipSlotSynchronizer)</li>
-<li>abstract_tracks and current_track properties are computed</li>
+5. <code>ClipSlot</code>s via <code>ClipSlotSynchronizer</code>
+6. <code>Clip</code>s via <code>ClipSynchronizer</code> (handle by the <code>ClipSlotSynchronizer</code>)</li>
+<li><code>abstract_tracks</code> and <code>current_track</code> properties are computed</li>
 </ol>
-<h1 id="specific-objects-behavior">Specific objects behavior</h1>
-<h2 id="clip">Clip</h2>
-<ul>
-<li>on creation (by interface or API) : the Clip _configure_new method is called
-<ul>
-<li>Some properties of the clip are set (e.g. defining default clips depending on the track type)</li>
-<li>For midi clips : base notes are set and the note clip view is fold to speed things up while producing (Simpler clips have a c3 note and automation clips have min middle and max notes set)</li>
-</ul>
-</li>
-</ul>
 <h1 id="asynchronous-tasks-and-scheduling">Asynchronous tasks and scheduling</h1>
 <p><strong>Tl;dr</strong> : <em>When the code cannot be executed synchronously (some LOM changes are asynchronous, dispatching keystrokes and clicks is also asynchronous etc ..) we need to defer callbacks to be run later. There are 2 ways to handle this : either by listening on LOM properties (when possible) or by delaying callbacks using a timer.</em></p>
 <p>Here are the 2 ways of scheduling asynchronous tasks in the code :</p>
 <ul>
 <li>
-<p>The clean one is to listen to changes on the LOM by setting up listeners. It should be used wherever it is possible (See expanantions <a href="https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing">in this doc</a>). Obviously this technique works only when the changes can be observed by listening to observable properties.</p>
+<p>The clean one is to listen to changes on the LOM by setting up listeners. It should be used wherever it is possible (See explanations <a href="https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing">in this doc</a>). Obviously this technique works only when the changes can be observed by listening to observable properties.</p>
 </li>
 <li>
 <p>The other way is to wait for a constant duration instead of having a reactive workflow. This usually happens in the following cases :</p>
 <ul>
-<li>We cannot set up listeners on objects (some properties are not listenable) or even the changes will not be reflected in the LOM (e.g. showing a vst doesn’t trigger changes in the LOM).</li>
-<li>The scheduling does not imply LOM changes (e.g. overcoming the “changes cannot be triggered by notifications”)</li>
+<li>We cannot set up listeners on objects (some properties are not listenable) or even the changes will not be reflected in the LOM (e.g. showing a VST doesn’t trigger changes in the LOM).</li>
+<li>The scheduling does not imply LOM changes (e.g. overcoming the <em>changes cannot be triggered by notifications</em>)</li>
 <li>It just seems easier to define a duration in ms than to setup some complicated listener pattern</li>
 </ul>
-<p>This second way works by leveraging a timer loop given by the Live API. It seems to be the only way possible as using threading.timer does not work and is detailed in the timer scheduling following section.</p>
+<p>This second way works by leveraging a timer loop given by the Live API. It seems to be the only way possible as using <code>threading.timer</code> does not work and is detailed in the timer scheduling following section.</p>
 </li>
 </ul>
 <h2 id="using-listeners">Using listeners</h2>
@@ -359,78 +338,93 @@
 <h3 id="the-sequence-class">The Sequence class</h3>
 <p>Replacement of the _Framework Task as it does not seem to allow variable timeouts like triggers from listeners.</p>
 <ul>
-<li>A Sequence usually represents a number of statements (usually a whole method) and a SequenceStep one statement</li>
-<li>A Sequence step is very often a function call that could return a Sequence.
-That is Sequences can be nested allowing deep asynchronous function calls.</li>
-<li>A Sequence should never be passed to the called code but instead the called code should return it&rsquo;s own sequence to be appended (and executed) to the calling one.</li>
+<li>A <code>Sequence</code> usually represents a number of statements (usually a whole method) and a <code>SequenceStep</code> one statement</li>
+<li>A <code>SequenceStep</code> is very often a function call that could return a <code>Sequence</code>.
+That is <code>Sequence</code>s can be nested allowing deep asynchronous function calls.</li>
+<li>A <code>Sequence</code> should never be passed to the called code but instead the called code should return it&rsquo;s own sequence to be appended (and executed) to the calling one.</li>
 </ul>
-<p><strong>Attention</strong>: The called code is gonna be called synchronously, any data lookup (e.g. on Live API) is gonna be computed at sequence instantiation time and not at sequence runtime !</p>
-<p>If you don&rsquo;t want this behavior to happen, wrap your lookup calls in a step</p>
-<p>Ideally, an asynchronous method should wrap all it&rsquo;s statements in a sequence and do lookups in lambda functions</p>
+<p><strong>Attention</strong>: The called code is gonna be called synchronously, any data lookup (e.g. on Live API) is gonna be computed at sequence instantiation time and not at sequence runtime.</p>
+<p>If you don&rsquo;t want this behavior to happen, wrap your lookup calls in a step.</p>
+<p>Ideally, an asynchronous method should wrap all it&rsquo;s statements in a sequence and do lookups in lambda functions.</p>
 <p>The code can declare asynchronous behavior in 2 ways:</p>
 <ul>
-<li>via wait which leverages Live 100ms tick for tasks where we have a rough idea of the delay and guess without too much hassle</li>
-<li>via the on_complete argument that defers the completion of the step until a condition is satisfied</li>
+<li>via wait which leverages <code>Live.Base.Timer</code> fast tick for tasks where we have a rough idea of the delay and guess without too much hassle (see <a href="#using-timers">below</a>)</li>
+<li>via the on_complete argument that defers the completion of the step until a condition is satisfied.</li>
 </ul>
 <p>This condition can be either :</p>
 <ul>
 <li>a simple callable returning a bool : in this case an exponential polling is setup with a timeout</li>
-<li>a CallbackDescriptor decorated function (a function decorated by <em>@p0_subject_slot or @has_callback_queue</em>) : the step executes when the function is called next be it by Live listener system or by direct call</li>
+<li>a <code>CallbackDescriptor</code> decorated function (a function decorated by <code>@p0_subject_slot</code> or <code>@has_callback_queue</code>) : the step executes when the function is called next be it by Live listener system or by direct call.</li>
 </ul>
-<p>This is the best part because it allows us to react to the execution of Live listeners or even our own listeners. Thus being a shortcut to define yet another listener on an already listened to subject.
+<p>This is the best part because it allows us to react to the execution of Live listeners or even our own listeners. Thus being a shortcut to define yet another listener on a subject.
 To be clearer it is equivalent to defining a method listening on a subject (a listener) that would call back the sequence when executed.</p>
-<h5 id="tips">Tips</h5>
-<ul>
-<li>A sequence step should always define its completion step and not expect the next step to handle any timeout or checks</li>
-<li>Example : A step song.create_midi_track should define its completion check to be the next call to the _added_track_listener.</li>
-<li>Like this any step can always be assured that it executes after the previous one has succeeded or failed (thus ending the sequence).</li>
-<li>After instantiating a sequence by e.g. seq = Sequence(..) you should always call seq.done() to start the sequence execution. If not the sequence is not going to be called and an exception will be thrown at the next tick.</li>
+<h5 id="example-usage">Example usage</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">duplicate_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="c1"># type: (Song, int) -&gt; Sequence</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">()</span>  <span class="c1"># instantiate the Sequence object</span>
+    <span class="c1"># add the callable to the sequence</span>
+    <span class="n">seq</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_song</span><span class="o">.</span><span class="n">duplicate_track</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">complete_on</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">songManager</span><span class="o">.</span><span class="n">tracks_listener</span><span class="p">)</span>  <span class="c1"># declare the completion step</span>
+    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>  <span class="c1"># call seq.done to trigger the sequence</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A sequence step should always define its completion step and not expect the next step to handle any timeout or checks. Like this any step can always be assured that it executes after the previous one has succeeded or failed (thus ending the sequence).</li>
+<li>After instantiating a sequence by e.g. <code>seq = Sequence()</code> you should always call <code>seq.done()</code> to start the sequence execution. If not the sequence is not going to be called and an exception will be thrown at the next tick.</li>
 </ul>
 <h5 id="conditional-execution">Conditional execution</h5>
-<p>Conditional execution of steps is available via do_if and do_if_not which can be any argument to Sequence.add</p>
+<p>Conditional execution of steps is available via <code>do_if</code> and <code>do_if_not</code> which can be any argument to <code>Sequence.add</code></p>
 <ul>
 <li>The condition is executed <em>before</em> the main callable and can bypass the step depending on the result</li>
 <li>return_if and return_if_not are similar but will end the enclosing sequence early instead.</li>
-<li>These 2 callables are going to be executed <em>before</em> the main callable which can therefore not be called</li>
+<li>These two callables are going to be executed <em>before</em> the main callable which can therefore not be called</li>
 <li>This is rarely needed but if needed it&rsquo;s better to put return_if or return_if_not in an empty step (without a callable) to make things clearer</li>
 </ul>
 <h2 id="using-timers">Using timers</h2>
 <p><em>They are (to my knowledge) 2 ways of scheduling asynchronous tasks via timers using the Live API. Both leverage a timer that runs every n millisecond so that a task (a callable) can not be called faster than this interval</em></p>
-<h3 id="via-controlsurface-schedule_message">Via ControlSurface.schedule_message</h3>
+<h3 id="via-controlsurface-schedule_message">Via <code>ControlSurface.schedule_message</code></h3>
 <ul>
 <li>The tick interval is about 100ms +- 20ms (roughly)</li>
-<li>called via ControlSurface.schedule_message(delay_in_ticks: int, callable: callable)</li>
+<li>called via <code>ControlSurface.schedule_messag</code>e(<code>delay_in_ticks: int, callable: Callable</code>)</li>
 <li>This seem to be the historical way of scheduling tasks using timers and the easiest way also as the tasks and timing management is handled by the framework</li>
 </ul>
-<h3 id="via-live-base-timer">Via Live.Base.Timer</h3>
+<h3 id="via-live-base-timer">Via <code>Live.Base.Timer</code></h3>
 <ul>
 <li>The tick interval is much shorter (around 17ms +- 3ms on my system)</li>
 <li>This way the handling of the task queue needs to be done by the script (not so complicated)</li>
 <li>This technique is used by the push2 code and also by a famous remote script</li>
 </ul>
-<p>As the 2nd method is the fastest that’s what I used for “constant time” scheduling. The numbers associated to wait named parameters always refer to this tick interval.</p>
+<p>As the 2nd method is the fastest that’s what I used. The numbers associated to wait parameters always refer to this tick interval.</p>
 <h1 id="changes-cannot-be-triggered-by-notification-error">Changes cannot be triggered by notification error</h1>
-<p>This infamous error appears when we want to apply modifications to the LOM in the same tick as we received a notification (that is a listener was triggered somewhere). Not all changes to the lom trigger this error, only certain property changes.</p>
-<p>It is quite boring and there might be a clean solution to handling this. I didn’t find it and so there are a lot of places where I defer changes by using stuff like the @defer decorator on listeners or self.parent.defer methods. This just delays the callable execution to the next tick. It is inconvenient for 2 reasons :</p>
+<p>This infamous error appears when we want to apply modifications to the LOM in the same tick as we received a notification (that is a listener was triggered somewhere). Not all changes to the LOM trigger this error, only certain property changes.</p>
+<p>It is quite boring and there might be a clean solution to handling this. I didn’t find it and so there are a lot of places where I defer changes by using stuff like the @defer decorator on listeners or <code>self.parent.defer</code> methods. This just delays the callable execution to the next tick. It is inconvenient for 2 reasons :</p>
 <ul>
-<li>First it means wrapping assignments in syntax of the type partial(settattr, …)) which is not clear and not as well supported by pycharm as normal assignments or method calls.</li>
+<li>First it means wrapping assignments in syntax of the type partial(<code>settattr</code>, …)) which is not clear and not as well understood by <code>pycharm</code> as normal assignments or method calls.</li>
 <li>Second it is not so clear why there are all these defers because deferring can be done for other reasons as well</li>
 </ul>
 <h2 id="potential-solution">Potential solution</h2>
-<p>The solution is to defer all actions done after a listener. Adding a defer in the @p0_subject_slot would be a start. I didn’t do this because I used to work with the 100 ms tick and didn’t want to slow down all the code for this trivial issue, as the deferring could potentially add up to more than one tick and noticeably slow down the interface for complex tasks. Now I’m using the faster Base.Timer tick so it might be a better choice indeed.</p>
-<p><strong>Old Solution</strong> : I used to use a decorator on properties setter that would catch this error and defer the call to the next tick. It worked perfectly but I stopped using it because I didn’t like the fact that I didn’t know if the property was changed or not. Didn’t cause any problems but I thought it could (or had) potentially introduce subtle bugs. And no one likes subtle bugs ^^</p>
+<p>The solution is to defer all actions done after a listener. Adding a defer in the @p0_subject_slot would be a start. I didn’t do this because I used to work with the 100 ms tick and didn’t want to slow down all the code for this trivial issue, as the deferring could potentially add up to more than one tick and noticeably slow down the interface for complex tasks. Now I’m using the faster <code>Live.Base.Timer</code> tick so it might be a better choice indeed.</p>
+<p><strong>Old Solution</strong> : I used to use a decorator on properties setter that would catch this error and defer the call to the next tick. It worked perfectly but I stopped using it because I didn’t like the fact that I didn’t know if the property was changed or not. Didn’t cause any problems but I thought it could (or had) potentially introduce subtle bugs.</p>
 <p>**Current Solution **:</p>
-<p>it is not such a big issue because it doesn’t happen often and is very easy to fix.</p>
-<p>So for now I’m just deferring stuff. Also I’m always deferring callback execution when they are attached to a listener. I’m usually setting @defer decorator on a method that would trigger this error. I prefer putting it on the topmost calling method instead of e.g. setter.</p>
+<p>it is not such a big issue because it doesn’t happen often and is very easy to fix. So for now I’m just deferring stuff. Also I’m always deferring callback execution when they are attached to a listener. I’m usually setting @defer decorator on a method that would trigger this error. I prefer putting it on the topmost calling method instead of e.g. setter.</p>
 <h1 id="interface-and-controls">Interface and controls</h1>
-<p>The interface is exposed in the components/actionGroups folder. It is targeted at my FaderFox ec4 which is composed of 16 knobs. knobs (or encoders) can send notes via press or CC via scroll.</p>
+<p>The interface is exposed in the <code>components/actionGroup</code>s folder. It is targeted at my FaderFox ec4 which is composed of 16 knobs. knobs (or encoders) can send notes via press or CC via scroll.</p>
 <h3 id="classes">Classes</h3>
 <ul>
-<li>AbstractActionGroup : corresponds to a midi configuration (or group) for the 16 knobs (the ec4 has many groups). A channel is assigned to it and all knobs of the group should trigger CC/Notes on that channel</li>
-<li>MultiEncoder : corresponds to a knob on the EC4 and is assigned a midi identifier (for cc or Note).</li>
+<li><code>AbstractActionGroup</code> : corresponds to a midi configuration (or group) for the 16 knobs (the ec4 has many groups). A channel is assigned to it and all knobs of the group should trigger CC/Notes on that channel</li>
+<li><code>MultiEncoder</code> : corresponds to a knob on the EC4 and is assigned a midi identifier (for cc or Note).</li>
 </ul>
 <p>As such, any controller with configurable note / cc can be used with this interface. But the controller should be configured to match the script Midi ids and channels.</p>
-<p>The MultiEncoder class handles difference “moves” :</p>
+<p>The <code>MultiEncoder</code> class handles difference “moves” :</p>
 <ul>
 <li>presses</li>
 <li>long presses</li>
@@ -439,15 +433,14 @@ To be clearer it is equivalent to defining a method listening on a subject (a li
 </ul>
 <p>Any of this theses moves will trigger “actions” (that is execute a callable)</p>
 <h3 id="modifiers">Modifiers</h3>
-<p>As my beloved EC4 has a little screen but only 16 knobs I thought of a way to optimise knobs by not only mapping one knob to a one button but by using modifiers. A button can be modified by one modifier only atm.</p>
-<p>So a MultiEncoder belong to 1 of 2 categories :</p>
+<p>As my beloved EC4 has a little screen but only 16 knobs I thought of a way to optimize knobs by not only mapping one knob to a one button but by using modifiers. A button can be modified by one modifier only at the moment.</p>
+<p>So a <code>MultiEncoder</code> belong to 1 of 2 categories :</p>
 <ul>
 <li>modifiers : we cannot attach actions to them and they just listen to presses.</li>
-<li>encoders : actions can be attached to any of the encoder possible “moves” or to a move with a modifier pressed (they are just like Ctrl, and multiply the number of actions that can be registered on the 16 knobs)</li>
+<li>encoders : actions can be attached to any of the encoder possible “moves” or to a move with a modifier pressed.</li>
 </ul>
 <h4 id="encoder-as-selected-object-and-modifier-as-verb">Encoder as selected object and modifier as verb</h4>
-<p>This setup is interesting because semantically I mostly think of modifiers as verbs and encoders as objects (objects always mean “selected” object of course, this is a selected_track kind of script).</p>
-<p>Let’s just imagine modifiers being HTTP verbs and encoders being HTTP resources in a REST API :) (some encoders do not represent objects but just trigger actions though, we can think of them as RPC calls).</p>
+<p>This setup is interesting because semantically I mostly think of modifiers as verbs and encoders as objects (objects always mean “selected” object of course).</p>
 <p>Here are the “object” encoders I defined:</p>
 <ul>
 <li>Track</li>
@@ -456,41 +449,33 @@ To be clearer it is equivalent to defining a method listening on a subject (a li
 <li>Clip</li>
 <li>Song</li>
 </ul>
-<p>Here are the “verb” modifiers I defined:</p>
-<ul>
-<li>Play</li>
-<li>Solo</li>
-<li>Fold</li>
-<li>Duplicate</li>
-</ul>
+<p>verbs (modifiers) correspond to <code>EncoderModifierEnum</code></p>
 <p>Example :</p>
 <p>The modifier Play can be applied to all of the encoders listed and will play / stop the corresponding object (and of course it applies to the selected object, e.g. the selected track).</p>
-<p>Like this it’s clearer and easier to remember how to execute a generic action !</p>
-<p>And the FaderFox EC4 reay shines with it’s little screen ^^</p>
 <h1 id="development">Development</h1>
+<blockquote>
+<p>headstart for remote scripting</p>
+</blockquote>
 <h2 id="editor">Editor</h2>
 <p>Pycharm of course.</p>
 <h4 id="autocompletion">Autocompletion</h4>
 <p>Is done by adding some folders as content roots.</p>
 <ul>
-<li>Adding decompiled version of framework or ableton v2 is really necessary as it allows pycharm to make it’s autocompletion magic</li>
+<li>Adding decompiled version of framework or Ableton v2 is really necessary as it allows Pycharm to make it’s autocompletion magic</li>
 <li>Adding <a href="https://github.com/cylab/AbletonLive-API-Stub">https://github.com/cylab/AbletonLive-API-Stub</a> as content root will allow pycharm to enable auto completion on the Live module</li>
 </ul>
 <h2 id="typing">Typing</h2>
-<p>I’m using python2.7&rsquo;s typing system and it helps a lot. the typing module is not available in the Live10 python build so  it is necessary to install it locally and insert the site-packages folder in sys.path before anything else.</p>
+<p>I’m using python2.7&rsquo;s typing system and it helps a lot. the typing module is not available in the Live10 python build so  it is necessary to install it locally and insert the site-packages folder in <code>sys.path</code> before anything else in the <code>__init__.py</code></p>
 <h2 id="logging">Logging</h2>
-<h3 id="powershell-formatting">Powershell formatting</h3>
-<p>I wrote a little powershell script that filters, colors and formats Ableton log file with only my script info (and errors). Works also with my logging level in the script. It helps a good deal.</p>
+<h3 id="powershell-formatting">Log formatting</h3>
+<p>I wrote a little PowerShell script (in my <a href="https://github.com/lebrunthibault/Protocol-0-backend">Protocol0-backend repo</a> that filters, colors and formats Ableton log file with only my script info (and errors). Works also with my logging level in the script. It helps a good deal.</p>
 <h3 id="data-model-dump">Data model dump</h3>
 <p>I also have a &ldquo;dump&rdquo; method that dumps the most interesting part of my model data to the log file (to inspect the script state) and is mapped to one button of my controller.</p>
-<ul>
-<li></li>
-</ul>
 <h2 id="testing">Testing</h2>
 <h3 id="jupyter-notebooks">Jupyter notebooks</h3>
 <p>I wrote a dummy Live stub that allows me to load part of my code in tests and jupyter notebooks. A real Live stub could be written but I don&rsquo;t think it&rsquo;s worth a shot as it would need to be quite complex to emulate real situations. Still, jupyter is great for small python tests.</p>
 <h3 id="pytest">Pytest</h3>
-<p>As for the jupyter notebooks It is possible to test parts of the script by using the dummy Live Stub. We can test functions and classes that don’t interact too deeply with the Live API. Limited but useful.</p>
+<p>As for the jupyter notebooks it is possible to test parts of the script by using the dummy Live Stub. We can test functions and classes that don’t interact too deeply with the Live API. Limited but useful.</p>
 <p>Wider tests can be achieved by mocking the LOM in more detail. Seems overkill as stated above.</p>
 
     </div>
@@ -501,7 +486,7 @@ To be clearer it is equivalent to defining a method listening on a subject (a li
       <nav class="post-nav">
         <a class="prev" href="/post/software-development-principles/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Software development principles</span>
+            <span class="prev-text nav-default">Software development techniques</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
