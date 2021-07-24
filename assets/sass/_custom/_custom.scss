@@ -8,22 +8,58 @@ $header-padding: 20px 20px 0px 20px !default;
 }
 
 .content-wrapper {
-  padding-bottom: 3.5rem;    /* Footer height */
+  padding-bottom: 3.5rem; /* Footer height */
 }
 
 #footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;            /* Footer height */
+  height: 2.5rem; /* Footer height */
 }
 
-.post .post-toc {
-  width: 330px !important;
-}
+.post {
 
-.post .post-toc .post-toc-content {
-  font-size: 13px !important;
+  :not(.post-toc) {
+
+    .post-title {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .post-meta {
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: 600 !important;
+    }
+    h1:not(:first-child) {
+      margin-top: 60px !important;
+    }
+
+    h2 {
+      margin-top: 40px !important;
+    }
+
+    h3 {
+      margin: 30px auto 10px auto !important;
+    }
+  }
+
+  .post-toc {
+    margin-top: 11px;
+    width: 330px !important;
+
+    .post-toc-title {
+      padding-top: 5px;
+      font-size: 20px !important;
+    }
+
+    .post-toc-content {
+      font-size: 13px !important;
+    }
+  }
 }
 
 .post-footer {
