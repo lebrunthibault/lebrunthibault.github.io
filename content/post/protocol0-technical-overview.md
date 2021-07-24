@@ -1,7 +1,7 @@
 ---
 Title: "Protocol 0 technical overview"
 date: 2020-12-01
-draft: true
+draft: false
 summary: "Protocol0 technical overview"
 ---
 

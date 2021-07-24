@@ -1,7 +1,7 @@
 ---
 Title: "Software development techniques"
 date: 2021-07-17
-draft: true
+draft: false
 summary: "My software development techniques memo"
 
 ---
