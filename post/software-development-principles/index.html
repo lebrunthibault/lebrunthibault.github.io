@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.580c2b5be5db2d71fa67296c3249a29695772ecda2d4a42f2889ff68cec4bc61.css" rel="stylesheet">
+<link href="/sass/main.min.8d616387696bf699f17d1adcf4a32c3b9bf51732ddc3ada54a4c07468260bcaa.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques memo"><meta itemprop="datePublished" content="2021-07-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-07-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="372">
+<meta itemprop="wordCount" content="999">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques memo"/>
@@ -134,21 +134,24 @@
       <ul>
         <li><a href="#literals">Literals</a>
           <ul>
-            <li><a href="#enums">Enums</a></li>
+            <li><a href="#exceptions-to-this-rule">Exceptions to this rule</a></li>
+            <li><a href="#where-are-configuration-literals-allowed">Where are configuration literals allowed</a></li>
           </ul>
         </li>
       </ul>
     </li>
     <li><a href="#design-patterns">Design Patterns</a>
       <ul>
-        <li>
+        <li><a href="#inheritance">Inheritance</a>
           <ul>
-            <li><a href="#inheritance">Inheritance</a></li>
+            <li></li>
             <li><a href="#solutions">Solutions</a></li>
-            <li><a href="#useful-patterns-for-decoupling">Useful patterns for decoupling</a></li>
-            <li><a href="#tdd">TDD</a></li>
           </ul>
         </li>
+        <li><a href="#building-interfaces">Building interfaces</a></li>
+        <li><a href="#state">State</a></li>
+        <li><a href="#useful-patterns-for-decoupling">Useful patterns for decoupling</a></li>
+        <li><a href="#api-design-by-contract">API Design by contract</a></li>
       </ul>
     </li>
   </ul>
@@ -157,38 +160,43 @@
 </div>
     <div class="post-content">
       <blockquote>
-<p>This is a structured list of thoughts about development and an evolving reference of my techniques.</p>
+<p>This is a opinionated and structured list of thoughts about development and what techniques I feel leads to strong code. It has a focus on what I would call &ldquo;static code&rdquo;, that is how a codebase answering to a given problem should look like in the end. Not how you get there (development methods, prototyping ..) nor how to test / deploy / maintain code. It&rsquo;s a work in progress.</p>
+<br/>
+<p>Even though many concepts are well known, I&rsquo;m writing them down the way I understand them.</p>
+<br/>
 <p>I&rsquo;ve structured this document as going from lower level development techniques to higher level concepts like design patterns.</p>
 </blockquote>
-<p>The main concepts to strong code</p>
-<ul>
-<li><a href="#typing">Typing</a></li>
-<li><a href="#dry">DRY</a></li>
-<li><a href="#design-patterns">Decoupling &amp; Design Patterns</a></li>
-</ul>
 <h1 id="typing">Typing</h1>
 <blockquote>
 <p>This section is more focused on the typing experience you get from dynamically typed languages like Python / PHP.</p>
+<br/>
+<p>Made a distinction between</p>
+<ul>
+<li><u>literal types</u>: types as seen by a type checker,</li>
+<li><u>logical types</u>: types as how they carry logic and state</li>
+<li><u>structural types</u>: interfaces, how components are structured at the higher level of the codebase</li>
+</ul>
 </blockquote>
 <h2 id="literal-types-type-hints">Literal types: type-hints</h2>
 <blockquote>
-<p>Use extensively language types / type-hinting possibilities. Makes dynamically typed languages feel more a statically typed ones and as such automatically detect a whole range of bugs that would have otherwise arisen at runtime.</p>
-<p>Maybe as importantly, it makes the code much easier to grasp at first sight and loosen the coupling between components at the type level.</p>
+<p>Using extensively language types / type-hinting possibilities makes dynamically typed languages feel more a statically typed ones and as such automatically detect a whole range of bugs that would have otherwise arisen at runtime. Compilation is replaced by type checkers static analysis.</p>
+<br/>
+<p>Maybe as importantly, it makes the code much easier to grasp at first sight and feels like loosening the coupling between components at the type level (we don&rsquo;t need to understand what a method logically returns only what type it returns)</p>
 </blockquote>
 <ul>
 <li>The editor should be configured to error about wrong parameter types.</li>
-<li>Setup static analysis tools (like mypy) with strict settings. They should be integrated in the IDE, run as pre-commit and in the pipeline.</li>
+<li>Setup static analysis tools (like mypy) with strict settings. They should be integrated in the IDE, run as pre-commit and in the test / deploy pipeline.</li>
 </ul>
 <h2 id="logical-types-data-transfer-objects">Logical types: Data Transfer Objects</h2>
 <ul>
-<li>Use Data Transfer Objects as soon as the type hint system does not go deep enough. Make these DTO minimal and focused.</li>
-<li>Never manipulate arrays that contain mixed types as keys or values. Use DTO / custom classes instead.</li>
+<li>As soon as the type hint system does not go deep enough or that we need to encapsulate state we should use Data Transfer Objects . Make these DTO minimal and focused.</li>
+<li>Never manipulate arrays that contain mixed types as keys or values. Use DTO / custom classes instead + enums.</li>
 <li>Never use literal string as dictionary indexes if you later need to subscript it directly. This violates DRY, does not play well with IDEs and makes refactoring painful.</li>
 </ul>
 <h2 id="structural-types--interfaces--mixins">Structural types : interfaces &amp; mixins</h2>
 <ul>
 <li>&ldquo;Code against interfaces&rdquo;. At a high level the program should look like interfaces interacting with each other thus enforcing the typing experience at this level also.</li>
-<li>See also <a href="#design-patterns">below</a></li>
+<li>More in-depth explanation <a href="#design-patterns">below</a></li>
 </ul>
 <h1 id="dry">DRY</h1>
 <blockquote>
@@ -199,21 +207,54 @@
 <blockquote>
 <p>Literal values are the simplest dry violation to spot, especially string ones. They should almost never happen</p>
 </blockquote>
+<p>Literal values (especially strings) usually belong to configuration / data and should be banned from code files containing logic, e.g. services.</p>
+<h3 id="exceptions-to-this-rule">Exceptions to this rule</h3>
 <ul>
-<li>Where are they allowed</li>
-<li>Not allowed</li>
-<li>environment variables</li>
-<li>Enums</li>
+<li>Documentation</li>
+<li>Logs</li>
+<li>String arguments for external library calls (use enums or class constants if possible)</li>
+<li>Hardcoded filenames</li>
+<li>Coding conventions (e.g. the env file is called .env)</li>
 </ul>
-<h3 id="enums">Enums</h3>
+<h3 id="where-are-configuration-literals-allowed">Where are configuration literals allowed</h3>
+<ul>
+<li>Environment (.env) for environment dependent variables and sensitive data</li>
+<li>Configuration files (json, yaml ..) for global configuration variable as to centralize them and change them easily</li>
+<li>Enumerations ❤
+<ul>
+<li>They are great and should be used extensively whenever multiple literals can be grouped together.</li>
+<li>Enums can be grouped at the same place in the codebase making it easier to see configuration values at a glance.</li>
+<li>They can also be stored to store more complex data than an object and in this case getters should be added to the enum class.</li>
+<li>They can be used with database columns.</li>
+</ul>
+</li>
+<li>Class constants :
+<ul>
+<li>They can be useful especially when prototyping but should not be used when literals can be stored in enums or configuration files.</li>
+<li>Private constants only accessed by the class can be useful.</li>
+<li>Downsides :
+<ul>
+<li>Public class constants break encapsulation and expose internals of a class</li>
+<li>Using them with inheritance can be confusing</li>
+<li>Don&rsquo;t play well with refactoring components in sub components.</li>
+<li>Don&rsquo;t necessarily play well with interfaces</li>
+<li>Configuration data is spread over many files</li>
+<li>It&rsquo;s better to keep configuration away from logic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="design-patterns">Design Patterns</h1>
-<h3 id="inheritance">Inheritance</h3>
-<h5 id="the-problems-with-inheritance">The problems with inheritance</h5>
+<blockquote>
+<p>This section could be covered in a whole book so I&rsquo;m gonna be brief for each point.</p>
+</blockquote>
+<h2 id="inheritance">Inheritance</h2>
+<h4 id="the-problems-with-inheritance">The problems with inheritance</h4>
 <ul>
-<li></li>
-</ul>
-<ul>
-<li>Problems</li>
+<li>Coupling between child and parent class</li>
+<li>namespace pollution</li>
+<li>Not easy to swap logic in the parent class</li>
 </ul>
 <h3 id="solutions">Solutions</h3>
 <ul>
@@ -221,12 +262,24 @@
 <li>Delegation</li>
 <li>Mixins</li>
 </ul>
-<h3 id="useful-patterns-for-decoupling">Useful patterns for decoupling</h3>
+<h2 id="building-interfaces">Building interfaces</h2>
+<ul>
+<li>Law of Demeter : a class should not expose sub objects only a clean and minimal interface. See <a href="https://fr.wikipedia.org/wiki/Loi_de_D%C3%A9m%C3%A9ter">Wikipedia</a></li>
+<li>Consequence → encapsulation. An object should be responsible for managing its own logic.</li>
+</ul>
+<h2 id="state">State</h2>
+<ul>
+<li>Logic and state should not be mixed</li>
+<li>State should be encapsulated in Data objects handling only minimal logic</li>
+</ul>
+<h2 id="useful-patterns-for-decoupling">Useful patterns for decoupling</h2>
 <ul>
 <li>Decorator</li>
 <li>Observable</li>
 </ul>
-<h3 id="tdd">TDD</h3>
+<h2 id="api-design-by-contract">API Design by contract</h2>
+<p>At the module level (e.g. client / server in a web project, APIs ..), some coupling is bound to happen. It happens with literals / configuration as well as logic. For specific cases like a web API using conventions like REST can reduce it.</p>
+<p>But as the 2 components trying to communicate with each other don&rsquo;t necessarily belong to the same codebase (or language) coupling can also happen with configuration data like route names and not be included in the typing system. The solution is to share the routing configuration outside of both parts in configuration files and use code generation to create sdks for both. Then the 2 parts do not need to know anything about the way to call the other (protocol etc ..) or a hardcoded path / url / string literal etc. The communication becomes part of the type system thanks to the code generation and the generated code can handle the parameter marshalling and validation. It will also instantiate and return the right objects. Using JSON Schema or Open API.</p>
 
     </div>
 
