@@ -6,7 +6,13 @@ summary: "My software development techniques memo"
 
 ---
 
-> This is a opinionated and structured list of thoughts about development and what techniques I feel leads to strong code. It has a focus on what I would call "static code", that is how a codebase answering to a given problem should look like in the end. Not how you get there (development methods, prototyping ..) nor how to test / deploy / maintain code. It's a work in progress.
+> This is a opinionated and structured list of thoughts about software development and what techniques I feel leads to strong code. 
+>
+> OO -> dynamic language -> Python / PHP
+>
+> It has a focus on what I would call "static code", that is how a codebase answering to a given problem should look like at release time. Not how you get there (development methods, prototyping ..) nor how to test / release / maintain code. 
+>
+> It's a work in progress.
 >
 > <br/>
 >
@@ -98,16 +104,18 @@ Literal values (especially strings) usually belong to configuration / data and s
 
 > This section could be covered in a whole book so I'm gonna be brief for each point.
 
-
 ## Inheritance
+
+The canonical way to use inheritance is when we have different kind of classes related to a parent class with only minimal changes necessary, and usually not core logic changes. Most other kind of usages can usually be replaced by a better pattern.
 
 
 
 #### The problems with inheritance
 
-- Coupling between child and parent class
-- namespace pollution
-- Not easy to swap logic in the parent class
+- Coupling between child and parent class : any change in the parent will affect all child classes. 
+- using inheritance when using only part of the parent class interface is bad because of the law of demeter. 
+- Semantically the parent class can loose its (semantical) meaning especially when the child class partially uses the parent class. 
+- Not so easy to swap logic in the parent class if the class internals are used by the child classes.
 
 ### Solutions
 - Interfaces
