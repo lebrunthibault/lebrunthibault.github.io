@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques memo"><meta itemprop="datePublished" content="2021-07-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-07-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="999">
+<meta itemprop="wordCount" content="1109">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques memo"/>
@@ -160,7 +160,10 @@
 </div>
     <div class="post-content">
       <blockquote>
-<p>This is a opinionated and structured list of thoughts about development and what techniques I feel leads to strong code. It has a focus on what I would call &ldquo;static code&rdquo;, that is how a codebase answering to a given problem should look like in the end. Not how you get there (development methods, prototyping ..) nor how to test / deploy / maintain code. It&rsquo;s a work in progress.</p>
+<p>This is a opinionated and structured list of thoughts about software development and what techniques I feel leads to strong code.</p>
+<p>OO -&gt; dynamic language -&gt; Python / PHP</p>
+<p>It has a focus on what I would call &ldquo;static code&rdquo;, that is how a codebase answering to a given problem should look like at release time. Not how you get there (development methods, prototyping ..) nor how to test / release / maintain code.</p>
+<p>It&rsquo;s a work in progress.</p>
 <br/>
 <p>Even though many concepts are well known, I&rsquo;m writing them down the way I understand them.</p>
 <br/>
@@ -250,11 +253,13 @@
 <p>This section could be covered in a whole book so I&rsquo;m gonna be brief for each point.</p>
 </blockquote>
 <h2 id="inheritance">Inheritance</h2>
+<p>The canonical way to use inheritance is when we have different kind of classes related to a parent class with only minimal changes necessary, and usually not core logic changes. Most other kind of usages can usually be replaced by a better pattern.</p>
 <h4 id="the-problems-with-inheritance">The problems with inheritance</h4>
 <ul>
-<li>Coupling between child and parent class</li>
-<li>namespace pollution</li>
-<li>Not easy to swap logic in the parent class</li>
+<li>Coupling between child and parent class : any change in the parent will affect all child classes.</li>
+<li>using inheritance when using only part of the parent class interface is bad because of the law of demeter.</li>
+<li>Semantically the parent class can loose its (semantical) meaning especially when the child class partially uses the parent class.</li>
+<li>Not so easy to swap logic in the parent class if the class internals are used by the child classes.</li>
 </ul>
 <h3 id="solutions">Solutions</h3>
 <ul>
