@@ -8,7 +8,7 @@ summary: "My software development techniques memo"
 
 > This is a opinionated and structured list of thoughts about software development and what techniques I feel leads to strong code. 
 >
-> OO -> dynamic language -> Python / PHP
+> I'm focusing on the languages I've used most : Python and PHP. That is on Object Oriented, dynamically typed languages.
 >
 > It has a focus on what I would call "static code", that is how a codebase answering to a given problem should look like at release time. Not how you get there (development methods, prototyping ..) nor how to test / release / maintain code. 
 >
@@ -24,14 +24,10 @@ summary: "My software development techniques memo"
 
 # Typing {#typing}
 
-> This section is more focused on the typing experience you get from dynamically typed languages like Python / PHP.
->
-> <br/>
->
 > Made a distinction between 
 >
 > - <u>literal types</u>: types as seen by a type checker, 
-> - <u>logical types</u>: types as how they carry logic and state
+>- <u>logical types</u>: types as how they carry logic and state
 > - <u>structural types</u>: interfaces, how components are structured at the higher level of the codebase
 
 ## Literal types: type-hints
@@ -98,26 +94,24 @@ Literal values (especially strings) usually belong to configuration / data and s
     - Configuration data is spread over many files
     - It's better to keep configuration away from logic
 
-# Design Patterns {#design-patterns}
 
 
-
-> This section could be covered in a whole book so I'm gonna be brief for each point.
+# Decoupling
 
 ## Inheritance
 
 The canonical way to use inheritance is when we have different kind of classes related to a parent class with only minimal changes necessary, and usually not core logic changes. Most other kind of usages can usually be replaced by a better pattern.
 
-
-
-#### The problems with inheritance
+### The problems with inheritance
 
 - Coupling between child and parent class : any change in the parent will affect all child classes. 
 - using inheritance when using only part of the parent class interface is bad because of the law of demeter. 
 - Semantically the parent class can loose its (semantical) meaning especially when the child class partially uses the parent class. 
 - Not so easy to swap logic in the parent class if the class internals are used by the child classes.
+- Code gets confusing as soon as multiple levels are involved, even without considering multiple inheritance
 
 ### Solutions
+
 - Interfaces
 - Delegation
 - Mixins
@@ -132,13 +126,35 @@ The canonical way to use inheritance is when we have different kind of classes r
 - Logic and state should not be mixed
 - State should be encapsulated in Data objects handling only minimal logic 
 
+## Other principles
+
+- Uniform access: hide the implementation details (see encapsulation). Python's `@property`
+
+# Design Patterns {#design-patterns}
+
+
+
+> This section could be covered in a whole book so I'm gonna be brief for each point.
+
 ## Useful patterns for decoupling
 - Decorator
 - Observable
 
-## API Design by contract
+## Client - Service communication
 
-At the module level (e.g. client / server in a web project, APIs ..), some coupling is bound to happen. It happens with literals / configuration as well as logic. For specific cases like a web API using conventions like REST can reduce it. 
+There is one problem that arise when multiple components want to talk together in a system. It is especially visible when exposing software functionality over an API : _The client needs to know how to contact the service_. That can include : a protocol, paths or method names, parameter types etc.
 
-But as the 2 components trying to communicate with each other don't necessarily belong to the same codebase (or language) coupling can also happen with configuration data like route names and not be included in the typing system. The solution is to share the routing configuration outside of both parts in configuration files and use code generation to create sdks for both. Then the 2 parts do not need to know anything about the way to call the other (protocol etc ..) or a hardcoded path / url / string literal etc. The communication becomes part of the type system thanks to the code generation and the generated code can handle the parameter marshalling and validation. It will also instantiate the right classes. Using JSON Schema or Open API.
+This means some information about the structure of the service is duplicated. In an http API that could be simply the http verb and the url. This problem is present also inside a single local codebase when a client piece of software calls a supplier but have subtler implications. 
 
+The problems that arise include the following :
+
+- Information and logic (parameters validation / marshalling) duplication
+- The typing information is lost when e.g. the 2 components communicate over plain text or bytes. This weakens the system as a whole.
+- The refactoring becomes less straightforward and bugs can creep in due to the 2 above reasons.
+
+A way to centralise the service interface definition is to have it available as text e.g. using json schemas, either doing code-first or schema-first development. These removes information duplication. Starting from a json schema we can simply generate sdks for any client. And use for example decorators to expose the service public interface. We get to :
+
+- Completely hide the communication part of the code, be able to switch protocols, and remove any reference to the fact that we are not using local code.
+- Have a typing experience approaching the one inside the rest of the codebase.
+
+Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead
