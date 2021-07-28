@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques memo"><meta itemprop="datePublished" content="2021-07-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-07-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1109">
+<meta itemprop="wordCount" content="1241">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques memo"/>
@@ -140,18 +140,23 @@
         </li>
       </ul>
     </li>
-    <li><a href="#design-patterns">Design Patterns</a>
+    <li><a href="#decoupling">Decoupling</a>
       <ul>
         <li><a href="#inheritance">Inheritance</a>
           <ul>
-            <li></li>
+            <li><a href="#the-problems-with-inheritance">The problems with inheritance</a></li>
             <li><a href="#solutions">Solutions</a></li>
           </ul>
         </li>
         <li><a href="#building-interfaces">Building interfaces</a></li>
         <li><a href="#state">State</a></li>
+        <li><a href="#other-principles">Other principles</a></li>
+      </ul>
+    </li>
+    <li><a href="#design-patterns">Design Patterns</a>
+      <ul>
         <li><a href="#useful-patterns-for-decoupling">Useful patterns for decoupling</a></li>
-        <li><a href="#api-design-by-contract">API Design by contract</a></li>
+        <li><a href="#client---service-communication">Client - Service communication</a></li>
       </ul>
     </li>
   </ul>
@@ -161,7 +166,7 @@
     <div class="post-content">
       <blockquote>
 <p>This is a opinionated and structured list of thoughts about software development and what techniques I feel leads to strong code.</p>
-<p>OO -&gt; dynamic language -&gt; Python / PHP</p>
+<p>I&rsquo;m focusing on the languages I&rsquo;ve used most : Python and PHP. That is on Object Oriented, dynamically typed languages.</p>
 <p>It has a focus on what I would call &ldquo;static code&rdquo;, that is how a codebase answering to a given problem should look like at release time. Not how you get there (development methods, prototyping ..) nor how to test / release / maintain code.</p>
 <p>It&rsquo;s a work in progress.</p>
 <br/>
@@ -171,8 +176,6 @@
 </blockquote>
 <h1 id="typing">Typing</h1>
 <blockquote>
-<p>This section is more focused on the typing experience you get from dynamically typed languages like Python / PHP.</p>
-<br/>
 <p>Made a distinction between</p>
 <ul>
 <li><u>literal types</u>: types as seen by a type checker,</li>
@@ -203,7 +206,7 @@
 </ul>
 <h1 id="dry">DRY</h1>
 <blockquote>
-<p>Maybe the single most important (and simplest) rule is to not repeat / duplicate any information or logic in the codebase. It has architectural as well as technical implications. It is easier to spot and correct than to get right from the start.</p>
+<p>Maybe the single most important (and simplest) rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum. It has architectural as well as technical implications. It is easier to spot and correct than to get right from the start.</p>
 <p>Here again I&rsquo;ll go from lower level (technical) techniques to higher level thinking.</p>
 </blockquote>
 <h2 id="literals">Literals</h2>
@@ -248,18 +251,16 @@
 </ul>
 </li>
 </ul>
-<h1 id="design-patterns">Design Patterns</h1>
-<blockquote>
-<p>This section could be covered in a whole book so I&rsquo;m gonna be brief for each point.</p>
-</blockquote>
+<h1 id="decoupling">Decoupling</h1>
 <h2 id="inheritance">Inheritance</h2>
 <p>The canonical way to use inheritance is when we have different kind of classes related to a parent class with only minimal changes necessary, and usually not core logic changes. Most other kind of usages can usually be replaced by a better pattern.</p>
-<h4 id="the-problems-with-inheritance">The problems with inheritance</h4>
+<h3 id="the-problems-with-inheritance">The problems with inheritance</h3>
 <ul>
 <li>Coupling between child and parent class : any change in the parent will affect all child classes.</li>
 <li>using inheritance when using only part of the parent class interface is bad because of the law of demeter.</li>
 <li>Semantically the parent class can loose its (semantical) meaning especially when the child class partially uses the parent class.</li>
 <li>Not so easy to swap logic in the parent class if the class internals are used by the child classes.</li>
+<li>Code gets confusing as soon as multiple levels are involved, even without considering multiple inheritance</li>
 </ul>
 <h3 id="solutions">Solutions</h3>
 <ul>
@@ -277,14 +278,34 @@
 <li>Logic and state should not be mixed</li>
 <li>State should be encapsulated in Data objects handling only minimal logic</li>
 </ul>
+<h2 id="other-principles">Other principles</h2>
+<ul>
+<li>Uniform access: hide the implementation details (see encapsulation). Python&rsquo;s <code>@property</code></li>
+</ul>
+<h1 id="design-patterns">Design Patterns</h1>
+<blockquote>
+<p>This section could be covered in a whole book so I&rsquo;m gonna be brief for each point.</p>
+</blockquote>
 <h2 id="useful-patterns-for-decoupling">Useful patterns for decoupling</h2>
 <ul>
 <li>Decorator</li>
 <li>Observable</li>
 </ul>
-<h2 id="api-design-by-contract">API Design by contract</h2>
-<p>At the module level (e.g. client / server in a web project, APIs ..), some coupling is bound to happen. It happens with literals / configuration as well as logic. For specific cases like a web API using conventions like REST can reduce it.</p>
-<p>But as the 2 components trying to communicate with each other don&rsquo;t necessarily belong to the same codebase (or language) coupling can also happen with configuration data like route names and not be included in the typing system. The solution is to share the routing configuration outside of both parts in configuration files and use code generation to create sdks for both. Then the 2 parts do not need to know anything about the way to call the other (protocol etc ..) or a hardcoded path / url / string literal etc. The communication becomes part of the type system thanks to the code generation and the generated code can handle the parameter marshalling and validation. It will also instantiate and return the right objects. Using JSON Schema or Open API.</p>
+<h2 id="client---service-communication">Client - Service communication</h2>
+<p>There is one problem that arise when multiple components want to talk together in a system. It is especially visible when exposing software functionality over an API : <em>The client needs to know how to contact the service</em>. That can include : a protocol, paths or method names, parameter types etc.</p>
+<p>This means some information about the structure of the service is duplicated. In an http API that could be simply the http verb and the url. This problem is present also inside a single local codebase when a client piece of software calls a supplier but have subtler implications.</p>
+<p>The problems that arise include the following :</p>
+<ul>
+<li>Information and logic (parameters validation / marshalling) duplication</li>
+<li>The typing information is lost when e.g. the 2 components communicate over plain text or bytes. This weakens the system as a whole.</li>
+<li>The refactoring becomes less straightforward and bugs can creep in due to the 2 above reasons.</li>
+</ul>
+<p>A way to centralise the service interface definition is to have it available as text e.g. using json schemas, either doing code-first or schema-first development. These removes information duplication. Starting from a json schema we can simply generate sdks for any client. And use for example decorators to expose the service public interface. We get to :</p>
+<ul>
+<li>Completely hide the communication part of the code, be able to switch protocols, and remove any reference to the fact that we are not using local code.</li>
+<li>Have a typing experience approaching the one inside the rest of the codebase.</li>
+</ul>
+<p>Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead</p>
 
     </div>
 
