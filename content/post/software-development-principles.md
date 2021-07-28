@@ -52,8 +52,6 @@ summary: "My software development techniques memo"
 - "Code against interfaces". At a high level the program should look like interfaces interacting with each other thus enforcing the typing experience at this level also.
 - More in-depth explanation [below](#design-patterns) 
 
-
-
 # DRY {#dry}
 
 > Maybe the single most important (and simplest) rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum. It has architectural as well as technical implications. It is easier to spot and correct than to get right from the start.
@@ -134,9 +132,8 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 
 
-> This section could be covered in a whole book so I'm gonna be brief for each point.
-
 ## Useful patterns for decoupling
+
 - Decorator
 - Observable
 
@@ -158,3 +155,13 @@ A way to centralise the service interface definition is to have it available as 
 - Have a typing experience approaching the one inside the rest of the codebase.
 
 Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead
+
+
+
+# ETC
+
+## Error handling
+
+- Use assertions at the top of the methods (or exceptions for real )
+- Use inheritance to create an exceptions tree
+- Prefer throwing exceptions instead of returning null
