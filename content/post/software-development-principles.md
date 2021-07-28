@@ -60,7 +60,7 @@ summary: "My software development techniques memo"
 
 # DRY {#dry}
 
-> Maybe the single most important (and simplest) rule is to not repeat / duplicate any information or logic in the codebase. It has architectural as well as technical implications. It is easier to spot and correct than to get right from the start.
+> Maybe the single most important (and simplest) rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum. It has architectural as well as technical implications. It is easier to spot and correct than to get right from the start.
 >
 > Here again I'll go from lower level (technical) techniques to higher level thinking.
 
@@ -140,5 +140,5 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 At the module level (e.g. client / server in a web project, APIs ..), some coupling is bound to happen. It happens with literals / configuration as well as logic. For specific cases like a web API using conventions like REST can reduce it. 
 
-But as the 2 components trying to communicate with each other don't necessarily belong to the same codebase (or language) coupling can also happen with configuration data like route names and not be included in the typing system. The solution is to share the routing configuration outside of both parts in configuration files and use code generation to create sdks for both. Then the 2 parts do not need to know anything about the way to call the other (protocol etc ..) or a hardcoded path / url / string literal etc. The communication becomes part of the type system thanks to the code generation and the generated code can handle the parameter marshalling and validation. It will also instantiate and return the right objects. Using JSON Schema or Open API.
+But as the 2 components trying to communicate with each other don't necessarily belong to the same codebase (or language) coupling can also happen with configuration data like route names and not be included in the typing system. The solution is to share the routing configuration outside of both parts in configuration files and use code generation to create sdks for both. Then the 2 parts do not need to know anything about the way to call the other (protocol etc ..) or a hardcoded path / url / string literal etc. The communication becomes part of the type system thanks to the code generation and the generated code can handle the parameter marshalling and validation. It will also instantiate the right classes. Using JSON Schema or Open API.
 
