@@ -3,7 +3,7 @@ Title: "Protocol 0 technical overview"
 date: 2020-12-01
 draft: false
 
-summary: "Protocol0 technical overview"
+summary: "Protocol0 Ableton Surface Script technical overview and discussion"
 ---
 
 > This is technical documentation for my [Protocol0 Ableton control surface script](https://github.com/lebrunthibault/Protocol-0-Surface-Script). Context and goals on the [GitHub readme](https://github.com/lebrunthibault/Protocol-0-Surface-Script). Some global remote scripting tips in [this google doc](https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing)

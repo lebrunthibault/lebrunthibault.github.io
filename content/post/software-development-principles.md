@@ -2,7 +2,7 @@
 Title: "Software development techniques"
 date: 2021-07-17
 draft: false
-summary: "My software development techniques memo"
+summary: "My software development techniques notes"
 
 ---
 
@@ -92,9 +92,21 @@ Literal values (especially strings) usually belong to configuration / data and s
     - Configuration data is spread over many files
     - It's better to keep configuration away from logic
 
+## Logic and knowledge
 
+- duplication is present when different part of a system knows the internal of other parts. It's called implicit knowledge and is closely related to [Decoupling](#decoupling)
 
 # Decoupling
+
+> Coupling is the enemy of change because it transitively links together things that must change in parallel.
+
+
+
+## Encapsulation
+
+- Tell, don't ask : objects internals should not be available and known to the client code
+- See also Law of Demeter
+- The severity of the encapsulation is a pragmatic decision 
 
 ## Inheritance
 
@@ -126,18 +138,33 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 ## Other principles
 
-- Uniform access: hide the implementation details (see encapsulation). Python's `@property`
+- Uniform access: hide the implementation details (see [Encapsulation](#encapsulation)]). Python's `@property`
 
 # Design Patterns {#design-patterns}
 
+## Finite State Machines
+
+> or workflows
+
+- Finite possible states with a current state
+- Each state defines events (or transitions) that change the current state and can trigger actions
+- Simple to implement
+- Centralizes the state transformation away from the core logic
+- Use an enum for states
 
 
-## Useful patterns for decoupling
 
-- Decorator
-- Observable
+## Observer
 
-## Client - Service communication
+- Simple and strong but introduces coupling when the observers need to register directly on the observable
+
+## Decorator
+
+
+
+## 
+
+## Client - Service communication via schema
 
 There is one problem that arise when multiple components want to talk together in a system. It is especially visible when exposing software functionality over an API : _The client needs to know how to contact the service_. That can include : a protocol, paths or method names, parameter types etc.
 
@@ -162,6 +189,14 @@ Code generation has the additional benefit of reducing the number of moving part
 
 ## Error handling
 
-- Use assertions at the top of the methods (or exceptions for real )
-- Use inheritance to create an exceptions tree
+- Use assertions for unexpected conditions : at the top of the methods and catch / log / report assertion bugs 
+- Use exceptions for normal error conditions : use inheritance to create an exceptions tree.
 - Prefer throwing exceptions instead of returning null
+
+
+
+**Bibliography**
+
+- [The Pragmatic Programmer, 20th Anniversary Edition](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+- [Head First Design Patterns, 2nd Edition](https://www.oreilly.com/library/view/head-first-design/9781492077992/)
+
