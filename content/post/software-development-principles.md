@@ -43,7 +43,8 @@ summary: "My software development techniques notes"
 
 ## Logical types: Data Transfer Objects
 
-- As soon as the type hint system does not go deep enough or that we need to encapsulate state we should use Data Transfer Objects . Make these DTO minimal and focused.
+- As soon as the type hint system does not go deep enough or that we need to encapsulate state we should use Data Transfer Objects . Make these DTO minimal and focused. Logic should be scarce.
+- Use language constructs like python's decorator `@dataclass`. 
 - Never manipulate arrays that contain mixed types as keys or values. Use DTO / custom classes instead + enums.
 - Never use literal string as dictionary indexes if you later need to subscript it directly. This violates DRY, does not play well with IDEs and makes refactoring painful.
 
@@ -76,7 +77,7 @@ Literal values (especially strings) usually belong to configuration / data and s
 
 - Environment (.env) for environment dependent variables and sensitive data 
 - Configuration files (json, yaml ..) for global configuration variable as to centralize them and change them easily
-- Enumerations ❤
+- Enumerations
   - They are great and should be used extensively whenever multiple literals can be grouped together.
   - Enums can be grouped at the same place in the codebase making it easier to see configuration values at a glance. 
   - They can also be stored to store more complex data than an object and in this case getters should be added to the enum class.
@@ -156,13 +157,27 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 ## Observer
 
-- Simple and strong but introduces coupling when the observers need to register directly on the observable
+- Allows hooking inside of a component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough.
+- Simple and strong but introduces coupling when the observers need to register directly on the observable. On events it is the observable that execute the observer methods, it can impact performance.
 
-## Decorator
+## Pub / Sub
 
+- Evolution of the observer : the observer is a consumer and the observable does not know about its consumers. Deals well with asynchronous code. Message passing is decoupled from the sender code.
 
+- Scales well.
 
-## 
+- Message queuing is a special case of pub/sub[^1]
+
+- Not so easy to grasp at first side as the public / subscribe are done in different places.
+
+  
+
+## Reactive programming[^2]
+
+- Another way to handle asynchronous (or sync) events and queries is to reason with streams
+- Reduces coupling and greatly reduces state
+- Reduces boilerplate code to handle loops and logic on iterables
+- Push based (more natural when reacting to events)
 
 ## Client - Service communication via schema
 
@@ -193,10 +208,16 @@ Code generation has the additional benefit of reducing the number of moving part
 - Use exceptions for normal error conditions : use inheritance to create an exceptions tree.
 - Prefer throwing exceptions instead of returning null
 
-
+<hr>
 
 **Bibliography**
 
 - [The Pragmatic Programmer, 20th Anniversary Edition](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
 - [Head First Design Patterns, 2nd Edition](https://www.oreilly.com/library/view/head-first-design/9781492077992/)
+
+<hr>
+
+[^1]: [Comparing Publish-Subscribe Messaging and Message Queuing](https://dzone.com/articles/comparing-publish-subscribe-messaging-and-message)
+
+[^2]: [http://reactivex.io/](http://reactivex.io/)
 
