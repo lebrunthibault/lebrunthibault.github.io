@@ -147,9 +147,9 @@
 
     function loadAlgolia() {
         const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3');
-        console.log("")
+        console.log("blog_prod")
         const search = instantsearch({
-            indexName: '',
+            indexName: 'blog_prod',
             searchClient,
             initialUiState: {
                 indexName: {
