@@ -23,6 +23,7 @@ jobs:
 
       - name: Build
         run: |
+          npm install
           npm run algolia
           hugo
 #        run: hugo --minify
