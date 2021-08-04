@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.fa61a30f77cb4eeef397fb0f45a122e3174840298fe890b41e5b9d1463735472.css" rel="stylesheet">
+<link href="/sass/main.min.757912f1bfda6339967995890d3296ed6b0301a906436296d533371e6df7acd4.css" rel="stylesheet">
 
 
 
@@ -103,30 +103,23 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <div class="ais-InstantSearch">
-      <div id="search-bar"></div>
-      <div id="hits"></div>
-      <div id="pagination"></div>
-  </div>
-  <section id="posts" class="posts">
+          <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/software-development-principles/">Software development techniques</a></h1>
     <div class="post-meta">
-
+      <span class="post-time"> 2021-07-17 </span>
       
     </div>
   </header>
   
   <div class="post-content">
-      
     <div class="post-summary">
       My software development techniques notes
     </div>
-      
-
-
-
+    <div class="read-more">
+      <a href="/post/software-development-principles/" class="read-more-link">Read more...</a>
+    </div>
   </div>
 </article>
 
@@ -134,37 +127,18 @@
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/protocol0-technical-overview/">Protocol 0 technical overview</a></h1>
     <div class="post-meta">
-
+      <span class="post-time"> 2020-12-01 </span>
       
     </div>
   </header>
   
   <div class="post-content">
-      
     <div class="post-summary">
       Protocol0 Ableton Surface Script technical overview and discussion
     </div>
-      
-
-
-
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/asyncio/">Asyncio notes</a></h1>
-    <div class="post-meta">
-
-      
+    <div class="read-more">
+      <a href="/post/protocol0-technical-overview/" class="read-more-link">Read more...</a>
     </div>
-  </header>
-  
-  <div class="post-content">
-      
-
-
-
   </div>
 </article>
 
@@ -198,80 +172,17 @@
   
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
-        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
-        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
-      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
-<script defer>
-    if (document.querySelector("#search-bar")) {
-        loadAlgolia();
-    }
+  
 
-    function loadAlgolia() {
-        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3');
 
-        const search = instantsearch({
-            indexName: 'blog',
-            searchClient,
-            initialUiState: {
-                indexName: {
-                    query: '',
-                },
-            },
-            searchFunction: helper => {
-                if (helper.state.query.length) {
-                    helper.search();
-                } else {
-                    $('#hits').hide()
-                }
-            }
-        });
 
-        function itemToHtml(item) {
-            console.log(item)
-            title = item._highlightResult.title.value || item.title
-            summary = item._highlightResult.summary.value || item.summary
-            return `<a href="${item.url}">
-                    <div class="title">${title}</div>
-                    ${summary}</a>`
-        }
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
-        search.addWidgets([
-            instantsearch.widgets.searchBox({
-                container: '#search-bar',
-                placeholder: 'Search for posts',
-                autofocus: false,
-                showReset: false,
-            }),
 
-            instantsearch.widgets.hits({
-                container: '#hits',
-                templates: {
-                    item: itemToHtml
-                },
-            })
 
-        ]);
 
-        search.start();
 
-        $(document).on('click', function (event) {
-            if (!$(event.target).closest('.ais-InstantSearch').length) {
-                $('#hits').hide()
-            }
-        });
 
-        $('.ais-InstantSearch').on('click keypress', function (event) {
-            $('#hits').show()
-        });
-
-        $('.ais-SearchBox-input').on('focus', function (event) {
-            $('#hits').show()
-        });
-    }
-</script>
 
 
 </body>
