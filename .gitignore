@@ -1,2 +1,5 @@
 public/
 resources/
+
+.env
+node_modules

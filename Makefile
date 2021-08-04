@@ -7,5 +7,4 @@ dev:
 
 build:
 	cls
-	sass source/stylesheets/index.scss build/stylesheets/index.css
-	#hugo -D
+	hugo

@@ -6,7 +6,7 @@ summary: "My software development techniques notes"
 
 ---
 
-> This is a opinionated and structured list of thoughts about software development and what techniques I feel leads to strong code. 
+> This is a structured list of thoughts about software development and what techniques I feel leads to strong code. 
 >
 > I'm focusing on the languages I've used most : Python and PHP. That is on Object Oriented, dynamically typed languages.
 >
