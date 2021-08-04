@@ -30,7 +30,6 @@
         });
 
         function itemToHtml(item) {
-            console.log(item)
             title = item._highlightResult.title.value || item.title
             summary = item._highlightResult.summary.value || item.summary
             return `<a href="${item.url}">
