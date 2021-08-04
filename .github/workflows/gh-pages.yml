@@ -25,7 +25,7 @@ jobs:
         run: hugo
 #        run: hugo --minify
         env:
-          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
           ENV: ${{ secrets.ENV }}
 
       - name: Deploy
