@@ -22,11 +22,12 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo
+        run: |
+          npm run algolia
+          hugo
 #        run: hugo --minify
         env:
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-          ENV: ${{ secrets.ENV }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

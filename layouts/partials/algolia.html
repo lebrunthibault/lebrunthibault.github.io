@@ -4,14 +4,13 @@
         integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
       integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
-<script defer>
+<script>
     if (document.querySelector("#search-bar")) {
         loadAlgolia();
     }
 
     function loadAlgolia() {
         const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3');
-        console.log({{ getenv "ALGOLIA_INDEX_NAME" }})
         const search = instantsearch({
             indexName: '{{ getenv "ALGOLIA_INDEX_NAME" }}',
             searchClient,
