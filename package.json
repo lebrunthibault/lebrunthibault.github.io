@@ -1,0 +1,32 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "> hugo powered blog",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "atomic-algolia": "^0.3.19",
+    "grunt": "^1.4.1",
+    "string": "^3.3.3",
+    "toml": "^3.0.0",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "algolia": "atomic-algolia"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lebrunthibault/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lebrunthibault/blog/issues"
+  },
+  "homepage": "https://github.com/lebrunthibault/blog#readme"
+}
