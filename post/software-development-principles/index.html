@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="My software development techniques memo" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="My software development techniques notes" /><meta name="keywords" content="" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.86.0 with theme even" />
+<meta name="generator" content="Hugo 0.86.1 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/software-development-principles/" />
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Software development techniques" />
-<meta property="og:description" content="My software development techniques memo" />
+<meta property="og:description" content="My software development techniques notes" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/software-development-principles/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-07-17T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-07-17T00:00:00+00:00" />
 
 <meta itemprop="name" content="Software development techniques">
-<meta itemprop="description" content="My software development techniques memo"><meta itemprop="datePublished" content="2021-07-17T00:00:00+00:00" />
+<meta itemprop="description" content="My software development techniques notes"><meta itemprop="datePublished" content="2021-07-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-07-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1241">
+<meta itemprop="wordCount" content="1580">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
-<meta name="twitter:description" content="My software development techniques memo"/>
+<meta name="twitter:description" content="My software development techniques notes"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -138,10 +138,12 @@
             <li><a href="#where-are-configuration-literals-allowed">Where are configuration literals allowed</a></li>
           </ul>
         </li>
+        <li><a href="#logic-and-knowledge">Logic and knowledge</a></li>
       </ul>
     </li>
     <li><a href="#decoupling">Decoupling</a>
       <ul>
+        <li><a href="#encapsulation">Encapsulation</a></li>
         <li><a href="#inheritance">Inheritance</a>
           <ul>
             <li><a href="#the-problems-with-inheritance">The problems with inheritance</a></li>
@@ -155,8 +157,16 @@
     </li>
     <li><a href="#design-patterns">Design Patterns</a>
       <ul>
-        <li><a href="#useful-patterns-for-decoupling">Useful patterns for decoupling</a></li>
-        <li><a href="#client---service-communication">Client - Service communication</a></li>
+        <li><a href="#finite-state-machines">Finite State Machines</a></li>
+        <li><a href="#observer">Observer</a></li>
+        <li><a href="#pub--sub">Pub / Sub</a></li>
+        <li><a href="#reactive-programming2">Reactive programming</a></li>
+        <li><a href="#client---service-communication-via-schema">Client - Service communication via schema</a></li>
+      </ul>
+    </li>
+    <li><a href="#etc">ETC</a>
+      <ul>
+        <li><a href="#error-handling">Error handling</a></li>
       </ul>
     </li>
   </ul>
@@ -195,7 +205,8 @@
 </ul>
 <h2 id="logical-types-data-transfer-objects">Logical types: Data Transfer Objects</h2>
 <ul>
-<li>As soon as the type hint system does not go deep enough or that we need to encapsulate state we should use Data Transfer Objects . Make these DTO minimal and focused.</li>
+<li>As soon as the type hint system does not go deep enough or that we need to encapsulate state we should use Data Transfer Objects . Make these DTO minimal and focused. Logic should be scarce.</li>
+<li>Use language constructs like python&rsquo;s decorator <code>@dataclass</code>.</li>
 <li>Never manipulate arrays that contain mixed types as keys or values. Use DTO / custom classes instead + enums.</li>
 <li>Never use literal string as dictionary indexes if you later need to subscript it directly. This violates DRY, does not play well with IDEs and makes refactoring painful.</li>
 </ul>
@@ -226,7 +237,7 @@
 <ul>
 <li>Environment (.env) for environment dependent variables and sensitive data</li>
 <li>Configuration files (json, yaml ..) for global configuration variable as to centralize them and change them easily</li>
-<li>Enumerations ❤
+<li>Enumerations
 <ul>
 <li>They are great and should be used extensively whenever multiple literals can be grouped together.</li>
 <li>Enums can be grouped at the same place in the codebase making it easier to see configuration values at a glance.</li>
@@ -251,7 +262,20 @@
 </ul>
 </li>
 </ul>
+<h2 id="logic-and-knowledge">Logic and knowledge</h2>
+<ul>
+<li>duplication is present when different part of a system knows the internal of other parts. It&rsquo;s called implicit knowledge and is closely related to <a href="#decoupling">Decoupling</a></li>
+</ul>
 <h1 id="decoupling">Decoupling</h1>
+<blockquote>
+<p>Coupling is the enemy of change because it transitively links together things that must change in parallel.</p>
+</blockquote>
+<h2 id="encapsulation">Encapsulation</h2>
+<ul>
+<li>Tell, don&rsquo;t ask : objects internals should not be available and known to the client code</li>
+<li>See also Law of Demeter</li>
+<li>The severity of the encapsulation is a pragmatic decision</li>
+</ul>
 <h2 id="inheritance">Inheritance</h2>
 <p>The canonical way to use inheritance is when we have different kind of classes related to a parent class with only minimal changes necessary, and usually not core logic changes. Most other kind of usages can usually be replaced by a better pattern.</p>
 <h3 id="the-problems-with-inheritance">The problems with inheritance</h3>
@@ -280,18 +304,48 @@
 </ul>
 <h2 id="other-principles">Other principles</h2>
 <ul>
-<li>Uniform access: hide the implementation details (see encapsulation). Python&rsquo;s <code>@property</code></li>
+<li>Uniform access: hide the implementation details (see <a href="#encapsulation">Encapsulation</a>]). Python&rsquo;s <code>@property</code></li>
 </ul>
 <h1 id="design-patterns">Design Patterns</h1>
+<h2 id="finite-state-machines">Finite State Machines</h2>
 <blockquote>
-<p>This section could be covered in a whole book so I&rsquo;m gonna be brief for each point.</p>
+<p>or workflows</p>
 </blockquote>
-<h2 id="useful-patterns-for-decoupling">Useful patterns for decoupling</h2>
 <ul>
-<li>Decorator</li>
-<li>Observable</li>
+<li>Finite possible states with a current state</li>
+<li>Each state defines events (or transitions) that change the current state and can trigger actions</li>
+<li>Simple to implement</li>
+<li>Centralizes the state transformation away from the core logic</li>
+<li>Use an enum for states</li>
 </ul>
-<h2 id="client---service-communication">Client - Service communication</h2>
+<h2 id="observer">Observer</h2>
+<ul>
+<li>Allows hooking inside of a component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough.</li>
+<li>Simple and strong but introduces coupling when the observers need to register directly on the observable. On events it is the observable that execute the observer methods, it can impact performance.</li>
+</ul>
+<h2 id="pub--sub">Pub / Sub</h2>
+<ul>
+<li>
+<p>Evolution of the observer : the observer is a consumer and the observable does not know about its consumers. Deals well with asynchronous code. Message passing is decoupled from the sender code.</p>
+</li>
+<li>
+<p>Scales well.</p>
+</li>
+<li>
+<p>Message queuing is a special case of pub/sub<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</li>
+<li>
+<p>Not so easy to grasp at first side as the public / subscribe are done in different places.</p>
+</li>
+</ul>
+<h2 id="reactive-programming2">Reactive programming<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
+<ul>
+<li>Another way to handle asynchronous (or sync) events and queries is to reason with streams</li>
+<li>Reduces coupling and greatly reduces state</li>
+<li>Reduces boilerplate code to handle loops and logic on iterables</li>
+<li>Push based (more natural when reacting to events)</li>
+</ul>
+<h2 id="client---service-communication-via-schema">Client - Service communication via schema</h2>
 <p>There is one problem that arise when multiple components want to talk together in a system. It is especially visible when exposing software functionality over an API : <em>The client needs to know how to contact the service</em>. That can include : a protocol, paths or method names, parameter types etc.</p>
 <p>This means some information about the structure of the service is duplicated. In an http API that could be simply the http verb and the url. This problem is present also inside a single local codebase when a client piece of software calls a supplier but have subtler implications.</p>
 <p>The problems that arise include the following :</p>
@@ -306,6 +360,31 @@
 <li>Have a typing experience approaching the one inside the rest of the codebase.</li>
 </ul>
 <p>Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead</p>
+<h1 id="etc">ETC</h1>
+<h2 id="error-handling">Error handling</h2>
+<ul>
+<li>Use assertions for unexpected conditions : at the top of the methods and catch / log / report assertion bugs</li>
+<li>Use exceptions for normal error conditions : use inheritance to create an exceptions tree.</li>
+<li>Prefer throwing exceptions instead of returning null</li>
+</ul>
+<hr>
+<p><strong>Bibliography</strong></p>
+<ul>
+<li><a href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/">The Pragmatic Programmer, 20th Anniversary Edition</a></li>
+<li><a href="https://www.oreilly.com/library/view/head-first-design/9781492077992/">Head First Design Patterns, 2nd Edition</a></li>
+</ul>
+<hr>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://dzone.com/articles/comparing-publish-subscribe-messaging-and-message">Comparing Publish-Subscribe Messaging and Message Queuing</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="http://reactivex.io/">http://reactivex.io/</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
     </div>
 
@@ -336,7 +415,7 @@
       <div class="social-links">
     <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
     <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
-    <a href="mailto://thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
     <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
