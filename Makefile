@@ -2,9 +2,9 @@
 
 dev:
 	cls
-	hugo server -D
-	#cd public; python -m http.server 8000
+	python start_dev_server.py dev
 
 build:
 	cls
-	hugo
+	python start_dev_server.py build
+
