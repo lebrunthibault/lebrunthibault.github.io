@@ -23,6 +23,13 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/asyncio/</loc>
+    <lastmod>2020-12-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/protocol0-technical-overview/</loc>
     <lastmod>2020-12-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>

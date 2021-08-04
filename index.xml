@@ -17,6 +17,17 @@
     </item>
     
     <item>
+      <title>Asyncio notes</title>
+      <link>https://lebrunthibault.github.io/post/asyncio/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/asyncio/</guid>
+      <description>Asyncio Awaitable Coroutine 1  async def: pass    A coroutine execution yields a coroutine object.
+Coroutine can be awaited and it makes the execution synchronous from the caller perspective
+ </description>
+    </item>
+    
+    <item>
       <title>Protocol 0 technical overview</title>
       <link>https://lebrunthibault.github.io/post/protocol0-technical-overview/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>

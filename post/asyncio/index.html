@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Asyncio notes - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Asyncio Awaitable Coroutine 1  async def: pass    A coroutine execution yields a coroutine object.
+Coroutine can be awaited and it makes the execution synchronous from the caller perspective
+ " /><meta name="keywords" content="" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/asyncio/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8d616387696bf699f17d1adcf4a32c3b9bf51732ddc3ada54a4c07468260bcaa.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Asyncio notes" />
+<meta property="og:description" content="Asyncio Awaitable Coroutine 1  async def: pass    A coroutine execution yields a coroutine object.
+Coroutine can be awaited and it makes the execution synchronous from the caller perspective
+ " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/asyncio/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-12-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-01T00:00:00+00:00" />
+
+<meta itemprop="name" content="Asyncio notes">
+<meta itemprop="description" content="Asyncio Awaitable Coroutine 1  async def: pass    A coroutine execution yields a coroutine object.
+Coroutine can be awaited and it makes the execution synchronous from the caller perspective
+ "><meta itemprop="datePublished" content="2020-12-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-12-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="28">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Asyncio notes"/>
+<meta name="twitter:description" content="Asyncio Awaitable Coroutine 1  async def: pass    A coroutine execution yields a coroutine object.
+Coroutine can be awaited and it makes the execution synchronous from the caller perspective
+ "/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Asyncio notes</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#asyncio">Asyncio</a>
+      <ul>
+        <li><a href="#awaitable">Awaitable</a>
+          <ul>
+            <li><a href="#coroutine">Coroutine</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="asyncio">Asyncio</h1>
+<h2 id="awaitable">Awaitable</h2>
+<h3 id="coroutine">Coroutine</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">async</span> <span class="n">def</span><span class="p">:</span> <span class="k">pass</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>A coroutine execution yields a coroutine object.</p>
+<p>Coroutine can be awaited and it makes the execution synchronous from the caller perspective</p>
+</blockquote>
+
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/software-development-principles/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Software development techniques</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/protocol0-technical-overview/">
+            <span class="next-text nav-default">Protocol 0 technical overview</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
