@@ -1,6 +1,6 @@
 ---
 title: "Software development techniques"
-summary: "My software development techniques notes"
+description: "My software development techniques notes"
 keywords:
   - Software development
   - Backend development

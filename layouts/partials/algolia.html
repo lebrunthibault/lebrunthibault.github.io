@@ -36,17 +36,23 @@
             description = description ? description : ""
 
             keywords_matched = []
-            if (item.keywords) {
+            if (item.keywords && item._highlightResult.keywords) {
                 keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
             }
             keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
 
-            headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
             headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
             console.log(headers_matched)
             return `<a href="${item.url}">
-                    <div class="title">${title}</div>
-                    ${description} ${keywords_html} <ul class="headers">${headers_html}</ul></a>`
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
         }
 
         search.addWidgets([

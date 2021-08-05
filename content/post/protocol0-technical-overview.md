@@ -1,6 +1,6 @@
 ---
 title: "Protocol 0 technical overview"
-summary: "Protocol0 Ableton Surface Script technical overview and discussion"
+description: "Protocol0 Ableton Surface Script technical overview and discussion"
 keywords:
   - Ableton 
   - Ableton Remote Script

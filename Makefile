@@ -2,6 +2,7 @@
 
 dev:
 	cls
+	py build_algolia.py
 	py start_dev_server.py dev
 
 build:

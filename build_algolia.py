@@ -2,7 +2,7 @@ import glob
 import json
 import os
 import sys
-from os.path import realpath, dirname
+from os.path import realpath, dirname, basename
 
 import frontmatter
 import markdown
@@ -12,7 +12,6 @@ from dotenv import load_dotenv
 from algoliasearch.search_client import SearchClient
 
 load_dotenv()
-
 
 
 def flatten(list: list) -> list:
@@ -34,26 +33,25 @@ def get_document_headers(content: str):
     return flatten([get_headers_name(header_info=header_info) for header_info in md.toc_tokens])
 
 
-def get_document_info(post: frontmatter.Post):
+def get_document_info(post: frontmatter.Post, filename: str):
+    title: str = post.get('title')
+    path = basename(filename).replace(".md", "")
     return {
-        "objectID": post.get("title"),
-        "title": post.get("title"),
+        "objectID": title,
+        "title": title,
         "description": post.get("description"),
-        "summary": post.get("summary"),
         "keywords": post.get("keywords"),
-        "headers": get_document_headers(post.content)
+        "headers": get_document_headers(post.content),
+        "url": f"/post/{path}"
     }
 
 
 def index_documents_in_algolia(build_drafts):
     documents_info = []
-    print(f"{dirname(realpath(__file__))}/content/post/*.md")
-    print(glob.glob(f"{dirname(realpath(__file__))}/content/post/*.md"))
     for filename in glob.glob(f"{dirname(realpath(__file__))}/content/post/*.md"):
-        print(filename)
         post = frontmatter.load(filename)
         if not post.get("draft") or build_drafts:
-            documents_info.append(get_document_info(post))
+            documents_info.append(get_document_info(post=post, filename=filename))
 
     client = SearchClient.create(os.environ.get("ALGOLIA_APP_ID"), os.environ.get("ALGOLIA_ADMIN_KEY"))
     index = client.init_index(os.environ.get("ALGOLIA_INDEX_NAME"))
@@ -62,7 +60,6 @@ def index_documents_in_algolia(build_drafts):
     with open("./debug.json", "w") as f:
         f.write(json.dumps(documents_info))
     print(f"{len(documents_info)} documents pushed to index {index.name}")
-
 
 
 if __name__ == "__main__":
