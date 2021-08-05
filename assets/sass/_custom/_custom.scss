@@ -80,12 +80,18 @@ $header-padding: 20px 20px 0px 20px !default;
 
   .ais-Hits-item {
     padding-top: 10px !important;
-    padding-bottom: 10px !important;
+    padding-bottom: 15px !important;
     opacity: 1;
 
     .title {
       font-weight: bold;
-      margin-bottom: 8px;
+      font-size: large;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      margin-bottom: 5px;
     }
 
     .badge {
