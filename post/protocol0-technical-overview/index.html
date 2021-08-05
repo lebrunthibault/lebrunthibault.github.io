@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Protocol0 Ableton Surface Script technical overview and discussion" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Protocol0 Ableton Surface Script technical overview and discussion" /><meta name="keywords" content="Ableton, Ableton Remote Script, Ableton Control Surface Script, Python" />
 
 
 
@@ -43,12 +43,12 @@
 <meta property="og:description" content="Protocol0 Ableton Surface Script technical overview and discussion" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/protocol0-technical-overview/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-12-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-07-30T11:56:46+02:00" />
+
+<meta property="article:modified_time" content="2021-08-05T16:55:40+02:00" />
 
 <meta itemprop="name" content="Protocol 0 technical overview">
-<meta itemprop="description" content="Protocol0 Ableton Surface Script technical overview and discussion"><meta itemprop="datePublished" content="2020-12-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-07-30T11:56:46+02:00" />
+<meta itemprop="description" content="Protocol0 Ableton Surface Script technical overview and discussion">
+<meta itemprop="dateModified" content="2021-08-05T16:55:40+02:00" />
 <meta itemprop="wordCount" content="3355">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Protocol 0 technical overview"/>
@@ -485,12 +485,12 @@ To be clearer it is equivalent to defining a method listening on a subject (a li
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/software-development-principles/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Software development techniques</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
+        <a class="next" href="/post/software-development-principles/">
+            <span class="next-text nav-default">Software development techniques</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
       </nav>
     </footer>
   </article>
@@ -553,6 +553,7 @@ To be clearer it is equivalent to defining a method listening on a subject (a li
         });
 
         function itemToHtml(item) {
+            console.log(item)
             title = item._highlightResult.title.value || item.title
             summary = item._highlightResult.summary.value || item.summary
             return `<a href="${item.url}">

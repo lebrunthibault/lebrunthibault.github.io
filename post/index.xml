@@ -5,24 +5,23 @@
     <link>https://lebrunthibault.github.io/post/</link>
     <description>Recent content in Posts on Home</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 17 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://lebrunthibault.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Software development techniques</title>
-      <link>https://lebrunthibault.github.io/post/software-development-principles/</link>
-      <pubDate>Sat, 17 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/software-development-principles/</guid>
-      <description>My software development techniques notes</description>
-    </item>
-    
+    <language>en</language><atom:link href="https://lebrunthibault.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocol 0 technical overview</title>
       <link>https://lebrunthibault.github.io/post/protocol0-technical-overview/</link>
-      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/protocol0-technical-overview/</guid>
       <description>Protocol0 Ableton Surface Script technical overview and discussion</description>
+    </item>
+    
+    <item>
+      <title>Software development techniques</title>
+      <link>https://lebrunthibault.github.io/post/software-development-principles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/software-development-principles/</guid>
+      <description>My software development techniques notes</description>
     </item>
     
   </channel>

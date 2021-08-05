@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="My software development techniques notes" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="My software development techniques notes" /><meta name="keywords" content="Software development, Backend development, Design patterns" />
 
 
 
@@ -43,12 +43,12 @@
 <meta property="og:description" content="My software development techniques notes" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/software-development-principles/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-07-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-04T19:50:46+02:00" />
+
+<meta property="article:modified_time" content="2021-08-05T16:55:40+02:00" />
 
 <meta itemprop="name" content="Software development techniques">
-<meta itemprop="description" content="My software development techniques notes"><meta itemprop="datePublished" content="2021-07-17T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-08-04T19:50:46+02:00" />
+<meta itemprop="description" content="My software development techniques notes">
+<meta itemprop="dateModified" content="2021-08-05T16:55:40+02:00" />
 <meta itemprop="wordCount" content="1578">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
@@ -392,12 +392,12 @@
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
-        <a class="next" href="/post/protocol0-technical-overview/">
-            <span class="next-text nav-default">Protocol 0 technical overview</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
+        <a class="prev" href="/post/protocol0-technical-overview/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Protocol 0 technical overview</span>
+            <span class="prev-text nav-mobile">Prev</span>
           </a>
+        
       </nav>
     </footer>
   </article>
@@ -460,6 +460,7 @@
         });
 
         function itemToHtml(item) {
+            console.log(item)
             title = item._highlightResult.title.value || item.title
             summary = item._highlightResult.summary.value || item.summary
             return `<a href="${item.url}">

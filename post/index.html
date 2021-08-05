@@ -106,12 +106,12 @@
           
 <section id="archive" class="archive">
       <div class="collection-title">
-        <h2 class="archive-year">2021</h2>
+        <h2 class="archive-year">0001</h2>
       </div>
 
     <div class="archive-post">
       <span class="archive-post-time">
-        07-17
+        01-01
       </span>
       <span class="archive-post-title">
         <a href="/post/software-development-principles/" class="archive-post-link">
@@ -119,13 +119,10 @@
         </a>
       </span>
     </div>
-      <div class="collection-title">
-        <h2 class="archive-year">2020</h2>
-      </div>
 
     <div class="archive-post">
       <span class="archive-post-time">
-        12-01
+        01-01
       </span>
       <span class="archive-post-title">
         <a href="/post/protocol0-technical-overview/" class="archive-post-link">
@@ -193,6 +190,7 @@
         });
 
         function itemToHtml(item) {
+            console.log(item)
             title = item._highlightResult.title.value || item.title
             summary = item._highlightResult.summary.value || item.summary
             return `<a href="${item.url}">
