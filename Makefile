@@ -2,9 +2,13 @@
 
 dev:
 	cls
-	python start_dev_server.py dev
+	py start_dev_server.py dev
 
 build:
 	cls
-	python start_dev_server.py build
+	py start_dev_server.py build
+
+algolia:
+	cls
+	py build_algolia.py
 

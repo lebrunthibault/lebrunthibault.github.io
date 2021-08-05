@@ -7,6 +7,7 @@ enableRobotsTXT = true
 enableEmoji = true
 theme = "even"
 enableGitInfo = true # use git commit log to generate lastmod record
+summaryLength  = 0
 
 # Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
 pygmentsOptions = "linenos=table"

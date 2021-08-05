@@ -1,8 +1,10 @@
 ---
 Title: "Software development techniques"
-date: 2021-07-17
-draft: false
 summary: "My software development techniques notes"
+keywords:
+  - Software development
+  - Backend development
+  - Design patterns
 
 ---
 
