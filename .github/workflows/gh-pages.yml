@@ -23,7 +23,6 @@ jobs:
 
       - name: Build
         run: |
-          ls
           pip install -r ./requirements.txt
           python build_algolia.py
           hugo

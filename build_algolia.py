@@ -2,6 +2,7 @@ import glob
 import json
 import os
 import sys
+from os.path import realpath, dirname
 
 import frontmatter
 import markdown
@@ -46,8 +47,9 @@ def get_document_info(post: frontmatter.Post):
 
 def index_documents_in_algolia(build_drafts):
     documents_info = []
-
-    for filename in glob.glob(".\\content\\post\\*.md"):
+    print(f"{dirname(realpath(__file__))}\\content\\post\\*.md")
+    print(glob.glob(f"{dirname(realpath(__file__))}\\content\\post\\*.md"))
+    for filename in glob.glob(f"{dirname(realpath(__file__))}\\content\\post\\*.md"):
         print(filename)
         post = frontmatter.load(filename)
         if not post.get("draft") or build_drafts:
