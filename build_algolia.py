@@ -48,6 +48,7 @@ def index_documents_in_algolia(build_drafts):
     documents_info = []
 
     for filename in glob.glob(".\\content\\post\\*.md"):
+        print(filename)
         post = frontmatter.load(filename)
         if not post.get("draft") or build_drafts:
             documents_info.append(get_document_info(post))
