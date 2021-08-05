@@ -71,12 +71,8 @@ $header-padding: 20px 20px 0px 20px !default;
   margin-bottom: 35px;
 }
 
-#search-bar {
-
-}
-
 .ais-InstantSearch {
-  width: 300px;
+  width: 320px;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -89,6 +85,22 @@ $header-padding: 20px 20px 0px 20px !default;
 
     .title {
       font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      background-color: #888888;
+      border-radius: .25rem;
+      padding: 3px 2px;
+      font-size: 12px;
+      margin: 3px;
+      display: inline-block;
+      color: white;
+    }
+
+    ul.headers {
+      list-style-position: inside;
+      padding-left: 0;
     }
   }
 }

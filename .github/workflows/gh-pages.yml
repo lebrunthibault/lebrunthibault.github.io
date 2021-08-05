@@ -23,10 +23,10 @@ jobs:
 
       - name: Build
         run: |
+          pip install -r .\requirements.txt
+          python build_algolia.py
           hugo
-          npm install
-          npm run algolia
-#        run: hugo --minify
+        #        run: hugo --minify
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}

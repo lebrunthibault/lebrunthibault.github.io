@@ -1,5 +1,5 @@
 ---
-Title: "Python 3 notes"
+title: "Python 3 notes"
 draft: true
 ---
 

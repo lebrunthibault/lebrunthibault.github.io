@@ -1,5 +1,5 @@
 ---
-Title: "Software development techniques"
+title: "Software development techniques"
 summary: "My software development techniques notes"
 keywords:
   - Software development

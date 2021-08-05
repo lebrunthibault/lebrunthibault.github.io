@@ -20,10 +20,11 @@
                 },
             },
             searchFunction: helper => {
-                if (helper.state.query.length) {
-                    helper.search();
-                } else {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
                     $('#hits').hide()
+                } else if (query_length >= 3) {
+                    helper.search();
                 }
             }
         });
@@ -31,10 +32,21 @@
         function itemToHtml(item) {
             console.log(item)
             title = item._highlightResult.title.value || item.title
-            summary = item._highlightResult.summary.value || item.summary
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            console.log(headers_matched)
             return `<a href="${item.url}">
                     <div class="title">${title}</div>
-                    ${summary}</a>`
+                    ${description} ${keywords_html} <ul class="headers">${headers_html}</ul></a>`
         }
 
         search.addWidgets([
