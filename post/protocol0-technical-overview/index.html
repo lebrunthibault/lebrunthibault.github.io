@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.0b933bc9ccee136c186f08df989c2a240feb10671d44f173c9ba597da952c0de.css" rel="stylesheet">
+<link href="/sass/main.min.8cd509af57e88050de519b4742b44ef16cedde91e0ce1535c3089744129ea94c.css" rel="stylesheet">
 
 
 
@@ -44,11 +44,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/protocol0-technical-overview/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-08-05T16:55:40+02:00" />
+<meta property="article:modified_time" content="2021-08-05T18:48:59+02:00" />
 
 <meta itemprop="name" content="Protocol 0 technical overview">
 <meta itemprop="description" content="Protocol0 Ableton Surface Script technical overview and discussion">
-<meta itemprop="dateModified" content="2021-08-05T16:55:40+02:00" />
+<meta itemprop="dateModified" content="2021-08-05T18:48:59+02:00" />
 <meta itemprop="wordCount" content="3355">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Protocol 0 technical overview"/>
@@ -544,10 +544,11 @@ To be clearer it is equivalent to defining a method listening on a subject (a li
                 },
             },
             searchFunction: helper => {
-                if (helper.state.query.length) {
-                    helper.search();
-                } else {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
                     $('#hits').hide()
+                } else if (query_length >= 3) {
+                    helper.search();
                 }
             }
         });
@@ -555,10 +556,21 @@ To be clearer it is equivalent to defining a method listening on a subject (a li
         function itemToHtml(item) {
             console.log(item)
             title = item._highlightResult.title.value || item.title
-            summary = item._highlightResult.summary.value || item.summary
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            console.log(headers_matched)
             return `<a href="${item.url}">
                     <div class="title">${title}</div>
-                    ${summary}</a>`
+                    ${description} ${keywords_html} <ul class="headers">${headers_html}</ul></a>`
         }
 
         search.addWidgets([
