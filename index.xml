@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/protocol0-technical-overview/</guid>
-      <description>Protocol0 Ableton Surface Script technical overview and discussion</description>
+      <description>This is technical documentation for my Protocol0 Ableton control surface script.</description>
     </item>
     
     <item>
@@ -21,7 +21,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/software-development-principles/</guid>
-      <description>My software development techniques notes</description>
+      <description>This is a structured list of thoughts about software development and what techniques I feel leads to strong code.</description>
     </item>
     
   </channel>
