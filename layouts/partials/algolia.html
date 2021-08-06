@@ -6,16 +6,17 @@
       integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
 <script>
     const devMode = '{{ getenv "ENV" }}' === "dev" ||
-        new URLSearchParams(window.location.search).get("d") ||
-        localStorage.getItem("dev-mode");
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
 
     console.log(devMode)
 
     localStorage.setItem("dev-mode", devMode)
 
     if (document.querySelector("#search-bar")) {
-        if (window.location.pathname === "/" || devMode)
+        if (window.location.pathname === "/" || devMode) {
             loadAlgolia();
+        }
     }
 
     function loadAlgolia() {
