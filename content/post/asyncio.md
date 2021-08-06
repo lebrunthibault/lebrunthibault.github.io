@@ -3,13 +3,11 @@ title: "Asyncio notes"
 draft: true
 ---
 
-# Asyncio
-
 > single thread cooperative multitasking
 
-## [Awaitable](https://docs.python.org/3/library/asyncio-task.html#awaitables)
+# [Awaitable](https://docs.python.org/3/library/asyncio-task.html#awaitables)
 
-### [Coroutine]()
+## [Coroutine]()
 
 ```python
 async def: pass
@@ -25,7 +23,7 @@ Can be run with :
 - `asyncio.run()`
 - `asyncio.create_task()` to run coroutines concurrently as asyncio tasks
 
-### Task
+## Task
 
 > Tasks are used to schedule coroutines *concurrently*
 
@@ -42,13 +40,13 @@ asyncio.run(main())
 
 ```
 
-### Future
+## Future
 
 > A [`Future`](https://docs.python.org/3/library/asyncio-future.html#asyncio.Future) is a special **low-level** awaitable
 >
 > Future objects in asyncio are needed to allow callback-based code to be used with async/await.
 
-## Running an asyncio program
+# Running an asyncio program
 
 - Using `asyncio.run(coroutine())`
 - Creates an event loop and manages awaiting and closing the pool

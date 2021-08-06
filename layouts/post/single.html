@@ -1,14 +1,13 @@
 {{ define "content" -}}
+<div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
 <article class="post">
     <!-- post-header -->
     <header class="post-header">
         <h1 class="post-title">{{ .Title }}</h1>
-
-        <div class="ais-InstantSearch">
-            <div id="search-bar"></div>
-            <div id="hits"></div>
-            <div id="pagination"></div>
-        </div>
 
         <div class="post-meta">
             {{ with .Params.categories -}}
@@ -20,12 +19,6 @@
             {{- end }}
             {{- if .Site.Params.moreMeta }}
             <span class="more-meta"> {{ T "readingTime" .ReadingTime }} </span>
-            {{- end }}
-            {{ if and .Site.Params.busuanzi.enable .Site.Params.busuanzi.pagePV -}}
-            {{ $valueSpan := printf `<span id="busuanzi_value_page_pv"><img src="%s" alt="spinner.svg"/></span>`
-            ("img/spinner.svg" | relURL) -}}
-            <span id="busuanzi_container_page_pv"
-                  class="more-meta"> {{ printf (T "pagePV") $valueSpan | safeHTML }} </span>
             {{- end }}
         </div>
     </header>
