@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Asyncio  single thread cooperative multitasking" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="single thread cooperative multitasking" /><meta name="keywords" content="" />
 
 
 
@@ -36,23 +36,23 @@
 
 
 <link href="/sass/main.min.c048420346ac4950ac9ccc03fd81d3727d23435307081c25da8976e9a9526cd5.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Asyncio notes" />
-<meta property="og:description" content="Asyncio  single thread cooperative multitasking" />
+<meta property="og:description" content="single thread cooperative multitasking" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/asyncio/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-08-05T18:48:59+02:00" />
+<meta property="article:modified_time" content="2021-08-06T20:21:51+02:00" />
 
 <meta itemprop="name" content="Asyncio notes">
-<meta itemprop="description" content="Asyncio  single thread cooperative multitasking">
-<meta itemprop="dateModified" content="2021-08-05T18:48:59+02:00" />
-<meta itemprop="wordCount" content="152">
+<meta itemprop="description" content="single thread cooperative multitasking">
+<meta itemprop="dateModified" content="2021-08-06T20:21:51+02:00" />
+<meta itemprop="wordCount" content="151">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Asyncio notes"/>
-<meta name="twitter:description" content="Asyncio  single thread cooperative multitasking"/>
+<meta name="twitter:description" content="single thread cooperative multitasking"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -106,21 +106,19 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <article class="post">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
     
     <header class="post-header">
         <h1 class="post-title">Asyncio notes</h1>
 
-        <div class="ais-InstantSearch">
-            <div id="search-bar"></div>
-            <div id="hits"></div>
-            <div id="pagination"></div>
-        </div>
-
         <div class="post-meta">
             
             <span class="more-meta"> 1 min read </span>
-            
         </div>
     </header>
 
@@ -129,29 +127,24 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#asyncio">Asyncio</a>
+    <li><a href="#awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></a>
       <ul>
-        <li><a href="#awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></a>
-          <ul>
-            <li><a href="#coroutine"><a href="">Coroutine</a></a></li>
-            <li><a href="#task">Task</a></li>
-            <li><a href="#future">Future</a></li>
-          </ul>
-        </li>
-        <li><a href="#running-an-asyncio-program">Running an asyncio program</a></li>
+        <li><a href="#coroutine"><a href="">Coroutine</a></a></li>
+        <li><a href="#task">Task</a></li>
+        <li><a href="#future">Future</a></li>
       </ul>
     </li>
+    <li><a href="#running-an-asyncio-program">Running an asyncio program</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-        <h1 id="asyncio">Asyncio</h1>
-<blockquote>
+        <blockquote>
 <p>single thread cooperative multitasking</p>
 </blockquote>
-<h2 id="awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></h2>
-<h3 id="coroutine"><a href="">Coroutine</a></h3>
+<h1 id="awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></h1>
+<h2 id="coroutine"><a href="">Coroutine</a></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -170,7 +163,7 @@
 <li><code>asyncio.run()</code></li>
 <li><code>asyncio.create_task()</code> to run coroutines concurrently as asyncio tasks</li>
 </ul>
-<h3 id="task">Task</h3>
+<h2 id="task">Task</h2>
 <blockquote>
 <p>Tasks are used to schedule coroutines <em>concurrently</em></p>
 </blockquote>
@@ -200,12 +193,12 @@
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="future">Future</h3>
+</div><h2 id="future">Future</h2>
 <blockquote>
 <p>A <a href="https://docs.python.org/3/library/asyncio-future.html#asyncio.Future"><code>Future</code></a> is a special <strong>low-level</strong> awaitable</p>
 <p>Future objects in asyncio are needed to allow callback-based code to be used with async/await.</p>
 </blockquote>
-<h2 id="running-an-asyncio-program">Running an asyncio program</h2>
+<h1 id="running-an-asyncio-program">Running an asyncio program</h1>
 <ul>
 <li>Using <code>asyncio.run(coroutine())</code></li>
 <li>Creates an event loop and manages awaiting and closing the pool</li>
@@ -255,7 +248,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
         integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
         integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>

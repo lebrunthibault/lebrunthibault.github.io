@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Python 3 Unicode  The Unicode standard describes how characters are represented by code points." /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Unicode  The Unicode standard describes how characters are represented by code points." /><meta name="keywords" content="" />
 
 
 
@@ -36,23 +36,23 @@
 
 
 <link href="/sass/main.min.c048420346ac4950ac9ccc03fd81d3727d23435307081c25da8976e9a9526cd5.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Python 3 notes" />
-<meta property="og:description" content="Python 3 Unicode  The Unicode standard describes how characters are represented by code points." />
+<meta property="og:description" content="Unicode  The Unicode standard describes how characters are represented by code points." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/python/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-08-05T18:48:59+02:00" />
+<meta property="article:modified_time" content="2021-08-06T20:21:51+02:00" />
 
 <meta itemprop="name" content="Python 3 notes">
-<meta itemprop="description" content="Python 3 Unicode  The Unicode standard describes how characters are represented by code points.">
-<meta itemprop="dateModified" content="2021-08-05T18:48:59+02:00" />
-<meta itemprop="wordCount" content="284">
+<meta itemprop="description" content="Unicode  The Unicode standard describes how characters are represented by code points.">
+<meta itemprop="dateModified" content="2021-08-06T20:21:51+02:00" />
+<meta itemprop="wordCount" content="282">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python 3 notes"/>
-<meta name="twitter:description" content="Python 3 Unicode  The Unicode standard describes how characters are represented by code points."/>
+<meta name="twitter:description" content="Unicode  The Unicode standard describes how characters are represented by code points."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -106,21 +106,19 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <article class="post">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
     
     <header class="post-header">
         <h1 class="post-title">Python 3 notes</h1>
 
-        <div class="ais-InstantSearch">
-            <div id="search-bar"></div>
-            <div id="hits"></div>
-            <div id="pagination"></div>
-        </div>
-
         <div class="post-meta">
             
             <span class="more-meta"> 2 mins read </span>
-            
         </div>
     </header>
 
@@ -129,14 +127,14 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#python-3">Python 3</a>
+    <li><a href="#unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></a>
       <ul>
-        <li><a href="#unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></a>
+        <li><a href="#encodings">Encodings</a>
           <ul>
-            <li><a href="#encodings">Encodings</a></li>
-            <li><a href="#the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></a></li>
+            <li><a href="#utf-8-encoding">UTF-8 encoding</a></li>
           </ul>
         </li>
+        <li><a href="#the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></a></li>
       </ul>
     </li>
   </ul>
@@ -144,18 +142,17 @@
   </div>
 </div>
     <div class="post-content">
-        <h1 id="python-3">Python 3</h1>
-<h2 id="unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></h2>
+        <h1 id="unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></h1>
 <ul>
 <li>The <a href="https://www.unicode.org/">Unicode</a> standard describes how characters are represented by <strong>code points</strong>.  A code point value is an integer in the range 0 to 0x10FFFF. A code point is written using the notation <code>U+265E</code> to mean the character with value <code>0x265e</code> (9,822 in decimal).</li>
 <li>A unicode code point is not a character but represents a character</li>
 <li>A character is represented on a screen or on paper by a set of graphical elements that’s called a <strong>glyph</strong> (not important to python)</li>
 </ul>
-<h3 id="encodings">Encodings</h3>
+<h2 id="encodings">Encodings</h2>
 <blockquote>
 <p>a Unicode string is a sequence of code points, which are numbers from 0 through <code>0x10FFFF</code> (1,114,111 decimal). This sequence of code points needs to be represented in memory as a set of <strong>code units</strong>, and <strong>code units</strong> are then mapped to 8-bit bytes. The rules for translating a Unicode string into a sequence of bytes are called a <strong>character encoding</strong>, or just an <strong>encoding</strong></p>
 </blockquote>
-<h4 id="utf-8-encoding">UTF-8 encoding</h4>
+<h3 id="utf-8-encoding">UTF-8 encoding</h3>
 <blockquote>
 <p>UTF stands for “Unicode Transformation Format”, and the ‘8’ means that 8-bit values are used in the encoding.</p>
 </blockquote>
@@ -164,7 +161,7 @@
 <li>A string of ASCII text is also valid UTF-8 text. UTF-8 is a byte oriented encoding.</li>
 <li>The encoding specifies that each character is represented by a specific sequence of one or more bytes</li>
 </ul>
-<h3 id="the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></h3>
+<h2 id="the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></h2>
 <blockquote>
 <p>the language’s <a href="https://docs.python.org/3/library/stdtypes.html#str"><code>str</code></a> type contains Unicode characters, meaning any string created using <code>&quot;unicode rocks!&quot;</code>, <code>'unicode rocks!'</code>, or the triple-quoted string syntax is stored as Unicode</p>
 </blockquote>
@@ -222,7 +219,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
         integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
         integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
