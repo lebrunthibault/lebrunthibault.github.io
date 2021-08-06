@@ -1,3 +1,3 @@
 # My blog
 
-> hugo powered blog 
+> hugo powered blog.
