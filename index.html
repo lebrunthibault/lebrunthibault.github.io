@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.3888cfe2e2048d4c5916df8481f71d768ea0ce2a199ba2e97ef3e51d5d48aafd.css" rel="stylesheet">
+<link href="/sass/main.min.68ca27d530d69d810807edd4df282361d5d10d4348a12f9a45a44f21adf69656.css" rel="stylesheet">
 
 
 
@@ -111,94 +111,79 @@
   <section id="posts" class="posts">
     <article class='post draft'>
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/asyncio/">Asyncio notes</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/asyncio/">Asyncio Notes</a></h1>
     <div class="post-meta">
-
       
+        <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
       
-
-
-
   </div>
 </article>
 
     <article class='post '>
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/protocol0-technical-overview/">Protocol 0 technical overview</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/protocol0-technical-overview/">Protocol0 Technical Overview</a></h1>
     <div class="post-meta">
-
       
+        <span class="more-meta"> 16 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
       
-    <div class="post-summary">
-      This is technical documentation for my Protocol0 Ableton control surface script.
+    <div class="post-description">
+      Protocol0 Ableton Surface Script technical overview and discussion
     </div>
       
-
-
-
   </div>
 </article>
 
     <article class='post draft'>
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/">Python 3 notes</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/python/">Python 3 Notes</a></h1>
     <div class="post-meta">
-
       
+        <span class="more-meta"> 2 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
       
-
-
-
   </div>
 </article>
 
     <article class='post '>
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/software-development-principles/">Software development techniques</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/software-development-principles/">Software Development Techniques</a></h1>
     <div class="post-meta">
-
       
+        <span class="more-meta"> 8 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
       
-    <div class="post-summary">
-      This is a structured list of thoughts about software development and what techniques I feel leads to strong code.
+    <div class="post-description">
+      My software development techniques notes
     </div>
       
-
-
-
   </div>
 </article>
 
     <article class='post draft'>
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/tensorflow/">tensorflow notes</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/tensorflow/">Tensorflow Notes</a></h1>
     <div class="post-meta">
-
       
+        <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
       
-
-
-
   </div>
 </article>
 
@@ -250,6 +235,9 @@
     if (devMode) {
         
         Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
     }
 
     if (document.querySelector("#search-bar")) {

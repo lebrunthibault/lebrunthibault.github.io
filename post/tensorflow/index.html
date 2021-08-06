@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>tensorflow notes - Home</title>
+  <title>Tensorflow notes - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -35,23 +35,23 @@
 
 
 
-<link href="/sass/main.min.3888cfe2e2048d4c5916df8481f71d768ea0ce2a199ba2e97ef3e51d5d48aafd.css" rel="stylesheet">
+<link href="/sass/main.min.68ca27d530d69d810807edd4df282361d5d10d4348a12f9a45a44f21adf69656.css" rel="stylesheet">
 
 
 
-<meta property="og:title" content="tensorflow notes" />
+<meta property="og:title" content="Tensorflow notes" />
 <meta property="og:description" content="Tensorflow " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/tensorflow/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-08-05T18:48:59+02:00" />
+<meta property="article:modified_time" content="2021-08-06T20:08:27+02:00" />
 
-<meta itemprop="name" content="tensorflow notes">
+<meta itemprop="name" content="Tensorflow notes">
 <meta itemprop="description" content="Tensorflow ">
-<meta itemprop="dateModified" content="2021-08-05T18:48:59+02:00" />
+<meta itemprop="dateModified" content="2021-08-06T20:08:27+02:00" />
 <meta itemprop="wordCount" content="1">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="tensorflow notes"/>
+<meta name="twitter:title" content="Tensorflow notes"/>
 <meta name="twitter:description" content="Tensorflow "/>
 
 <!--[if lte IE 9]>
@@ -109,7 +109,7 @@
           <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">tensorflow notes</h1>
+        <h1 class="post-title">Tensorflow notes</h1>
 
         <div class="ais-InstantSearch">
             <div id="search-bar"></div>
@@ -119,6 +119,7 @@
 
         <div class="post-meta">
             
+            <span class="more-meta"> 1 min read </span>
             
         </div>
     </header>
@@ -197,6 +198,9 @@
     if (devMode) {
         
         Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
     }
 
     if (document.querySelector("#search-bar")) {

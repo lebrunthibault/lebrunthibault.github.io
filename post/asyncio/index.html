@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.3888cfe2e2048d4c5916df8481f71d768ea0ce2a199ba2e97ef3e51d5d48aafd.css" rel="stylesheet">
+<link href="/sass/main.min.68ca27d530d69d810807edd4df282361d5d10d4348a12f9a45a44f21adf69656.css" rel="stylesheet">
 
 
 
@@ -119,6 +119,7 @@
 
         <div class="post-meta">
             
+            <span class="more-meta"> 1 min read </span>
             
         </div>
     </header>
@@ -219,7 +220,7 @@
         <nav class="post-nav">
             
             <a class="next" href="/post/protocol0-technical-overview/">
-                <span class="next-text nav-default">Protocol 0 technical overview</span>
+                <span class="next-text nav-default">Protocol0 technical overview</span>
                 <span class="next-text nav-mobile">Next</span>
                 <i class="iconfont icon-right"></i>
             </a>
@@ -272,6 +273,9 @@
     if (devMode) {
         
         Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
     }
 
     if (document.querySelector("#search-bar")) {
