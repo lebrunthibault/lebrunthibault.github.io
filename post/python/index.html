@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Home</title>
+  <title>Python 3 notes - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Python 3 Unicode  The Unicode standard describes how characters are represented by code points." /><meta name="keywords" content="" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/" />
-  <link href="https://lebrunthibault.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Home" />
-  <link href="https://lebrunthibault.github.io/index.xml" rel="feed" type="application/rss+xml" title="Home" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/python/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,15 +39,20 @@
 
 
 
-<meta property="og:title" content="Home" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://lebrunthibault.github.io/" />
+<meta property="og:title" content="Python 3 notes" />
+<meta property="og:description" content="Python 3 Unicode  The Unicode standard describes how characters are represented by code points." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/python/" /><meta property="article:section" content="post" />
 
-<meta itemprop="name" content="Home">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Home"/>
-<meta name="twitter:description" content=""/>
+<meta property="article:modified_time" content="2021-08-05T18:48:59+02:00" />
+
+<meta itemprop="name" content="Python 3 notes">
+<meta itemprop="description" content="Python 3 Unicode  The Unicode standard describes how characters are represented by code points.">
+<meta itemprop="dateModified" content="2021-08-05T18:48:59+02:00" />
+<meta itemprop="wordCount" content="284">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python 3 notes"/>
+<meta name="twitter:description" content="Python 3 Unicode  The Unicode standard describes how characters are represented by code points."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -103,60 +106,99 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <div class="ais-InstantSearch">
-      <div id="search-bar"></div>
-      <div id="hits"></div>
-      <div id="pagination"></div>
-  </div>
-  <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/protocol0-technical-overview/">Protocol 0 technical overview</a></h1>
-    <div class="post-meta">
-
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-      
-    <div class="post-summary">
-      This is technical documentation for my Protocol0 Ableton control surface script.
-    </div>
-      
-
-
-
-  </div>
-</article>
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/software-development-principles/">Software development techniques</a></h1>
-    <div class="post-meta">
-
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-      
-    <div class="post-summary">
-      This is a structured list of thoughts about software development and what techniques I feel leads to strong code.
-    </div>
-      
-
-
-
-  </div>
-</article>
-</section>
-  
-  <nav class="pagination">
+          <article class="post">
     
+    <header class="post-header">
+        <h1 class="post-title">Python 3 notes</h1>
+
+        <div class="ais-InstantSearch">
+            <div id="search-bar"></div>
+            <div id="hits"></div>
+            <div id="pagination"></div>
+        </div>
+
+        <div class="post-meta">
+            
+            
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#python-3">Python 3</a>
+      <ul>
+        <li><a href="#unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></a>
+          <ul>
+            <li><a href="#encodings">Encodings</a></li>
+            <li><a href="#the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <h1 id="python-3">Python 3</h1>
+<h2 id="unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></h2>
+<ul>
+<li>The <a href="https://www.unicode.org/">Unicode</a> standard describes how characters are represented by <strong>code points</strong>.  A code point value is an integer in the range 0 to 0x10FFFF. A code point is written using the notation <code>U+265E</code> to mean the character with value <code>0x265e</code> (9,822 in decimal).</li>
+<li>A unicode code point is not a character but represents a character</li>
+<li>A character is represented on a screen or on paper by a set of graphical elements that’s called a <strong>glyph</strong> (not important to python)</li>
+</ul>
+<h3 id="encodings">Encodings</h3>
+<blockquote>
+<p>a Unicode string is a sequence of code points, which are numbers from 0 through <code>0x10FFFF</code> (1,114,111 decimal). This sequence of code points needs to be represented in memory as a set of <strong>code units</strong>, and <strong>code units</strong> are then mapped to 8-bit bytes. The rules for translating a Unicode string into a sequence of bytes are called a <strong>character encoding</strong>, or just an <strong>encoding</strong></p>
+</blockquote>
+<h4 id="utf-8-encoding">UTF-8 encoding</h4>
+<blockquote>
+<p>UTF stands for “Unicode Transformation Format”, and the ‘8’ means that 8-bit values are used in the encoding.</p>
+</blockquote>
+<ul>
+<li>Plays well with C functions.</li>
+<li>A string of ASCII text is also valid UTF-8 text. UTF-8 is a byte oriented encoding.</li>
+<li>The encoding specifies that each character is represented by a specific sequence of one or more bytes</li>
+</ul>
+<h3 id="the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></h3>
+<blockquote>
+<p>the language’s <a href="https://docs.python.org/3/library/stdtypes.html#str"><code>str</code></a> type contains Unicode characters, meaning any string created using <code>&quot;unicode rocks!&quot;</code>, <code>'unicode rocks!'</code>, or the triple-quoted string syntax is stored as Unicode</p>
+</blockquote>
+<ul>
+<li><code>&quot;\N{GREEK CAPITAL LETTER DELTA}&quot; == &quot;\u0394&quot;  == &quot;\U00000394&quot;</code></li>
+<li><strong>bytes</strong> can be decoded to string : <code>b'\x41'.decode(&quot;utf-8&quot;)</code> outputs &lsquo;A&rsquo;</li>
+<li><code>bytes.decode</code> as options for dealing with bytes unknown to the encoding.</li>
+<li>The opposite method of <a href="https://docs.python.org/3/library/stdtypes.html#bytes.decode">bytes.decode()</a> is <a href="https://docs.python.org/3/library/stdtypes.html#str.encode">str.encode()</a>, which returns a <a href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a> representation of the Unicode string, encoded in the requested <em>encoding</em></li>
+</ul>
+
+    </div>
+
     
-  </nav>
+<footer class="post-footer">
+        
+        <nav class="post-nav">
+            <a class="prev" href="/post/protocol0-technical-overview/">
+                <i class="iconfont icon-left"></i>
+                <span class="prev-text nav-default">Protocol 0 technical overview</span>
+                <span class="prev-text nav-mobile">Prev</span>
+            </a>
+            <a class="next" href="/post/software-development-principles/">
+                <span class="next-text nav-default">Software development techniques</span>
+                <span class="next-text nav-mobile">Next</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        </nav>
+    </footer>
+</article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

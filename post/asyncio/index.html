@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Home</title>
+  <title>Asyncio notes - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Asyncio  single thread cooperative multitasking" /><meta name="keywords" content="" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/" />
-  <link href="https://lebrunthibault.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Home" />
-  <link href="https://lebrunthibault.github.io/index.xml" rel="feed" type="application/rss+xml" title="Home" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/asyncio/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,15 +39,20 @@
 
 
 
-<meta property="og:title" content="Home" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://lebrunthibault.github.io/" />
+<meta property="og:title" content="Asyncio notes" />
+<meta property="og:description" content="Asyncio  single thread cooperative multitasking" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/asyncio/" /><meta property="article:section" content="post" />
 
-<meta itemprop="name" content="Home">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Home"/>
-<meta name="twitter:description" content=""/>
+<meta property="article:modified_time" content="2021-08-05T18:48:59+02:00" />
+
+<meta itemprop="name" content="Asyncio notes">
+<meta itemprop="description" content="Asyncio  single thread cooperative multitasking">
+<meta itemprop="dateModified" content="2021-08-05T18:48:59+02:00" />
+<meta itemprop="wordCount" content="152">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Asyncio notes"/>
+<meta name="twitter:description" content="Asyncio  single thread cooperative multitasking"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -103,60 +106,132 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <div class="ais-InstantSearch">
-      <div id="search-bar"></div>
-      <div id="hits"></div>
-      <div id="pagination"></div>
-  </div>
-  <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/protocol0-technical-overview/">Protocol 0 technical overview</a></h1>
-    <div class="post-meta">
-
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-      
-    <div class="post-summary">
-      This is technical documentation for my Protocol0 Ableton control surface script.
-    </div>
-      
-
-
-
-  </div>
-</article>
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/software-development-principles/">Software development techniques</a></h1>
-    <div class="post-meta">
-
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-      
-    <div class="post-summary">
-      This is a structured list of thoughts about software development and what techniques I feel leads to strong code.
-    </div>
-      
-
-
-
-  </div>
-</article>
-</section>
-  
-  <nav class="pagination">
+          <article class="post">
     
+    <header class="post-header">
+        <h1 class="post-title">Asyncio notes</h1>
+
+        <div class="ais-InstantSearch">
+            <div id="search-bar"></div>
+            <div id="hits"></div>
+            <div id="pagination"></div>
+        </div>
+
+        <div class="post-meta">
+            
+            
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#asyncio">Asyncio</a>
+      <ul>
+        <li><a href="#awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></a>
+          <ul>
+            <li><a href="#coroutine"><a href="">Coroutine</a></a></li>
+            <li><a href="#task">Task</a></li>
+            <li><a href="#future">Future</a></li>
+          </ul>
+        </li>
+        <li><a href="#running-an-asyncio-program">Running an asyncio program</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <h1 id="asyncio">Asyncio</h1>
+<blockquote>
+<p>single thread cooperative multitasking</p>
+</blockquote>
+<h2 id="awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></h2>
+<h3 id="coroutine"><a href="">Coroutine</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">async</span> <span class="n">def</span><span class="p">:</span> <span class="k">pass</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>A coroutine execution returns a coroutine object. Simply calling a coroutine will not schedule it to be executed</p>
+<p>Coroutine can be awaited and it makes the execution synchronous from the caller perspective</p>
+</blockquote>
+<p>Can be run with :</p>
+<ul>
+<li><code>await</code></li>
+<li><code>asyncio.run()</code></li>
+<li><code>asyncio.create_task()</code> to run coroutines concurrently as asyncio tasks</li>
+</ul>
+<h3 id="task">Task</h3>
+<blockquote>
+<p>Tasks are used to schedule coroutines <em>concurrently</em></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">async</span> <span class="k">def</span> <span class="nf">coroutine</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">42</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Schedule nested() to run soon concurrently with &#34;main()&#34;.</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">coroutine</span><span class="p">())</span>
+    <span class="c1"># or task = asyncio.ensure_future(coroutine())</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="future">Future</h3>
+<blockquote>
+<p>A <a href="https://docs.python.org/3/library/asyncio-future.html#asyncio.Future"><code>Future</code></a> is a special <strong>low-level</strong> awaitable</p>
+<p>Future objects in asyncio are needed to allow callback-based code to be used with async/await.</p>
+</blockquote>
+<h2 id="running-an-asyncio-program">Running an asyncio program</h2>
+<ul>
+<li>Using <code>asyncio.run(coroutine())</code></li>
+<li>Creates an event loop and manages awaiting and closing the pool</li>
+<li>Only one pool allowed at the same time by thread</li>
+</ul>
+
+    </div>
+
     
-  </nav>
+<footer class="post-footer">
+        
+        <nav class="post-nav">
+            
+            <a class="next" href="/post/protocol0-technical-overview/">
+                <span class="next-text nav-default">Protocol 0 technical overview</span>
+                <span class="next-text nav-mobile">Next</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        </nav>
+    </footer>
+</article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

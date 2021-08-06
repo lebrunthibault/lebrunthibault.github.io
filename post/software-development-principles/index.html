@@ -109,13 +109,18 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Software development techniques</h1>
+        <h1 class="post-title">Software development techniques</h1>
 
-      <div class="post-meta">
+        <div class="ais-InstantSearch">
+            <div id="search-bar"></div>
+            <div id="hits"></div>
+            <div id="pagination"></div>
+        </div>
 
-        
-        
-      </div>
+        <div class="post-meta">
+            
+            
+        </div>
     </header>
 
     <div class="post-toc" id="post-toc">
@@ -174,7 +179,7 @@
   </div>
 </div>
     <div class="post-content">
-      <blockquote>
+        <blockquote>
 <p>This is a structured list of thoughts about software development and what techniques I feel leads to strong code.</p>
 <p>I&rsquo;m focusing on the languages I&rsquo;ve used most : Python and PHP. That is on Object Oriented, dynamically typed languages.</p>
 <p>It has a focus on what I would call &ldquo;static code&rdquo;, that is how a codebase answering to a given problem should look like at release time. Not how you get there (development methods, prototyping ..) nor how to test / release / maintain code.</p>
@@ -390,17 +395,21 @@
 
     
 <footer class="post-footer">
-      
-      <nav class="post-nav">
-        <a class="prev" href="/post/protocol0-technical-overview/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Protocol 0 technical overview</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-      </nav>
+        <nav class="post-nav">
+            <a class="prev" href="/post/python/">
+                <i class="iconfont icon-left"></i>
+                <span class="prev-text nav-default">Python 3 notes</span>
+                <span class="prev-text nav-mobile">Prev</span>
+            </a>
+            <a class="next" href="/post/tensorflow/">
+                <span class="next-text nav-default">tensorflow notes</span>
+                <span class="next-text nav-mobile">Next</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        </nav>
     </footer>
-  </article>
+</article>
         </div>
         
 
@@ -431,30 +440,44 @@
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
         integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch-helper@3.4.2/dist/algoliasearch.helper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
         integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
       integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
 <script>
+    const devMode = '' === "dev" ||
+        new URLSearchParams(window.location.search).get("d") ||
+        localStorage.getItem("dev-mode");
+
+    console.log(devMode)
+
+    localStorage.setItem("dev-mode", devMode)
+
     if (document.querySelector("#search-bar")) {
-        loadAlgolia();
+        if (window.location.pathname === "/" || devMode)
+            loadAlgolia();
     }
 
     function loadAlgolia() {
-        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3');
+        const searchClient = algoliasearch('F3KLJN3L59', '')
         const search = instantsearch({
-            indexName: 'blog_prod',
+            indexName: 'blog',
             searchClient,
-            initialUiState: {
-                indexName: {
-                    query: '',
-                },
-            },
             searchFunction: helper => {
+                console.log(helper.state)
                 const query_length = helper.state.query.length
                 if (query_length === 0) {
                     $('#hits').hide()
                 } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
                     helper.search();
                 }
             }
@@ -490,7 +513,7 @@
             instantsearch.widgets.searchBox({
                 container: '#search-bar',
                 placeholder: 'Search for posts',
-                autofocus: false,
+                autofocus: true,
                 showReset: false,
             }),
 
