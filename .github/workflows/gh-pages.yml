@@ -29,9 +29,9 @@ jobs:
         #        run: hugo --minify
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_SEARCH_ONLY_KEY: ${{ secrets.ALGOLIA_SEARCH_ONLY_KEY }}
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-          ALGOLIA_INDEX_FILE: ${{ secrets.ALGOLIA_INDEX_FILE }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
