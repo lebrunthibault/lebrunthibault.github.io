@@ -11,7 +11,7 @@
         Boolean(localStorage.getItem("dev-mode"));
     }
     const devMode = isDevMode()
-    localStorage.setItem("dev-mode",devMode)
+    localStorage.setItem("dev-mode",devMode ? "true": "")
 
     if (devMode) {
         // show all posts including drafts
