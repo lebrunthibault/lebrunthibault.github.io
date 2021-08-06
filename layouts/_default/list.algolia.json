@@ -1,8 +1,0 @@
-{{/* Generates a valid Algolia search index */}}
-{{- $.Scratch.Add "index" slice -}}
-{{- $section := $.Site.GetPage "section" .Section }}
-{{- $paginator := .Paginate (where (where .Site.RegularPages "Type" "post") ".Params.hiddenfromhomepage" "!=" true) }}
-{{- range $paginator.Pages -}}
-  {{- $.Scratch.Add "index" (dict "toc" .TableOfContents "title" .Title "description" .Description "summary" .Summary "content" .PlainWords "keywords" .Keywords "url" .URL "permalink" .Permalink "objectID" .UniqueID )}}
-{{- end -}}
-{{- $.Scratch.Get "index" | jsonify -}}

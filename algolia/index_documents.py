@@ -11,6 +11,8 @@ from dotenv import load_dotenv
 
 from algoliasearch.search_client import SearchClient
 
+project_root = dirname(dirname(realpath(__file__)))
+
 load_dotenv()
 
 
@@ -42,26 +44,31 @@ def get_document_info(post: frontmatter.Post, filename: str):
         "description": post.get("description"),
         "keywords": post.get("keywords"),
         "headers": get_document_headers(post.content),
+        "draft": post.get("draft", False),
         "url": f"/post/{path}"
     }
 
+def push_settings(index):
+    with open(f"{project_root}/algolia/settings.json") as f:
+        settings = json.loads(f.read())
+    res = index.set_settings(settings)
+    print("settings pushed")
 
-def index_documents_in_algolia(build_drafts):
+def index_documents_in_algolia():
     documents_info = []
-    for filename in glob.glob(f"{dirname(realpath(__file__))}/content/post/*.md"):
+    for filename in glob.glob(f"{project_root}/content/post/*.md"):
         post = frontmatter.load(filename)
-        if not post.get("draft") or build_drafts:
-            documents_info.append(get_document_info(post=post, filename=filename))
+        documents_info.append(get_document_info(post=post, filename=filename))
 
     client = SearchClient.create(os.environ.get("ALGOLIA_APP_ID"), os.environ.get("ALGOLIA_ADMIN_KEY"))
     index = client.init_index(os.environ.get("ALGOLIA_INDEX_NAME"))
+    settings = index.get_settings()
     res = index.replace_all_objects(documents_info)
     print(res.responses)
-    with open("./debug.json", "w") as f:
-        f.write(json.dumps(documents_info))
     print(f"{len(documents_info)} documents pushed to index {index.name}")
+
+    push_settings(index)
 
 
 if __name__ == "__main__":
-    build_drafts = os.environ.get("ENV") == "dev"
-    index_documents_in_algolia(build_drafts=build_drafts)
+    index_documents_in_algolia()

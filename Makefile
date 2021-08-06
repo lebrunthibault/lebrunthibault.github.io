@@ -1,4 +1,4 @@
-.PHONY: dev build
+.PHONY: dev build algolia algolia_settings
 
 dev:
 	cls
@@ -10,6 +10,10 @@ build:
 	py start_dev_server.py build
 
 algolia:
+	cls
+	py algolia/index_documents.py
+
+algolia_settings:
 	cls
 	py build_algolia.py
 

@@ -35,16 +35,6 @@ copyright = ""            # default: author.name
 #  identifier = "blog"
 #  url = "/post/"
 
-[outputFormats.Algolia]
-baseName = "algolia"
-isPlainText = true
-mediaType = "application/json"
-notAlternative = true
-
-[params.algolia]
-vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
-params = ["categories", "tags"]
-
 [params]
   version = "4.x"           # Used to give a friendly message when you have an incompatible update
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
@@ -161,7 +151,7 @@ params = ["categories", "tags"]
 #  isHTML = false
 #
 [outputs]
-home = ["HTML", "RSS", "Algolia"]
+home = ["HTML", "RSS"]
 #  page = ["HTML", "MarkDown"]
 #  section = ["HTML", "RSS"]
 #  taxonomy = ["HTML", "RSS"]
