@@ -1,5 +1,5 @@
 ---
-title: "tensorflow notes"
+title: "Tensorflow notes"
 draft: true
 ---
 

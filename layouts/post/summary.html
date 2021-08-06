@@ -1,8 +1,7 @@
 <article class='post {{ cond .Draft "draft" "" }}'>
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+    <h1 class="post-title"><a class="post-link" href="{{ .RelPermalink }}">{{ title .Title }}</a></h1>
     <div class="post-meta">
-<!--      <span class="post-time"> {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }} </span>-->
       {{ with .Params.categories -}}
         <div class="post-category">
           {{ range . -}}
@@ -11,20 +10,16 @@
         </div>
       {{- end }}
       {{- if .Site.Params.moreMeta }}
-        <span class="more-meta"> {{ T "wordCount" .WordCount }} </span>
         <span class="more-meta"> {{ T "readingTime" .ReadingTime }} </span>
       {{- end }}
     </div>
   </header>
   <!-- Content -->
   <div class="post-content">
-      {{ if not .Draft }}
-    <div class="post-summary">
-      {{ .Summary }}
+      {{ if .Description }}
+    <div class="post-description">
+      {{ .Description }}
     </div>
       {{ end }}
-<!--    <div class="read-more">-->
-<!--      <a href="{{ .RelPermalink }}" class="read-more-link">{{ T "readMore" }}</a>-->
-<!--    </div>-->
   </div>
 </article>

@@ -1,6 +1,7 @@
 $logo-font-size: 20px !default;
 $header-padding: 20px 20px 0px 20px !default;
 
+@import '_custom/_dev_mode';
 
 .container {
   position: relative;
@@ -25,18 +26,8 @@ $header-padding: 20px 20px 0px 20px !default;
   }
 
   :not(.post-toc) {
-
-    .post-title {
-      text-align: center;
-      font-size: 30px;
-    }
-
     .post-link {
       transform: none;
-    }
-
-    .post-meta {
-      text-align: center;
     }
 
     h1 {

@@ -16,6 +16,9 @@
     if (devMode) {
         // show all posts including drafts
         Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
     }
 
     if (document.querySelector("#search-bar")) {
