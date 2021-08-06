@@ -1,7 +1,7 @@
 baseURL = "https://lebrunthibault.github.io/"
 languageCode = "en"
 defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
-title = "Home"
+title = "Home."
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true

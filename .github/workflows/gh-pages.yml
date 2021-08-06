@@ -23,9 +23,9 @@ jobs:
 
       - name: Build
         run: |
+          hugo -D
           pip install -r ./requirements.txt
           python algolia/index_documents.py
-          hugo -D
         #        run: hugo --minify
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
