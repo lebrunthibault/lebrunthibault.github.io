@@ -9,8 +9,6 @@
         new URLSearchParams(window.location.search).get("d") !== null ||
         Boolean(localStorage.getItem("dev-mode"));
 
-    console.log(devMode)
-
     localStorage.setItem("dev-mode", devMode)
 
     if (document.querySelector("#search-bar")) {
@@ -25,7 +23,6 @@
             indexName: '{{ getenv "ALGOLIA_INDEX_NAME" }}',
             searchClient,
             searchFunction: helper => {
-                console.log(helper.state)
                 const query_length = helper.state.query.length
                 if (query_length === 0) {
                     $('#hits').hide()
@@ -44,7 +41,6 @@
         });
 
         function itemToHtml(item) {
-            console.log(item)
             title = item._highlightResult.title.value || item.title
             description = item.description && item._highlightResult.description.value
             description = description ? description : ""
@@ -60,7 +56,6 @@
                 headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
             }
             headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
-            console.log(headers_matched)
             return `<a href="${item.url}">
                         <div class="title">${title}</div>
                         <div class="description">${description}</div>
