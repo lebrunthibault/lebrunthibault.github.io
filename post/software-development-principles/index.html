@@ -394,20 +394,7 @@
 
     
 <footer class="post-footer">
-        
-        <nav class="post-nav">
-            <a class="prev" href="/post/python/">
-                <i class="iconfont icon-left"></i>
-                <span class="prev-text nav-default">Python 3 notes</span>
-                <span class="prev-text nav-mobile">Prev</span>
-            </a>
-            <a class="next" href="/post/tensorflow/">
-                <span class="next-text nav-default">Tensorflow notes</span>
-                <span class="next-text nav-mobile">Next</span>
-                <i class="iconfont icon-right"></i>
-            </a>
-        </nav>
-    </footer>
+        </footer>
 </article>
         </div>
         
@@ -450,13 +437,10 @@
         new URLSearchParams(window.location.search).get("d") !== null ||
         Boolean(localStorage.getItem("dev-mode"));
 
-        console.log(isDevMode)
-
         
         return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
     }
     const devMode = isDevMode()
-    console.log(devMode)
     localStorage.setItem("dev-mode",devMode ? "true": "")
 
     if (devMode) {

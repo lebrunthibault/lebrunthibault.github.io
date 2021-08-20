@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="notes" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="notes de" /><meta name="keywords" content="" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Tensorflow notes" />
-<meta property="og:description" content="notes" />
+<meta property="og:description" content="notes de" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/tensorflow/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-08-20T01:04:31+02:00" />
+<meta property="article:modified_time" content="2021-08-20T02:19:36+02:00" />
 
 <meta itemprop="name" content="Tensorflow notes">
-<meta itemprop="description" content="notes">
-<meta itemprop="dateModified" content="2021-08-20T01:04:31+02:00" />
-<meta itemprop="wordCount" content="1">
+<meta itemprop="description" content="notes de">
+<meta itemprop="dateModified" content="2021-08-20T02:19:36+02:00" />
+<meta itemprop="wordCount" content="2">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tensorflow notes"/>
-<meta name="twitter:description" content="notes"/>
+<meta name="twitter:description" content="notes de"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -130,23 +130,14 @@
 </div>
     <div class="post-content">
         <blockquote>
-<p>notes</p>
+<p>notes de</p>
 </blockquote>
 
     </div>
 
     
 <footer class="post-footer">
-        
-        <nav class="post-nav">
-            <a class="prev" href="/post/software-development-principles/">
-                <i class="iconfont icon-left"></i>
-                <span class="prev-text nav-default">Software development techniques</span>
-                <span class="prev-text nav-mobile">Prev</span>
-            </a>
-            
-        </nav>
-    </footer>
+        </footer>
 </article>
         </div>
         
@@ -189,13 +180,10 @@
         new URLSearchParams(window.location.search).get("d") !== null ||
         Boolean(localStorage.getItem("dev-mode"));
 
-        console.log(isDevMode)
-
         
         return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
     }
     const devMode = isDevMode()
-    console.log(devMode)
     localStorage.setItem("dev-mode",devMode ? "true": "")
 
     if (devMode) {

@@ -176,20 +176,7 @@
 
     
 <footer class="post-footer">
-        
-        <nav class="post-nav">
-            <a class="prev" href="/post/protocol0-technical-overview/">
-                <i class="iconfont icon-left"></i>
-                <span class="prev-text nav-default">Protocol0 technical overview</span>
-                <span class="prev-text nav-mobile">Prev</span>
-            </a>
-            <a class="next" href="/post/software-development-principles/">
-                <span class="next-text nav-default">Software development techniques</span>
-                <span class="next-text nav-mobile">Next</span>
-                <i class="iconfont icon-right"></i>
-            </a>
-        </nav>
-    </footer>
+        </footer>
 </article>
         </div>
         
@@ -232,13 +219,10 @@
         new URLSearchParams(window.location.search).get("d") !== null ||
         Boolean(localStorage.getItem("dev-mode"));
 
-        console.log(isDevMode)
-
         
         return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
     }
     const devMode = isDevMode()
-    console.log(devMode)
     localStorage.setItem("dev-mode",devMode ? "true": "")
 
     if (devMode) {
