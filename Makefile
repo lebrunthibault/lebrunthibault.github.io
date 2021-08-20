@@ -12,5 +12,6 @@ algolia:
 
 
 push:
+	git add .
 	git commit -a -m "change"
 	git push
