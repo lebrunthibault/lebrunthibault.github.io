@@ -3,5 +3,5 @@ title: "Tensorflow notes"
 draft: true
 ---
 
-> notes
+> notes de
 
