@@ -103,12 +103,23 @@
             }
         });
 
+        // hide / show search bar
         $('.ais-InstantSearch').on('click keypress', function (event) {
             $('#hits').show()
         });
 
+
         $('.ais-SearchBox-input').on('focus', function (event) {
             $('#hits').show()
         });
+
+
+        // pressing enter simulates click on 1st search result 
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
     }
 </script>
