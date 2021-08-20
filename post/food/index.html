@@ -333,13 +333,24 @@ wholesale gate is estimated at 0.25 – 0.30 kg per kg of tuna</p>
             }
         });
 
+        
         $('.ais-InstantSearch').on('click keypress', function (event) {
             $('#hits').show()
         });
 
+
         $('.ais-SearchBox-input').on('focus', function (event) {
             $('#hits').show()
         });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
     }
 </script>
 
