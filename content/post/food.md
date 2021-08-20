@@ -5,9 +5,7 @@ keywords:
   - Food / Fish
   - Thon / Tuna
   - Carbon footprint / Empreinte CO2
-
 ---
-
 
 
 - https://solutionslocales.fr/arreter-manger-poisson/
