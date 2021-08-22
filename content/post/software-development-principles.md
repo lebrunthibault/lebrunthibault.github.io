@@ -129,6 +129,19 @@ The canonical way to use inheritance is when we have different kind of classes r
 - Delegation
 - Mixins
 
+
+
+## How can we abstract multiple similar classes ?
+
+- Create an interface
+- Interface default implementation can be :
+  - In an abstract class 
+  - In a mixin
+- Using the interface + mixin is the most modular as any client class can declare implementing different interfaces --> best
+- We can still have client classes extending an abstract class for common stuff to all classes. This abstract class should not implement any interface.
+
+
+
 ## Building interfaces
 
 - Law of Demeter : a class should not expose sub objects only a clean and minimal interface. See [Wikipedia](https://fr.wikipedia.org/wiki/Loi_de_D%C3%A9m%C3%A9ter) 

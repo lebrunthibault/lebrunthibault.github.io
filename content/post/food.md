@@ -2,7 +2,8 @@
 title: "Food notes"
 draft: true
 keywords:
-  - Food / Fish
+  - Food
+  - Poisson / Fish
   - Thon / Tuna
   - Carbon footprint / Empreinte CO2
 ---
