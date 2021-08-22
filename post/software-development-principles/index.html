@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/software-development-principles/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-08-05T19:10:57+02:00" />
+<meta property="article:modified_time" content="2021-08-22T18:59:30+02:00" />
 
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques notes">
-<meta itemprop="dateModified" content="2021-08-05T19:10:57+02:00" />
-<meta itemprop="wordCount" content="1578">
+<meta itemprop="dateModified" content="2021-08-22T18:59:30+02:00" />
+<meta itemprop="wordCount" content="1646">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques notes"/>
@@ -154,6 +154,7 @@
             <li><a href="#solutions">Solutions</a></li>
           </ul>
         </li>
+        <li><a href="#how-can-we-abstract-multiple-similar-classes-">How can we abstract multiple similar classes ?</a></li>
         <li><a href="#building-interfaces">Building interfaces</a></li>
         <li><a href="#state">State</a></li>
         <li><a href="#other-principles">Other principles</a></li>
@@ -295,6 +296,18 @@
 <li>Interfaces</li>
 <li>Delegation</li>
 <li>Mixins</li>
+</ul>
+<h2 id="how-can-we-abstract-multiple-similar-classes-">How can we abstract multiple similar classes ?</h2>
+<ul>
+<li>Create an interface</li>
+<li>Interface default implementation can be :
+<ul>
+<li>In an abstract class</li>
+<li>In a mixin</li>
+</ul>
+</li>
+<li>Using the interface + mixin is the most modular as any client class can declare implementing different interfaces &ndash;&gt; best</li>
+<li>We can still have client classes extending an abstract class for common stuff to all classes. This abstract class should not implement any interface.</li>
 </ul>
 <h2 id="building-interfaces">Building interfaces</h2>
 <ul>
