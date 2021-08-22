@@ -30,14 +30,14 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2021-08-22T19:25:03+02:00</lastmod>
+    <lastmod>2021-08-22T19:33:16+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2021-08-22T19:25:03+02:00</lastmod>
+    <lastmod>2021-08-22T19:33:16+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -52,6 +52,13 @@
   <url>
     <loc>https://lebrunthibault.github.io/post/python/</loc>
     <lastmod>2021-08-06T20:21:51+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/rome/</loc>
+    <lastmod>2021-08-22T19:33:16+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
