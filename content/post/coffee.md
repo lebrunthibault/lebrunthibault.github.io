@@ -2,8 +2,8 @@
 title: "Coffee notes"
 draft: true
 keywords:
-	- Food
-	- Café / Coffee
+  - Food
+  - Café / Coffee
 ---
 
 
