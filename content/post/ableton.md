@@ -14,6 +14,7 @@ draft: true
 - Install Ableton
 - Change the env var ableton_version
 - Copy back :
+  - git clone protocol0 and **checkout dev** 
   - Protocol0 script with name **a_protocol_0**
   - Protocol0 midi script
   - Clyphx Pro
@@ -27,4 +28,8 @@ from _Framework.ControlSurface import ControlSurface
 def create_instance(c_instance):  # noqa
     return ControlSurface(c_instance)
 ```
+
+## Changing tempo from a midi clip in session view
+
+> See [this video](https://www.google.com/search?q=ableton+use+clip+automation+in+session+view+tempo&sxsrf=ALeKk03sqbx6h2aMlrhmod7qNzUIMzUX4A:1630011657440&ei=CQEoYeG1GoedlwSt5rzoBA&start=0&sa=N&ved=2ahUKEwih3sjOys_yAhWHzoUKHS0zD004ChDx0wN6BAgBEEA&biw=1536&bih=722#kpvalbx=_AgEoYevHEsvwaMj1reAN41)
 
