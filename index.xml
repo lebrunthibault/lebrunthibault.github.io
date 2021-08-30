@@ -52,6 +52,15 @@
     </item>
     
     <item>
+      <title>Protocol0 dev common problems</title>
+      <link>https://lebrunthibault.github.io/post/protocol0-dev-common-problems/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/protocol0-dev-common-problems/</guid>
+      <description>Protocol0 dev common problems Pycharm  Files and folders not showing in project view : solution  Ableton   Live tempo slows down and no sound:</description>
+    </item>
+    
+    <item>
       <title>Protocol0 technical overview</title>
       <link>https://lebrunthibault.github.io/post/protocol0-technical-overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -94,6 +103,15 @@
       
       <guid>https://lebrunthibault.github.io/post/tensorflow/</guid>
       <description>notes de</description>
+    </item>
+    
+    <item>
+      <title>Windows tricks</title>
+      <link>https://lebrunthibault.github.io/post/windows-tricks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/windows-tricks/</guid>
+      <description>Windows tricks  Pin to start any file  </description>
     </item>
     
   </channel>
