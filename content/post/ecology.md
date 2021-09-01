@@ -6,14 +6,56 @@ keywords:
   - Carbon footprint / Empreinte CO2
 ---
 
+
+
+**Vocabulary**
+
+- Greenhouse gas: gas a effet de serre
+
+
+
 # Transport
-- [sea vs plane](https://www.sourcinghub.io/air-freight-vs-sea-freight-carbon-footprint/)
 
-> Airplanes emit 500 grams of CO2 per metric ton of freight per km of transportation, while transport ships emit only 10 to 40 grams of CO2 per kilometer.
+<img src="https://ourworldindata.org/uploads/2020/10/Transport-CO2-emissions-by-mode-bar-chart-1536x606.png" style="zoom:50%;" />
 
-![](https://www.sciencepresse.qc.ca/sites/default/files/inline-images/transport%20maritime-Infographie.png)
+> [sea vs plane](https://www.sourcinghub.io/air-freight-vs-sea-freight-carbon-footprint/)
 
 
+
+### Advices for trips (from [this](https://ourworldindata.org/travel-carbon-footprint))
+
+- Walk, cycle or run when possible – this comes with many other benefits such as lower local [air pollution](https://ourworldindata.org/air-pollution) and better health;
+- Trains are nearly always the winning option over moderate-to-long distances;
+- If travelling internationally, going by train or boat is lower-carbon than flying;
+- If travelling domestically, driving – even if it’s alone – is usually better than flying;
+- If it’s a choice between driving or flying internationally, flying economy class is often better;
+- Car-sharing will massively reduce your footprint – it also helps to reduce local [air pollution](https://ourworldindata.org/air-pollution) and congestion;
+- Electric vehicles are nearly always lower-carbon than petrol or diesel cars, especially in a country that produces much of its electricity by renewables or nuclear.
+
+
+
+### Trade
+
+| Mode de transport | Pourcentage  / monde (T*km) in [2018](https://ourworldindata.org/grapher/share-food-miles-by-method) | C02/T/km               |      |
+| ----------------- | ------------------------------------------------------------ | ---------------------- | ---- |
+| Bateau            | 9.9%                                                         | 10 - 40g (lets say 20) |      |
+| Train             | 30.97                                                        | 15                     |      |
+| Avion             | 0.16%                                                        | 500                    |      |
+| Camion            | 58.97                                                        | 75                     |      |
+
+
+
+### Plane
+
+>Passenger emission almost 10% of transport emission
+>
+>Only 2.5% of CO2 emission but [3.5% of effective radiating forcing](https://ourworldindata.org/co2-emissions-from-aviation)
+>
+>particularly hard to decarbonize.
+>
+>Efficiency massively improved since mid 20th. But the travel volume increase outgunned it.  
+
+<img src="https://ourworldindata.org/uploads/2020/10/Global-CO2-emissions-from-aviation.png" style="zoom:35%;" />
 
 
 
