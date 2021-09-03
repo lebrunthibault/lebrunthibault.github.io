@@ -7,7 +7,7 @@ draft: true
 
 Vidéo : [AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE](https://www.youtube.com/watch?v=HQq3lAqYaC0&t=346s)
 
-
+> 0.4% of the world population are international refugees (gapminder.org)
 
 # [Afghanistan](https://fr.wikipedia.org/wiki/Afghanistan)
 
