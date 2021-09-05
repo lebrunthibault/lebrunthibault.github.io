@@ -63,7 +63,7 @@ keywords:
 
 
 
-## Nucélaire
+## Nucléaire
 
 - 75% du mix énergétique
 
@@ -73,6 +73,10 @@ keywords:
 - 4 en france, fournissant en 2020 2% du mix énergétique
 
 
+
+## Eolien
+
+- [La mort du vent à cause des éoliennes](https://www.cher.gouv.fr/content/download/29618/198605/file/Chancenest_Christophe_PJ.pdf) : notamment vent d'ouest en europe artificiellement éteint générant des problèmes de sécheresse.
 
 ## EPI
 
