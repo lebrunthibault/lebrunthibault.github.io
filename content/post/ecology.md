@@ -1,5 +1,5 @@
 ---
-title: "Food notes"
+title: "Ecology"
 draft: true
 keywords:
   - Ecology / Ecologie
