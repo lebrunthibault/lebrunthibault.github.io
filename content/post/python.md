@@ -30,3 +30,14 @@ draft: true
 - `bytes.decode` as options for dealing with bytes unknown to the encoding.
 - The opposite method of [bytes.decode()](https://docs.python.org/3/library/stdtypes.html#bytes.decode) is [str.encode()](https://docs.python.org/3/library/stdtypes.html#str.encode), which returns a [bytes](https://docs.python.org/3/library/stdtypes.html#bytes) representation of the Unicode string, encoded in the requested *encoding*
 
+
+
+# PIP
+
+
+
+- pip install package && pip freeze > requirements.txt
+
+## Windows
+
+- Install precompiled binaries using pipwin (see [stack](https://stackoverflow.com/questions/53866104/pyaudio-failed-to-install-windows-10/53866322))
