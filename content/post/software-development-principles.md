@@ -8,6 +8,7 @@ keywords:
 
 ---
 
+
 > This is a structured list of thoughts about software development and what techniques I feel leads to strong code. 
 >
 > I'm focusing on the languages I've used most : Python and PHP. That is on Object Oriented, dynamically typed languages.
@@ -170,22 +171,33 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 
 
-## Observer
+## Event systems
 
-- Allows hooking inside of a component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough.
-- Simple and strong but introduces coupling when the observers need to register directly on the observable. On events it is the observable that execute the observer methods, it can impact performance.
+> Event systems have all the same goal of decoupling the passage of information between a producer / emitter / subject / observable and a consumer / listener / subscriber / observer.
+>
+> They have very diverse implementations and differ in the way the information is called, passed, dispatched and transmitted to the consumer(s). Decoupling impact can vary as well.
+>
+> Semantically, the producer and consumer can be passive or active in the way they emit / subscribe or are notified.
 
-## Pub / Sub
+### Observer
+
+- Behavioral design pattern, allow hooking inside of an observable component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough (of course the component should implement observable).
+- Simple and strong but introduces coupling when the observers need to register directly on the observable. Makes sense when the coupling already exists and for small problematics.
+{{% code file="/static/code/observer/main.py" language="python" %}}
+
+### Pub / Sub
 
 - Evolution of the observer : the observer is a consumer and the observable does not know about its consumers. Deals well with asynchronous code. Message passing is decoupled from the sender code.
-
 - Scales well.
-
 - Message queuing is a special case of pub/sub[^1]
-
 - Not so easy to grasp at first side as the public / subscribe are done in different places.
 
   
+### Event bus
+
+- Event systems can be heavy, sometimes a simple event bus that acts as global state is simpler to handle
+- Objects can emit event directly on the bus and subscribers can subscribe to events. Somehow pub/sub
+
 
 ## Reactive programming[^2]
 
@@ -214,6 +226,15 @@ A way to centralise the service interface definition is to have it available as 
 Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead
 
 
+
+# [SOLID](https://en.wikipedia.org/wiki/SOLID)
+
+- The [Single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle): "There should never be more than one reason for a [class](https://en.wikipedia.org/wiki/Class_(computer_programming)) to change."[[5\]](https://en.wikipedia.org/wiki/SOLID#cite_note-5) In other words, every class should have only one responsibility.[[6\]](https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6)
+- The [Open–closed principle](https://en.wikipedia.org/wiki/Open–closed_principle): "Software entities ... should be open for extension, but closed for modification."[[7\]](https://en.wikipedia.org/wiki/SOLID#cite_note-7)
+  Open for extension would mean association and interfaces using dependency injection
+- The [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle): "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."[[8\]](https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8) See also [design by contract](https://en.wikipedia.org/wiki/Design_by_contract).[[8\]](https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8)
+- The [Interface segregation principle](https://en.wikipedia.org/wiki/Interface_segregation_principle): "Many client-specific interfaces are better than one general-purpose interface."[[9\]](https://en.wikipedia.org/wiki/SOLID#cite_note-9)[[4\]](https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4)
+- The [Dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle): "Depend upon abstractions, [not] concretions."[[10\]](https://en.wikipedia.org/wiki/SOLID#cite_note-10)[[4\]](https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4)
 
 # ETC
 

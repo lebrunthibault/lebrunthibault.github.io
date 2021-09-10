@@ -1,6 +1,8 @@
 $logo-font-size: 20px !default;
 $header-padding: 20px 20px 0px 20px !default;
 
+@import '_custom/_accordion';
+@import '_custom/_code';
 @import '_custom/_dev_mode';
 
 .container {

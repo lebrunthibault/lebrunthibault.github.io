@@ -1,7 +1,6 @@
 .PHONY: dev build algolia
 
 dev:
-	make algolia
 	python start_dev_server.py dev
 
 build:

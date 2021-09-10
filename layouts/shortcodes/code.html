@@ -1,0 +1,3 @@
+{{ $filename := .Get "file" }}
+{{ $out := readFile $filename }}
+<pre class="drop-down-menu"><input type="checkbox" class="activate" id="accordion" name="accordion"><label for="accordion" class="menu-title">Code example <i class="gg-chevron gg-chevron-down"></i><i class="gg-chevron gg-chevron-up"></i></label><pre class="drop-down"><code class="language-python">{{ printf "%s" $out }}</code></pre></pre>
