@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.c048420346ac4950ac9ccc03fd81d3727d23435307081c25da8976e9a9526cd5.css" rel="stylesheet">
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/software-development-principles/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-08-22T18:59:30+02:00" />
+<meta property="article:modified_time" content="2021-09-10T23:53:49+02:00" />
 
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques notes">
-<meta itemprop="dateModified" content="2021-08-22T18:59:30+02:00" />
-<meta itemprop="wordCount" content="1646">
+<meta itemprop="dateModified" content="2021-09-10T23:53:49+02:00" />
+<meta itemprop="wordCount" content="2062">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques notes"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 8 mins read </span>
+            <span class="more-meta"> 10 mins read </span>
         </div>
     </header>
 
@@ -163,12 +163,18 @@
     <li><a href="#design-patterns">Design Patterns</a>
       <ul>
         <li><a href="#finite-state-machines">Finite State Machines</a></li>
-        <li><a href="#observer">Observer</a></li>
-        <li><a href="#pub--sub">Pub / Sub</a></li>
+        <li><a href="#event-systems">Event systems</a>
+          <ul>
+            <li><a href="#observer">Observer</a></li>
+            <li><a href="#pub--sub">Pub / Sub</a></li>
+            <li><a href="#event-bus">Event bus</a></li>
+          </ul>
+        </li>
         <li><a href="#reactive-programming2">Reactive programming</a></li>
         <li><a href="#client---service-communication-via-schema">Client - Service communication via schema</a></li>
       </ul>
     </li>
+    <li><a href="#solidhttpsenwikipediaorgwikisolid"><a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a></a></li>
     <li><a href="#etc">ETC</a>
       <ul>
         <li><a href="#error-handling">Error handling</a></li>
@@ -335,25 +341,106 @@
 <li>Centralizes the state transformation away from the core logic</li>
 <li>Use an enum for states</li>
 </ul>
-<h2 id="observer">Observer</h2>
+<h2 id="event-systems">Event systems</h2>
+<blockquote>
+<p>Event systems have all the same goal of decoupling the passage of information between a producer / emitter / subject / observable and a consumer / listener / subscriber / observer.</p>
+<p>They have very diverse implementations and differ in the way the information is called, passed, dispatched and transmitted to the consumer(s). Decoupling impact can vary as well.</p>
+<p>Semantically, the producer and consumer can be passive or active in the way they emit / subscribe or are notified.</p>
+</blockquote>
+<h3 id="observer">Observer</h3>
 <ul>
-<li>Allows hooking inside of a component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough.</li>
-<li>Simple and strong but introduces coupling when the observers need to register directly on the observable. On events it is the observable that execute the observer methods, it can impact performance.</li>
+<li>Behavioral design pattern, allow hooking inside of an observable component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough (of course the component should implement observable).</li>
+<li>Simple and strong but introduces coupling when the observers need to register directly on the observable. Makes sense when the coupling already exists and for small problematics.</li>
 </ul>
-<h2 id="pub--sub">Pub / Sub</h2>
+<pre class="drop-down-menu"><input type="checkbox" class="activate" id="accordion" name="accordion"><label for="accordion" class="menu-title">Code example <i class="gg-chevron gg-chevron-down"></i><i class="gg-chevron gg-chevron-up"></i></label><pre class="drop-down"><code class="language-python">&#34;&#34;&#34; Originally copied from the simpler https://www.geeksforgeeks.org/observer-method-python-design-patterns/&#34;&#34;&#34;
+from dataclasses import dataclass
+from enum import Enum
+from typing import List, Optional, Any, Callable
+
+
+class EventTypeEnum(Enum):
+	UPDATE_DATA = &#34;UPDATE_DATA&#34;
+
+
+@dataclass()
+class Event:
+    &#34;&#34;&#34; The observer pattern can be even simpler without events just a notification &#34;&#34;&#34;
+    type: EventTypeEnum
+    data: Optional[Any]
+    source: &#34;Observable&#34; = None
+
+
+Observer = Callable[[Event], None]
+
+
+class Observable:
+    def __init__(self):
+        self._observers: List[Observer] = []
+
+    def notify(self, event: Optional[Event]):
+        &#34;&#34;&#34;Alert the observers&#34;&#34;&#34;
+        event.source = self
+        for observer in self._observers:
+            observer(event)
+
+    # noinspection PyUnusedLocal
+    def attach(self, observer: Observer, type: EventTypeEnum = None):
+        &#34;&#34;&#34;
+            If the observer is not in the list, append it into the list
+            we could also attach on a specific event
+        &#34;&#34;&#34;
+        if observer not in self._observers:
+            self._observers.append(observer)
+
+    def detach(self, observer: Observer):
+        &#34;&#34;&#34;Remove the observer from the observer list&#34;&#34;&#34;
+        try:
+            self._observers.remove(observer)
+        except ValueError:
+            pass
+
+
+class Data(Observable):
+    &#34;&#34;&#34;monitor the object&#34;&#34;&#34;
+
+    def __init__(self, name=&#39;&#39;):
+        Observable.__init__(self)
+        self.name = name
+        self._data = 0
+
+    @property
+    def data(self):
+        return self._data
+
+    @data.setter
+    def data(self, value: int):
+        self._data = value
+        self.notify(Event(type=EventTypeEnum.UPDATE_DATA, data=value))
+
+
+def receive_from_data(event: Event):
+    print(f&#34;Received {event}&#34;)
+
+
+if __name__ == &#34;__main__&#34;:
+    obj1 = Data(&#39;Data 1&#39;)
+
+    obj1.attach(receive_from_data)
+
+    obj1.data = 10
+    obj1.data = 15
+</code></pre></pre>
+<h3 id="pub--sub">Pub / Sub</h3>
 <ul>
-<li>
-<p>Evolution of the observer : the observer is a consumer and the observable does not know about its consumers. Deals well with asynchronous code. Message passing is decoupled from the sender code.</p>
-</li>
-<li>
-<p>Scales well.</p>
-</li>
-<li>
-<p>Message queuing is a special case of pub/sub<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
-</li>
-<li>
-<p>Not so easy to grasp at first side as the public / subscribe are done in different places.</p>
-</li>
+<li>Evolution of the observer : the observer is a consumer and the observable does not know about its consumers. Deals well with asynchronous code. Message passing is decoupled from the sender code.</li>
+<li>Scales well.</li>
+<li>Message queuing is a special case of pub/sub<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>Not so easy to grasp at first side as the public / subscribe are done in different places.</li>
+</ul>
+<h3 id="event-bus">Event bus</h3>
+<ul>
+<li>Event systems can be heavy, sometimes a simple event bus that acts as global state is simpler to handle</li>
+<li>Objects can emit event directly on the bus and subscribers can subscribe to events. Somehow pub/sub</li>
 </ul>
 <h2 id="reactive-programming2">Reactive programming<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
 <ul>
@@ -377,6 +464,15 @@
 <li>Have a typing experience approaching the one inside the rest of the codebase.</li>
 </ul>
 <p>Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead</p>
+<h1 id="solidhttpsenwikipediaorgwikisolid"><a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a></h1>
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single-responsibility principle</a>: &ldquo;There should never be more than one reason for a <a href="https://en.wikipedia.org/wiki/Class_(computer_programming)">class</a> to change.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-5">5]</a> In other words, every class should have only one responsibility.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6">6]</a></li>
+<li>The <a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open–closed principle</a>: &ldquo;Software entities &hellip; should be open for extension, but closed for modification.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-7">7]</a>
+Open for extension would mean association and interfaces using dependency injection</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a>: &ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a> See also <a href="https://en.wikipedia.org/wiki/Design_by_contract">design by contract</a>.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a></li>
+<li>The <a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a>: &ldquo;Many client-specific interfaces are better than one general-purpose interface.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-9">9]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a></li>
+<li>The <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion principle</a>: &ldquo;Depend upon abstractions, [not] concretions.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-10">10]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a></li>
+</ul>
 <h1 id="etc">ETC</h1>
 <h2 id="error-handling">Error handling</h2>
 <ul>
@@ -562,6 +658,11 @@
 
     }
 </script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
 
 
 </body>
