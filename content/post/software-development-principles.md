@@ -9,19 +9,7 @@ keywords:
 ---
 
 
-> This is a structured list of thoughts about software development and what techniques I feel leads to strong code. 
->
-> I'm focusing on the languages I've used most : Python and PHP. That is on Object Oriented, dynamically typed languages.
->
-> It has a focus on what I would call "static code", that is how a codebase answering to a given problem should look like at release time. Not how you get there (development methods, prototyping ..) nor how to test / release / maintain code. 
->
-> It's a work in progress.
->
-> <br/>
->
-> Even though many concepts are well known, I'm writing them down the way I understand them.
->
-> <br/>
+> I'm focusing on the languages I've used most : Python and PHP.
 >
 > I've structured this document as going from lower level development techniques to higher level concepts like design patterns.
 
@@ -158,6 +146,14 @@ The canonical way to use inheritance is when we have different kind of classes r
 - Uniform access: hide the implementation details (see [Encapsulation](#encapsulation)]). Python's `@property`
 
 # Design Patterns {#design-patterns}
+
+> When should we use patterns ? At any time of the development process. But usually when refactoring. Say
+>
+> - first try : simple implementation tight to specific classes
+> - second try: still the same
+> - third try : refactoring using design patterns
+
+
 
 ## Finite State Machines
 

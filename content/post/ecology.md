@@ -45,6 +45,14 @@ keywords:
 
 
 
+Passenger transport
+
+- Cruise ship is the worse: emitting around 400 g / passenger / km
+  - See https://www.theguardian.com/travel/2006/dec/20/cruises.green. and [this](https://www.researchgate.net/publication/46496377_Carbon_emissions_from_international_cruise_ship_passengers'_travel_to_and_from_New_Zealand) 
+  - Considered 3 to 8 times more polluting than plane
+
+NB: cruise ship seem to average at 390 g / / km
+
 ### Plane
 
 >Passenger emission almost 10% of transport emission
