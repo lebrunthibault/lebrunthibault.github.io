@@ -1,6 +1,11 @@
-# Api
+---
+title: "API management"
+draft: true
+---
 
-- APi landscape
+# Api management
+
+- API landscape : ensemble of API
 
 - interface / implementation / instance
 - API pillars : common to all APIs

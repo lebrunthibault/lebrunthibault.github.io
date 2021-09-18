@@ -37,6 +37,8 @@ def get_document_headers(content: str):
 
 def get_document_info(post: frontmatter.Post, filename: str):
     title: str = post.get('title')
+    if not title:
+        return None
     path = basename(filename).replace(".md", "")
     return {
         "objectID": title,
@@ -58,7 +60,9 @@ def index_documents_in_algolia():
     documents_info = []
     for filename in glob.glob(f"{project_root}/content/post/*.md"):
         post = frontmatter.load(filename)
-        documents_info.append(get_document_info(post=post, filename=filename))
+        document_info = get_document_info(post=post, filename=filename)
+        if document_info:
+            documents_info.append(document_info)
 
     client = SearchClient.create(os.environ.get("ALGOLIA_APP_ID"), os.environ.get("ALGOLIA_ADMIN_KEY"))
     index = client.init_index(os.environ.get("ALGOLIA_INDEX_NAME"))
