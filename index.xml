@@ -25,6 +25,15 @@
     </item>
     
     <item>
+      <title>API management</title>
+      <link>https://lebrunthibault.github.io/post/api-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/api-management/</guid>
+      <description>Api management   API landscape : ensemble of API</description>
+    </item>
+    
+    <item>
       <title>Asyncio notes</title>
       <link>https://lebrunthibault.github.io/post/asyncio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -97,6 +106,15 @@
     </item>
     
     <item>
+      <title>Head first design patterns</title>
+      <link>https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/</guid>
+      <description>1. Intro to design patterns Example of ducks (quacking, flying)</description>
+    </item>
+    
+    <item>
       <title>Politique</title>
       <link>https://lebrunthibault.github.io/post/politique/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -133,6 +151,15 @@
     </item>
     
     <item>
+      <title>Refactoring to patterns</title>
+      <link>https://lebrunthibault.github.io/post/book-review-refactoring-to-patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/book-review-refactoring-to-patterns/</guid>
+      <description>Test-driven development and continuous refactoring, two of the many excellent XP practices</description>
+    </item>
+    
+    <item>
       <title>Rome notes</title>
       <link>https://lebrunthibault.github.io/post/rome/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -147,7 +174,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/software-development-principles/</guid>
-      <description>This is a structured list of thoughts about software development and what techniques I feel leads to strong code.</description>
+      <description>I&amp;rsquo;m focusing on the languages I&amp;rsquo;ve used most : Python and PHP.</description>
     </item>
     
     <item>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Afghanistan notes - Home</title>
+  <title>Head first design patterns - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="1. Intro to design patterns Example of ducks (quacking, flying)" /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/afghanistan/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Afghanistan notes" />
-<meta property="og:description" content="Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE" />
+<meta property="og:title" content="Head first design patterns" />
+<meta property="og:description" content="1. Intro to design patterns Example of ducks (quacking, flying)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/afghanistan/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-18T14:18:54+02:00" />
+<meta property="article:modified_time" content="2021-09-18T14:01:45+02:00" />
 
-<meta itemprop="name" content="Afghanistan notes">
-<meta itemprop="description" content="Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE">
-<meta itemprop="dateModified" content="2021-09-18T14:18:54+02:00" />
-<meta itemprop="wordCount" content="332">
+<meta itemprop="name" content="Head first design patterns">
+<meta itemprop="description" content="1. Intro to design patterns Example of ducks (quacking, flying)">
+<meta itemprop="dateModified" content="2021-09-18T14:01:45+02:00" />
+<meta itemprop="wordCount" content="376">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Afghanistan notes"/>
-<meta name="twitter:description" content="Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE"/>
+<meta name="twitter:title" content="Head first design patterns"/>
+<meta name="twitter:description" content="1. Intro to design patterns Example of ducks (quacking, flying)"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,7 +114,7 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">Afghanistan notes</h1>
+        <h1 class="post-title">Head first design patterns</h1>
 
         <div class="post-meta">
             
@@ -127,71 +127,61 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#afghanistanhttpsfrwikipediaorgwikiafghanistan"><a href="https://fr.wikipedia.org/wiki/Afghanistan">Afghanistan</a></a></li>
-    <li><a href="#période-comuniste">Période Comuniste</a>
+    <li><a href="#1-intro-to-design-patterns">1. Intro to design patterns</a>
       <ul>
         <li>
           <ul>
-            <li><a href="#départ-des-communistes">Départ des communistes</a></li>
-            <li><a href="#les-talibans">Les talibans</a></li>
-            <li><a href="#2001">2001</a></li>
+            <li></li>
           </ul>
         </li>
       </ul>
     </li>
+    <li><a href="#4-the-factory-pattern">4. The factory pattern</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-        <p>Vidéo : <a href="https://www.youtube.com/watch?v=HQq3lAqYaC0&amp;t=346s">AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE</a></p>
-<blockquote>
-<p>0.4% of the world population are international refugees (gapminder.org)</p>
-</blockquote>
-<h1 id="afghanistanhttpsfrwikipediaorgwikiafghanistan"><a href="https://fr.wikipedia.org/wiki/Afghanistan">Afghanistan</a></h1>
+        <h1 id="1-intro-to-design-patterns">1. Intro to design patterns</h1>
+<p>Example of ducks (quacking, flying)</p>
 <ul>
-<li>37 millions d&rsquo;habitants</li>
-<li>3 fois moins dense que la France (env 30 habitants / km2)</li>
-<li>Pays très montagneux</li>
-<li>Entouré par le pakistan, l&rsquo;Iran, le Turkménistan, Le Tadjikistan</li>
-<li>Tribal (Tadjiks, Turkmènes etc ..)</li>
-<li>Av. 1970 : Emirats puis Royaume</li>
+<li>Example 1 : abstract duck class with display(), quack(), fly(): tight coupling to the superclass, behavior not modifiable at run time</li>
+<li>Example 2 : Using Flyable and Quackable interfaces: code duplication in all subclasses. No code reuse</li>
 </ul>
-<h1 id="période-comuniste">Période Comuniste</h1>
+<p>Advice:</p>
 <blockquote>
-<p>En 1978, coup d&rsquo;état pendant la <strong>Révolution de Saur</strong> instigé par le parti communiste afghan</p>
-<p>Début de l&rsquo;instabilité chronique en Aghanistan</p>
+<p>Identify the aspects of your application that vary and separate them from what stays the same.</p>
+<p>take the parts that vary and encapsulate them, so that later you can alter or extend the parts that vary without affecting those that don’t.</p>
 </blockquote>
-<p>Les Russes interviennent militairement et craignent :</p>
 <ul>
-<li>Les  <a href="https://fr.wikipedia.org/wiki/Moudjahid">moudjahidines</a> : rebelles afghans armés et soutenus par le Pakistan mais aussi les USA.</li>
-<li>Le président, finalement assassiné</li>
+<li>Example 3 : isolate (encapsulate) behaviors in specific class implementing an interface.</li>
 </ul>
-<p>Le moudjahidines sont aussi soutenus par les état du golfe persique (dont Arabie Saoudite, pour aider au djihad), dont Oussama Ben Laden, aide financière.</p>
-<p>Les russes tiennent les grandes villes et principales routes mais pas les zones montagneuses.</p>
+<p><img src="C:\Users\thiba\Downloads\Capture.PNG" alt="Capture" style="zoom:50%;" /></p>
+<h4 id="program-to-an-interface-really-means-program-to-a-supertype">“Program to an interface” really means “Program to a supertype.”</h4>
 <blockquote>
-<p>les insurgés sont soutenus par une grande part de la population</p>
+<p>An abstract supertype (could be an abstract class OR interface). The important part is that we don&rsquo;t know the concrete type. That&rsquo;s what program to an interface really means.</p>
 </blockquote>
-<h3 id="départ-des-communistes">Départ des communistes</h3>
-<p>En 1989, laisse les afghans seuls face aux groupes armés et tombe en 1992.</p>
+<p><strong>What we get</strong>:</p>
+<p>With this design, other types of objects can reuse our fly and quack behaviors because these behaviors are no longer hidden away in our Duck classes! And we can add new behaviors without modifying any of our existing behavior classes or touching any of the Duck classes that use flying behaviors.</p>
+<p>Also : we can add setters to modify behaviors at run time (e.g. start with default implementation and modify it in a factory method)</p>
+<p><em>comment: using association coupled with interface moves the complexity and change to another axis making it more manageable</em></p>
+<p>**Vocabulary: ** set of behavior == family of algorithm</p>
+<h4 id="design-principles">Design principles:</h4>
+<ul>
+<li>Identify the aspects of your application that vary and separate them from what stays the same.</li>
+<li>Program to an interface, not an implementation.</li>
+<li>Favor composition over inheritance.</li>
+</ul>
+<p>**Composition: ** Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behavior at runtime</p>
 <blockquote>
-<p>1992: Afghanistan devient l&rsquo;etat islamique d&rsquo;afghanistan.</p>
-<p>Kaboul est bombardé durant le conflit entre les différents chefs de guerre</p>
+<p>We spend more time in maintaining than developing. We should favor maintainability and extensibility over reuse. That is composition over inheritance.</p>
 </blockquote>
-<h3 id="les-talibans">Les talibans</h3>
-<ul>
-<li>Apparaissent en 1994 en réaction au chaos créée par la guerre civile entre les différentes tribus</li>
-<li>Rassurent la population car obéissent à une loi (la charia), ce qui tranche avec le chaos</li>
-<li>Période talibane : 1996 - 2001 (<strong>Émirat islimaique d&rsquo;Afghanistan</strong>)</li>
-<li>Un seul territoire résiste dans le Nord avec ce qui reste des forces militaires tribales: <strong>l&rsquo;Alliance du Nord</strong>, dirigé par le commandant <strong>Massoud</strong></li>
-<li>Les talibans sont soutenus par le Pakistan qui voient en eux un avenir stabilisé avec développement commercial et consensus idéologique (plus proche que Massoud).</li>
-</ul>
-<h3 id="2001">2001</h3>
-<ul>
-<li>Après le World Trade Center, intervention militaire américaine et britannique (bombardements + au sol) contre les positions talibanes, accusés d&rsquo;avoir aidé à développer le terrorisme.</li>
-<li>L&rsquo;alliance du Nord lance une offensive victorieuse sur Kaboul, le régime taliban tombe.</li>
-<li>Le nouveau gouvernement a très peu de pouvoirs sur le territoire</li>
-</ul>
+<p>&ndash;&gt; We used the <strong>strategy pattern</strong> : The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+<h1 id="4-the-factory-pattern">4. The factory pattern</h1>
+<blockquote>
+<p>Using the new is coding against an implementation and not an interface</p>
+</blockquote>
+<p><strong>problem</strong>: a classical approach</p>
 
     </div>
 

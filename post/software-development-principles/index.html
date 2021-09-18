@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/software-development-principles/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-10T23:53:49+02:00" />
+<meta property="article:modified_time" content="2021-09-18T14:10:26+02:00" />
 
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques notes">
-<meta itemprop="dateModified" content="2021-09-10T23:53:49+02:00" />
-<meta itemprop="wordCount" content="2062">
+<meta itemprop="dateModified" content="2021-09-18T14:10:26+02:00" />
+<meta itemprop="wordCount" content="2038">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques notes"/>
@@ -147,6 +147,7 @@
     </li>
     <li><a href="#decoupling">Decoupling</a>
       <ul>
+        <li><a href="#main-00-concepts">Main 00 concepts</a></li>
         <li><a href="#encapsulation">Encapsulation</a></li>
         <li><a href="#inheritance">Inheritance</a>
           <ul>
@@ -186,13 +187,7 @@
 </div>
     <div class="post-content">
         <blockquote>
-<p>This is a structured list of thoughts about software development and what techniques I feel leads to strong code.</p>
-<p>I&rsquo;m focusing on the languages I&rsquo;ve used most : Python and PHP. That is on Object Oriented, dynamically typed languages.</p>
-<p>It has a focus on what I would call &ldquo;static code&rdquo;, that is how a codebase answering to a given problem should look like at release time. Not how you get there (development methods, prototyping ..) nor how to test / release / maintain code.</p>
-<p>It&rsquo;s a work in progress.</p>
-<br/>
-<p>Even though many concepts are well known, I&rsquo;m writing them down the way I understand them.</p>
-<br/>
+<p>I&rsquo;m focusing on the languages I&rsquo;ve used most : Python and PHP.</p>
 <p>I&rsquo;ve structured this document as going from lower level development techniques to higher level concepts like design patterns.</p>
 </blockquote>
 <h1 id="typing">Typing</h1>
@@ -281,6 +276,12 @@
 <blockquote>
 <p>Coupling is the enemy of change because it transitively links together things that must change in parallel.</p>
 </blockquote>
+<h2 id="main-00-concepts">Main 00 concepts</h2>
+<ul>
+<li>Identify the aspects of your application that vary and separate them from what stays the same.</li>
+<li>Program to an interface, not an implementation.</li>
+<li>Favor composition over inheritance.</li>
+</ul>
 <h2 id="encapsulation">Encapsulation</h2>
 <ul>
 <li>Tell, don&rsquo;t ask : objects internals should not be available and known to the client code</li>
@@ -330,6 +331,14 @@
 <li>Uniform access: hide the implementation details (see <a href="#encapsulation">Encapsulation</a>]). Python&rsquo;s <code>@property</code></li>
 </ul>
 <h1 id="design-patterns">Design Patterns</h1>
+<blockquote>
+<p>When should we use patterns ? At any time of the development process. But usually when refactoring. Say</p>
+<ul>
+<li>first try : simple implementation tight to specific classes</li>
+<li>second try: still the same</li>
+<li>third try : refactoring using design patterns</li>
+</ul>
+</blockquote>
 <h2 id="finite-state-machines">Finite State Machines</h2>
 <blockquote>
 <p>or workflows</p>
