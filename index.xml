@@ -79,6 +79,15 @@
     </item>
     
     <item>
+      <title>Django contribution</title>
+      <link>https://lebrunthibault.github.io/post/django/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/django/</guid>
+      <description>links</description>
+    </item>
+    
+    <item>
       <title>Ecology</title>
       <link>https://lebrunthibault.github.io/post/ecology/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -112,6 +121,15 @@
       
       <guid>https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/</guid>
       <description>1. Intro to design patterns Example of ducks (quacking, flying)</description>
+    </item>
+    
+    <item>
+      <title>job interview</title>
+      <link>https://lebrunthibault.github.io/post/job-interview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/job-interview/</guid>
+      <description>Mon Parcours LinkedIn profil rubrique expérience</description>
     </item>
     
     <item>
@@ -156,7 +174,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/python/</guid>
-      <description>Unicode  The Unicode standard describes how characters are represented by code points.</description>
+      <description>Modules &amp;amp; packages  __init__.</description>
     </item>
     
     <item>
@@ -178,6 +196,15 @@
     </item>
     
     <item>
+      <title>Societe</title>
+      <link>https://lebrunthibault.github.io/post/societe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/societe/</guid>
+      <description>Salles de shoot  À l’intérieur de l’enceinte de la salle de consommation, ils ne pourront pas faire l’objet de poursuites judiciaires.</description>
+    </item>
+    
+    <item>
       <title>Software development techniques</title>
       <link>https://lebrunthibault.github.io/post/software-development-principles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -187,12 +214,21 @@
     </item>
     
     <item>
-      <title>Tensorflow notes</title>
-      <link>https://lebrunthibault.github.io/post/tensorflow/</link>
+      <title>Ubuntu tricks</title>
+      <link>https://lebrunthibault.github.io/post/ubuntu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/tensorflow/</guid>
-      <description>notes de</description>
+      <guid>https://lebrunthibault.github.io/post/ubuntu/</guid>
+      <description>Install Jetbrains editor  Use toolbox app</description>
+    </item>
+    
+    <item>
+      <title>web best practices</title>
+      <link>https://lebrunthibault.github.io/post/web-best-practices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/web-best-practices/</guid>
+      <description>Web best practices The twelve factor app</description>
     </item>
     
     <item>

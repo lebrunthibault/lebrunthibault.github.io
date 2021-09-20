@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques notes">
 <meta itemprop="dateModified" content="2021-09-20T15:06:33+02:00" />
-<meta itemprop="wordCount" content="2181">
+<meta itemprop="wordCount" content="2566">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques notes"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 11 mins read </span>
+            <span class="more-meta"> 13 mins read </span>
         </div>
     </header>
 
@@ -134,7 +134,7 @@
         <li><a href="#structural-types--interfaces--mixins">Structural types : interfaces &amp; mixins</a></li>
       </ul>
     </li>
-    <li><a href="#dry">DRY</a>
+    <li><a href="#dry"><a href="http://wiki.c2.com/?DontRepeatYourself">DRY</a></a>
       <ul>
         <li><a href="#literals">Literals</a>
           <ul>
@@ -162,14 +162,23 @@
         <li><a href="#other-principles">Other principles</a></li>
       </ul>
     </li>
-    <li><a href="#design-patterns">Design Patterns</a>
+    <li><a href="#design-patterns">Design Patterns</a></li>
+    <li><a href="#creational-patterns">Creational Patterns</a>
       <ul>
+        <li><a href="#static-creation-methodhttpsrefactoringgurudesign-patternsfactory-comparison"><a href="https://refactoring.guru/design-patterns/factory-comparison">Static Creation method</a></a></li>
+        <li><a href="#factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory method</a></a></li>
         <li><a href="#finite-state-machines">Finite State Machines</a></li>
-        <li><a href="#event-systems">Event systems</a>
+        <li><a href="#event-systems">Event systems</a></li>
+      </ul>
+    </li>
+    <li><a href="#behavioral-patternshttpsrefactoringgurudesign-patternsbehavioral-patterns"><a href="https://refactoring.guru/design-patterns/behavioral-patterns">Behavioral Patterns</a></a>
+      <ul>
+        <li><a href="#template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></a>
           <ul>
-            <li><a href="#observer">Observer</a></li>
-            <li><a href="#pub--sub">Pub / Sub</a></li>
+            <li><a href="#observerhttpsrefactoringgurufrdesign-patternsobserver"><a href="https://refactoring.guru/fr/design-patterns/observer">Observer</a></a></li>
+            <li><a href="#mediator">Mediator</a></li>
             <li><a href="#event-bus">Event bus</a></li>
+            <li><a href="#pub--sub">Pub / Sub</a></li>
           </ul>
         </li>
         <li><a href="#reactive-programming2">Reactive programming</a></li>
@@ -222,7 +231,7 @@
 <li>&ldquo;Code against interfaces&rdquo;. At a high level the program should look like interfaces interacting with each other thus enforcing the typing experience at this level also.</li>
 <li>More in-depth explanation <a href="#design-patterns">below</a></li>
 </ul>
-<h1 id="dry">DRY</h1>
+<h1 id="dry"><a href="http://wiki.c2.com/?DontRepeatYourself">DRY</a></h1>
 <blockquote>
 <p>Maybe the single most important (and simplest) rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum. It has architectural as well as technical implications. It is easier to spot and correct than to get right from the start.</p>
 <p>Here again I&rsquo;ll go from lower level (technical) techniques to higher level thinking.</p>
@@ -339,6 +348,7 @@
 </ul>
 <h1 id="design-patterns">Design Patterns</h1>
 <blockquote>
+<p><a href="https://refactoring.guru/design-patterns">https://refactoring.guru/design-patterns</a></p>
 <p>When should we use patterns ? At any time of the development process. But usually when refactoring. Say</p>
 <ul>
 <li>first try : simple implementation tight to specific classes</li>
@@ -346,6 +356,25 @@
 <li>third try : refactoring using design patterns</li>
 </ul>
 </blockquote>
+<h1 id="creational-patterns">Creational Patterns</h1>
+<h2 id="static-creation-methodhttpsrefactoringgurudesign-patternsfactory-comparison"><a href="https://refactoring.guru/design-patterns/factory-comparison">Static Creation method</a></h2>
+<ul>
+<li>Not a real pattern but just the classical static creation method</li>
+<li>Simpler to spot in code, single responsibility, and useful when the constructor cannot accept arguments (e.g. using fixtures)</li>
+<li>Can leverage singleton</li>
+</ul>
+<h2 id="factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory method</a></h2>
+<blockquote>
+<p>Used when we don&rsquo;t know the exact type and dependencies of the object, as well as to simplify object creation.</p>
+</blockquote>
+<ul>
+<li>Let the object instantiation be done by  a Creator class.</li>
+<li><code>def create() -&gt; ProductInterface</code> (let&rsquo;s use create instead of make)</li>
+<li>created objects must implement an interface</li>
+<li>Creator classes can be subclassed to return different implementations of the product interface</li>
+<li>Allows extension by creating new product creator and classes</li>
+<li>Follows single responsibility (one place to create) and open / closed (extensible via inheritance)</li>
+</ul>
 <h2 id="finite-state-machines">Finite State Machines</h2>
 <blockquote>
 <p>or workflows</p>
@@ -363,7 +392,19 @@
 <p>They have very diverse implementations and differ in the way the information is called, passed, dispatched and transmitted to the consumer(s). Decoupling impact can vary as well.</p>
 <p>Semantically, the producer and consumer can be passive or active in the way they emit / subscribe or are notified.</p>
 </blockquote>
-<h3 id="observer">Observer</h3>
+<h1 id="behavioral-patternshttpsrefactoringgurudesign-patternsbehavioral-patterns"><a href="https://refactoring.guru/design-patterns/behavioral-patterns">Behavioral Patterns</a></h1>
+<h2 id="template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></h2>
+<blockquote>
+<p>defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure</p>
+<p>Implemented in offers synchronization at Basile.</p>
+</blockquote>
+<ul>
+<li>Mandatory steps are abstract methods in base class</li>
+<li>Default steps are normal methods in base class (with implementation)</li>
+<li>hooks are empty methods in base class</li>
+<li>Useful but not so clear code. Hard to find the balance with full configurability and too small steps. Can break lsp by removing base class behavior.</li>
+</ul>
+<h3 id="observerhttpsrefactoringgurufrdesign-patternsobserver"><a href="https://refactoring.guru/fr/design-patterns/observer">Observer</a></h3>
 <figure><img src="/img/observer.PNG"/><figcaption>
             <h4>observer class diagram</h4>
         </figcaption>
@@ -456,17 +497,31 @@ if __name__ == &#34;__main__&#34;:
     obj1.data = 10
     obj1.data = 15
 </code></pre></pre>
+<ul>
+<li>Close to the mediator pattern (which removes the coupling between oberserver and observable by introducing a third mediator object in between). Correspond to a central event bus.</li>
+</ul>
+<h3 id="mediator">Mediator</h3>
+<ul>
+<li>An evolution of the observer pattern removing the coupling between observable and observer</li>
+<li>The mediator object is an interface injectable in all subjects  with a single notification method</li>
+<li>Subjects can pass a context to the notification method but should try to not increase coupling by passing themselves in the context</li>
+<li>Concrete mediators can maintain state and include some logic about managing subjects</li>
+<li>Overlaps with the event bus pattern but some say that the mediator has a more complex role in controlling the objects interactions</li>
+</ul>
+<h3 id="event-bus">Event bus</h3>
+<blockquote>
+<p>Implemented at basile</p>
+</blockquote>
+<ul>
+<li>Event systems can be heavy, sometimes a simple event bus that acts as global state is simpler to handle</li>
+<li>Objects can emit event directly on the bus and subscribers can subscribe to events.</li>
+</ul>
 <h3 id="pub--sub">Pub / Sub</h3>
 <ul>
 <li>Evolution of the observer :  allows subscribers to express interest in different types of messages and further separates publishers from subscribers. It is often used in middleware systems.The observer is a <strong>subscriber</strong> and the subject is a <strong>publisher</strong> and does not know about its subscribers. Deals well with asynchronous code. Message passing is decoupled from the sender code.</li>
 <li>Scales well.</li>
 <li>Message queuing is a special case of pub/sub<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> with usually only one subscriber per message type, and asynchronous.</li>
 <li>More complex to grasp at first sight as the publish / subscribe are done in different places.</li>
-</ul>
-<h3 id="event-bus">Event bus</h3>
-<ul>
-<li>Event systems can be heavy, sometimes a simple event bus that acts as global state is simpler to handle</li>
-<li>Objects can emit event directly on the bus and subscribers can subscribe to events. Somehow pub/sub</li>
 </ul>
 <h2 id="reactive-programming2">Reactive programming<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
 <ul>
@@ -494,9 +549,9 @@ if __name__ == &#34;__main__&#34;:
 <ul>
 <li>The <a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single-responsibility principle</a>: &ldquo;There should never be more than one reason for a <a href="https://en.wikipedia.org/wiki/Class_(computer_programming)">class</a> to change.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-5">5]</a> In other words, every class should have only one responsibility.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6">6]</a></li>
 <li>The <a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open–closed principle</a>: &ldquo;Software entities &hellip; should be open for extension, but closed for modification.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-7">7]</a>
-Open for extension would mean association and interfaces using dependency injection</li>
-<li>The <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a>: &ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a> See also <a href="https://en.wikipedia.org/wiki/Design_by_contract">design by contract</a>.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a></li>
-<li>The <a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a>: &ldquo;Many client-specific interfaces are better than one general-purpose interface.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-9">9]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a></li>
+Open for extension would mean association and interfaces (e.g. using dependency injection). Also present in e.g. factory patterns that create more implementations without modifying client code.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a>: &ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a> See also <a href="https://en.wikipedia.org/wiki/Design_by_contract">design by contract</a>.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a>. LSP violation can be detected by the usage of instance of as it expects different behavior from objects with the same interface. More specific version of open/closed.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a>: &ldquo;Many client-specific interfaces are better than one general-purpose interface.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-9">9]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a>. Also meaning inheritance should be restricted and replaced by specific interface / traits. Note: as a result interfaces should ideally not extends other interfaces.</li>
 <li>The <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion principle</a>: &ldquo;Depend upon abstractions, [not] concretions.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-10">10]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a></li>
 </ul>
 <h1 id="etc">ETC</h1>
@@ -507,10 +562,17 @@ Open for extension would mean association and interfaces using dependency inject
 <li>Prefer throwing exceptions instead of returning null</li>
 </ul>
 <hr>
-<p><strong>Bibliography</strong></p>
+**Bibliography**
 <ul>
-<li><a href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/">The Pragmatic Programmer, 20th Anniversary Edition</a></li>
-<li><a href="https://www.oreilly.com/library/view/head-first-design/9781492077992/">Head First Design Patterns, 2nd Edition</a></li>
+<li>
+<p><a href="https://refactoring.guru/design-patterns">https://refactoring.guru/design-patterns</a></p>
+</li>
+<li>
+<p><a href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/">The Pragmatic Programmer, 20th Anniversary Edition</a></p>
+</li>
+<li>
+<p><a href="https://www.oreilly.com/library/view/head-first-design/9781492077992/">Head First Design Patterns, 2nd Edition</a></p>
+</li>
 </ul>
 <hr>
 <section class="footnotes" role="doc-endnotes">

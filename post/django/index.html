@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Python 3 notes - Home</title>
+  <title>Django contribution - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Modules &amp;amp; packages  __init__." /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="links" /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/python/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/django/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Python 3 notes" />
-<meta property="og:description" content="Modules &amp; packages  __init__." />
+<meta property="og:title" content="Django contribution" />
+<meta property="og:description" content="links" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/python/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/django/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-09T23:10:06+02:00" />
 
-<meta itemprop="name" content="Python 3 notes">
-<meta itemprop="description" content="Modules &amp; packages  __init__.">
-<meta itemprop="dateModified" content="2021-09-09T23:10:06+02:00" />
-<meta itemprop="wordCount" content="330">
+
+<meta itemprop="name" content="Django contribution">
+<meta itemprop="description" content="links">
+
+<meta itemprop="wordCount" content="297">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Python 3 notes"/>
-<meta name="twitter:description" content="Modules &amp; packages  __init__."/>
+<meta name="twitter:title" content="Django contribution"/>
+<meta name="twitter:description" content="links"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,7 +114,7 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">Python 3 notes</h1>
+        <h1 class="post-title">Django contribution</h1>
 
         <div class="post-meta">
             
@@ -127,20 +127,31 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#modules--packages">Modules &amp; packages</a></li>
-    <li><a href="#unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></a>
+    <li><a href="#basics">Basics</a>
       <ul>
-        <li><a href="#encodings">Encodings</a>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#routing">Routing</a></li>
+        <li><a href="#django-orm">Django ORM</a></li>
+        <li><a href="#testing">Testing</a>
           <ul>
-            <li><a href="#utf-8-encoding">UTF-8 encoding</a></li>
+            <li></li>
           </ul>
         </li>
-        <li><a href="#the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></a></li>
       </ul>
     </li>
-    <li><a href="#pip">PIP</a>
+    <li><a href="#difference-django--symfony">Difference django / symfony</a>
       <ul>
-        <li><a href="#windows">Windows</a></li>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a>
+      <ul>
+        <li><a href="#git-flow">Git flow</a></li>
       </ul>
     </li>
   </ul>
@@ -148,48 +159,108 @@
   </div>
 </div>
     <div class="post-content">
-        <h1 id="modules--packages">Modules &amp; packages</h1>
+        <p><strong>links</strong></p>
 <ul>
-<li><code>__init__.py</code> turn folder into package</li>
-<li>can be used to provide initialisation code (e.g. set  <code>__all__</code>)</li>
-<li><code>__all__</code> defined to <code>from package import *</code> (if not defined, * is nothing)</li>
+<li><a href="https://www.youtube.com/watch?v=rHux0gMZ3Eg">django tutorials for beginners 2021 youtube</a></li>
 </ul>
-<h1 id="unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></h1>
+<h1 id="basics">Basics</h1>
+<h2 id="install">Install</h2>
 <ul>
-<li>The <a href="https://www.unicode.org/">Unicode</a> standard describes how characters are represented by <strong>code points</strong>.  A code point value is an integer in the range 0 to 0x10FFFF. A code point is written using the notation <code>U+265E</code> to mean the character with value <code>0x265e</code> (9,822 in decimal).</li>
-<li>A unicode code point is not a character but represents a character</li>
-<li>A character is represented on a screen or on paper by a set of graphical elements that’s called a <strong>glyph</strong> (not important to python)</li>
+<li>Use pipenv</li>
+<li>Nesting can be removed</li>
+<li>Use .env with <a href="https://github.com/joke2k/django-environ">django-environ</a></li>
+<li><a href="https://django-debug-toolbar.readthedocs.io/en/latest/installation.html">django debug toolbar</a> like in symfony</li>
 </ul>
-<h2 id="encodings">Encodings</h2>
+<h2 id="structure">Structure</h2>
+<ul>
+<li>Project == site: app == service. project many to many app</li>
+<li>apps can live anywhere in the python path</li>
+</ul>
+<h2 id="routing">Routing</h2>
+<ul>
+<li>Each app can define routes in a URLconf file</li>
+<li>The routing file is included in the main site routing URLconf</li>
+<li><code>include</code> chops off matched url part and sends to included for further processing</li>
+<li>Patterns don’t search GET and POST parameters, or the domain name</li>
+<li>Route has url, route name, view (HttpRequest handler) + kwargs. Like in Symfony</li>
+</ul>
+<h2 id="django-orm">Django ORM</h2>
+<ul>
+<li>Model classes</li>
+</ul>
+<h2 id="testing">Testing</h2>
+<h4 id="debugger">Debugger</h4>
+<ul>
+<li>Straightforward when running python scripts</li>
+<li>Using django server run configuration (see <a href="https://www.youtube.com/watch?v=zFuaU3Sl4-c">this video</a>)</li>
+</ul>
+<h1 id="difference-django--symfony">Difference django / symfony</h1>
+<ul>
+<li>django lighter and more options for views</li>
+<li>system of apps</li>
+</ul>
+<h4 id="orm">Orm</h4>
+<ul>
+<li>saving directly on the entitiy</li>
+<li>not great: magical methods in django (e.g. backward one to many, always use default args)</li>
+<li>app should be added to the installed apps</li>
+<li>better handling of choices / enum  in django (integrated to the model field definition)</li>
+<li>relations
+<ul>
+<li>one to many : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.ForeignKey"><code>ForeignKey</code></a> on the owning side</li>
+<li>many to many : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.ManyToManyField"><code>ManyToManyField</code></a></li>
+<li>one to one : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.OneToOneField"><code>OneToOneField</code></a></li>
+</ul>
+</li>
+</ul>
+<h1 id="contributing">Contributing</h1>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/">Writing code</a></li>
+</ul>
 <blockquote>
-<p>a Unicode string is a sequence of code points, which are numbers from 0 through <code>0x10FFFF</code> (1,114,111 decimal). This sequence of code points needs to be represented in memory as a set of <strong>code units</strong>, and <strong>code units</strong> are then mapped to 8-bit bytes. The rules for translating a Unicode string into a sequence of bytes are called a <strong>character encoding</strong>, or just an <strong>encoding</strong></p>
+<p>Django 4.0 will be a time-based release. Any features completed and committed to main by the alpha feature freeze deadline noted below will be included</p>
 </blockquote>
-<h3 id="utf-8-encoding">UTF-8 encoding</h3>
-<blockquote>
-<p>UTF stands for “Unicode Transformation Format”, and the ‘8’ means that 8-bit values are used in the encoding.</p>
-</blockquote>
+<p>Schedule</p>
+<table>
+<thead>
+<tr>
+<th>September 20, 2021</th>
+<th>Django 4.0 alpha; feature freeze. (we will fork <code>stable/4.0.x</code> from <code>main</code>.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>October 25</td>
+<td>Django 4.0 beta; non-release blocking bug fix freeze (all bug fixes except blocking ones)</td>
+</tr>
+<tr>
+<td>November 22</td>
+<td>Django 4.0 RC 1; translation string freeze.</td>
+</tr>
+<tr>
+<td>December 6</td>
+<td>Django 4.0 final</td>
+</tr>
+</tbody>
+</table>
+<h2 id="git-flow">Git flow</h2>
 <ul>
-<li>Plays well with C functions.</li>
-<li>A string of ASCII text is also valid UTF-8 text. UTF-8 is a byte oriented encoding.</li>
-<li>The encoding specifies that each character is represented by a specific sequence of one or more bytes</li>
-</ul>
-<h2 id="the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></h2>
-<blockquote>
-<p>the language’s <a href="https://docs.python.org/3/library/stdtypes.html#str"><code>str</code></a> type contains Unicode characters, meaning any string created using <code>&quot;unicode rocks!&quot;</code>, <code>'unicode rocks!'</code>, or the triple-quoted string syntax is stored as Unicode</p>
-</blockquote>
-<ul>
-<li><code>&quot;\N{GREEK CAPITAL LETTER DELTA}&quot; == &quot;\u0394&quot;  == &quot;\U00000394&quot;</code></li>
-<li><strong>bytes</strong> can be decoded to string : <code>b'\x41'.decode(&quot;utf-8&quot;)</code> outputs &lsquo;A&rsquo;</li>
-<li><code>bytes.decode</code> as options for dealing with bytes unknown to the encoding.</li>
-<li>The opposite method of <a href="https://docs.python.org/3/library/stdtypes.html#bytes.decode">bytes.decode()</a> is <a href="https://docs.python.org/3/library/stdtypes.html#str.encode">str.encode()</a>, which returns a <a href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a> representation of the Unicode string, encoded in the requested <em>encoding</em></li>
-</ul>
-<h1 id="pip">PIP</h1>
-<ul>
-<li>pip install package &amp;&amp; pip freeze &gt; requirements.txt</li>
-</ul>
-<h2 id="windows">Windows</h2>
-<ul>
-<li>Install precompiled binaries using pipwin (see <a href="https://stackoverflow.com/questions/53866104/pyaudio-failed-to-install-windows-10/53866322">stack</a>)</li>
+<li>
+<p>Rebase to one commit before and after review (e.g. <code>git rebase -i HEAD~2</code>)</p>
+</li>
+<li>
+<p>On upstream change:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git fetch upstream
+git rebase
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 
     </div>
