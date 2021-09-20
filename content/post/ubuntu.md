@@ -18,5 +18,5 @@ draft: true
 - shutdown : 
   - create script in /*usr/lib/systemd/system-shutdown/* (as sudo) -> **not working**
   - or create a systemd service file (see [this](https://unix.stackexchange.com/questions/39226/how-to-run-a-script-with-systemd-right-before-shutdown)) -> **not working**
-  - hey
+  - toto
 
