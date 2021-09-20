@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ubuntu/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-20T16:59:59+02:00" />
+<meta property="article:modified_time" content="2021-09-20T17:04:29+02:00" />
 
 <meta itemprop="name" content="Ubuntu tricks">
 <meta itemprop="description" content="Install Jetbrains editor  Use toolbox app">
-<meta itemprop="dateModified" content="2021-09-20T16:59:59+02:00" />
-<meta itemprop="wordCount" content="75">
+<meta itemprop="dateModified" content="2021-09-20T17:04:29+02:00" />
+<meta itemprop="wordCount" content="122">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ubuntu tricks"/>
 <meta name="twitter:description" content="Install Jetbrains editor  Use toolbox app"/>
@@ -151,20 +151,60 @@
 </ul>
 <h4 id="running-commands-at-startup--shutdown">Running commands at startup / shutdown</h4>
 <ul>
-<li>startup: <code>crontab -e</code></li>
+<li>startup: <code>crontab -e</code>
+<ul>
+<li>example: <code> @reboot /home/thibault/bin/pull-blog.sh</code></li>
+</ul>
+</li>
 <li>shutdown :
 <ul>
 <li>create script in /<em>usr/lib/systemd/system-shutdown/</em> (as sudo) -&gt; doesn&rsquo;t seem to work with python</li>
 <li>or create a systemd service file (see <a href="https://unix.stackexchange.com/questions/39226/how-to-run-a-script-with-systemd-right-before-shutdown">this</a>)
 <ul>
+<li>The executable path should be absolute</li>
 <li>IExecuting as my user : see <a href="https://askubuntu.com/questions/676007/how-do-i-make-my-systemd-service-run-via-specific-user-and-start-on-boot">this</a></li>
-<li>Testing with : <code>sudo systemctl restart backup-repos.service &amp;&amp; sudo systemctl stop backup-repos.service &amp;&amp; sudo systemctl status backup-repos.service</code></li>
-</ul>
-</li>
-<li>remodif and another one</li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<p>Working solution for running python script as user:</p>
+<p><code>sudo vim  /etc/systemd/system/backup-repos.service</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">backing up my repos</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
+<span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">true</span>
+<span class="na">User</span><span class="o">=</span><span class="s">thibault</span>
+<span class="na">Group</span><span class="o">=</span><span class="s">thibault</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">true</span>
+<span class="na">ExecStop</span><span class="o">=</span><span class="s">/usr/bin/python3 /home/thibault/bin/backup-repos.py</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sudo systemctl daemon-reload</code></p>
+<p>Test with :</p>
+<p><code>sudo systemctl restart backup-repos.service &amp;&amp; sudo systemctl stop backup-repos.service &amp;&amp; sudo systemctl status backup-repos.service</code></p>
 
     </div>
 
