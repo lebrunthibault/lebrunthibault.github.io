@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/software-development-principles/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-18T14:10:26+02:00" />
+<meta property="article:modified_time" content="2021-09-20T15:06:33+02:00" />
 
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques notes">
-<meta itemprop="dateModified" content="2021-09-18T14:10:26+02:00" />
-<meta itemprop="wordCount" content="2038">
+<meta itemprop="dateModified" content="2021-09-20T15:06:33+02:00" />
+<meta itemprop="wordCount" content="2181">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques notes"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 10 mins read </span>
+            <span class="more-meta"> 11 mins read </span>
         </div>
     </header>
 
@@ -148,6 +148,7 @@
     <li><a href="#decoupling">Decoupling</a>
       <ul>
         <li><a href="#main-00-concepts">Main 00 concepts</a></li>
+        <li><a href="#loose-coupling">Loose coupling</a></li>
         <li><a href="#encapsulation">Encapsulation</a></li>
         <li><a href="#inheritance">Inheritance</a>
           <ul>
@@ -280,7 +281,13 @@
 <ul>
 <li>Identify the aspects of your application that vary and separate them from what stays the same.</li>
 <li>Program to an interface, not an implementation.</li>
-<li>Favor composition over inheritance.</li>
+<li>Favor composition over inheritance : composition is relationship defined at runtime, inheritance represents static relationships.</li>
+<li>Strive for loosely coupled designs between objects that interact.</li>
+</ul>
+<h2 id="loose-coupling">Loose coupling</h2>
+<ul>
+<li>Loose coupling is coupling on an interface instead of implementation.</li>
+<li>All the rest can change without bring breaking changes</li>
 </ul>
 <h2 id="encapsulation">Encapsulation</h2>
 <ul>
@@ -357,8 +364,18 @@
 <p>Semantically, the producer and consumer can be passive or active in the way they emit / subscribe or are notified.</p>
 </blockquote>
 <h3 id="observer">Observer</h3>
+<figure><img src="/img/observer.PNG"/><figcaption>
+            <h4>observer class diagram</h4>
+        </figcaption>
+</figure>
+
 <ul>
-<li>Behavioral design pattern, allow hooking inside of an observable component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough (of course the component should implement observable).</li>
+<li>Behavioral design pattern, the Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. The observers are <em>dependent</em> (coupled) on the subject</li>
+<li>Many <strong>observers</strong> <strong>subscribe</strong> to one <strong>subject</strong>. They are <strong>notified</strong> of its changes.</li>
+<li>The observers usually have a pointer to the subject (e.g. for unsubscribing).</li>
+<li>Usually better to use observer <strong>pull</strong> than subject <strong>push</strong> (passing parameters in the update method) as it&rsquo;s less flexible.</li>
+<li>Follows open / closed and modifiable at runtime. Example of <strong>loose coupling</strong>.</li>
+<li>A good evolution is to use callables implementing the update signature instead of classes.</li>
 <li>Simple and strong but introduces coupling when the observers need to register directly on the observable. Makes sense when the coupling already exists and for small problematics.</li>
 </ul>
 <pre class="drop-down-menu"><input type="checkbox" class="activate" id="accordion" name="accordion"><label for="accordion" class="menu-title">Code example <i class="gg-chevron gg-chevron-down"></i><i class="gg-chevron gg-chevron-up"></i></label><pre class="drop-down"><code class="language-python">&#34;&#34;&#34; Originally copied from the simpler https://www.geeksforgeeks.org/observer-method-python-design-patterns/&#34;&#34;&#34;
@@ -441,10 +458,10 @@ if __name__ == &#34;__main__&#34;:
 </code></pre></pre>
 <h3 id="pub--sub">Pub / Sub</h3>
 <ul>
-<li>Evolution of the observer : the observer is a consumer and the observable does not know about its consumers. Deals well with asynchronous code. Message passing is decoupled from the sender code.</li>
+<li>Evolution of the observer :  allows subscribers to express interest in different types of messages and further separates publishers from subscribers. It is often used in middleware systems.The observer is a <strong>subscriber</strong> and the subject is a <strong>publisher</strong> and does not know about its subscribers. Deals well with asynchronous code. Message passing is decoupled from the sender code.</li>
 <li>Scales well.</li>
-<li>Message queuing is a special case of pub/sub<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
-<li>Not so easy to grasp at first side as the public / subscribe are done in different places.</li>
+<li>Message queuing is a special case of pub/sub<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> with usually only one subscriber per message type, and asynchronous.</li>
+<li>More complex to grasp at first sight as the publish / subscribe are done in different places.</li>
 </ul>
 <h3 id="event-bus">Event bus</h3>
 <ul>
