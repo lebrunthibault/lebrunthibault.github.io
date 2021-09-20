@@ -10,3 +10,10 @@ draft: true
 
 - go to `.local/share/applications/` and create .desktop file
 
+
+
+#### Running commands at startup / shutdown
+
+- startup: `crontab -e`
+- shutdown : create script in **/usr/lib/systemd/system-shutdown/** (as sudo)
+
