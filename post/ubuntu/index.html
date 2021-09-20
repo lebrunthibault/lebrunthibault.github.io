@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ubuntu/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-20T15:57:17+02:00" />
+<meta property="article:modified_time" content="2021-09-20T16:06:34+02:00" />
 
 <meta itemprop="name" content="Ubuntu tricks">
 <meta itemprop="description" content="Install Jetbrains editor  Use toolbox app">
-<meta itemprop="dateModified" content="2021-09-20T15:57:17+02:00" />
-<meta itemprop="wordCount" content="32">
+<meta itemprop="dateModified" content="2021-09-20T16:06:34+02:00" />
+<meta itemprop="wordCount" content="43">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ubuntu tricks"/>
 <meta name="twitter:description" content="Install Jetbrains editor  Use toolbox app"/>
@@ -152,7 +152,12 @@
 <h4 id="running-commands-at-startup--shutdown">Running commands at startup / shutdown</h4>
 <ul>
 <li>startup: <code>crontab -e</code></li>
-<li>shutdown : create script in <strong>/usr/lib/systemd/system-shutdown/</strong> (as sudo)</li>
+<li>shutdown :
+<ul>
+<li>create script in /<em>usr/lib/systemd/system-shutdown/</em> (as sudo) -&gt; <strong>not working</strong></li>
+<li>or create a systemd service file (see <a href="https://unix.stackexchange.com/questions/39226/how-to-run-a-script-with-systemd-right-before-shutdown">this</a>)</li>
+</ul>
+</li>
 </ul>
 
     </div>
