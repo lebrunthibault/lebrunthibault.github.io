@@ -15,10 +15,36 @@ draft: true
 #### Running commands at startup / shutdown
 
 - startup: `crontab -e`
+  - example: ` @reboot /home/thibault/bin/pull-blog.sh`
 - shutdown : 
   - create script in /*usr/lib/systemd/system-shutdown/* (as sudo) -> doesn't seem to work with python
   - or create a systemd service file (see [this](https://unix.stackexchange.com/questions/39226/how-to-run-a-script-with-systemd-right-before-shutdown)) 
+    - The executable path should be absolute 
     - IExecuting as my user : see [this](https://askubuntu.com/questions/676007/how-do-i-make-my-systemd-service-run-via-specific-user-and-start-on-boot)
-    - Testing with : `sudo systemctl restart backup-repos.service && sudo systemctl stop backup-repos.service && sudo systemctl status backup-repos.service`
-  - remodif and another one
+
+Working solution for running python script as user:
+
+`sudo vim  /etc/systemd/system/backup-repos.service`
+
+```ini
+[Unit]
+Description=backing up my repos
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+User=thibault
+Group=thibault
+ExecStart=true
+ExecStop=/usr/bin/python3 /home/thibault/bin/backup-repos.py
+
+[Install]
+WantedBy=multi-user.target
+```
+
+`sudo systemctl daemon-reload`
+
+Test with :
+
+`sudo systemctl restart backup-repos.service && sudo systemctl stop backup-repos.service && sudo systemctl status backup-repos.service`
 
