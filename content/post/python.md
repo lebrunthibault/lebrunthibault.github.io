@@ -3,6 +3,16 @@ title: "Python 3 notes"
 draft: true
 ---
 
+
+
+# Modules & packages
+
+- `__init__.py` turn folder into package
+- can be used to provide initialisation code (e.g. set  `__all__`)
+- `__all__` defined to `from package import *` (if not defined, * is nothing)
+
+
+
 # [Unicode](https://docs.python.org/3/howto/unicode.html#unicode-howto)
 
 - The [Unicode](https://www.unicode.org/) standard describes how characters are represented by **code points**.  A code point value is an integer in the range 0 to 0x10FFFF. A code point is written using the notation `U+265E` to mean the character with value `0x265e` (9,822 in decimal).
@@ -30,3 +40,14 @@ draft: true
 - `bytes.decode` as options for dealing with bytes unknown to the encoding.
 - The opposite method of [bytes.decode()](https://docs.python.org/3/library/stdtypes.html#bytes.decode) is [str.encode()](https://docs.python.org/3/library/stdtypes.html#str.encode), which returns a [bytes](https://docs.python.org/3/library/stdtypes.html#bytes) representation of the Unicode string, encoded in the requested *encoding*
 
+
+
+# PIP
+
+
+
+- pip install package && pip freeze > requirements.txt
+
+## Windows
+
+- Install precompiled binaries using pipwin (see [stack](https://stackoverflow.com/questions/53866104/pyaudio-failed-to-install-windows-10/53866322))

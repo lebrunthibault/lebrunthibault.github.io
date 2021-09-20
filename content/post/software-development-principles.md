@@ -8,6 +8,7 @@ keywords:
 
 ---
 
+
 > This is a structured list of thoughts about software development and what techniques I feel leads to strong code. 
 >
 > I'm focusing on the languages I've used most : Python and PHP. That is on Object Oriented, dynamically typed languages.
@@ -55,7 +56,7 @@ keywords:
 - "Code against interfaces". At a high level the program should look like interfaces interacting with each other thus enforcing the typing experience at this level also.
 - More in-depth explanation [below](#design-patterns) 
 
-# DRY {#dry}
+# [DRY](http://wiki.c2.com/?DontRepeatYourself) {#dry}
 
 > Maybe the single most important (and simplest) rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum. It has architectural as well as technical implications. It is easier to spot and correct than to get right from the start.
 >
@@ -158,6 +159,33 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 # Design Patterns {#design-patterns}
 
+- https://refactoring.guru/design-patterns
+
+
+
+# Creational Patterns
+
+
+
+## [Static Creation method](https://refactoring.guru/design-patterns/factory-comparison)
+
+- Not a real pattern but just the classical static creation method
+- Simpler to spot in code, single responsibility, and useful when the constructor cannot accept arguments (e.g. using fixtures) 
+- Can leverage singleton
+
+## [Factory method](https://refactoring.guru/design-patterns/factory-method)
+
+> Used when we don't know the exact type and dependencies of the object, as well as to simplify object creation.
+
+- Let the object instantiation be done by  a Creator class.
+- `def create() -> ProductInterface` (let's use create instead of make)
+- created objects must implement an interface
+- Creator classes can be subclassed to return different implementations of the product interface
+-  Allows extension by creating new product creator and classes
+- Follows single responsibility (one place to create) and open / closed (extensible via inheritance)
+
+
+
 ## Finite State Machines
 
 > or workflows
@@ -170,22 +198,68 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 
 
-## Observer
+## Event systems
 
-- Allows hooking inside of a component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough.
-- Simple and strong but introduces coupling when the observers need to register directly on the observable. On events it is the observable that execute the observer methods, it can impact performance.
+> Event systems have all the same goal of decoupling the passage of information between a producer / emitter / subject / observable and a consumer / listener / subscriber / observer.
+>
+> They have very diverse implementations and differ in the way the information is called, passed, dispatched and transmitted to the consumer(s). Decoupling impact can vary as well.
+>
+> Semantically, the producer and consumer can be passive or active in the way they emit / subscribe or are notified.
 
-## Pub / Sub
+
+
+# [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
+
+
+
+## [Template method](https://refactoring.guru/design-patterns/template-method)
+
+> defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure
+>
+> Implemented in offers synchronization at Basile.
+
+- Mandatory steps are abstract methods in base class
+- Default steps are normal methods in base class (with implementation)
+- hooks are empty methods in base class
+- Useful but not so clear code. Hard to find the balance with full configurability and too small steps. Can break lsp by removing base class behavior.
+
+### [Observer](https://refactoring.guru/fr/design-patterns/observer)
+
+- Behavioral design pattern, allow hooking inside of an observable component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough (of course the component should implement observable).
+- Simple and strong but introduces coupling when the observers need to register directly on the observable. Makes sense when the coupling already exists and for small problematics.
+{{% code file="/static/code/observer/main.py" language="python" %}}
+- Close to the mediator pattern (which removes the coupling between oberserver and observable by introducing a third mediator object in between). Correspond to a central event bus.
+
+
+
+### Mediator
+
+- An evolution of the observer pattern removing the coupling between observable and observer
+- The mediator object is an interface injectable in all subjects  with a single notification method
+- Subjects can pass a context to the notification method but should try to not increase coupling by passing themselves in the context
+- Concrete mediators can maintain state and include some logic about managing subjects
+- Overlaps with the event bus pattern but some say that the mediator has a more complex role in controlling the objects interactions
+
+
+
+### Event bus
+
+> Implemented at basile
+
+- Event systems can be heavy, sometimes a simple event bus that acts as global state is simpler to handle
+- Objects can emit event directly on the bus and subscribers can subscribe to events.
+
+
+
+### Pub / Sub
 
 - Evolution of the observer : the observer is a consumer and the observable does not know about its consumers. Deals well with asynchronous code. Message passing is decoupled from the sender code.
-
 - Scales well.
-
 - Message queuing is a special case of pub/sub[^1]
-
 - Not so easy to grasp at first side as the public / subscribe are done in different places.
 
   
+
 
 ## Reactive programming[^2]
 
@@ -214,6 +288,15 @@ A way to centralise the service interface definition is to have it available as 
 Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead
 
 
+
+# [SOLID](https://en.wikipedia.org/wiki/SOLID)
+
+- The [Single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle): "There should never be more than one reason for a [class](https://en.wikipedia.org/wiki/Class_(computer_programming)) to change."[[5\]](https://en.wikipedia.org/wiki/SOLID#cite_note-5) In other words, every class should have only one responsibility.[[6\]](https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6)
+- The [Open–closed principle](https://en.wikipedia.org/wiki/Open–closed_principle): "Software entities ... should be open for extension, but closed for modification."[[7\]](https://en.wikipedia.org/wiki/SOLID#cite_note-7)
+  Open for extension would mean association and interfaces (e.g. using dependency injection). Also present in e.g. factory patterns that create more implementations without modifying client code. 
+- The [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle): "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."[[8\]](https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8) See also [design by contract](https://en.wikipedia.org/wiki/Design_by_contract).[[8\]](https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8). LSP violation can be detected by the usage of instance of as it expects different behavior from objects with the same interface. More specific version of open/closed.
+- The [Interface segregation principle](https://en.wikipedia.org/wiki/Interface_segregation_principle): "Many client-specific interfaces are better than one general-purpose interface."[[9\]](https://en.wikipedia.org/wiki/SOLID#cite_note-9)[[4\]](https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4). Also meaning inheritance should be restricted and replaced by specific interface / traits. Note: as a result interfaces should ideally not extends other interfaces.
+- The [Dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle): "Depend upon abstractions, [not] concretions."[[10\]](https://en.wikipedia.org/wiki/SOLID#cite_note-10)[[4\]](https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4)
 
 # ETC
 

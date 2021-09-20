@@ -15,6 +15,8 @@ keywords:
 
 
 
+[transport part of co2 footprint](https://ourworldindata.org/food-choice-vs-eating-local)
+
 # Vocabulaire
 
 - [Péche à la senne](https://fr.wikipedia.org/wiki/P%C3%AAche_%C3%A0_la_senne) (purse seiner): technique de pêche très ancienne qui consiste à capturer les poissons à la surface en pleine eau en les encerclant à l'aide d'un filet de pêche appelé senne
