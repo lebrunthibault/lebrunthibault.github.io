@@ -1,13 +1,16 @@
 .PHONY: dev build algolia
 
+include .env
+export $(shell sed 's/=.*//' .env)
+
 dev:
-	python start_dev_server.py dev
+	${PYTHON} start_dev_server.py dev
 
 build:
-	python start_dev_server.py build
+	${PYTHON} start_dev_server.py build
 
 algolia:
-	python algolia/index_documents.py
+	${PYTHON} algolia/index_documents.py
 
 
 push:

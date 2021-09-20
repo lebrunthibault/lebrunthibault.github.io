@@ -14,8 +14,8 @@ Vidéo : [AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE](https://www.youtu
 - 37 millions d'habitants
 - 3 fois moins dense que la France (env 30 habitants / km2)
 - Pays très montagneux
-- Entouré par le pakistant, l'Iran, le Turkménistan, Le Tadjikistan
-- Tribal (Tadjiks, Turkmens etc ..)
+- Entouré par le pakistan, l'Iran, le Turkménistan, Le Tadjikistan
+- Tribal (Tadjiks, Turkmènes etc ..)
 - Av. 1970 : Emirats puis Royaume
 
 
