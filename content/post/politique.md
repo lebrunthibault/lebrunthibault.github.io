@@ -72,13 +72,17 @@ Automobile:
 
 #### Yannick Jadot
 
+[Programme](https://placedelasante.mutualite.fr/candidat/yannick-jadot/)
+
 - EELV, député européen.
 - Posture d'homme d'état à l'oral. Pragmatique.
 - Isolation thermique
 - Sortie des pesticies / interdiction de l'élevage industriel
 - Parle d'inégalités sociales / patrimoine / scolaire.
-- Propose un revenu citoyen
+- Propose un **revenu citoyen**
+- Secu : Il souhaite à ce titre augmenter significativement la part de l’assurance maladie obligatoire dans le financement des soins, en diminuant la part des mutuelles et des autres complémentaires santé.
 - 13ème mois après des économies (lesquelles ?)
+- Favorable aux 32h sur 4 jour
 
 #### Eric Piolle
 
@@ -91,3 +95,7 @@ Automobile:
 - Remontée contre Gérald Darmanin accusé agressions sexuelles (humiliée)
 - Contre les inégalités et discriminations
 - Changer la structure du pouvoir et de notre société pour porter la transition écologique
+- Mettre en place une fiscalité carbone juste
+- un revenu d’existence versé de façon individuelle à partir de 18 ans, sous conditions de ressources,
+- Le coût total de la mesure, estimé à 130 Md€, sera financé par les prestations fusionnées (75 Md€), l’individualisation de l’impôt (29 Md€), et une augmentation de la progressivité de l’impôt sur le revenu (26 Md€).
+- Semaine de 4 jours

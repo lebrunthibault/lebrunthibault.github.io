@@ -98,9 +98,15 @@ Literal values (especially strings) usually belong to configuration / data and s
 
 - Identify the aspects of your application that vary and separate them from what stays the same.
 - Program to an interface, not an implementation.
-- Favor composition over inheritance.
+- Favor composition over inheritance : composition is relationship defined at runtime, inheritance represents static relationships.
+- Strive for loosely coupled designs between objects that interact.
 
 
+
+## Loose coupling
+
+- Loose coupling is coupling on an interface instead of implementation.
+- All the rest can change without bring breaking changes
 
 ## Encapsulation
 
@@ -185,16 +191,24 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 ### Observer
 
-- Behavioral design pattern, allow hooking inside of an observable component without knowing none of its logic, nor needing to modify its code. Just the name / type of the event it produces is enough (of course the component should implement observable).
+{{< figure src="/img/observer.PNG" title="observer class diagram" >}}
+
+
+- Behavioral design pattern, the Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. The observers are *dependent* (coupled) on the subject
+- Many **observers** **subscribe** to one **subject**. They are **notified** of its changes.
+- The observers usually have a pointer to the subject (e.g. for unsubscribing).
+- Usually better to use observer **pull** than subject **push** (passing parameters in the update method) as it's less flexible.
+- Follows open / closed and modifiable at runtime. Example of **loose coupling**.
+- A good evolution is to use callables implementing the update signature instead of classes.
 - Simple and strong but introduces coupling when the observers need to register directly on the observable. Makes sense when the coupling already exists and for small problematics.
 {{% code file="/static/code/observer/main.py" language="python" %}}
 
 ### Pub / Sub
 
-- Evolution of the observer : the observer is a consumer and the observable does not know about its consumers. Deals well with asynchronous code. Message passing is decoupled from the sender code.
+- Evolution of the observer :  allows subscribers to express interest in different types of messages and further separates publishers from subscribers. It is often used in middleware systems.The observer is a **subscriber** and the subject is a **publisher** and does not know about its subscribers. Deals well with asynchronous code. Message passing is decoupled from the sender code.
 - Scales well.
-- Message queuing is a special case of pub/sub[^1]
-- Not so easy to grasp at first side as the public / subscribe are done in different places.
+- Message queuing is a special case of pub/sub[^1] with usually only one subscriber per message type, and asynchronous.
+- More complex to grasp at first sight as the publish / subscribe are done in different places.
 
   
 ### Event bus
