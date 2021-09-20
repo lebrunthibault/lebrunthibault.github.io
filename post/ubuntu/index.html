@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ubuntu/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-20T16:48:44+02:00" />
+<meta property="article:modified_time" content="2021-09-20T16:52:55+02:00" />
 
 <meta itemprop="name" content="Ubuntu tricks">
 <meta itemprop="description" content="Install Jetbrains editor  Use toolbox app">
-<meta itemprop="dateModified" content="2021-09-20T16:48:44+02:00" />
-<meta itemprop="wordCount" content="47">
+<meta itemprop="dateModified" content="2021-09-20T16:52:55+02:00" />
+<meta itemprop="wordCount" content="72">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ubuntu tricks"/>
 <meta name="twitter:description" content="Install Jetbrains editor  Use toolbox app"/>
@@ -154,8 +154,13 @@
 <li>startup: <code>crontab -e</code></li>
 <li>shutdown :
 <ul>
-<li>create script in /<em>usr/lib/systemd/system-shutdown/</em> (as sudo) -&gt; <strong>not working</strong></li>
-<li>or create a systemd service file (see <a href="https://unix.stackexchange.com/questions/39226/how-to-run-a-script-with-systemd-right-before-shutdown">this</a>) -&gt; <strong>not working</strong></li>
+<li>create script in /<em>usr/lib/systemd/system-shutdown/</em> (as sudo) -&gt; doesn&rsquo;t seem to work with python</li>
+<li>or create a systemd service file (see <a href="https://unix.stackexchange.com/questions/39226/how-to-run-a-script-with-systemd-right-before-shutdown">this</a>)
+<ul>
+<li>IExecuting as my user : see <a href="https://askubuntu.com/questions/676007/how-do-i-make-my-systemd-service-run-via-specific-user-and-start-on-boot">this</a></li>
+<li>Testing with : <code>sudo systemctl restart backup-repos.service &amp;&amp; sudo systemctl stop backup-repos.service &amp;&amp; sudo systemctl status backup-repos.service</code></li>
+</ul>
+</li>
 <li>toto</li>
 </ul>
 </li>
