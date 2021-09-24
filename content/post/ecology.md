@@ -82,16 +82,10 @@ NB: cruise ship seem to average at 390 g / / km
 
 
 
-
-
-
-
 ## Nucléaire
 
 - [100% renouvelable pour pas plus cher, fastoche ?](https://jancovici.com/transition-energetique/renouvelables/100-renouvelable-pour-pas-plus-cher-fastoche/) Jancovici
 - [Entretien jancovici mars 2020](https://jancovici.com/transition-energetique/nucleaire/un-entretien-dans-marianne-en-mars-2020/)
-- 
-- 
 - 75% du mix énergétique
 
 ## Centrales à charbon
@@ -103,7 +97,8 @@ NB: cruise ship seem to average at 390 g / / km
 
 ## Energies renouvelables
 
-- [Allemengne et energiewende](https://www.sfen.org/rgn/allemagne-energiewende)
+- [Allemangne et energiewende](https://www.sfen.org/rgn/allemagne-energiewende)
+  - Article sur la transition énergétique allemande vers une production électrique décarbonnée
   - L'Allemange emet toujours beaucoup plus de co2 que nous sur la production d'énergie notamment a cause du charbon
   - Selon les chiffres à atteint pas loin de 40% de la production électrique en énergie renouvelables MAIS avec :
     - un fort investissement public ainsi qu'une augmentation du prix de l'electricité (electricité la plus chere du monde, voir [ici](https://www.statista.com/statistics/263492/electricity-prices-in-selected-countries/), et 1,5 à 2 fois le prix du kwh en France)
