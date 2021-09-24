@@ -67,6 +67,13 @@ NB: cruise ship seem to average at 390 g / / km
 
 
 
+# Foot
+
+- https://ourworldindata.org/environmental-impacts-of-food?country=#carbon-footprint-of-food-products
+- https://ourworldindata.org/food-choice-vs-eating-local
+
+
+
 # Energie
 
 
