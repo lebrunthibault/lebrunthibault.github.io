@@ -11,7 +11,7 @@ Voir com
 
 > ce genre de graphiques n’a pas beaucoup de sens en réalité étant donné que tous les délits sont répertoriés de manière égale, c’est-à-dire qu’un meurtre a la même valeur que la détention d’1 gramme de shit ou d’un taux d’alcoolémie au volant.
 >
-> L’accroissement spectaculaire de la courbe au fil des ans par rapport aux années 50 tien surtout au fait que les gens vont beaucoup plus facilement porter plainte qu’autrefois (pour une simple insulte), qu’il y a beaucoup plus de contrôles policiers d’une manière générale (sur les routes par exemple), que la législation d’une manière générale est beaucoup plus dure et pointilleuse qu’auparavant, et que l’usage de drogues douces n’a explosé que dans les années 80 (multipliant de fait les crimes et délits, puisque le simple fait d’être contrôlé avec même une toute petite quantité fait monter les chiffres).
+> L’accroissement spectaculaire de la courbe au fil des ans par rapport aux années 50 tient surtout au fait que les gens vont beaucoup plus facilement porter plainte qu’autrefois (pour une simple insulte), qu’il y a beaucoup plus de contrôles policiers d’une manière générale (sur les routes par exemple), que la législation d’une manière générale est beaucoup plus dure et pointilleuse qu’auparavant, et que l’usage de drogues douces n’a explosé que dans les années 80 (multipliant de fait les crimes et délits, puisque le simple fait d’être contrôlé avec même une toute petite quantité fait monter les chiffres).
 >
 > Maintenant si on prend la donnée objective qu’est le nombre d’assassinats on remarque qu’il ne cesse de baisser depuis trente ans, et a même été divisé par deux ces quinze dernières années alors que la population, elle, ne cesse d’augmenter !
 >
