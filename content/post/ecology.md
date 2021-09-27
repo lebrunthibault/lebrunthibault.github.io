@@ -25,13 +25,36 @@ keywords:
 
 ### Advices for trips (from [this](https://ourworldindata.org/travel-carbon-footprint))
 
-- Walk, cycle or run when possible – this comes with many other benefits such as lower local [air pollution](https://ourworldindata.org/air-pollution) and better health;
+- Walks, cycle or run when possible – this comes with many other benefits such as lower local [air pollution](https://ourworldindata.org/air-pollution) and better health;
 - Trains are nearly always the winning option over moderate-to-long distances;
 - If travelling internationally, going by train or boat is lower-carbon than flying;
 - If travelling domestically, driving – even if it’s alone – is usually better than flying;
 - If it’s a choice between driving or flying internationally, flying economy class is often better;
 - Car-sharing will massively reduce your footprint – it also helps to reduce local [air pollution](https://ourworldindata.org/air-pollution) and congestion;
-- Electric vehicles are nearly always lower-carbon than petrol or diesel cars, especially in a country that produces much of its electricity by renewables or nuclear.
+- Electric vehicles are nearly always lower-carbon than petrol or diesel cars, especially in a country that produces much of its electricity by renewables or nuclear. --> remis en cause pas jancovici, valable que dans une minorité de pays
+
+
+
+### Voiture électrique
+
+-  Plus propre seulement dans les pays avec un mix électrique bas carbone
+  - Pays "neutres": Allemage, USA
+  - Pays ou ca devient pire: Chine et la majorité des autres
+  - Pays ou c'est intéressant, ceux avec beaucoup d'hydro et / ou de nucléaire: France, Canada, Brésil, Suède, Suisse ..
+- Une voiture electrique émet 2 * plus a la production qu'une voiture thermique (a peu près 10T contre 5T)
+- Pour alimenter le parc francais de voitures il faudrait 
+  - augmenter de 50% la production d'électricité
+  - Faire des investissements sur le réseau
+- Problème de montée de charge du réseau si tout le monde charge sa voiture en meme temps (par ex le soir)
+- Sur le rendement du moteur
+  - Rendement voiture thermique = 20 à 40%, conso autour de 6L/100. Electrique: 80% meilleur.
+  - Scooter: conso autour de 4L/100 pas tellement moins. Très faible rendement. En électrique toujours 80% bien meilleur.
+
+> passer à l’électrique pour un scooter évite du CO2 même si l’électricité est produite avec du charbon, à cause d’un très fort gain sur le rendement du moteur
+
+
+
+> Voiture electrique: représente assurément une vraie bonne idée, mais à plus long terme, avec moins de voitures, et une électricité mondiale qui aura pris le temps de se décarboner pour de vrai (pour le moment l’éolien et le solaire ne changent pas significativement la donne)
 
 
 
