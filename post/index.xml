@@ -52,24 +52,6 @@
     </item>
     
     <item>
-      <title>Coffee notes</title>
-      <link>https://lebrunthibault.github.io/post/coffee/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/coffee/</guid>
-      <description>Consommation Chaud / Froid  il vaut mieux jeter un café froid sans hésitation car en plus d&amp;rsquo;avoir un goût affreux, un café froid a nettement moins d&amp;rsquo;intérêt pour la santé selon ce site</description>
-    </item>
-    
-    <item>
-      <title>Criminalité</title>
-      <link>https://lebrunthibault.github.io/post/s%C3%A9curit%C3%A9/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/s%C3%A9curit%C3%A9/</guid>
-      <description>Sécurité Définitions  Les violences volontaires  Les 3 types d&amp;rsquo;infractions pénales (cf site service-public):</description>
-    </item>
-    
-    <item>
       <title>Depression</title>
       <link>https://lebrunthibault.github.io/post/depression/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -201,7 +183,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/societe/</guid>
-      <description>Salles de shoot  À l’intérieur de l’enceinte de la salle de consommation, ils ne pourront pas faire l’objet de poursuites judiciaires.</description>
+      <description>Immigration Source INSEE :</description>
     </item>
     
     <item>
@@ -211,6 +193,15 @@
       
       <guid>https://lebrunthibault.github.io/post/software-development-principles/</guid>
       <description>I&amp;rsquo;m focusing on the languages I&amp;rsquo;ve used most : Python and PHP.</description>
+    </item>
+    
+    <item>
+      <title>Sécurité</title>
+      <link>https://lebrunthibault.github.io/post/s%C3%A9curit%C3%A9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/s%C3%A9curit%C3%A9/</guid>
+      <description>Sécurité Définitions  Les violences volontaires  Les 3 types d&amp;rsquo;infractions pénales (cf site service-public):</description>
     </item>
     
     <item>
@@ -237,7 +228,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/windows-tricks/</guid>
-      <description>Windows tricks  Pin to start any file Execute task at logon Execute task at restart  </description>
+      <description>Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &amp;gt; User configuration &amp;gt; Windows Settings &amp;gt; Startup / Shutdown  </description>
     </item>
     
   </channel>
