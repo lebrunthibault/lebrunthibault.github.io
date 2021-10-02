@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Ableton  download archives  Reinstall  Install removes all the *C:\ProgramData\Ableton\Live 10 Suite* directory." /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="download archives  Reducing latency when monitoring  See focusrite article" /><meta name="keywords" content="" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Ableton notes" />
-<meta property="og:description" content="Ableton  download archives  Reinstall  Install removes all the *C:\ProgramData\Ableton\Live 10 Suite* directory." />
+<meta property="og:description" content="download archives  Reducing latency when monitoring  See focusrite article" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-08-27T04:09:05+02:00" />
+<meta property="article:modified_time" content="2021-10-02T15:51:52+02:00" />
 
 <meta itemprop="name" content="Ableton notes">
-<meta itemprop="description" content="Ableton  download archives  Reinstall  Install removes all the *C:\ProgramData\Ableton\Live 10 Suite* directory.">
-<meta itemprop="dateModified" content="2021-08-27T04:09:05+02:00" />
-<meta itemprop="wordCount" content="89">
+<meta itemprop="description" content="download archives  Reducing latency when monitoring  See focusrite article">
+<meta itemprop="dateModified" content="2021-10-02T15:51:52+02:00" />
+<meta itemprop="wordCount" content="731">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ableton notes"/>
-<meta name="twitter:description" content="Ableton  download archives  Reinstall  Install removes all the *C:\ProgramData\Ableton\Live 10 Suite* directory."/>
+<meta name="twitter:description" content="download archives  Reducing latency when monitoring  See focusrite article"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 1 min read </span>
+            <span class="more-meta"> 4 mins read </span>
         </div>
     </header>
 
@@ -127,22 +127,177 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#ableton">Ableton</a>
+    <li><a href="#reducing-latency-when-monitoring">Reducing latency when monitoring</a></li>
+    <li><a href="#recording-external-synth-with-no-latency">Recording external synth with no latency</a>
       <ul>
-        <li><a href="#reinstall">Reinstall</a></li>
-        <li><a href="#changing-tempo-from-a-midi-clip-in-session-view">Changing tempo from a midi clip in session view</a></li>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
       </ul>
     </li>
+    <li><a href="#midi-jitter">Midi jitter</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#clean-sidechain-compression">Clean sidechain compression</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#changing-tempo-from-a-midi-clip-in-session-view">Changing tempo from a midi clip in session view</a></li>
+    <li><a href="#reinstall">Reinstall</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-        <h1 id="ableton">Ableton</h1>
-<ul>
+        <ul>
 <li><a href="https://www.ableton.com/en/download/archive/">download archives</a></li>
 </ul>
-<h2 id="reinstall">Reinstall</h2>
+<h1 id="reducing-latency-when-monitoring">Reducing latency when monitoring</h1>
+<blockquote>
+<p>See <a href="https://focusrite.com/en/news/system-science-part-2-drivers-latency">focusrite article</a></p>
+</blockquote>
+<ul>
+<li>Best solution : use an external mixer that feeds in the audio soundcard and monitor directly to the mixer (analog signal path). <em>Complicated for me</em></li>
+<li>Usual solution: use direct monitoring in the sound card BUT we get the A/D + D/A latency</li>
+<li>Anyway: record in ableton with monitoring off</li>
+</ul>
+<h1 id="recording-external-synth-with-no-latency">Recording external synth with no latency</h1>
+<blockquote>
+<p>See <a href="https://www.youtube.com/watch?v=PT5mD2Zd7F8">this video about audio latency</a>, <a href="https://www.youtube.com/watch?v=WkQkzBB6Szc">this one about midi to audio latency</a> and <a href="https://help.ableton.com/hc/fr-fr/articles/360006569179-Le-monitoring-dans-Live">Ableton doc</a></p>
+</blockquote>
+<p><strong>Monitoring modes</strong></p>
+<ul>
+<li>In : signal toujours entendu mais avec latence</li>
+<li>Auto: signal entendu seulement quand track arm avec latence</li>
+<li>Off : signal non entendu, zero latence</li>
+</ul>
+<blockquote>
+<p>With In or Auto: live aligns the audio with what&rsquo;s <em>heard</em> (input + output latency)</p>
+<p>With off : it&rsquo;s aligned with what you play (delay compensation of soundcard / driver latency and of plugin latency</p>
+</blockquote>
+<p><strong>Options &gt; Delay compensation</strong></p>
+<ul>
+<li>Compensates for plugins / effects latency. <strong>leave it on</strong>.</li>
+<li>NB: effect latency is show in the status bar when hovering over effect.</li>
+<li>All the tracks are started as to sync with the most delayed one</li>
+<li>NB : disabling a plugin does not remove its latency while delay compensation if on (it does when it&rsquo;s off)</li>
+</ul>
+<p><strong>Options &gt; Reduced latency when monitoring</strong></p>
+<ul>
+<li>For audio tracks, deactivates delay compensation for this track.</li>
+<li>track will start <strong>before</strong> other tracks if it&rsquo;s total effect latency if &lt; the most delayed track</li>
+<li>NB: it is not the same as direct monitoring, the tracks is still heard after all effect processing is done (thus with its own effect latency, as well as master) but is not affected to other tracks own latencies.</li>
+</ul>
+<p><strong>External instrument</strong></p>
+<ul>
+<li>Adds a latency equals to the system latency (in + out as seen in Preferences &gt; audio &gt; latency)</li>
+<li>record audio by :
+<ul>
+<li>freezing the track !</li>
+<li>adding a new audio track</li>
+</ul>
+</li>
+</ul>
+<p><strong>Recording direct audio (without feeding midi)</strong></p>
+<blockquote>
+<p>I&rsquo;m actually not doing this</p>
+</blockquote>
+<ul>
+<li>Use monitoring <strong>off</strong> and use soundcard direct monitoring <strong>or</strong> use another track for monitoring (with monitor auto or in).</li>
+</ul>
+<h4 id="recording-audio-by-sending-midi-with-no-latency-and-low-jitter">Recording audio by sending midi with no latency and low jitter</h4>
+<ul>
+<li>
+<p>Driver error compensation : <strong>-27ms</strong> to make it work with rev2 (minitaur doesn&rsquo;t need). NB more compensation pushes forward the audio and inversely.</p>
+</li>
+<li>
+<p>Buffer size: <strong>128 samples</strong></p>
+</li>
+<li>
+<p>Sample rate : <strong>88200Hz</strong></p>
+</li>
+</ul>
+<p><strong>Minitaur</strong></p>
+<ul>
+<li>Midi track with <strong>external instrument</strong></li>
+<li>external instrument hardware latency : inverse of driver error compensation (e.g. <strong>27ms</strong>)</li>
+<li>Audio track taking audio from midi track <strong>pre fx</strong></li>
+</ul>
+<p><strong>Prophet</strong></p>
+<ul>
+<li>Midi track with <strong>external audio effect</strong></li>
+<li>external instrument hardware latency : <strong>0ms</strong></li>
+<li>Audio track taking audio from midi track <strong>post fx</strong> (because we use external audio effect)</li>
+</ul>
+<h1 id="midi-jitter">Midi jitter</h1>
+<ul>
+<li>Around 10ms at SR 44100</li>
+<li>Around 5ms at SR 88200</li>
+<li>High SR + low buffer size = 2 ms !</li>
+</ul>
+<p><strong>Solution</strong></p>
+<ul>
+<li>High SR</li>
+<li>Low buffer size</li>
+</ul>
+<p><strong>More</strong></p>
+<ul>
+<li>Check out focusrite windows optimizing <a href="https://support.focusrite.com/hc/en-gb/articles/207355205-Optimising-your-PC-for-Audio-on-Windows-10">tutorial</a></li>
+</ul>
+<h4 id="should-i-use-a-midi-interface--possibilities-are">Should I use a midi interface ? Possibilities are</h4>
+<ul>
+<li><a href="https://www.thomann.de/fr/e_rm_midiclock.htm">E-RM Midi clock</a> : horloge maitre externe mais pas utile pour envoyer du midi aux synthés ?</li>
+<li><a href="https://www.thomann.de/fr/roland_um_one_mkii.htm">Roland UM-One MkII</a> : cable usb to 2 * midi : peut permetttre de réduire le jitter de l&rsquo;ordi au synth par rapport a un cable usb normal</li>
+<li>Use a high end audio soundcard using pll (focusrite <a href="https://pro.focusrite.com/what-is-jetpll">jetpll</a>)</li>
+<li><a href="https://www.thomann.de/fr/expert_sleepers_usamo.htm">Expert sleeper USAMO</a>:</li>
+</ul>
+<h1 id="clean-sidechain-compression">Clean sidechain compression</h1>
+<blockquote>
+<p>See <a href="https://www.youtube.com/watch?v=Gc4pehOp-Y4">this video</a></p>
+</blockquote>
+<h4 id="using-compressor">Using compressor</h4>
+<blockquote>
+<p>Good for dynamic source, simpler to setup</p>
+</blockquote>
+<ul>
+<li>sidechain input pre-fx</li>
+<li>Ratio infinite</li>
+<li>attack the lowest possible without artefacts</li>
+<li>detection mode: peak (especially for drums)</li>
+</ul>
+<h4 id="using-lfotool">Using LFOTool</h4>
+<blockquote>
+<p>Good for source with fixed velocity</p>
+</blockquote>
+<ul>
+<li>Do not send directly midi to the lfo tool
+<ul>
+<li>create a midi track with an external instrument to have <strong>latency compensation</strong> and copy paste midi notes</li>
+<li>one midi track and one lfo tool per sidechain source</li>
+</ul>
+</li>
+<li>Lfo tool midi conf: note retrigger in <strong>env</strong> mode</li>
+<li>handle clipping on attack : use <strong>smooth</strong> param but sometimes it&rsquo;s good to add punch</li>
+<li>Make it less aggresive by using the <strong>split</strong> button (down right).</li>
+</ul>
+<h1 id="changing-tempo-from-a-midi-clip-in-session-view">Changing tempo from a midi clip in session view</h1>
+<blockquote>
+<p>See <a href="https://www.google.com/search?q=ableton+use+clip+automation+in+session+view+tempo&amp;sxsrf=ALeKk03sqbx6h2aMlrhmod7qNzUIMzUX4A:1630011657440&amp;ei=CQEoYeG1GoedlwSt5rzoBA&amp;start=0&amp;sa=N&amp;ved=2ahUKEwih3sjOys_yAhWHzoUKHS0zD004ChDx0wN6BAgBEEA&amp;biw=1536&amp;bih=722#kpvalbx=_AgEoYevHEsvwaMj1reAN41">this video</a></p>
+</blockquote>
+<h1 id="reinstall">Reinstall</h1>
 <ul>
 <li>Install removes all the *C:\ProgramData\Ableton\Live 10 Suite* directory. Including remote scripts</li>
 <li>Backup remote scripts or check nothing to commit</li>
@@ -174,11 +329,7 @@
     <span class="k">return</span> <span class="n">ControlSurface</span><span class="p">(</span><span class="n">c_instance</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="changing-tempo-from-a-midi-clip-in-session-view">Changing tempo from a midi clip in session view</h2>
-<blockquote>
-<p>See <a href="https://www.google.com/search?q=ableton+use+clip+automation+in+session+view+tempo&amp;sxsrf=ALeKk03sqbx6h2aMlrhmod7qNzUIMzUX4A:1630011657440&amp;ei=CQEoYeG1GoedlwSt5rzoBA&amp;start=0&amp;sa=N&amp;ved=2ahUKEwih3sjOys_yAhWHzoUKHS0zD004ChDx0wN6BAgBEEA&amp;biw=1536&amp;bih=722#kpvalbx=_AgEoYevHEsvwaMj1reAN41">this video</a></p>
-</blockquote>
-
+</div>
     </div>
 
     
