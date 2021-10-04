@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="download archives  Reducing latency when monitoring  See focusrite article" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article" /><meta name="keywords" content="" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Ableton notes" />
-<meta property="og:description" content="download archives  Reducing latency when monitoring  See focusrite article" />
+<meta property="og:description" content="download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-10-02T15:51:52+02:00" />
+<meta property="article:modified_time" content="2021-10-04T18:28:36+02:00" />
 
 <meta itemprop="name" content="Ableton notes">
-<meta itemprop="description" content="download archives  Reducing latency when monitoring  See focusrite article">
-<meta itemprop="dateModified" content="2021-10-02T15:51:52+02:00" />
-<meta itemprop="wordCount" content="731">
+<meta itemprop="description" content="download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article">
+<meta itemprop="dateModified" content="2021-10-04T18:28:36+02:00" />
+<meta itemprop="wordCount" content="869">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ableton notes"/>
-<meta name="twitter:description" content="download archives  Reducing latency when monitoring  See focusrite article"/>
+<meta name="twitter:description" content="download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 4 mins read </span>
+            <span class="more-meta"> 5 mins read </span>
         </div>
     </header>
 
@@ -127,6 +127,7 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#copying-session-to-arrangement">Copying session to Arrangement</a></li>
     <li><a href="#reducing-latency-when-monitoring">Reducing latency when monitoring</a></li>
     <li><a href="#recording-external-synth-with-no-latency">Recording external synth with no latency</a>
       <ul>
@@ -146,6 +147,7 @@
         </li>
       </ul>
     </li>
+    <li><a href="#vst2--vst3">VST2 / VST3</a></li>
     <li><a href="#clean-sidechain-compression">Clean sidechain compression</a>
       <ul>
         <li>
@@ -156,6 +158,8 @@
       </ul>
     </li>
     <li><a href="#changing-tempo-from-a-midi-clip-in-session-view">Changing tempo from a midi clip in session view</a></li>
+    <li><a href="#quantization">Quantization</a></li>
+    <li><a href="#presets">Presets</a></li>
     <li><a href="#reinstall">Reinstall</a></li>
   </ul>
 </nav>
@@ -164,6 +168,10 @@
     <div class="post-content">
         <ul>
 <li><a href="https://www.ableton.com/en/download/archive/">download archives</a></li>
+</ul>
+<h1 id="copying-session-to-arrangement">Copying session to Arrangement</h1>
+<ul>
+<li>Change tempo to 999 and record (not ideal but fast)</li>
 </ul>
 <h1 id="reducing-latency-when-monitoring">Reducing latency when monitoring</h1>
 <blockquote>
@@ -221,7 +229,7 @@
 <h4 id="recording-audio-by-sending-midi-with-no-latency-and-low-jitter">Recording audio by sending midi with no latency and low jitter</h4>
 <ul>
 <li>
-<p>Driver error compensation : <strong>-27ms</strong> to make it work with rev2 (minitaur doesn&rsquo;t need). NB more compensation pushes forward the audio and inversely.</p>
+<p>Driver error compensation : <strong>0ms</strong></p>
 </li>
 <li>
 <p>Buffer size: <strong>128 samples</strong></p>
@@ -233,7 +241,7 @@
 <p><strong>Minitaur</strong></p>
 <ul>
 <li>Midi track with <strong>external instrument</strong></li>
-<li>external instrument hardware latency : inverse of driver error compensation (e.g. <strong>27ms</strong>)</li>
+<li>external instrument hardware latency : <strong>3ms</strong></li>
 <li>Audio track taking audio from midi track <strong>pre fx</strong></li>
 </ul>
 <p><strong>Prophet</strong></p>
@@ -263,6 +271,10 @@
 <li><a href="https://www.thomann.de/fr/roland_um_one_mkii.htm">Roland UM-One MkII</a> : cable usb to 2 * midi : peut permetttre de réduire le jitter de l&rsquo;ordi au synth par rapport a un cable usb normal</li>
 <li>Use a high end audio soundcard using pll (focusrite <a href="https://pro.focusrite.com/what-is-jetpll">jetpll</a>)</li>
 <li><a href="https://www.thomann.de/fr/expert_sleepers_usamo.htm">Expert sleeper USAMO</a>:</li>
+</ul>
+<h1 id="vst2--vst3">VST2 / VST3</h1>
+<ul>
+<li>vst3 détectent si du signal passent et se désactivent.</li>
 </ul>
 <h1 id="clean-sidechain-compression">Clean sidechain compression</h1>
 <blockquote>
@@ -297,6 +309,24 @@
 <blockquote>
 <p>See <a href="https://www.google.com/search?q=ableton+use+clip+automation+in+session+view+tempo&amp;sxsrf=ALeKk03sqbx6h2aMlrhmod7qNzUIMzUX4A:1630011657440&amp;ei=CQEoYeG1GoedlwSt5rzoBA&amp;start=0&amp;sa=N&amp;ved=2ahUKEwih3sjOys_yAhWHzoUKHS0zD004ChDx0wN6BAgBEEA&amp;biw=1536&amp;bih=722#kpvalbx=_AgEoYevHEsvwaMj1reAN41">this video</a></p>
 </blockquote>
+<h1 id="quantization">Quantization</h1>
+<ul>
+<li><strong>Global launch quantization</strong> (up left) == <code>Song.clip_trigger_quantization</code>. The launch clip quantization (set to <strong>1 bar</strong>)</li>
+<li>Edit-&gt;Record Quantization == <code>Song.midi_recording_quantization</code>. The automatic quantization (used for midi clips).</li>
+<li>We can independently quantize a clip / specific notes with the <strong>quantize command</strong> (<code>ctrl+u</code>)</li>
+</ul>
+<h1 id="presets">Presets</h1>
+<p><strong>Preset files</strong></p>
+<ul>
+<li>Fxp file : FX preset</li>
+<li><a href="https://www.lifewire.com/fxb-file-2621469">Fxb file</a> : FX bank</li>
+<li>Files are plugin specific. A bank is made of presets, save as fxp and you save the current patch, save as fxb and you save all the presets loaded in your synth as one bank (<em>Example : Sylenth</em>)</li>
+</ul>
+<p><strong>Save / Load presets</strong></p>
+<ul>
+<li><img src="https://lh5.googleusercontent.com/7LGlz_RzXxxTO3dT8G6QiIdrFH3BSIftiZCJZiT92A8bTWCdg0a6vlsuUuBatM6JtcLvdP5iM2xVt3AkNgfw9Yad2if80xk4uIk_uW3JHBvofsZhpht8c-OcTpxwwGU9YaQq_Ww-=s0" alt="img"> : Use live to save a <a href="https://www.lifewire.com/fxb-file-2621469">fxb file</a> on your hard drive.  You can use the folder button to the left to load the preset bank.</li>
+<li><img src="https://lh5.googleusercontent.com/Pm6Ls_ZbqPjPu-vXHhRHIy_jyoIv2g0JRxoBgsb-GcearzMw8cdoEkpaZXsqdSXnOex-OR1Jpbd_D8wTWP1ldNeWCOY4c6pNOQ4aMdxIXPURXE5IVhAmxLVyLdgncjJGCWCTld_c=s0" alt="img">(<em>LFOTool example</em>) : use the vst plugin to save the preset file to disk</li>
+</ul>
 <h1 id="reinstall">Reinstall</h1>
 <ul>
 <li>Install removes all the *C:\ProgramData\Ableton\Live 10 Suite* directory. Including remote scripts</li>

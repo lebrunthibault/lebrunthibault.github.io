@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &amp;gt; User configuration &amp;gt; Windows Settings &amp;gt; Startup / Shutdown  " /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &amp;gt; User configuration &amp;gt; Windows Settings &amp;gt; Startup / Shutdown  Audio Links :" /><meta name="keywords" content="" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Windows tricks" />
-<meta property="og:description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &gt; User configuration &gt; Windows Settings &gt; Startup / Shutdown  " />
+<meta property="og:description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &gt; User configuration &gt; Windows Settings &gt; Startup / Shutdown  Audio Links :" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/windows-tricks/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-24T19:42:54+02:00" />
+<meta property="article:modified_time" content="2021-10-04T18:28:36+02:00" />
 
 <meta itemprop="name" content="Windows tricks">
-<meta itemprop="description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &gt; User configuration &gt; Windows Settings &gt; Startup / Shutdown  ">
-<meta itemprop="dateModified" content="2021-09-24T19:42:54+02:00" />
-<meta itemprop="wordCount" content="31">
+<meta itemprop="description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &gt; User configuration &gt; Windows Settings &gt; Startup / Shutdown  Audio Links :">
+<meta itemprop="dateModified" content="2021-10-04T18:28:36+02:00" />
+<meta itemprop="wordCount" content="210">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Windows tricks"/>
-<meta name="twitter:description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &gt; User configuration &gt; Windows Settings &gt; Startup / Shutdown  "/>
+<meta name="twitter:description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &gt; User configuration &gt; Windows Settings &gt; Startup / Shutdown  Audio Links :"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,6 +128,7 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#windows-tricks">Windows tricks</a></li>
+    <li><a href="#audio">Audio</a></li>
   </ul>
 </nav>
   </div>
@@ -139,6 +140,22 @@
 <li><a href="https://www.tenforums.com/tutorials/173596-how-create-task-run-app-script-logon-windows-10-a.html">Execute task at logon</a>: using task scheduler</li>
 <li><a href="https://superuser.com/questions/773651/run-a-script-just-before-shutdown-or-reboot-on-windows-home-edition">Execute task at restart</a>: Group policy editor &gt; User configuration &gt; Windows Settings &gt; Startup / Shutdown</li>
 </ul>
+<h1 id="audio">Audio</h1>
+<p><strong>Links :</strong></p>
+<ul>
+<li>Interesting article about multiple audio interfaces : <a href="https://www.soundonsound.com/techniques/using-multiple-audio-interfaces-together">https://www.soundonsound.com/techniques/using-multiple-audio-interfaces-together</a></li>
+<li>Windows audio architecture : <a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/audio/windows-audio-architecture">https://docs.microsoft.com/en-us/windows-hardware/drivers/audio/windows-audio-architecture</a></li>
+<li>Wasapi example code : <a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WindowsAudioSession">https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WindowsAudioSession</a></li>
+<li>Windows vs linux audio : <a href="https://www.learndigitalaudio.com/how-linux-audio-works-vs-windows-audio-2017Sound">https://www.learndigitalaudio.com/how-linux-audio-works-vs-windows-audio-2017Sound</a> control panel : <a href="https://oxen.tech/blog/using-sounds-settings-control-panel/">https://oxen.tech/blog/using-sounds-settings-control-panel/</a></li>
+</ul>
+<p><strong>Drivers :</strong></p>
+<ul>
+<li>Asio, Windows Core Audio (using WASAPI)</li>
+</ul>
+<p>To use a professional audio interface in Windows you will need to download the drivers from the manufacturers web site and install them. These will almost certainly include an ASIO driver. This type of special driver created by Steinberg will bypass the operating system as much as is possible and enable low latency high quality sound.</p>
+<p>There will probably be another driver included for general Windows use. This is for software that does not support ASIO, and it will probably be Windows Core Audio which uses WASAPI. This is the current type of driver used in Windows 10, and supersedes <strong>MME (1991), DirectSound (1995), and WDM (1998).</strong></p>
+<p>Windows Core Audio can also bypass the operating system as much as is possible, and get low latency in ‘exclusive’ mode, but ASIO is still the most widely used pro audio standard.</p>
+<p><img src="https://lh4.googleusercontent.com/pkTV0y4Rs0pWWgSc-BtHAX3SMVfre1DtmwMpD6UIoa8mKqeGDO4XMnVvIpN2NJ_3WHZafLw5amwovg07Vz3H6Qtt3L_DSY7mH6T_vR-GZ_GL5Q0kV3bnv8TJl9CQCQBVEfXZAt7d=s0" alt="img"><a href="https://msdn.microsoft.com/library/windows/desktop/dd742875">https://msdn.microsoft.com/library/windows/desktop/dd742875</a>)</p>
 
     </div>
 
