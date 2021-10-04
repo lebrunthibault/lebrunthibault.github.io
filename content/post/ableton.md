@@ -7,6 +7,10 @@ draft: true
 
 
 
+# Copying session to Arrangement
+
+- Change tempo to 999 and record (not ideal but fast)
+
 # Reducing latency when monitoring
 
 > See [focusrite article](https://focusrite.com/en/news/system-science-part-2-drivers-latency)
@@ -57,7 +61,7 @@ draft: true
 
 #### Recording audio by sending midi with no latency and low jitter
 
-- Driver error compensation : **-27ms** to make it work with rev2 (minitaur doesn't need). NB more compensation pushes forward the audio and inversely.
+- Driver error compensation : **0ms**
 
 - Buffer size: **128 samples**
 - Sample rate : **88200Hz**
@@ -65,7 +69,7 @@ draft: true
 **Minitaur**
 
 - Midi track with **external instrument**
-- external instrument hardware latency : inverse of driver error compensation (e.g. **27ms**)
+- external instrument hardware latency : **3ms**
 - Audio track taking audio from midi track **pre fx**
 
 **Prophet**
@@ -96,6 +100,12 @@ draft: true
 - Use a high end audio soundcard using pll (focusrite [jetpll](https://pro.focusrite.com/what-is-jetpll))
 - [Expert sleeper USAMO](https://www.thomann.de/fr/expert_sleepers_usamo.htm): 
 
+
+
+# VST2 / VST3
+
+- vst3 détectent si du signal passent et se désactivent. 
+
 # Clean sidechain compression
 
 > See [this video](https://www.youtube.com/watch?v=Gc4pehOp-Y4)
@@ -125,6 +135,28 @@ draft: true
 # Changing tempo from a midi clip in session view
 
 > See [this video](https://www.google.com/search?q=ableton+use+clip+automation+in+session+view+tempo&sxsrf=ALeKk03sqbx6h2aMlrhmod7qNzUIMzUX4A:1630011657440&ei=CQEoYeG1GoedlwSt5rzoBA&start=0&sa=N&ved=2ahUKEwih3sjOys_yAhWHzoUKHS0zD004ChDx0wN6BAgBEEA&biw=1536&bih=722#kpvalbx=_AgEoYevHEsvwaMj1reAN41)
+
+
+
+# Quantization
+
+- **Global launch quantization** (up left) == `Song.clip_trigger_quantization`. The launch clip quantization (set to **1 bar**)
+- Edit->Record Quantization == `Song.midi_recording_quantization`. The automatic quantization (used for midi clips).
+- We can independently quantize a clip / specific notes with the **quantize command** (`ctrl+u`)
+
+
+
+# Presets
+**Preset files**
+
+- Fxp file : FX preset
+- [Fxb file](https://www.lifewire.com/fxb-file-2621469) : FX bank
+- Files are plugin specific. A bank is made of presets, save as fxp and you save the current patch, save as fxb and you save all the presets loaded in your synth as one bank (*Example : Sylenth*)
+
+**Save / Load presets**
+
+- ![img](https://lh5.googleusercontent.com/7LGlz_RzXxxTO3dT8G6QiIdrFH3BSIftiZCJZiT92A8bTWCdg0a6vlsuUuBatM6JtcLvdP5iM2xVt3AkNgfw9Yad2if80xk4uIk_uW3JHBvofsZhpht8c-OcTpxwwGU9YaQq_Ww-=s0) : Use live to save a [fxb file](https://www.lifewire.com/fxb-file-2621469) on your hard drive.  You can use the folder button to the left to load the preset bank.
+- ![img](https://lh5.googleusercontent.com/Pm6Ls_ZbqPjPu-vXHhRHIy_jyoIv2g0JRxoBgsb-GcearzMw8cdoEkpaZXsqdSXnOex-OR1Jpbd_D8wTWP1ldNeWCOY4c6pNOQ4aMdxIXPURXE5IVhAmxLVyLdgncjJGCWCTld_c=s0)(*LFOTool example*) : use the vst plugin to save the preset file to disk
 
 # Reinstall
 
