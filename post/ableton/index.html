@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor    MIDI Jitter http://www." /><meta name="keywords" content="" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Ableton notes" />
-<meta property="og:description" content="download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article" />
+<meta property="og:description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor    MIDI Jitter http://www." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-10-04T18:28:36+02:00" />
+<meta property="article:modified_time" content="2021-10-15T20:09:25+02:00" />
 
 <meta itemprop="name" content="Ableton notes">
-<meta itemprop="description" content="download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article">
-<meta itemprop="dateModified" content="2021-10-04T18:28:36+02:00" />
-<meta itemprop="wordCount" content="869">
+<meta itemprop="description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor    MIDI Jitter http://www.">
+<meta itemprop="dateModified" content="2021-10-15T20:09:25+02:00" />
+<meta itemprop="wordCount" content="930">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ableton notes"/>
-<meta name="twitter:description" content="download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article"/>
+<meta name="twitter:description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor    MIDI Jitter http://www."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -127,7 +127,16 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#copying-session-to-arrangement">Copying session to Arrangement</a></li>
+    <li><a href="#bugs">Bugs</a></li>
+    <li><a href="#midi-jitter">MIDI Jitter</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#midi-connections-comparison">Midi connections comparison</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#reducing-latency-when-monitoring">Reducing latency when monitoring</a></li>
     <li><a href="#recording-external-synth-with-no-latency">Recording external synth with no latency</a>
       <ul>
@@ -138,7 +147,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="#midi-jitter">Midi jitter</a>
+    <li><a href="#midi-jitter-1">Midi jitter</a>
       <ul>
         <li>
           <ul>
@@ -169,9 +178,43 @@
         <ul>
 <li><a href="https://www.ableton.com/en/download/archive/">download archives</a></li>
 </ul>
-<h1 id="copying-session-to-arrangement">Copying session to Arrangement</h1>
+<h1 id="bugs">Bugs</h1>
 <ul>
-<li>Change tempo to 999 and record (not ideal but fast)</li>
+<li>Minitaur editor disconnected :
+<ul>
+<li>only minitaur out / track is necessary</li>
+<li><strong>simply reload the minitaur editor</strong></li>
+</ul>
+</li>
+</ul>
+<h1 id="midi-jitter">MIDI Jitter</h1>
+<p><a href="http://www.audiodesignguide.com/DAC_final/how.htm">http://www.audiodesignguide.com/DAC_final/how.htm</a></p>
+<p><a href="https://www.ableton.com/en/manual/midi-fact-sheet/">https://www.ableton.com/en/manual/midi-fact-sheet/</a></p>
+<p><a href="http://www.users.on.net/~mcdds001/mmmmqac/midi_jitter.html">Midi latency analyzer</a></p>
+<p><a href="https://www.thomann.de/fr/e_rm_multiclock_usb.htm">https://www.thomann.de/fr/e_rm_multiclock_usb.htm</a> : 500 balles mais apparemment top: clock sync via un signal audio. <a href="https://reverb.com/fr/item/41066860-erm-multiclock-usb">moins cher ici</a></p>
+<h3 id="midi-connections-comparison">Midi connections comparison</h3>
+<ul>
+<li>DIN 5-pin classic MIDI:
+<ul>
+<li>A latency/jitter of minimum 1ms (time to process a 3 byte midi message)</li>
+<li>Jitter acceptable</li>
+</ul>
+</li>
+<li>Usb:
+<ul>
+<li>More throughput</li>
+<li>Usually higher jitter</li>
+</ul>
+</li>
+<li>Ethernet / IP
+<ul>
+<li>better ?</li>
+</ul>
+</li>
+</ul>
+<p><strong>Possibilities</strong>:</p>
+<ul>
+<li><a href="https://www.iconnectivity.com/mioxm">https://www.iconnectivity.com/mioxm</a></li>
 </ul>
 <h1 id="reducing-latency-when-monitoring">Reducing latency when monitoring</h1>
 <blockquote>
@@ -250,7 +293,7 @@
 <li>external instrument hardware latency : <strong>0ms</strong></li>
 <li>Audio track taking audio from midi track <strong>post fx</strong> (because we use external audio effect)</li>
 </ul>
-<h1 id="midi-jitter">Midi jitter</h1>
+<h1 id="midi-jitter-1">Midi jitter</h1>
 <ul>
 <li>Around 10ms at SR 44100</li>
 <li>Around 5ms at SR 88200</li>

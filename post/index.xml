@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language><atom:link href="https://lebrunthibault.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/food/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/food/</guid>
+      <description>https://solutionslocales.</description>
+    </item>
+    
+    <item>
       <title>Ableton notes</title>
       <link>https://lebrunthibault.github.io/post/ableton/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/ableton/</guid>
-      <description>download archives  Copying session to Arrangement  Change tempo to 999 and record (not ideal but fast)  Reducing latency when monitoring  See focusrite article</description>
+      <description>download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor    MIDI Jitter http://www.</description>
     </item>
     
     <item>
@@ -85,15 +94,6 @@
       
       <guid>https://lebrunthibault.github.io/post/economy/</guid>
       <description>Décroissance  croissance = augmentation du niveau de vie moyen</description>
-    </item>
-    
-    <item>
-      <title>Food notes</title>
-      <link>https://lebrunthibault.github.io/post/food/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/food/</guid>
-      <description>https://solutionslocales.</description>
     </item>
     
     <item>
@@ -228,7 +228,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/windows-tricks/</guid>
-      <description>Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor &amp;gt; User configuration &amp;gt; Windows Settings &amp;gt; Startup / Shutdown  Audio Links :</description>
+      <description>Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor (gpedit.</description>
     </item>
     
   </channel>
