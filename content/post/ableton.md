@@ -7,9 +7,36 @@ draft: true
 
 
 
-# Copying session to Arrangement
+# Bugs
 
-- Change tempo to 999 and record (not ideal but fast)
+- Minitaur editor disconnected :
+  - only minitaur out / track is necessary
+  - **simply reload the minitaur editor**
+
+# MIDI Jitter
+
+http://www.audiodesignguide.com/DAC_final/how.htm
+
+https://www.ableton.com/en/manual/midi-fact-sheet/
+
+[Midi latency analyzer](http://www.users.on.net/~mcdds001/mmmmqac/midi_jitter.html)
+
+https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment top: clock sync via un signal audio. [moins cher ici](https://reverb.com/fr/item/41066860-erm-multiclock-usb)
+
+### Midi connections comparison
+
+- DIN 5-pin classic MIDI:
+  - A latency/jitter of minimum 1ms (time to process a 3 byte midi message)
+  - Jitter acceptable
+- Usb:
+  - More throughput
+  - Usually higher jitter
+- Ethernet / IP
+  - better ?
+
+**Possibilities**:
+
+- https://www.iconnectivity.com/mioxm
 
 # Reducing latency when monitoring
 
