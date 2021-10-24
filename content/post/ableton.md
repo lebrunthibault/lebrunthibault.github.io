@@ -12,6 +12,7 @@ draft: true
 - Minitaur editor disconnected :
   - only minitaur out / track is necessary
   - **simply reload the minitaur editor**
+  - If not working unplug / plug the usb cable and reload editor
 
 # MIDI Jitter
 
