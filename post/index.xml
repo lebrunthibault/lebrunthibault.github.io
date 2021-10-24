@@ -21,7 +21,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/ableton/</guid>
-      <description>download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor    MIDI Jitter http://www.</description>
+      <description>download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www.</description>
     </item>
     
     <item>
@@ -166,15 +166,6 @@
       
       <guid>https://lebrunthibault.github.io/post/book-review-refactoring-to-patterns/</guid>
       <description>Test-driven development and continuous refactoring, two of the many excellent XP practices</description>
-    </item>
-    
-    <item>
-      <title>reloop mixtour notes</title>
-      <link>https://lebrunthibault.github.io/post/reloop-mixtour/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/reloop-mixtour/</guid>
-      <description>Setup  Power off / on reloop Audio setup : switch to asio4all, then to reloop asio Disable loop midi so that midi in / out doesn&amp;rsquo;t feedback use mapping modified (modified 2 has no play button) Snap &amp;amp; quantize on  </description>
     </item>
     
     <item>
