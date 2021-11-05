@@ -96,7 +96,7 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 **Minitaur**
 
-- Midi track with **external instrument**
+- Midi track with **external instrument** and **Minitaur Editor(x64)**
 - external instrument hardware latency : **3ms**
 - Audio track taking audio from midi track **pre fx**
 
