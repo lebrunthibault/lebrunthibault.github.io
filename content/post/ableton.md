@@ -186,6 +186,17 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 - ![img](https://lh5.googleusercontent.com/7LGlz_RzXxxTO3dT8G6QiIdrFH3BSIftiZCJZiT92A8bTWCdg0a6vlsuUuBatM6JtcLvdP5iM2xVt3AkNgfw9Yad2if80xk4uIk_uW3JHBvofsZhpht8c-OcTpxwwGU9YaQq_Ww-=s0) : Use live to save a [fxb file](https://www.lifewire.com/fxb-file-2621469) on your hard drive.  You can use the folder button to the left to load the preset bank.
 - ![img](https://lh5.googleusercontent.com/Pm6Ls_ZbqPjPu-vXHhRHIy_jyoIv2g0JRxoBgsb-GcearzMw8cdoEkpaZXsqdSXnOex-OR1Jpbd_D8wTWP1ldNeWCOY4c6pNOQ4aMdxIXPURXE5IVhAmxLVyLdgncjJGCWCTld_c=s0)(*LFOTool example*) : use the vst plugin to save the preset file to disk
 
+
+
+# Profiling
+
+### Set reload duration
+
+- One empty audio track : 2.18, 2.10, 2.29, 2.27, 2.20 = 11,04 / 2.208
+- With 20 LfoTool: 6.18, 6.20, 6.43, 6.64, 6.25 -> Plugin load time **200ms**
+- With 20 H-Delay Stereo : 4.45, 4.48, 4.35, 4.50, 5.21 -> Plugin load time **100ms**
+- With 20 EqEight : 3.01, 3.38, 2.99, 3.38, 3.03 = 15,79 / 3.158 -> Plugin load time **22ms**
+
 # Reinstall
 
 - Install removes all the *C:\ProgramData\Ableton\Live 10 Suite\* directory. Including remote scripts
