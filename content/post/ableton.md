@@ -192,12 +192,7 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 # Profiling
 
-### Set reload duration
-
-- One empty audio track : 2.18, 2.10, 2.29, 2.27, 2.20 = 11,04 / 2.208
-- With 20 LfoTool: 6.18, 6.20, 6.43, 6.64, 6.25 -> Plugin load time **200ms**
-- With 20 H-Delay Stereo : 4.45, 4.48, 4.35, 4.50, 5.21 -> Plugin load time **100ms**
-- With 20 EqEight : 3.01, 3.38, 2.99, 3.38, 3.03 = 15,79 / 3.158 -> Plugin load time **22ms**
+See https://docs.google.com/spreadsheets/d/1m4vL2dqWhx6PyerJknqP2iwtY84NHFEjbPKmC1VfdUE/edit#gid=0
 
 # Reinstall
 
