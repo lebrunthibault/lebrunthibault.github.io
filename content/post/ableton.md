@@ -22,6 +22,8 @@ https://www.ableton.com/en/manual/midi-fact-sheet/
 
 [Midi latency analyzer](http://www.users.on.net/~mcdds001/mmmmqac/midi_jitter.html)
 
+[how to eliminate midi jitter reddit](https://www.reddit.com/r/linuxaudio/comments/9kg418/how_to_eliminate_midi_jitter/)
+
 https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment top: clock sync via un signal audio. [moins cher ici](https://reverb.com/fr/item/41066860-erm-multiclock-usb)
 
 ### Midi connections comparison
