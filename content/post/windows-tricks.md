@@ -37,3 +37,8 @@ Windows Core Audio can also bypass the operating system as much as is possible, 
 # Free space on C:
 
 Install ubuntu on D: see https://kontext.tech/column/tools/308/how-to-install-windows-subsystem-for-linux-on-a-non-c-drive
+
+Move Pagefile.sys or delete it : https://www.ionos.fr/digitalguide/serveur/configuration/pagefilesys/
+
+Remove hiberfile.sys ? https://www.commentcamarche.net/informatique/windows/227-supprimer-le-fichier-hiberfil-sys-de-windows/
+
