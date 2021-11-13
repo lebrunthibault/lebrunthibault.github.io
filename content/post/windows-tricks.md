@@ -31,3 +31,9 @@ There will probably be another driver included for general Windows use. This is 
 Windows Core Audio can also bypass the operating system as much as is possible, and get low latency in ‘exclusive’ mode, but ASIO is still the most widely used pro audio standard.
 
 ![img](https://lh4.googleusercontent.com/pkTV0y4Rs0pWWgSc-BtHAX3SMVfre1DtmwMpD6UIoa8mKqeGDO4XMnVvIpN2NJ_3WHZafLw5amwovg07Vz3H6Qtt3L_DSY7mH6T_vR-GZ_GL5Q0kV3bnv8TJl9CQCQBVEfXZAt7d=s0)https://msdn.microsoft.com/library/windows/desktop/dd742875)
+
+
+
+# Free space on C:
+
+Install ubuntu on D: see https://kontext.tech/column/tools/308/how-to-install-windows-subsystem-for-linux-on-a-non-c-drive
