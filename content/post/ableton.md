@@ -190,9 +190,25 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 
 
-# Profiling
+# Speed up sets load time
+
+
 
 See https://docs.google.com/spreadsheets/d/1m4vL2dqWhx6PyerJknqP2iwtY84NHFEjbPKmC1VfdUE/edit#gid=0
+
+### Push2
+
+​	Push2 adds 1.5 to 2s (even only the script)
+
+​	`caps.TYPE_KEY: u'push2',  # this takes some time` in `__init__.py`
+
+# Midi ports
+
+See https://help.ableton.com/hc/fr-fr/articles/209774205-Les-ports-MIDI-de-Live-comment-%C3%A7a-marche
+
+- Track : Note on, Note off, CC, program change
+- Sync : clock info
+- Remote : Assignation midi (input) and assigned midi parameters change
 
 # Reinstall
 
