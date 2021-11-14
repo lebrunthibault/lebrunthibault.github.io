@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-11-12T15:43:15+01:00" />
+<meta property="article:modified_time" content="2021-11-14T16:04:37+01:00" />
 
 <meta itemprop="name" content="Ableton notes">
 <meta itemprop="description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www.">
-<meta itemprop="dateModified" content="2021-11-12T15:43:15+01:00" />
-<meta itemprop="wordCount" content="954">
+<meta itemprop="dateModified" content="2021-11-14T16:04:37+01:00" />
+<meta itemprop="wordCount" content="1006">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ableton notes"/>
 <meta name="twitter:description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www."/>
@@ -169,7 +169,16 @@
     <li><a href="#changing-tempo-from-a-midi-clip-in-session-view">Changing tempo from a midi clip in session view</a></li>
     <li><a href="#quantization">Quantization</a></li>
     <li><a href="#presets">Presets</a></li>
-    <li><a href="#profiling">Profiling</a></li>
+    <li><a href="#speed-up-sets-load-time">Speed up sets load time</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#push2">Push2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#midi-ports">Midi ports</a></li>
     <li><a href="#reinstall">Reinstall</a></li>
   </ul>
 </nav>
@@ -373,8 +382,18 @@
 <li><img src="https://lh5.googleusercontent.com/7LGlz_RzXxxTO3dT8G6QiIdrFH3BSIftiZCJZiT92A8bTWCdg0a6vlsuUuBatM6JtcLvdP5iM2xVt3AkNgfw9Yad2if80xk4uIk_uW3JHBvofsZhpht8c-OcTpxwwGU9YaQq_Ww-=s0" alt="img"> : Use live to save a <a href="https://www.lifewire.com/fxb-file-2621469">fxb file</a> on your hard drive.  You can use the folder button to the left to load the preset bank.</li>
 <li><img src="https://lh5.googleusercontent.com/Pm6Ls_ZbqPjPu-vXHhRHIy_jyoIv2g0JRxoBgsb-GcearzMw8cdoEkpaZXsqdSXnOex-OR1Jpbd_D8wTWP1ldNeWCOY4c6pNOQ4aMdxIXPURXE5IVhAmxLVyLdgncjJGCWCTld_c=s0" alt="img">(<em>LFOTool example</em>) : use the vst plugin to save the preset file to disk</li>
 </ul>
-<h1 id="profiling">Profiling</h1>
+<h1 id="speed-up-sets-load-time">Speed up sets load time</h1>
 <p>See <a href="https://docs.google.com/spreadsheets/d/1m4vL2dqWhx6PyerJknqP2iwtY84NHFEjbPKmC1VfdUE/edit#gid=0">https://docs.google.com/spreadsheets/d/1m4vL2dqWhx6PyerJknqP2iwtY84NHFEjbPKmC1VfdUE/edit#gid=0</a></p>
+<h3 id="push2">Push2</h3>
+<p>​	Push2 adds 1.5 to 2s (even only the script)</p>
+<p>​	<code>caps.TYPE_KEY: u'push2',  # this takes some time</code> in <code>__init__.py</code></p>
+<h1 id="midi-ports">Midi ports</h1>
+<p>See <a href="https://help.ableton.com/hc/fr-fr/articles/209774205-Les-ports-MIDI-de-Live-comment-%C3%A7a-marche">https://help.ableton.com/hc/fr-fr/articles/209774205-Les-ports-MIDI-de-Live-comment-%C3%A7a-marche</a></p>
+<ul>
+<li>Track : Note on, Note off, CC, program change</li>
+<li>Sync : clock info</li>
+<li>Remote : Assignation midi (input) and assigned midi parameters change</li>
+</ul>
 <h1 id="reinstall">Reinstall</h1>
 <ul>
 <li>Install removes all the *C:\ProgramData\Ableton\Live 10 Suite* directory. Including remote scripts</li>
