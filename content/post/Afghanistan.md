@@ -39,7 +39,7 @@ Les russes tiennent les grandes villes et principales routes mais pas les zones 
 
 ### Départ des communistes
 
-En 1989, laisse les afghans seuls face aux groupes armés et tombe en 1992.
+En 1989, laisse les afghans seuls face aux groupes armés et tombent en 1992.
 
 > 1992: Afghanistan devient l'etat islamique d'afghanistan.
 >
@@ -51,7 +51,7 @@ En 1989, laisse les afghans seuls face aux groupes armés et tombe en 1992.
 
 - Apparaissent en 1994 en réaction au chaos créée par la guerre civile entre les différentes tribus
 - Rassurent la population car obéissent à une loi (la charia), ce qui tranche avec le chaos 
-- Période talibane : 1996 - 2001 (**Émirat islimaique d'Afghanistan**)
+- Période talibane : 1996 - 2001 (**Émirat islamique d'Afghanistan**)
 - Un seul territoire résiste dans le Nord avec ce qui reste des forces militaires tribales: **l'Alliance du Nord**, dirigé par le commandant **Massoud**
 - Les talibans sont soutenus par le Pakistan qui voient en eux un avenir stabilisé avec développement commercial et consensus idéologique (plus proche que Massoud).
 

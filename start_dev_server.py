@@ -1,16 +1,23 @@
-import os
-import sys
 from dotenv import load_dotenv
 import subprocess
+import click
 
 from os.path import dirname, realpath
 
 root = dirname(realpath(__file__))
 load_dotenv()
-if sys.argv[1] == "build":
-    subprocess.run("hugo -D", shell=True)
-    # subprocess.run(f".\\node_modules\\.bin\\atomic-algolia.cmd")
-else:
-    # subprocess.run("hugo -D")
-    # subprocess.run(f".\\node_modules\\.bin\\atomic-algolia.cmd")
-    subprocess.run("hugo server -D", shell=True)
+
+
+@click.command()
+@click.option('--watch/--no-watch', default=True)
+@click.option('--build/--dev', default=False)
+def run_hugo(watch: bool, build: bool):
+    command = "hugo -D" if build else "hugo server -D"
+    if not watch:
+        command = f"{command} --watch=false"
+
+    subprocess.run(command, shell=True)
+
+
+if __name__ == '__main__':
+    run_hugo()
