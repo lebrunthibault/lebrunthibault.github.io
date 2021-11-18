@@ -210,6 +210,16 @@ See https://help.ableton.com/hc/fr-fr/articles/209774205-Les-ports-MIDI-de-Live-
 - Sync : clock info
 - Remote : Assignation midi (input) and assigned midi parameters change
 
+
+
+# Usamo
+
+debug steps :
+
+- Launch empty set with usamo testing
+- Power down & up soundcard
+- move trim knob if necessary
+
 # Reinstall
 
 - Install removes all the *C:\ProgramData\Ableton\Live 10 Suite\* directory. Including remote scripts
