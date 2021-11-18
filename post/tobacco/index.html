@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Head first design patterns - Home</title>
+  <title>tobacco - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="1. Intro to design patterns Example of ducks (quacking, flying)" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="https://www.lemonde.fr/sante/article/2021/11/03/vapotage-les-vrais-millions-des-fausses-organisations-de-consommateurs_6100830_1651302.html" /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/tobacco/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Head first design patterns" />
-<meta property="og:description" content="1. Intro to design patterns Example of ducks (quacking, flying)" />
+<meta property="og:title" content="tobacco" />
+<meta property="og:description" content="https://www.lemonde.fr/sante/article/2021/11/03/vapotage-les-vrais-millions-des-fausses-organisations-de-consommateurs_6100830_1651302.html" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/tobacco/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-18T14:01:45+02:00" />
+<meta property="article:modified_time" content="2021-11-04T21:38:02+01:00" />
 
-<meta itemprop="name" content="Head first design patterns">
-<meta itemprop="description" content="1. Intro to design patterns Example of ducks (quacking, flying)">
-<meta itemprop="dateModified" content="2021-09-18T14:01:45+02:00" />
-<meta itemprop="wordCount" content="376">
+<meta itemprop="name" content="tobacco">
+<meta itemprop="description" content="https://www.lemonde.fr/sante/article/2021/11/03/vapotage-les-vrais-millions-des-fausses-organisations-de-consommateurs_6100830_1651302.html">
+<meta itemprop="dateModified" content="2021-11-04T21:38:02+01:00" />
+<meta itemprop="wordCount" content="1">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Head first design patterns"/>
-<meta name="twitter:description" content="1. Intro to design patterns Example of ducks (quacking, flying)"/>
+<meta name="twitter:title" content="tobacco"/>
+<meta name="twitter:description" content="https://www.lemonde.fr/sante/article/2021/11/03/vapotage-les-vrais-millions-des-fausses-organisations-de-consommateurs_6100830_1651302.html"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,74 +114,22 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">Head first design patterns</h1>
+        <h1 class="post-title">tobacco</h1>
 
         <div class="post-meta">
             
-            <span class="more-meta"> 2 mins read </span>
+            <span class="more-meta"> 1 min read </span>
         </div>
     </header>
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#1-intro-to-design-patterns">1. Intro to design patterns</a>
-      <ul>
-        <li>
-          <ul>
-            <li></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#4-the-factory-pattern">4. The factory pattern</a></li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
-        <h1 id="1-intro-to-design-patterns">1. Intro to design patterns</h1>
-<p>Example of ducks (quacking, flying)</p>
-<ul>
-<li>Example 1 : abstract duck class with display(), quack(), fly(): tight coupling to the superclass, behavior not modifiable at run time</li>
-<li>Example 2 : Using Flyable and Quackable interfaces: code duplication in all subclasses. No code reuse</li>
-</ul>
-<p>Advice:</p>
-<blockquote>
-<p>Identify the aspects of your application that vary and separate them from what stays the same.</p>
-<p>take the parts that vary and encapsulate them, so that later you can alter or extend the parts that vary without affecting those that don’t.</p>
-</blockquote>
-<ul>
-<li>Example 3 : isolate (encapsulate) behaviors in specific class implementing an interface.</li>
-</ul>
-<img src="C:\Users\thiba\Downloads\Capture.PNG" alt="Capture" style="zoom:50%;" />
-<h4 id="program-to-an-interface-really-means-program-to-a-supertype">“Program to an interface” really means “Program to a supertype.”</h4>
-<blockquote>
-<p>An abstract supertype (could be an abstract class OR interface). The important part is that we don&rsquo;t know the concrete type. That&rsquo;s what program to an interface really means.</p>
-</blockquote>
-<p><strong>What we get</strong>:</p>
-<p>With this design, other types of objects can reuse our fly and quack behaviors because these behaviors are no longer hidden away in our Duck classes! And we can add new behaviors without modifying any of our existing behavior classes or touching any of the Duck classes that use flying behaviors.</p>
-<p>Also : we can add setters to modify behaviors at run time (e.g. start with default implementation and modify it in a factory method)</p>
-<p><em>comment: using association coupled with interface moves the complexity and change to another axis making it more manageable</em></p>
-<p>**Vocabulary: ** set of behavior == family of algorithm</p>
-<h4 id="design-principles">Design principles:</h4>
-<ul>
-<li>Identify the aspects of your application that vary and separate them from what stays the same.</li>
-<li>Program to an interface, not an implementation.</li>
-<li>Favor composition over inheritance.</li>
-</ul>
-<p>**Composition: ** Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behavior at runtime</p>
-<blockquote>
-<p>We spend more time in maintaining than developing. We should favor maintainability and extensibility over reuse. That is composition over inheritance.</p>
-</blockquote>
-<p>&ndash;&gt; We used the <strong>strategy pattern</strong> : The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
-<h1 id="4-the-factory-pattern">4. The factory pattern</h1>
-<blockquote>
-<p>Using the new is coding against an implementation and not an interface</p>
-</blockquote>
-<p><strong>problem</strong>: a classical approach</p>
+        <p><a href="https://www.lemonde.fr/sante/article/2021/11/03/vapotage-les-vrais-millions-des-fausses-organisations-de-consommateurs_6100830_1651302.html">https://www.lemonde.fr/sante/article/2021/11/03/vapotage-les-vrais-millions-des-fausses-organisations-de-consommateurs_6100830_1651302.html</a></p>
 
     </div>
 

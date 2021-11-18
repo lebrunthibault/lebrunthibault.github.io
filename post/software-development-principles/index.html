@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.89.2 with theme even" />
+<meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/software-development-principles/" />
@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/software-development-principles/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-20T15:06:33+02:00" />
+<meta property="article:modified_time" content="2021-09-30T19:29:35+02:00" />
 
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques notes">
-<meta itemprop="dateModified" content="2021-09-20T15:06:33+02:00" />
-<meta itemprop="wordCount" content="2566">
+<meta itemprop="dateModified" content="2021-09-30T19:29:35+02:00" />
+<meta itemprop="wordCount" content="2710">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques notes"/>
@@ -156,7 +156,11 @@
             <li><a href="#solutions">Solutions</a></li>
           </ul>
         </li>
-        <li><a href="#how-can-we-abstract-multiple-similar-classes-">How can we abstract multiple similar classes ?</a></li>
+        <li><a href="#how-can-we-abstract-multiple-similar-classes-">How can we abstract multiple similar classes ?</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
         <li><a href="#building-interfaces">Building interfaces</a></li>
         <li><a href="#state">State</a></li>
         <li><a href="#other-principles">Other principles</a></li>
@@ -330,8 +334,18 @@
 </ul>
 </li>
 <li>Using the interface + mixin is the most modular as any client class can declare implementing different interfaces &ndash;&gt; best</li>
-<li>We can still have client classes extending an abstract class for common stuff to all classes. This abstract class should not implement any interface.</li>
+<li>We can still have client classes extending an abstract class for common stuff to all classes. This abstract class does not necessarily implement an interface (except if we want to get more abstraction when using it in factories / mocks / dependency injection ..)</li>
 </ul>
+<h5 id="special-case-two-level-inheritance-vs-single-level--interface--mixin">Special case two level inheritance vs single level + interface / mixin</h5>
+<blockquote>
+<p>When subclassing a class already inheriting from an abstract class the simple way is to directly inherit from this parent class and add methods to it</p>
+<p>The flexible way is to make this parent class an interface (if only its subclasses are gonna be instantiated) and create a mixin. This approach has two advantages :</p>
+<ul>
+<li>it&rsquo;s a bit clearer as we can type hint on the interface. Also multiple inheritance levels are not so readable (two clicks away from the abstract class vs one)</li>
+<li>it&rsquo;s open to modification by simply implementing another interface + adding a mixin</li>
+</ul>
+<p>I think it&rsquo;s useful even if the child classes are never gonna implement another interface.</p>
+</blockquote>
 <h2 id="building-interfaces">Building interfaces</h2>
 <ul>
 <li>Law of Demeter : a class should not expose sub objects only a clean and minimal interface. See <a href="https://fr.wikipedia.org/wiki/Loi_de_D%C3%A9m%C3%A9ter">Wikipedia</a></li>
