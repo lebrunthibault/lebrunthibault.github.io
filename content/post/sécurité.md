@@ -72,6 +72,12 @@ Chiffres Gilles Clavreul ([tweet](https://twitter.com/GillesClavreul/status/1294
 
 Faits rapportés (en hausse constante) / Enquête de victimation
 
+![aggressions physiques caractérisées](https://www.liberation.fr/resizer/jvPg-oD7XtpHPWu-k-hAgIoTV88=/1600x0/filters:format(png):quality(70)/cloudfront-eu-central-1.images.arcpublishing.com/liberation/L3F4IHQFYALPB7L5MUDNDXX5VU.png)
+
+### Durcissement de la législation pour les délits
+
+A titre d'exemple, entre [2007](https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=D32EF6DDBF75FADEFE2ED31AF023022E.tplgfr30s_1?idArticle=LEGIARTI000006417645&cidTexte=LEGITEXT000006070719&categorieLien=id&dateTexte=20070306) et [2018](https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=D32EF6DDBF75FADEFE2ED31AF023022E.tplgfr30s_1?idArticle=LEGIARTI000037289685&cidTexte=LEGITEXT000006070719&categorieLien=id&dateTexte=) (soit la période sur laquelle porte le graphique ci-dessus), l'article 222-13 du code pénal qui réprime les violences commises sans avoir entraîné d'ITT a évolué à plusieurs reprises, pour protéger les enseignants, les chargés de mission de service public, les salariés de réseaux de transports publics, ou les professionnels de santé. Dans l'intervalle ont aussi été délictualisées les violences commises par une personne sous l'emprise de l'alcool et de stupéfiants (aussi si l'agresseur est masqué)
+
 
 
 ## Homicides
