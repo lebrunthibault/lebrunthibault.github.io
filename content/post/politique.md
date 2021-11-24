@@ -99,3 +99,9 @@ Automobile:
 - un revenu d’existence versé de façon individuelle à partir de 18 ans, sous conditions de ressources,
 - Le coût total de la mesure, estimé à 130 Md€, sera financé par les prestations fusionnées (75 Md€), l’individualisation de l’impôt (29 Md€), et une augmentation de la progressivité de l’impôt sur le revenu (26 Md€).
 - Semaine de 4 jours
+
+
+
+# Extreme droite
+
+- https://www.lemonde.fr/politique/article/2021/10/31/l-extreme-droite-est-une-vision-du-monde-pas-un-programme_6100478_823448.html

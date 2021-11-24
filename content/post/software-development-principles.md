@@ -132,8 +132,6 @@ The canonical way to use inheritance is when we have different kind of classes r
 - Delegation
 - Mixins
 
-
-
 ## How can we abstract multiple similar classes ?
 
 - Create an interface
@@ -141,7 +139,18 @@ The canonical way to use inheritance is when we have different kind of classes r
   - In an abstract class 
   - In a mixin
 - Using the interface + mixin is the most modular as any client class can declare implementing different interfaces --> best
-- We can still have client classes extending an abstract class for common stuff to all classes. This abstract class should not implement any interface.
+- We can still have client classes extending an abstract class for common stuff to all classes. This abstract class does not necessarily implement an interface (except if we want to get more abstraction when using it in factories / mocks / dependency injection ..)
+
+##### Special case two level inheritance vs single level + interface / mixin
+
+> When subclassing a class already inheriting from an abstract class the simple way is to directly inherit from this parent class and add methods to it
+>
+> The flexible way is to make this parent class an interface (if only its subclasses are gonna be instantiated) and create a mixin. This approach has two advantages :
+>
+> - it's a bit clearer as we can type hint on the interface. Also multiple inheritance levels are not so readable (two clicks away from the abstract class vs one)
+> - it's open to modification by simply implementing another interface + adding a mixin
+>
+> I think it's useful even if the child classes are never gonna implement another interface. 
 
 
 
