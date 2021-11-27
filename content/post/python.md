@@ -42,6 +42,12 @@ draft: true
 
 
 
+# Debugging
+
+```python
+import pdb; pdb.set_trace()
+```
+
 # PIP
 
 
