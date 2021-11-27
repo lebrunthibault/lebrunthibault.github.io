@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/python/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-09T23:10:06+02:00" />
+<meta property="article:modified_time" content="2021-11-27T01:14:27+01:00" />
 
 <meta itemprop="name" content="Python 3 notes">
 <meta itemprop="description" content="Modules &amp; packages  __init__.">
-<meta itemprop="dateModified" content="2021-09-09T23:10:06+02:00" />
-<meta itemprop="wordCount" content="330">
+<meta itemprop="dateModified" content="2021-11-27T01:14:27+01:00" />
+<meta itemprop="wordCount" content="335">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python 3 notes"/>
 <meta name="twitter:description" content="Modules &amp; packages  __init__."/>
@@ -138,6 +138,7 @@
         <li><a href="#the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></a></li>
       </ul>
     </li>
+    <li><a href="#debugging">Debugging</a></li>
     <li><a href="#pip">PIP</a>
       <ul>
         <li><a href="#windows">Windows</a></li>
@@ -183,7 +184,16 @@
 <li><code>bytes.decode</code> as options for dealing with bytes unknown to the encoding.</li>
 <li>The opposite method of <a href="https://docs.python.org/3/library/stdtypes.html#bytes.decode">bytes.decode()</a> is <a href="https://docs.python.org/3/library/stdtypes.html#str.encode">str.encode()</a>, which returns a <a href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a> representation of the Unicode string, encoded in the requested <em>encoding</em></li>
 </ul>
-<h1 id="pip">PIP</h1>
+<h1 id="debugging">Debugging</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="pip">PIP</h1>
 <ul>
 <li>pip install package &amp;&amp; pip freeze &gt; requirements.txt</li>
 </ul>
