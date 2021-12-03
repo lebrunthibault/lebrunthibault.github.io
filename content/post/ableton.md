@@ -212,15 +212,14 @@ See https://help.ableton.com/hc/fr-fr/articles/209774205-Les-ports-MIDI-de-Live-
 
 
 
-<<<<<<< HEAD
 # Usamo
 
 debug steps :
 
-- Launch empty set with usamo testing
+- Open focusrite control !
 - Power down & up soundcard
-- move trim knob if necessary
-=======
+- Launch empty set with usamo testing
+
 # The ideal audio setup
 
 https://gearspace.com/board/music-computers/991372-what-audio-interface-synths-not-mics.html
@@ -233,8 +232,6 @@ maybe not : https://forum.vintagesynth.com/viewtopic.php?t=34109#:~:text=Since%2
 
 Motu interface with midi timestamps ? https://gearspace.com/board/electronic-music-instruments-and-electronic-music-production/1112683-do-usb-midi-interfaces-send-midi-faster-than-midi-spec-3.html
 
-
->>>>>>> faa3049d5aa8c6ca8645be2999778b8c41be978a
 
 # Reinstall
 
