@@ -19,6 +19,32 @@ Origine :
 >
 > 41 % des immigrés arrivés en France en 2019 sont nés en Afrique et 31,9 % sont nés en Europe. Les immigrés arrivés en France en 2019 sont plus souvent nés au Maroc (9,5 %), en Algérie (7 %), en Tunisie (4,5 %), en Italie (4,5 %), en Espagne (3,3 %), au Royaume-Uni (3,2 %), en Chine (3 %) ou en Roumanie (2,8 %)
 
+
+
+# Aide médicale d'état : AME
+
+https://www.service-public.fr/particuliers/vosdroits/F3079
+
+Aide médicale d'urgence réservée aux sans papiers sous condition de ressources et de revenus.
+
+Budget 2022: 1 milliard (sur PIB 2021 = 2500 = 0.04%).
+
+plus de 383.000 étrangers en ont bénéficié en 2020
+
+pour les sans papiers
+
+ne représente que 0,5% des dépenses de santé prises en charge par l’assurance-maladie (200 milliards d’euros).
+
+
+
+# [Aide au développement](https://focus2030.org/La-politique-d-aide-au-developpement-de-la-France)
+
+Aide fournie par les États dans le but exprès de promouvoir le développement économique et d’améliorer les conditions de vie dans les pays en développement.
+
+ **la France a alloué 12,4 milliards d’euros à l’aide publique au développement, soit 9 % de l’APD totale des 30 membres du CAD (environ 142 milliards d’euros).** Cette somme correspond à 0,53 % du revenu national brut de la France, au-dessus de la moyenne du CAD (0,32 %) mais en-deçà de l’engagement international de 0,7 %
+
+Soit 0.5% du PIB
+
 # Salles de shoot
 
 > Plus de 80 salles de ce type existent déjà dans neuf pays d'Europe. 
