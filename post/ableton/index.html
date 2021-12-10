@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.89.4 with theme even" />
+<meta name="generator" content="Hugo 0.90.0 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/ableton/" />
@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-12-04T00:48:28+01:00" />
+<meta property="article:modified_time" content="2021-12-10T19:51:37+01:00" />
 
 <meta itemprop="name" content="Ableton notes">
 <meta itemprop="description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www.">
-<meta itemprop="dateModified" content="2021-12-04T00:48:28+01:00" />
-<meta itemprop="wordCount" content="1051">
+<meta itemprop="dateModified" content="2021-12-10T19:51:37+01:00" />
+<meta itemprop="wordCount" content="985">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ableton notes"/>
 <meta name="twitter:description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www."/>
@@ -234,11 +234,6 @@
 <blockquote>
 <p>See <a href="https://focusrite.com/en/news/system-science-part-2-drivers-latency">focusrite article</a></p>
 </blockquote>
-<ul>
-<li>Best solution : use an external mixer that feeds in the audio soundcard and monitor directly to the mixer (analog signal path). <em>Complicated for me</em></li>
-<li>Usual solution: use direct monitoring in the sound card BUT we get the A/D + D/A latency</li>
-<li>Anyway: record in ableton with monitoring off</li>
-</ul>
 <h1 id="recording-external-synth-with-no-latency">Recording external synth with no latency</h1>
 <blockquote>
 <p>See <a href="https://www.youtube.com/watch?v=PT5mD2Zd7F8">this video about audio latency</a>, <a href="https://www.youtube.com/watch?v=WkQkzBB6Szc">this one about midi to audio latency</a> and <a href="https://help.ableton.com/hc/fr-fr/articles/360006569179-Le-monitoring-dans-Live">Ableton doc</a></p>
@@ -292,19 +287,19 @@
 <p>Buffer size: <strong>128 samples</strong></p>
 </li>
 <li>
-<p>Sample rate : <strong>88200Hz</strong></p>
+<p>Sample rate : <strong>44100Hz</strong></p>
 </li>
 </ul>
 <p><strong>Minitaur</strong></p>
 <ul>
 <li>Midi track with <strong>external instrument</strong> and <strong>Minitaur Editor(x64)</strong></li>
-<li>external instrument hardware latency : <strong>3ms</strong></li>
+<li>external instrument hardware latency : <strong>1.4ms</strong></li>
 <li>Audio track taking audio from midi track <strong>pre fx</strong></li>
 </ul>
 <p><strong>Prophet</strong></p>
 <ul>
 <li>Midi track with <strong>external audio effect</strong></li>
-<li>external instrument hardware latency : <strong>0ms</strong></li>
+<li>external instrument hardware latency : <strong>3.20ms</strong></li>
 <li>Audio track taking audio from midi track <strong>post fx</strong> (because we use external audio effect)</li>
 </ul>
 <h1 id="midi-jitter-1">Midi jitter</h1>
@@ -324,7 +319,6 @@
 </ul>
 <h4 id="should-i-use-a-midi-interface--possibilities-are">Should I use a midi interface ? Possibilities are</h4>
 <ul>
-<li><a href="https://www.thomann.de/fr/e_rm_midiclock.htm">E-RM Midi clock</a> : horloge maitre externe mais pas utile pour envoyer du midi aux synthés ?</li>
 <li><a href="https://www.thomann.de/fr/roland_um_one_mkii.htm">Roland UM-One MkII</a> : cable usb to 2 * midi : peut permetttre de réduire le jitter de l&rsquo;ordi au synth par rapport a un cable usb normal</li>
 <li>Use a high end audio soundcard using pll (focusrite <a href="https://pro.focusrite.com/what-is-jetpll">jetpll</a>)</li>
 <li><a href="https://www.thomann.de/fr/expert_sleepers_usamo.htm">Expert sleeper USAMO</a>:</li>
