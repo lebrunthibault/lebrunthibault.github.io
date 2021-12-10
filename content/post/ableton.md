@@ -45,10 +45,6 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 > See [focusrite article](https://focusrite.com/en/news/system-science-part-2-drivers-latency)
 
-- Best solution : use an external mixer that feeds in the audio soundcard and monitor directly to the mixer (analog signal path). *Complicated for me*
-- Usual solution: use direct monitoring in the sound card BUT we get the A/D + D/A latency
-- Anyway: record in ableton with monitoring off
-
 # Recording external synth with no latency
 
 > See [this video about audio latency](https://www.youtube.com/watch?v=PT5mD2Zd7F8), [this one about midi to audio latency](https://www.youtube.com/watch?v=WkQkzBB6Szc) and [Ableton doc](https://help.ableton.com/hc/fr-fr/articles/360006569179-Le-monitoring-dans-Live)
@@ -94,18 +90,18 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 - Driver error compensation : **0ms**
 
 - Buffer size: **128 samples**
-- Sample rate : **88200Hz**
+- Sample rate : **44100Hz**
 
 **Minitaur**
 
 - Midi track with **external instrument** and **Minitaur Editor(x64)**
-- external instrument hardware latency : **3ms**
+- external instrument hardware latency : **1.4ms**
 - Audio track taking audio from midi track **pre fx**
 
 **Prophet**
 
 - Midi track with **external audio effect**
-- external instrument hardware latency : **0ms**
+- external instrument hardware latency : **3.20ms**
 - Audio track taking audio from midi track **post fx** (because we use external audio effect)
 
 # Midi jitter
@@ -125,7 +121,6 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 #### Should I use a midi interface ? Possibilities are 
 
-- [E-RM Midi clock](https://www.thomann.de/fr/e_rm_midiclock.htm) : horloge maitre externe mais pas utile pour envoyer du midi aux synthés ?
 - [Roland UM-One MkII](https://www.thomann.de/fr/roland_um_one_mkii.htm) : cable usb to 2 * midi : peut permetttre de réduire le jitter de l'ordi au synth par rapport a un cable usb normal
 - Use a high end audio soundcard using pll (focusrite [jetpll](https://pro.focusrite.com/what-is-jetpll))
 - [Expert sleeper USAMO](https://www.thomann.de/fr/expert_sleepers_usamo.htm): 
