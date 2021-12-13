@@ -123,7 +123,6 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 - [Roland UM-One MkII](https://www.thomann.de/fr/roland_um_one_mkii.htm) : cable usb to 2 * midi : peut permetttre de réduire le jitter de l'ordi au synth par rapport a un cable usb normal
 - Use a high end audio soundcard using pll (focusrite [jetpll](https://pro.focusrite.com/what-is-jetpll))
-- [Expert sleeper USAMO](https://www.thomann.de/fr/expert_sleepers_usamo.htm): 
 
 
 
