@@ -269,3 +269,12 @@ Using https://www.thomann.de/fr/radial_engineering_pro_d2.htm : interrupteur de 
 Remove ground on audio cables to the speakers with : https://www.sescom.com/products/view/product/productslug/il-19-pro-audio-hum-eliminator-inline-with-isolation. xlr to xlr. **passif**
 
 Remove ground on usb cables  ! https://www.amazon.fr/iDefender-Type-A-%C3%A0/dp/B0849J33T9?th=1. **actif** avec alim **sans** ground
+
+
+
+# Gear
+
+[Presonus FaderPort 8](https://www.youtube.com/watch?v=0Ej6Tn0wF-4) : motorized faders, lcd screen per fader, 500 euros
+
+[Panorama P1 Nektar](https://www.youtube.com/watch?v=awgTN91bRsM) ? 
+
