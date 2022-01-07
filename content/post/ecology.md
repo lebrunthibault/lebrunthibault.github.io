@@ -38,7 +38,7 @@ keywords:
 ### Voiture électrique
 
 -  Plus propre seulement dans les pays avec un mix électrique bas carbone
-  - Pays "neutres": Allemage, USA
+  - Pays "neutres": Allemagne, USA
   - Pays ou ca devient pire: Chine et la majorité des autres
   - Pays ou c'est intéressant, ceux avec beaucoup d'hydro et / ou de nucléaire: France, Canada, Brésil, Suède, Suisse ..
 - Une voiture electrique émet 2 * plus a la production qu'une voiture thermique (a peu près 10T contre 5T)
