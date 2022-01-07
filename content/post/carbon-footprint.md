@@ -4,6 +4,25 @@ draft: true
 
 ---
 
+
+
+# France
+
+9.8 T/an/habitant
+
+Objectif: 2T max
+{{< figure src="/img/observer.PNG" title="observer class diagram" >}}
+
+
+
+# Réduction
+
+[coach carbone](https://nosgestesclimat.fr/)
+
+
+
+
+
 ## Water
 
 #### Toilet
