@@ -126,6 +126,40 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 
 
+ # Recording CC automation with Rev2 editor
+
+### Problems
+
+- The automation isn't always recorded when the editor is toggled off
+- But when the editor is toggled on we (probably) have midi feedback and notes off messages just after note on (very short notes)
+
+### Solutions considered:
+
+- Toggling on / off the editor to "force" it to react to parameters change and react to automation (current solution)
+- Find a way to work with the editor turned on : **didn't work (at all)**
+- Record nrpn or cc automation in live directly by playing with midi ports
+
+### The midi port solution
+
+> The idea is to record cc automation without using the editor. There is two main problems with this approchach :
+>
+> - It's going to be hard to have more than 8 parameters
+> - The setup with midi ports doesn't work with the rev2 editor
+
+- Setup two loop back ports : REV2_EDITOR and REV2_ABLETON that both wraps the rev2 ports
+- Possibly translate nrpn to cc on the REV2_ABLETON input port and then record it by e.g. grouping the editor and using macro controls.
+- Or Use the NRPN gen 2 max device to work directly with nrpn (limited to 8 parameters)
+
+Unfortunately the rev2 editor works well with the loop back input port **but not with the loopback output port**.
+
+It could be that it sends binary data to the synth that does not work with the loop back port ..
+
+### Current solution : the toggling of the editor
+
+It works partially well, but sometimes the encoder move is not caught (at all) by the editor.
+
+Still after toggling it manually it's gonna work well. **Should we increase the delay of the toggling ?**
+
 # VST2 / VST3
 
 - vst3 détectent si du signal passent et se désactivent. 
