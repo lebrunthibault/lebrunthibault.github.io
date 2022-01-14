@@ -48,6 +48,19 @@ Also : we can add setters to modify behaviors at run time (e.g. start with defau
 
 
 
+# 3. The decorator pattern
+
+One main advantage is run time modification of behavior of an object.
+
+But it also simplifies the businness code by extracting responsibility from either objects or client code.
+
+one of the flagship patterns of the **open-closed principle** and the **composition (and delegation) over inheritance principle**
+
+- Decorators should have the same supertype as objects they wrap
+- They can add behavior before or after the wrapped object call
+- The patterns uses inheritance to achieve the type matching, but not to get behavior
+- The pattern starts getting stronger when used in conjunction with Factory or Builder to centralize the composition.
+
 
 
 # 4. The factory pattern
@@ -58,3 +71,21 @@ Also : we can add setters to modify behaviors at run time (e.g. start with defau
 
 
 
+# 9. The Iterator and Composite Patterns
+
+### Composite
+
+> In a tree mixed structure with leaf nodes and containers, be able to interface them to handle any case with the same interface 
+
+# Other patterns
+
+### Bridge
+
+Useful when the code can be organized around two class hierarchies:
+
+- abstraction : ui code that will call methods of an implementation. **ex: different remote controls**
+- implementation : backend code that executes business logic. **ex: different tvs**
+
+The relation between the 2 is called the bridge
+
+> Useful in graphics and windowing systems that need to run over multiple platforms.

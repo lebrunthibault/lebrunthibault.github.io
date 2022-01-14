@@ -32,9 +32,12 @@ keywords:
 - The editor should be configured to error about wrong parameter types.
 - Setup static analysis tools (like mypy) with strict settings. They should be integrated in the IDE, run as pre-commit and in the test / deploy pipeline.
 
-## Logical types: Data Transfer Objects
+## Logical types: [Data Transfer Objects](https://martinfowler.com/eaaCatalog/dataTransferObject.html)
 
-- As soon as the type hint system does not go deep enough or that we need to encapsulate state we should use Data Transfer Objects . Make these DTO minimal and focused. Logic should be scarce.
+> DTOs handling can be painful and should generally not be used to encapsulate function parameters. 
+
+- As soon as the type hint system does not go deep enough (php) or that we need to encapsulate state we could use Data Transfer Objects . Make these DTO minimal and focused with no domain logic attached.
+- Can be useful to encapsulate serialization in c
 - Use language constructs like python's decorator `@dataclass`. 
 - Never manipulate arrays that contain mixed types as keys or values. Use DTO / custom classes instead + enums.
 - Never use literal string as dictionary indexes if you later need to subscript it directly. This violates DRY, does not play well with IDEs and makes refactoring painful.
@@ -116,7 +119,7 @@ Literal values (especially strings) usually belong to configuration / data and s
 
 ## Inheritance
 
-The canonical way to use inheritance is when we have different kind of classes related to a parent class with only minimal changes necessary, and usually not core logic changes. Most other kind of usages can usually be replaced by a better pattern.
+The canonical way to use inheritance is when we have different kind of classes related to a parent class with only minimal changes necessary, and usually not core logic changes. Most other kind of usages can usually be replaced by a better pattern. 
 
 ### The problems with inheritance
 
