@@ -60,6 +60,13 @@ one of the flagship patterns of the **open-closed principle** and the **composit
 - They can add behavior before or after the wrapped object call
 - The patterns uses inheritance to achieve the type matching, but not to get behavior
 - The pattern starts getting stronger when used in conjunction with Factory or Builder to centralize the composition.
+- Contrary to the Chain of Responsibility pattern, decorators aren’t allowed to break the flow of the reques
+- Contrary to the Adapter pattern decorators have the same interface as the objects they decorate.
+- D
+- ecorator ressembles composite but has a single child and adds behavior.
+- Decorator lets you change the skin of an object, while Strategy lets you change the guts
+
+> It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack
 
 
 
