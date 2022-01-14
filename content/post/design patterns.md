@@ -1,9 +1,11 @@
 ---
 title: "Design Patterns"
-draft: false
+description: "Notes bout design patterns"
+keywords:
+  - Software development
+  - Backend development
+  - Design patterns
 ---
-
-
 
 # Design patterns currently used in projects
 
