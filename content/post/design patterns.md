@@ -11,9 +11,7 @@ keywords:
 
 ### [Abstract Factory Method](https://refactoring.guru/design-patterns/factory-method)
 
-- Used in Protocol0 to create Clips from clip slots
-- Not using a Creator but instead moving the create method to the abstract Clip Class
-- Would correspond to the textbook pattern by moving the create method to the abstract ClipSlot class.
+- Used in Protocol0 backend to generate notification / prompt windows
 
 ### [Singleton](https://refactoring.guru/design-patterns/singleton)
 
@@ -31,7 +29,7 @@ keywords:
 
 > Used in its simple form but could be improved to implements the real pattern semantics.
 
-- Used in protocol0, to handle and notify errors on specific functions via python syntax
+- Used in protocol0, to augment behavior of notification classes.
 - Used somewhat in basile to catch exceptions. Respects the pattern semantics but replaces the interface step by just using callables.
 - Could improve the generation of missing ATS responses in basile. The ATSServiceFactory could return a ATSServiceResponseGeneratorDecorator implementing the interface without handling these kind of cases explicitely.
 - Could also work for the ErrorHandlerService instead of catching the exceptions in the client code.
