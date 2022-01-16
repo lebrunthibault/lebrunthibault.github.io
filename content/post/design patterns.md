@@ -35,6 +35,11 @@ keywords:
 - Could also work for the ErrorHandlerService instead of catching the exceptions in the client code.
 - Could also be used for offer synchronization by applying decorators at service instantiation time for company custom code instead of using inheritance. Might be overkill though.  
 
+### [Template method](https://refactoring.guru/design-patterns/template-method)
+
+- Used in basile ats synchonize offers
+- Used in protocol0 recording system ()
+
 # Design patterns partially used
 
 ### [Builder](https://refactoring.guru/design-patterns/builder)
