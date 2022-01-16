@@ -28,9 +28,10 @@ I’ve wrapped most of the Live objects I’m using in my own classes (tracks, c
 
 TLDR :
 
-* A `Live.Track.Track` is mapped to a `SimpleTrack`
-* A `SimpleTrack` that is also a group track is mapped to an `AbstractGroupTrack` allowing seamless manipulation of different types of group tracks.
-* All track objects inherits from `AbstractTrack` enforcing a common interface
+* A `Live.Track.Track` is wrapped in a `SimpleTrack`
+* A `SimpleTrack` that is also a group track is mapped to an `AbstractGroupTrack` allowing seamless manipulation of different type of group tracks.
+* All track objects inherits from `AbstractTrack` enforcing a common interface. 
+* Indeed the track layout uses the Composite design pattern
 
 Mini Glossary :
 
@@ -42,44 +43,46 @@ Mini Glossary :
 
 ### Contextual Explanation
 
+> This was tricky to setup so I went in depth with this explanation
 
+I’ve created the `SimpleTrack` class originally to make handling tracks easier than with the stock `Live.Track.Track` objects (because I can add my listeners, events, methods etc) and also to get a stronger typing experience. Conceptually they are simple and a one to one mapping to a track. In reality I pimped them quite a bit.
 
-I’ve created the `SimpleTrack` class originally to make handling tracks easier than with the stock `Live.Track.Track` objects (because I can add my listeners, events, methods etc) and also to get a stronger typing experience. Conceptually they are simple and a one to one mapping to a track.
+But what I really wanted when I started the script was to be able to manipulate group tracks as if they were a non group track (e.g. arming / soloing / recording etc …). This is because I wanted to record midi and audio in a group track at the same time, the group track representing actually one instrument (e.g. my prophet rev2).
 
-But what I really wanted when I started the script was to be able to manipulate group tracks as if they were a non group track (e.g. arming / soloing / recording etc …). This is because I wanted to record midi and audio in a group track at the same track, the group track being actually one instrument.
-
-So I created the `AbstractGroupTrack` which is a mapping from a group track. But because all my tracks are already mapped to a `SimpleTrack` they are indeed mapped from a `SimpleTrack`. and `AbstractGroupTrack.base_track` is this `SimpleTrack` while `SimpleTrack.abstract_group_track` is the opposite relationship.
+So I created the `AbstractGroupTrack` which is another way of representing a group track and wraps a `SimpleTrack` (because all tracks are still `SimpleTrack`s). But because all my tracks are already wrapped by a `SimpleTrack`, sub tracks of an `AbstractGroupTrack` are either `SimpleTrack` or `AbstractGroupTrack` (the Composite pattern !). and `AbstractGroupTrack.base_track` is this `SimpleTrack` while `SimpleTrack.abstract_group_track` is the opposite relationship. This base_track property somehow breaks the composite pattern so I could maybe remove it one day.
 
 What is conceptual here is that I’m creating a double mapping layer (iterating twice on the track list on set startup). The first layer is just `SimpleTrack` creation and is straightforward.
 
-The second layer is the `AbstractGroupTrack` creation and is not as straightforward. I’m effectively mapping all group tracks of the set into subclasses of `AbstractGroupTrack`. But I’m still keeping the `SimpleTrack` mapping, it is necessary for several reasons, notably that the `SimpleTrack` handles access to the underlying LOM objects.
+The second layer is the `AbstractGroupTrack` creation and is not as straightforward. I’m effectively mapping all group tracks of the set into subclasses of `AbstractGroupTrack`. But I’m still keeping the `SimpleTrack` mapping, it is necessary for several reasons, notably that the `SimpleTrack` handles access to the underlying LOM objects, but also because non foldable tracks are always simply `SimpleTrack`s
 
 The only thing complicated here is that each group track is both a `SimpleTrack` and an `AbstractGroupTrack` . Both objects can access the other and that’s part of the glue between the 2 layers.
 
 One touchy thing with this setup is for example if we have nested group tracks then we will effectively have the two layer setup with `SimpleTrack` group track objects having `SimpleTrack` sub tracks and `AbstractGroupTrack` having either `AbstractGroupTrack` or `SimpleTrack` sub tracks.
 
-So it means that when accessing an `AbstractGroupTrack` sub tracks we have either classes (so actually : `List[AbstractTrack]`). But when accessing the same Live track from its `SimpleTrack` object the sub_tracks are : `List[SimpleTrack]`.
+So it means that when accessing an `AbstractGroupTrack` sub tracks we have either classes (so actually : `List[AbstractTrack]`). But when accessing the same Live track from its `SimpleTrack` wrapper object the sub_tracks are : `List[SimpleTrack]`.
 
 It’s a bit convoluted but for me it means `AbstractTrack`s are the interface to the controller and what the interface sees. They handle logic but leave implementation details to the lower `SimpleTrack`s layer. The lower layer handles all the tiny lom logic and listeners and emit their own events when necessary.
 
 Details :
 
 * `SimpleTrack`: one to one mapping with `Live.Track.Track`. Subclassed by
-* `AbstractGroupTrack` (abstract) : One to one on a Live group track (`SimpleTrack`) and handling actions on sub_tracks. Taking into account sub_tracks can be thought of as a one to many mapping with `SimpleTrack`.
+* `AbstractGroupTrack` (abstract) : One to one on a Live group track (`SimpleTrack`) and handling actions on sub_tracks.
 
     Sub tracks of an `AbstractGroupTrack` can access their `SimpleTrack` group_track by `self.group_track` (as any grouped track) and abstract_group_track (`AbstractGroupTrack`) by `self.abstract_group_track`.
     Subclassed by
     
     * `SimpleGroupTrack` : A group track with no specific behavior.
     * `ExternalSynthTrack`. Allows recording an external synth easily: abstraction track wrapping :
-        * A midi `SimpleTrack`
-        * An audio `SimpleTrack`
+        * A midi `SimpleMidiTrack`
+        * An audio `SimpleAudioTrack`
+        * An audio `SimpleAudioTailTrack` : to record clip tails
+        * One or many `SimpleDummyTrack`s : because clip automation doesn't exist for group tracks. 
 * `AbstractTrack `: top of the inheritance hierarchy for any track object (and an abstract class). This class groups all common attributes and methods that are indeed the interface of any track object. Including :
   
-    * self.base_track is always the track itself or the group_track in the case of an `AbstractGroupTrack`
-    * self._track is the underlying `Live.Track.Track` object (and == self.base_track._track)
-    * self.group_track is the `SimpleTrack` mapping of self._track.group_track
-    * self.abstract_group_track is the `AbstractGroupTrack` parent if it exists
+    * `self.base_track` is always the track itself or the group_track in the case of an `AbstractGroupTrack`
+    * `self._track` is the underlying `Live.Track.Track` object (and == `self.base_track._track`)
+    * `self.group_track` is the `SimpleTrack` mapping of `self._track.group_track`
+    * `self.abstract_group_track` is the `AbstractGroupTrack` parent if it exists
 
 
 ## Global track objects and lists {#global-track-objects-and-lists}
@@ -87,12 +90,10 @@ Details :
 
 ### SongManager private track lists {#songmanager-private-track-lists}
 
-Starting with a `Live.Track.Track` object, 2 layers of abstraction are necessary to map the Live track object to our own track object:
+Starting with a `Live.Track.Track` object, 2 layers of abstraction are necessary to map the Live track object to our own tracAbstractGroupTrackk object:
 
-
-
-* _live_track_to_simple_track : maps a `Live.Track.Track` to a `SimpleTrack` object
-* _simple_track_to_abstract_group_track : maps a `SimpleTrack` to its `AbstractGroupTrack` (either from the group_track or any of its sub_tracks)
+* _live_track_id_to_simple_track : maps a `Live.Track.Track` id to a `SimpleTrack` object
+* The `AbstractGroupTrack` are reached through the `SimpleTrack`s
 
 With these 2 lists we can reach the right level of abstraction from e.g. `Live.Song.Song.selected_track`
 
@@ -113,8 +114,8 @@ Regarding my explanation above, the first list is the lower level and the second
 
 
 
-* `song.selected_track` : the selected `SimpleTrack` object (that is `self._live_track_to_simple_track[Live.Track.Track]`
-* `song.current_track` : the most iconic property of the script. It equals : `self._simple_track_to_abstract_group_track[song.selected_track]` or `song.selected_track`. And indeed always outputs the appropriate abstraction level from the currently selected_track.
+* `song.selected_track` : the selected `SimpleTrack` object
+* `song.current_track` : the most iconic property of the script. It equals `song.selected_track.abstract_group_track or song.selected_track`. And indeed always outputs the appropriate abstraction level from the currently selected_track.
 
     This property allows transparent track manipulation from the controller
 
@@ -128,23 +129,6 @@ Regarding my explanation above, the first list is the lower level and the second
 The underlying lom objects do not change (even though the index in e.g. `<Track.Track object at 0x000000009AFAD6C8>)` changes ..). Moreover the `_live_ptr` property on all objects will stay the same. It took me a long time to realize this simple fact god knows why.
 
 As objects don’t change it is possible to reuse existing objects so that’s what I’m doing when I have a track change or scene change. Reusing all my tracks objects and taking care of re building my clip slots (e.g. on scene add) while reusing existing ones. Like this my state is preserved while the set is open.
-
-
-### What happens on startup and after tracks or scenes change {#what-happens-on-startup-and-after-tracks-or-scenes-change}
-
-<u>NB</u>: on tracks or scene change I’m reusing objects as stated above
-
-<u>NB</u>: everything is done on tick 0 (synchronous, nothing is deferred)
-
-1. All tracks are mapped to `SimpleTrack`s.
-    1. `ClipSlot`s are generated
-    2. `Clip`s are generated
-2. Instrument activation states are mapped back from the stale simple track list. Then stale tracks are disconnected.
-3. Abstract group tracks are generated by looking up track names and sub_tracks disposition (`ExternalSynthTrack`). `ExternalSynthTrack.__init__` links audio and midi tracks
-4. During creation of Abstract group track objects, tracks are linked and generate linking for
-    5. `ClipSlot`s via `ClipSlotSynchronizer`
-    6. `Clip`s via `ClipSynchronizer` (handle by the `ClipSlotSynchronizer`)
-5. `abstract_tracks` and `current_track` properties are computed
 
 
 # Asynchronous tasks and scheduling {#asynchronous-tasks-and-scheduling}
@@ -175,29 +159,35 @@ Replacement of the _Framework Task as it does not seem to allow variable timeout
 
 
 
-* A `Sequence` usually represents a number of statements (usually a whole method) and a `SequenceStep` one statement
+* A `Sequence` usually represents a number of statements (usually a whole method) and a `SequenceStep` one statement (usually a method call)
 * A `SequenceStep` is very often a function call that could return a `Sequence`.
-That is `Sequence`s can be nested allowing deep asynchronous function calls.
+  That is `Sequence`s can be nested allowing deep asynchronous function calls.
 * A `Sequence` should never be passed to the called code but instead the called code should return it's own sequence to be appended (and executed) to the calling one.
+* A `Sequence` instantiation should always finish by calling `Sequence.done()` which is an alias of `Sequence.start()`
+  * Why should the sequence always be started explicitely by the inner code ? Well it's because it allows the Sequence pattern to be hidden from the calling code. A method using the Sequence pattern can be called synchronously and we are insured the Sequence will be called.
+  * The exception to this rule is if you want to trigger a sequence from within a running sequence (creating a non linear / parallel execution paths). Much can be done without resorting to this somewhat obscure pattern. Notably using listeners.
 
 **Attention**: The called code is gonna be called synchronously, any data lookup (e.g. on Live API) is gonna be computed at sequence instantiation time and not at sequence runtime.
 
-If you don't want this behavior to happen, wrap your lookup calls in a step.
+If you don't want this behavior to happen, wrap your lookup calls in a method as a single step. But the fast way to solve this is to do lookups in lambda functions.
 
-Ideally, an asynchronous method should wrap all it's statements in a sequence and do lookups in lambda functions.
+### Asynchronous behavior declaration 
 
-The code can declare asynchronous behavior in 2 ways:
+The code can declare asynchronous behavior in 3 ways:
 
 
-* via wait which leverages `Live.Base.Timer` fast tick for tasks where we have a rough idea of the delay and guess without too much hassle (see [below](#using-timers))
-* via the on_complete argument that defers the completion of the step until a condition is satisfied.
+* via  `seq.add(wait=<ticks>)` which leverages `Live.Base.Timer` fast tick for tasks where we have a rough idea of the delay and guess without too much hassle (see [below](#using-timers))
+* via `seq.add(wait_beats=<beats)` (or `wait_bars`) that leverages the `current_song_time` Live event (see `SyncedScheduler` which notifies when beats change)
+* via the `seq.add(on_complete=<listener>)` that defers the completion of the step until a listener is called.
 
-This condition can be either :
-* a simple callable returning a bool : in this case an exponential polling is setup with a timeout
-* a `CallbackDescriptor` decorated function (a function decorated by `@p0_subject_slot` or `@has_callback_queue`) : the step executes when the function is called next be it by Live listener system or by direct call.
+This listener should be :
 
-This is the best part because it allows us to react to the execution of Live listeners or even our own listeners. Thus being a shortcut to define yet another listener on a subject.
-To be clearer it is equivalent to defining a method listening on a subject (a listener) that would call back the sequence when executed.
+a function decorated by `@p0_subject_slot`  which returns a `CallbackDescriptor` decorated function : the step executes when the function is called next (usually by Live listener system). Just replace `@subject_slot` by `@p0_subject_slot` and the listener will integrate in the Sequence pattern.
+
+This is the best part because it allows us to react to the execution of Live listeners or even our own listeners.
+To be clearer it is equivalent to defining a method listening on a subject (that is : a listener) that would call back the sequence when executed.
+
+NB : instead of giving a listener method to `complete_on`, we could instead pass an object and an event. But that would spread event strings and we would loose a central place to see which events are being used throughout the script. So a listener method needs to be defined for each event that we want to use in the Sequence pattern. Hence, some listeners in the code do nothing and are meant just for Sequence execution. 
 
 ##### Example usage
 
@@ -207,20 +197,11 @@ def duplicate_track(self, index):
     seq = Sequence()  # instantiate the Sequence class
     # add the callable to the sequence
     seq.add(partial(self._song.duplicate_track, index), complete_on=self.parent.songManager.tracks_listener)  # declare the completion step
+    seq.add(wait=1)  # waits one tick (around 17ms on my system, often needed to let live process changes)
     return seq.done()  # call seq.done to trigger the sequence
 ```
 
 * A sequence step should always define its completion step and not expect the next step to handle any timeout or checks. Like this any step can always be assured that it executes after the previous one has succeeded or failed (thus ending the sequence).
-* After creating a sequence by e.g. `seq = Sequence()` you should always call `seq.done()` to start the sequence execution. If not the sequence is not going to be called and an exception will be thrown at the next tick.
-
-
-##### Conditional execution {#conditional-execution}
-
-Conditional execution of steps is available via `do_if` and `do_if_not` which can be any argument to `Sequence.add`
-* The condition is executed *before* the main callable and can bypass the step depending on the result
-* return_if and return_if_not are similar but will end the enclosing sequence early instead.
-*  These two callables are going to be executed *before* the main callable which can therefore not be called
-* This is rarely needed but if needed it's better to put return_if or return_if_not in an empty step (without a callable) to make things clearer
 
 
 ## Using timers{#using-timers}
@@ -250,7 +231,7 @@ As the 2nd method is the fastest that’s what I used. The numbers associated to
 
 This infamous error appears when we want to apply modifications to the LOM in the same tick as we received a notification (that is a listener was triggered somewhere). Not all changes to the LOM trigger this error, only certain property changes.
 
-It is quite boring and there might be a clean solution to handling this. I didn’t find it and so there are a lot of places where I defer changes by using stuff like the @defer decorator on listeners or `self.parent.defer` methods. This just delays the callable execution to the next tick. It is inconvenient for 2 reasons :
+It is quite boring and there might be a clean solution to handling this. I didn’t find it and so there are a lot of places where I defer changes by using the `self.parent.defer` methods. This just delays the callable execution to the next tick (equivalent to doing `sequence.add(wait=1)`. It is inconvenient for 2 reasons :
 
 * First it means wrapping assignments in syntax of the type partial(`settattr`, …)) which is not clear and not as well understood by `pycharm` as normal assignments or method calls.
 * Second it is not so clear why there are all these defers because deferring can be done for other reasons as well
@@ -264,7 +245,7 @@ The solution is to defer all actions done after a listener. Adding a defer in th
 
 **Current Solution **:
 
-it is not such a big issue because it doesn’t happen often and is very easy to fix. So for now I’m just deferring stuff. Also I’m always deferring callback execution when they are attached to a listener. I’m usually setting @defer decorator on a method that would trigger this error. I prefer putting it on the topmost calling method instead of e.g. setter.
+it is not such a big issue because it doesn’t happen often and is very easy to fix. So for now I’m just deferring stuff. Also I’m always deferring callback execution when they are attached to a listener.
 
 
 # Interface and controls {#interface-and-controls}
@@ -284,38 +265,8 @@ The `MultiEncoder` class handles difference “moves” :
 * presses
 * long presses
 * scroll
-* modifiers (see below)
 
 Any of this theses moves will trigger “actions” (that is execute a callable)
-
-
-### Modifiers {#modifiers}
-
-As my beloved EC4 has a little screen but only 16 knobs I thought of a way to optimize knobs by not only mapping one knob to a one button but by using modifiers. A button can be modified by one modifier only at the moment.
-
-So a `MultiEncoder` belong to 1 of 2 categories :
-
-* modifiers : we cannot attach actions to them and they just listen to presses.
-* encoders : actions can be attached to any of the encoder possible “moves” or to a move with a modifier pressed.
-
-
-#### Encoder as selected object and modifier as verb {#encoder-as-selected-object-and-modifier-as-verb}
-
-This setup is interesting because semantically I mostly think of modifiers as verbs and encoders as objects (objects always mean “selected” object of course).
-
-Here are the “object” encoders I defined:
-
-* Track
-* Track Category (the script allows us to tag tracks with a category)
-* Scene
-* Clip
-* Song
-
-verbs (modifiers) correspond to `EncoderModifierEnum` 
-
-Example :
-
-The modifier Play can be applied to all of the encoders listed and will play / stop the corresponding object (and of course it applies to the selected object, e.g. the selected track).
 
 
 # Development {#development}
@@ -358,11 +309,11 @@ I also have a "dump" method that dumps the most interesting part of my model dat
 
 ### Jupyter notebooks {#jupyter-notebooks}
 
-I wrote a dummy Live stub that allows me to load part of my code in tests and jupyter notebooks. A real Live stub could be written but I don't think it's worth a shot as it would need to be quite complex to emulate real situations. Still, jupyter is great for small python tests.
+I wrote a dummy Live stub that allows me to load the script in tests and jupyter notebooks. A real Live stub could be written but I don't think it's worth a shot as it would need to be quite complex to emulate real situations. Still, jupyter is great for small python tests.
 
 
 ### Pytest {#pytest}
 
-As for the jupyter notebooks it is possible to test parts of the script by using the dummy Live Stub. We can test functions and classes that don’t interact too deeply with the Live API. Limited but useful.
+As for the jupyter notebooks it is possible to test parts of the script by using the dummy Live Stub. I've also created a few mocks for the track class etc.. Like this we can test functions and classes that don’t interact too deeply with the Live API. Limited but useful.
 
-Wider tests can be achieved by mocking the LOM in more detail. Seems overkill as stated above.
+Wider tests could be achieved by mocking the LOM in more detail. Seems overkill as stated above.
