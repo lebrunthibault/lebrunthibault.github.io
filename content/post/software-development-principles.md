@@ -204,6 +204,12 @@ The canonical way to use inheritance is when we have different kind of classes r
 -  Allows extension by creating new product creator and classes
 - Follows single responsibility (one place to create) and open / closed (extensible via inheritance)
 
+> NB : the factory method is great at dissociating conditionals for one or specific variable / enum.
+>
+> It's not always easy to work with multiple variables / enum classes changing and be DRY.
+>
+> Using decorators inside a factory class can solve this and is a strong pattern imo.
+
 
 
 ## Finite State Machines

@@ -40,6 +40,20 @@ keywords:
 - Used in basile ats synchonize offers
 - Used in protocol0 recording system ()
 
+### [Observer](https://refactoring.guru/design-patterns/observer)
+
+- Used in protocol0 system notification system
+- The inner notification window notifies values when buttons are clicked
+- A decorator applied at instantiation (in the notification factory) observes the inner window and sends values to the script over midi.
+
+### [Pub / sub](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
+
+> in a simple, synchronous way
+
+- Used in Basile status synchronization
+- The status code emits events on a event bus
+- The event bus dispatches to observers subscribed to specific events
+
 # Design patterns partially used
 
 ### [Builder](https://refactoring.guru/design-patterns/builder)
@@ -52,6 +66,14 @@ keywords:
 
 - Used in basile to clone newsletters
 - Not respecting the prototype pattern semantics but using __clone magic method
+
+### [State](https://refactoring.guru/design-patterns/state)
+
+- Used in Protocol0 Sequence code
+- A Sequence can be in different states (unstarted, started, paused, cancelled, errored)
+- Transitions are defined accordingly
+- Implemented using the transitions package
+- NB : states are not defined in specific classes which doesn't respect the pattern
 
 # Design patterns that could improve existing projects
 

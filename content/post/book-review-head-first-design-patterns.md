@@ -48,6 +48,34 @@ Also : we can add setters to modify behaviors at run time (e.g. start with defau
 
 
 
+# 2. The observer pattern
+
+> Publishers + Subscribers = Observer Pattern
+
+Observer never poll subject : `Don’t call me, I’ll call you!`
+
+- The Observer Pattern defines a one-to-many relationship between a set of objects. 
+- When the state of one object changes, all of its dependents are notified.
+- Tight coupling between subject and observer classes
+- Synchronous
+
+### Is publish / subscribe an observer pattern ?
+
+> - No, although they are related. The Publish-Subscribe pattern is a more complex pattern that allows subscribers to express interest in different types of messages and further separates publishers from subscribers. It is often used in middleware systems. 
+> - The publisher-subscriber pattern can be considered as an improved (asynchronous and loosely-coupled) version of the observer pattern
+> - It's many to many, asynchronous messaging system.
+> - They introduce the concept of "topic" between publishers and subscribers
+> - A pub/sub system is usually carried over the the network, whereas observer is local
+> - Loose coupling of publishers and subscribers via the insertion of a message broker / bus. Broker usually implemented using a message queue to provide asynchronous behavior.
+> - [Observer Pattern vs. Pub-Sub Pattern](https://towardsai.net/p/systems/observer-pattern-vs-pub-sub-pattern)
+> - **Observer** pattern needs to be implemented in a single application address space. On the other hand, the **Publisher/Subscriber** pattern is more of a cross-application pattern
+
+Thing to think about
+
+- Passing the subject to the observer can make it unregister when necessary
+- Passing data can be better **pull** than **push** to allow for evolving observers later on. And so that changing the enriching the data doesn't change existing observers (in the case of multiple arguments)
+- Order of notifications to observers is not always garanteed.
+
 # 3. The decorator pattern
 
 One main advantage is run time modification of behavior of an object.
@@ -83,6 +111,23 @@ one of the flagship patterns of the **open-closed principle** and the **composit
 ### Composite
 
 > In a tree mixed structure with leaf nodes and containers, be able to interface them to handle any case with the same interface 
+
+
+
+# 10. The state of things
+
+> Useful to structure multiple possible actions on an object having state
+>
+> Instead of checking the state of the object we isolate the actions in a class per state and kindof let the object do the work.
+
+### State machine
+
+- A state machine is composed of states and transitions between those states
+- Only certain transitions are allowed 
+
+### The pattern
+
+
 
 # Other patterns
 
