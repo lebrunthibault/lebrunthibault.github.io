@@ -4,6 +4,31 @@ draft: true
 
 ---
 
+
+
+# France
+
+9.8 T/an/habitant
+
+Objectif: 2T max
+{{< figure src="/img/carbon_footprint_france.PNG" title="carbon_footprint_france" >}}
+
+
+
+
+
+# Réduction
+
+[coach carbone](https://nosgestesclimat.fr/)  : https://nosgestesclimat.fr/fin?details=a1.52s1.11d0.54l0.52t0.17n0.08
+
+
+
+[compensation volontaire ademe](https://www.ademe.fr/sites/default/files/assets/documents/compensation-volontaire-demarches-et-limites-7402.pdf)
+
+
+
+
+
 ## Water
 
 #### Toilet

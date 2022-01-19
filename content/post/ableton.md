@@ -45,10 +45,6 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 > See [focusrite article](https://focusrite.com/en/news/system-science-part-2-drivers-latency)
 
-- Best solution : use an external mixer that feeds in the audio soundcard and monitor directly to the mixer (analog signal path). *Complicated for me*
-- Usual solution: use direct monitoring in the sound card BUT we get the A/D + D/A latency
-- Anyway: record in ableton with monitoring off
-
 # Recording external synth with no latency
 
 > See [this video about audio latency](https://www.youtube.com/watch?v=PT5mD2Zd7F8), [this one about midi to audio latency](https://www.youtube.com/watch?v=WkQkzBB6Szc) and [Ableton doc](https://help.ableton.com/hc/fr-fr/articles/360006569179-Le-monitoring-dans-Live)
@@ -94,18 +90,18 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 - Driver error compensation : **0ms**
 
 - Buffer size: **128 samples**
-- Sample rate : **88200Hz**
+- Sample rate : **44100Hz**
 
 **Minitaur**
 
 - Midi track with **external instrument** and **Minitaur Editor(x64)**
-- external instrument hardware latency : **3ms**
+- external instrument hardware latency : **1.4ms**
 - Audio track taking audio from midi track **pre fx**
 
 **Prophet**
 
 - Midi track with **external audio effect**
-- external instrument hardware latency : **0ms**
+- external instrument hardware latency : **3.20ms**
 - Audio track taking audio from midi track **post fx** (because we use external audio effect)
 
 # Midi jitter
@@ -125,12 +121,44 @@ https://www.thomann.de/fr/e_rm_multiclock_usb.htm : 500 balles mais apparemment 
 
 #### Should I use a midi interface ? Possibilities are 
 
-- [E-RM Midi clock](https://www.thomann.de/fr/e_rm_midiclock.htm) : horloge maitre externe mais pas utile pour envoyer du midi aux synthés ?
 - [Roland UM-One MkII](https://www.thomann.de/fr/roland_um_one_mkii.htm) : cable usb to 2 * midi : peut permetttre de réduire le jitter de l'ordi au synth par rapport a un cable usb normal
 - Use a high end audio soundcard using pll (focusrite [jetpll](https://pro.focusrite.com/what-is-jetpll))
-- [Expert sleeper USAMO](https://www.thomann.de/fr/expert_sleepers_usamo.htm): 
 
 
+
+ # Recording CC automation with Rev2 editor
+
+### Problems
+
+- The automation isn't always recorded when the editor is toggled off
+- But when the editor is toggled on we (probably) have midi feedback and notes off messages just after note on (very short notes)
+
+### Solutions considered:
+
+- Toggling on / off the editor to "force" it to react to parameters change and react to automation (current solution)
+- Find a way to work with the editor turned on : **didn't work (at all)**
+- Record nrpn or cc automation in live directly by playing with midi ports
+
+### The midi port solution
+
+> The idea is to record cc automation without using the editor. There is two main problems with this approchach :
+>
+> - It's going to be hard to have more than 8 parameters
+> - The setup with midi ports doesn't work with the rev2 editor
+
+- Setup two loop back ports : REV2_EDITOR and REV2_ABLETON that both wraps the rev2 ports
+- Possibly translate nrpn to cc on the REV2_ABLETON input port and then record it by e.g. grouping the editor and using macro controls.
+- Or Use the NRPN gen 2 max device to work directly with nrpn (limited to 8 parameters)
+
+Unfortunately the rev2 editor works well with the loop back input port **but not with the loopback output port**.
+
+It could be that it sends binary data to the synth that does not work with the loop back port ..
+
+### Current solution : the toggling of the editor
+
+It works partially well, but sometimes the encoder move is not caught (at all) by the editor.
+
+Still after toggling it manually it's gonna work well. **Should we increase the delay of the toggling ?**
 
 # VST2 / VST3
 
@@ -212,6 +240,14 @@ See https://help.ableton.com/hc/fr-fr/articles/209774205-Les-ports-MIDI-de-Live-
 
 
 
+# Usamo
+
+debug steps :
+
+- Open focusrite control !
+- Power down & up soundcard
+- Launch empty set with usamo testing
+
 # The ideal audio setup
 
 https://gearspace.com/board/music-computers/991372-what-audio-interface-synths-not-mics.html
@@ -223,7 +259,6 @@ e.g : https://www.thomann.de/fr/radial_engineering_jdi.htm
 maybe not : https://forum.vintagesynth.com/viewtopic.php?t=34109#:~:text=Since%20synths%20are%20almost%20always,can%20great%20results%20without%20one.&text=There%20is%20no%20reason%20to,a%20line%20level%20synth%20output.
 
 Motu interface with midi timestamps ? https://gearspace.com/board/electronic-music-instruments-and-electronic-music-production/1112683-do-usb-midi-interfaces-send-midi-faster-than-midi-spec-3.html
-
 
 
 # Reinstall
@@ -248,3 +283,32 @@ from _Framework.ControlSurface import ControlSurface
 def create_instance(c_instance):  # noqa
     return ControlSurface(c_instance)
 ```
+
+
+
+# Electrical buzz
+
+### Plug (us)
+
+- Hot hole (right) : black, goes to circuit breaker
+- Neutral hole (left) : white, goes to circuit breaker **neutral bar**
+- Ground hole (down): goes to circuit breaker **ground bar** then **neutral bar**  
+
+### How to remove ground loop issues
+
+See https://www.youtube.com/watch?v=DSxvNtW5n6c
+
+Using https://www.thomann.de/fr/radial_engineering_pro_d2.htm : interrupteur de masse + signal stereo asym vers sym (jack ts vers xlr). **passif**
+
+Remove ground on audio cables to the speakers with : https://www.sescom.com/products/view/product/productslug/il-19-pro-audio-hum-eliminator-inline-with-isolation. xlr to xlr. **passif**
+
+Remove ground on usb cables  ! https://www.amazon.fr/iDefender-Type-A-%C3%A0/dp/B0849J33T9?th=1. **actif** avec alim **sans** ground
+
+
+
+# Gear
+
+[Presonus FaderPort 8](https://www.youtube.com/watch?v=0Ej6Tn0wF-4) : motorized faders, lcd screen per fader, 500 euros
+
+[Panorama P1 Nektar](https://www.youtube.com/watch?v=awgTN91bRsM) ? 
+
