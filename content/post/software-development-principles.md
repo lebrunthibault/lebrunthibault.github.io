@@ -171,6 +171,34 @@ The canonical way to use inheritance is when we have different kind of classes r
 
 - Uniform access: hide the implementation details (see [Encapsulation](#encapsulation)]). Python's `@property`
 
+## [Liskov substitution principle](https://stitcher.io/blog/liskov-and-type-safety)
+
+
+
+> Inheritance is not like "re-using parts of the parent type, and overriding other parts in the sub-type", rather it is extending the behaviour defined by its parent. This is what the LSP guards against.
+
+Rules :
+
+- There must be contravariance of the method arguments in the subtype.
+- There must be covariance of the return types in the subtype.
+- No new exceptions are allowed.
+
+### Invariance in PHP
+
+PHP allows polymorphism and follows the LSP by forbidding subclass methods to :
+
+- use subtypes in parameters types
+- use parent types in return type
+
+It also follows the LSP since version 7.4 by allowing :
+
+- Covariance: allows a child's method to return a more specific type than the return type of its parent's method
+- Contravariance: allows a parameter type to be less specific in a child method, than that of its parent
+
+
+
+
+
 # Design Patterns {#design-patterns}
 
 > https://refactoring.guru/design-patterns
