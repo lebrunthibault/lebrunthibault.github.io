@@ -9,9 +9,12 @@ keywords:
 
 # Design patterns currently used in projects
 
-### [Abstract Factory Method](https://refactoring.guru/design-patterns/factory-method)
 
-- Used in Protocol0 backend to generate notification / prompt windows
+
+### [Factory Method](https://refactoring.guru/design-patterns/factory-method)
+
+- Used textbook in Protocol0 to generate a track recorder
+- Also in Protocol0 backend to generate notification / prompt windows
 
 ### [Singleton](https://refactoring.guru/design-patterns/singleton)
 

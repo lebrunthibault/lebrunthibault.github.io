@@ -23,6 +23,8 @@ Advice:
 #### “Program to an interface” really means “Program to a supertype.”
 
 > An abstract supertype (could be an abstract class OR interface). The important part is that we don't know the concrete type. That's what program to an interface really means.
+>
+> in design patterns, the phrase “implement an interface” does NOT always mean “write a class that implements a Java interface, by using the ‘implements' keyword in the class declaration.” In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a abstract class OR interface) is still considered to be “implementing the interface” of that supertype
 
 **What we get**:
 
@@ -100,9 +102,27 @@ one of the flagship patterns of the **open-closed principle** and the **composit
 
 # 4. The factory pattern
 
-> Using the new is coding against an implementation and not an interface
+> Using the new is coding against an implementation and not an interface. New is “closed for modification.”
 
-**problem**: a classical approach 
+### The Simple Factory
+
+> The Simple Factory isn’t actually a Design Pattern; it’s more of a programming idiom
+
+**Problem** : After the pizza type we add the pizza region to the app (that's two parameters for creating pizza).
+
+**Solution 1**  : Create a pizza factory per region
+
+**Problem**: If we process the pizza object after creation (in `orderPizza(string $type)`, we want the process to be in the factory but then we want to always use the same steps and not leave it to the factory implementation  !
+
+### The Factory method 
+
+- We create an abstract factory class with method `orderPizza(string $type)` and abstract method `createPizza(string $type)` and change is insulated. 
+- It's static behavior.
+- This decouples the client code in the superclass (steps) from the object creation code in the subclass
+- The Pizza subclasses can override steps (bake(), cut(), box() ..)
+- With this behavior we need to create pizza classes for each combination of the 2 parameters (type and region)
+- It create parallel hierarchies (abstract factory => abstract object and factory => object subclasses)
+- The Factory Method Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
 
 
