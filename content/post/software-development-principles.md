@@ -268,7 +268,7 @@ It also follows the LSP since version 7.4 by allowing :
 
 ## [Template method](https://refactoring.guru/design-patterns/template-method)
 
-> defines the skeleton of an algorithm in the superclass but let subclasses override specific steps of the algorithm without changing its structure
+> defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure
 >
 > Implemented in offers synchronization at Basile.
 
