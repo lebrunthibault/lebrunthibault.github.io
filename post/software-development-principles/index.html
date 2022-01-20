@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.90.1 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/software-development-principles/" />
@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/software-development-principles/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-09-30T19:29:35+02:00" />
+<meta property="article:modified_time" content="2022-01-20T14:14:25+01:00" />
 
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques notes">
-<meta itemprop="dateModified" content="2021-09-30T19:29:35+02:00" />
-<meta itemprop="wordCount" content="2710">
+<meta itemprop="dateModified" content="2022-01-20T14:14:25+01:00" />
+<meta itemprop="wordCount" content="2931">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques notes"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 13 mins read </span>
+            <span class="more-meta"> 14 mins read </span>
         </div>
     </header>
 
@@ -130,7 +130,7 @@
     <li><a href="#typing">Typing</a>
       <ul>
         <li><a href="#literal-types-type-hints">Literal types: type-hints</a></li>
-        <li><a href="#logical-types-data-transfer-objects">Logical types: Data Transfer Objects</a></li>
+        <li><a href="#logical-types-data-transfer-objectshttpsmartinfowlercomeaacatalogdatatransferobjecthtml">Logical types: <a href="https://martinfowler.com/eaaCatalog/dataTransferObject.html">Data Transfer Objects</a></a></li>
         <li><a href="#structural-types--interfaces--mixins">Structural types : interfaces &amp; mixins</a></li>
       </ul>
     </li>
@@ -164,6 +164,11 @@
         <li><a href="#building-interfaces">Building interfaces</a></li>
         <li><a href="#state">State</a></li>
         <li><a href="#other-principles">Other principles</a></li>
+        <li><a href="#liskov-substitution-principlehttpsstitcherioblogliskov-and-type-safety"><a href="https://stitcher.io/blog/liskov-and-type-safety">Liskov substitution principle</a></a>
+          <ul>
+            <li><a href="#invariance-in-php">Invariance in PHP</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#design-patterns">Design Patterns</a></li>
@@ -189,7 +194,19 @@
         <li><a href="#client---service-communication-via-schema">Client - Service communication via schema</a></li>
       </ul>
     </li>
-    <li><a href="#solidhttpsenwikipediaorgwikisolid"><a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a></a></li>
+    <li><a href="#solidhttpsenwikipediaorgwikisolid"><a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#single-responsibility-principlehttpsenwikipediaorgwikisingle-responsibility_principle"><a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single-responsibility principle</a>:</a></li>
+            <li><a href="#openclosed-principlehttpsenwikipediaorgwikiopenclosed_principle"><a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open–closed principle</a></a></li>
+            <li><a href="#liskov-substitution-principlehttpsenwikipediaorgwikiliskov_substitution_principle"><a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a></a></li>
+            <li><a href="#interface-segregation-principlehttpsenwikipediaorgwikiinterface_segregation_principle"><a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a></a></li>
+            <li><a href="#dependency-inversion-principlehttpsenwikipediaorgwikidependency_inversion_principle"><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion principle</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#etc">ETC</a>
       <ul>
         <li><a href="#error-handling">Error handling</a></li>
@@ -223,9 +240,13 @@
 <li>The editor should be configured to error about wrong parameter types.</li>
 <li>Setup static analysis tools (like mypy) with strict settings. They should be integrated in the IDE, run as pre-commit and in the test / deploy pipeline.</li>
 </ul>
-<h2 id="logical-types-data-transfer-objects">Logical types: Data Transfer Objects</h2>
+<h2 id="logical-types-data-transfer-objectshttpsmartinfowlercomeaacatalogdatatransferobjecthtml">Logical types: <a href="https://martinfowler.com/eaaCatalog/dataTransferObject.html">Data Transfer Objects</a></h2>
+<blockquote>
+<p>DTOs handling can be painful and should generally not be used to encapsulate function parameters.</p>
+</blockquote>
 <ul>
-<li>As soon as the type hint system does not go deep enough or that we need to encapsulate state we should use Data Transfer Objects . Make these DTO minimal and focused. Logic should be scarce.</li>
+<li>As soon as the type hint system does not go deep enough (php) or that we need to encapsulate state we could use Data Transfer Objects . Make these DTO minimal and focused with no domain logic attached.</li>
+<li>Can be useful to encapsulate serialization in c</li>
 <li>Use language constructs like python&rsquo;s decorator <code>@dataclass</code>.</li>
 <li>Never manipulate arrays that contain mixed types as keys or values. Use DTO / custom classes instead + enums.</li>
 <li>Never use literal string as dictionary indexes if you later need to subscript it directly. This violates DRY, does not play well with IDEs and makes refactoring painful.</li>
@@ -360,6 +381,27 @@
 <ul>
 <li>Uniform access: hide the implementation details (see <a href="#encapsulation">Encapsulation</a>]). Python&rsquo;s <code>@property</code></li>
 </ul>
+<h2 id="liskov-substitution-principlehttpsstitcherioblogliskov-and-type-safety"><a href="https://stitcher.io/blog/liskov-and-type-safety">Liskov substitution principle</a></h2>
+<blockquote>
+<p>Inheritance is not like &ldquo;re-using parts of the parent type, and overriding other parts in the sub-type&rdquo;, rather it is extending the behaviour defined by its parent. This is what the LSP guards against.</p>
+</blockquote>
+<p>Rules :</p>
+<ul>
+<li>There must be contravariance of the method arguments in the subtype.</li>
+<li>There must be covariance of the return types in the subtype.</li>
+<li>No new exceptions are allowed.</li>
+</ul>
+<h3 id="invariance-in-php">Invariance in PHP</h3>
+<p>PHP allows polymorphism and follows the LSP by forbidding subclass methods to :</p>
+<ul>
+<li>use subtypes in parameters types</li>
+<li>use parent types in return type</li>
+</ul>
+<p>It also follows the LSP since version 7.4 by allowing :</p>
+<ul>
+<li>Covariance: allows a child&rsquo;s method to return a more specific type than the return type of its parent&rsquo;s method</li>
+<li>Contravariance: allows a parameter type to be less specific in a child method, than that of its parent</li>
+</ul>
 <h1 id="design-patterns">Design Patterns</h1>
 <blockquote>
 <p><a href="https://refactoring.guru/design-patterns">https://refactoring.guru/design-patterns</a></p>
@@ -389,6 +431,11 @@
 <li>Allows extension by creating new product creator and classes</li>
 <li>Follows single responsibility (one place to create) and open / closed (extensible via inheritance)</li>
 </ul>
+<blockquote>
+<p>NB : the factory method is great at dissociating conditionals for one or specific variable / enum.</p>
+<p>It&rsquo;s not always easy to work with multiple variables / enum classes changing and be DRY.</p>
+<p>Using decorators inside a factory class can solve this and is a strong pattern imo.</p>
+</blockquote>
 <h2 id="finite-state-machines">Finite State Machines</h2>
 <blockquote>
 <p>or workflows</p>
@@ -560,13 +607,29 @@ if __name__ == &#34;__main__&#34;:
 </ul>
 <p>Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead</p>
 <h1 id="solidhttpsenwikipediaorgwikisolid"><a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a></h1>
+<h3 id="single-responsibility-principlehttpsenwikipediaorgwikisingle-responsibility_principle"><a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single-responsibility principle</a>:</h3>
 <ul>
-<li>The <a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single-responsibility principle</a>: &ldquo;There should never be more than one reason for a <a href="https://en.wikipedia.org/wiki/Class_(computer_programming)">class</a> to change.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-5">5]</a> In other words, every class should have only one responsibility.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6">6]</a></li>
-<li>The <a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open–closed principle</a>: &ldquo;Software entities &hellip; should be open for extension, but closed for modification.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-7">7]</a>
+<li>&ldquo;There should never be more than one reason for a <a href="https://en.wikipedia.org/wiki/Class_(computer_programming)">class</a> to change.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-5">5]</a> In other words, every class should have only one responsibility.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6">6]</a></li>
+<li>Factory method, Abstract Factory</li>
+</ul>
+<h3 id="openclosed-principlehttpsenwikipediaorgwikiopenclosed_principle"><a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open–closed principle</a></h3>
+<ul>
+<li>&ldquo;Software entities &hellip; should be open for extension, but closed for modification.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-7">7]</a>
 Open for extension would mean association and interfaces (e.g. using dependency injection). Also present in e.g. factory patterns that create more implementations without modifying client code.</li>
-<li>The <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a>: &ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a> See also <a href="https://en.wikipedia.org/wiki/Design_by_contract">design by contract</a>.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a>. LSP violation can be detected by the usage of instance of as it expects different behavior from objects with the same interface. More specific version of open/closed.</li>
-<li>The <a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a>: &ldquo;Many client-specific interfaces are better than one general-purpose interface.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-9">9]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a>. Also meaning inheritance should be restricted and replaced by specific interface / traits. Note: as a result interfaces should ideally not extends other interfaces.</li>
-<li>The <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion principle</a>: &ldquo;Depend upon abstractions, [not] concretions.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-10">10]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a></li>
+<li>Factory method, Abstract Factory</li>
+</ul>
+<h3 id="liskov-substitution-principlehttpsenwikipediaorgwikiliskov_substitution_principle"><a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a></h3>
+<ul>
+<li>&ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a> See also <a href="https://en.wikipedia.org/wiki/Design_by_contract">design by contract</a>.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a>. LSP violation can be detected by the usage of instance of as it expects different behavior from objects with the same interface. More specific version of open/closed.</li>
+</ul>
+<h3 id="interface-segregation-principlehttpsenwikipediaorgwikiinterface_segregation_principle"><a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a></h3>
+<ul>
+<li>&ldquo;Many client-specific interfaces are better than one general-purpose interface.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-9">9]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a>. Also meaning inheritance should be restricted and replaced by specific interface / traits. Note: as a result interfaces should ideally not extends other interfaces.</li>
+</ul>
+<h3 id="dependency-inversion-principlehttpsenwikipediaorgwikidependency_inversion_principle"><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion principle</a></h3>
+<ul>
+<li>&ldquo;Depend upon abstractions, [not] concretions.&quot;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-10">10]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a></li>
+<li>Factory method, Abstract Factory</li>
 </ul>
 <h1 id="etc">ETC</h1>
 <h2 id="error-handling">Error handling</h2>
@@ -643,7 +706,6 @@ Open for extension would mean association and interfaces (e.g. using dependency 
       integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
 <script>
     function isDevMode() {
-        const isDevMode = '' === "dev" ||
         new URLSearchParams(window.location.search).get("dev") !== null ||
         new URLSearchParams(window.location.search).get("d") !== null ||
         Boolean(localStorage.getItem("dev-mode"));

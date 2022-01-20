@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/ableton/</loc>
-    <lastmod>2021-12-13T18:07:21+01:00</lastmod>
+    <lastmod>2022-01-11T02:29:03+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/carbon-footprint/</loc>
-    <lastmod>2021-09-20T15:06:33+02:00</lastmod>
+    <lastmod>2022-01-08T18:55:15+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -50,8 +50,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/depression/</loc>
-    <lastmod>2021-09-03T14:12:47+02:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/design-patterns/</loc>
+    <lastmod>2022-01-20T01:05:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -64,7 +64,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/ecology/</loc>
-    <lastmod>2021-11-05T19:52:37+01:00</lastmod>
+    <lastmod>2022-01-07T21:01:27+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -78,14 +78,14 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/</loc>
-    <lastmod>2021-09-18T14:01:45+02:00</lastmod>
+    <lastmod>2022-01-20T14:14:25+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2021-12-13T18:07:21+01:00</lastmod>
+    <lastmod>2022-01-20T14:14:25+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -112,7 +112,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2021-12-13T18:07:21+01:00</lastmod>
+    <lastmod>2022-01-20T14:14:25+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -126,7 +126,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/protocol0-technical-overview/</loc>
-    <lastmod>2021-08-06T20:08:27+02:00</lastmod>
+    <lastmod>2022-01-16T17:28:12+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -153,6 +153,13 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/shift-project/</loc>
+    <lastmod>2022-01-19T23:25:48+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/societe/</loc>
     <lastmod>2021-12-08T18:32:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -161,7 +168,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/software-development-principles/</loc>
-    <lastmod>2021-09-30T19:29:35+02:00</lastmod>
+    <lastmod>2022-01-20T14:14:25+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

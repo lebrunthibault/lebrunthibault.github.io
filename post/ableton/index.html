@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.90.1 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/ableton/" />
@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2021-12-13T18:07:21+01:00" />
+<meta property="article:modified_time" content="2022-01-11T02:29:03+01:00" />
 
 <meta itemprop="name" content="Ableton notes">
 <meta itemprop="description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www.">
-<meta itemprop="dateModified" content="2021-12-13T18:07:21+01:00" />
-<meta itemprop="wordCount" content="982">
+<meta itemprop="dateModified" content="2022-01-11T02:29:03+01:00" />
+<meta itemprop="wordCount" content="1362">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ableton notes"/>
 <meta name="twitter:description" content="download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www."/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 5 mins read </span>
+            <span class="more-meta"> 7 mins read </span>
         </div>
     </header>
 
@@ -156,6 +156,18 @@
         </li>
       </ul>
     </li>
+    <li><a href="#recording-cc-automation-with-rev2-editor">Recording CC automation with Rev2 editor</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#problems">Problems</a></li>
+            <li><a href="#solutions-considered">Solutions considered:</a></li>
+            <li><a href="#the-midi-port-solution">The midi port solution</a></li>
+            <li><a href="#current-solution--the-toggling-of-the-editor">Current solution : the toggling of the editor</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#vst2--vst3">VST2 / VST3</a></li>
     <li><a href="#clean-sidechain-compression">Clean sidechain compression</a>
       <ul>
@@ -182,6 +194,17 @@
     <li><a href="#usamo">Usamo</a></li>
     <li><a href="#the-ideal-audio-setup">The ideal audio setup</a></li>
     <li><a href="#reinstall">Reinstall</a></li>
+    <li><a href="#electrical-buzz">Electrical buzz</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#plug-us">Plug (us)</a></li>
+            <li><a href="#how-to-remove-ground-loop-issues">How to remove ground loop issues</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#gear">Gear</a></li>
   </ul>
 </nav>
   </div>
@@ -322,6 +345,36 @@
 <li><a href="https://www.thomann.de/fr/roland_um_one_mkii.htm">Roland UM-One MkII</a> : cable usb to 2 * midi : peut permetttre de réduire le jitter de l&rsquo;ordi au synth par rapport a un cable usb normal</li>
 <li>Use a high end audio soundcard using pll (focusrite <a href="https://pro.focusrite.com/what-is-jetpll">jetpll</a>)</li>
 </ul>
+<h1 id="recording-cc-automation-with-rev2-editor">Recording CC automation with Rev2 editor</h1>
+<h3 id="problems">Problems</h3>
+<ul>
+<li>The automation isn&rsquo;t always recorded when the editor is toggled off</li>
+<li>But when the editor is toggled on we (probably) have midi feedback and notes off messages just after note on (very short notes)</li>
+</ul>
+<h3 id="solutions-considered">Solutions considered:</h3>
+<ul>
+<li>Toggling on / off the editor to &ldquo;force&rdquo; it to react to parameters change and react to automation (current solution)</li>
+<li>Find a way to work with the editor turned on : <strong>didn&rsquo;t work (at all)</strong></li>
+<li>Record nrpn or cc automation in live directly by playing with midi ports</li>
+</ul>
+<h3 id="the-midi-port-solution">The midi port solution</h3>
+<blockquote>
+<p>The idea is to record cc automation without using the editor. There is two main problems with this approchach :</p>
+<ul>
+<li>It&rsquo;s going to be hard to have more than 8 parameters</li>
+<li>The setup with midi ports doesn&rsquo;t work with the rev2 editor</li>
+</ul>
+</blockquote>
+<ul>
+<li>Setup two loop back ports : REV2_EDITOR and REV2_ABLETON that both wraps the rev2 ports</li>
+<li>Possibly translate nrpn to cc on the REV2_ABLETON input port and then record it by e.g. grouping the editor and using macro controls.</li>
+<li>Or Use the NRPN gen 2 max device to work directly with nrpn (limited to 8 parameters)</li>
+</ul>
+<p>Unfortunately the rev2 editor works well with the loop back input port <strong>but not with the loopback output port</strong>.</p>
+<p>It could be that it sends binary data to the synth that does not work with the loop back port ..</p>
+<h3 id="current-solution--the-toggling-of-the-editor">Current solution : the toggling of the editor</h3>
+<p>It works partially well, but sometimes the encoder move is not caught (at all) by the editor.</p>
+<p>Still after toggling it manually it&rsquo;s gonna work well. <strong>Should we increase the delay of the toggling ?</strong></p>
 <h1 id="vst2--vst3">VST2 / VST3</h1>
 <ul>
 <li>vst3 détectent si du signal passent et se désactivent.</li>
@@ -434,7 +487,22 @@
     <span class="k">return</span> <span class="n">ControlSurface</span><span class="p">(</span><span class="n">c_instance</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div><h1 id="electrical-buzz">Electrical buzz</h1>
+<h3 id="plug-us">Plug (us)</h3>
+<ul>
+<li>Hot hole (right) : black, goes to circuit breaker</li>
+<li>Neutral hole (left) : white, goes to circuit breaker <strong>neutral bar</strong></li>
+<li>Ground hole (down): goes to circuit breaker <strong>ground bar</strong> then <strong>neutral bar</strong></li>
+</ul>
+<h3 id="how-to-remove-ground-loop-issues">How to remove ground loop issues</h3>
+<p>See <a href="https://www.youtube.com/watch?v=DSxvNtW5n6c">https://www.youtube.com/watch?v=DSxvNtW5n6c</a></p>
+<p>Using <a href="https://www.thomann.de/fr/radial_engineering_pro_d2.htm">https://www.thomann.de/fr/radial_engineering_pro_d2.htm</a> : interrupteur de masse + signal stereo asym vers sym (jack ts vers xlr). <strong>passif</strong></p>
+<p>Remove ground on audio cables to the speakers with : <a href="https://www.sescom.com/products/view/product/productslug/il-19-pro-audio-hum-eliminator-inline-with-isolation">https://www.sescom.com/products/view/product/productslug/il-19-pro-audio-hum-eliminator-inline-with-isolation</a>. xlr to xlr. <strong>passif</strong></p>
+<p>Remove ground on usb cables  ! <a href="https://www.amazon.fr/iDefender-Type-A-%C3%A0/dp/B0849J33T9?th=1">https://www.amazon.fr/iDefender-Type-A-%C3%A0/dp/B0849J33T9?th=1</a>. <strong>actif</strong> avec alim <strong>sans</strong> ground</p>
+<h1 id="gear">Gear</h1>
+<p><a href="https://www.youtube.com/watch?v=0Ej6Tn0wF-4">Presonus FaderPort 8</a> : motorized faders, lcd screen per fader, 500 euros</p>
+<p><a href="https://www.youtube.com/watch?v=awgTN91bRsM">Panorama P1 Nektar</a> ?</p>
+
     </div>
 
     
@@ -477,7 +545,6 @@
       integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
 <script>
     function isDevMode() {
-        const isDevMode = '' === "dev" ||
         new URLSearchParams(window.location.search).get("dev") !== null ||
         new URLSearchParams(window.location.search).get("d") !== null ||
         Boolean(localStorage.getItem("dev-mode"));

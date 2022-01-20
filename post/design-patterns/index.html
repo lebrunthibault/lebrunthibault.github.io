@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Django contribution - Home</title>
+  <title>Design Patterns - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="links" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Notes bout design patterns" /><meta name="keywords" content="Software development, Backend development, Design patterns" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/django/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/design-patterns/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Django contribution" />
-<meta property="og:description" content="links" />
+<meta property="og:title" content="Design Patterns" />
+<meta property="og:description" content="Notes bout design patterns" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/django/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/design-patterns/" /><meta property="article:section" content="post" />
 
+<meta property="article:modified_time" content="2022-01-20T01:05:44+01:00" />
 
-
-<meta itemprop="name" content="Django contribution">
-<meta itemprop="description" content="links">
-
-<meta itemprop="wordCount" content="297">
+<meta itemprop="name" content="Design Patterns">
+<meta itemprop="description" content="Notes bout design patterns">
+<meta itemprop="dateModified" content="2022-01-20T01:05:44+01:00" />
+<meta itemprop="wordCount" content="534">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Django contribution"/>
-<meta name="twitter:description" content="links"/>
+<meta name="twitter:title" content="Design Patterns"/>
+<meta name="twitter:description" content="Notes bout design patterns"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,11 +114,11 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">Django contribution</h1>
+        <h1 class="post-title">Design Patterns</h1>
 
         <div class="post-meta">
             
-            <span class="more-meta"> 2 mins read </span>
+            <span class="more-meta"> 3 mins read </span>
         </div>
     </header>
 
@@ -127,31 +127,40 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#basics">Basics</a>
-      <ul>
-        <li><a href="#install">Install</a></li>
-        <li><a href="#structure">Structure</a></li>
-        <li><a href="#routing">Routing</a></li>
-        <li><a href="#django-orm">Django ORM</a></li>
-        <li><a href="#testing">Testing</a>
-          <ul>
-            <li></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#difference-django--symfony">Difference django / symfony</a>
+    <li><a href="#design-patterns-currently-used-in-projects">Design patterns currently used in projects</a>
       <ul>
         <li>
           <ul>
-            <li></li>
+            <li><a href="#factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory Method</a></a></li>
+            <li><a href="#singletonhttpsrefactoringgurudesign-patternssingleton"><a href="https://refactoring.guru/design-patterns/singleton">Singleton</a></a></li>
+            <li><a href="#compositehttpsrefactoringgurudesign-patternscomposite"><a href="https://refactoring.guru/design-patterns/composite">Composite</a></a></li>
+            <li><a href="#decoratorhttpsrefactoringgurudesign-patternsdecorator"><a href="https://refactoring.guru/design-patterns/decorator">Decorator</a></a></li>
+            <li><a href="#template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></a></li>
+            <li><a href="#observerhttpsrefactoringgurudesign-patternsobserver"><a href="https://refactoring.guru/design-patterns/observer">Observer</a></a></li>
+            <li><a href="#pub--subhttpsenwikipediaorgwikipublishe28093subscribe_pattern"><a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Pub / sub</a></a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#contributing">Contributing</a>
+    <li><a href="#design-patterns-partially-used">Design patterns partially used</a>
       <ul>
-        <li><a href="#git-flow">Git flow</a></li>
+        <li>
+          <ul>
+            <li><a href="#builderhttpsrefactoringgurudesign-patternsbuilder"><a href="https://refactoring.guru/design-patterns/builder">Builder</a></a></li>
+            <li><a href="#prototypehttpsrefactoringgurudesign-patternsprototype"><a href="https://refactoring.guru/design-patterns/prototype">Prototype</a></a></li>
+            <li><a href="#statehttpsrefactoringgurudesign-patternsstate"><a href="https://refactoring.guru/design-patterns/state">State</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#design-patterns-that-could-improve-existing-projects">Design patterns that could improve existing projects</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></a></li>
+            <li><a href="#adapterhttpsrefactoringgurudesign-patternsadapter"><a href="https://refactoring.guru/design-patterns/adapter">Adapter</a></a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -159,108 +168,87 @@
   </div>
 </div>
     <div class="post-content">
-        <p><strong>links</strong></p>
+        <h1 id="design-patterns-currently-used-in-projects">Design patterns currently used in projects</h1>
+<h3 id="factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory Method</a></h3>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=rHux0gMZ3Eg">django tutorials for beginners 2021 youtube</a></li>
+<li>Used textbook in Protocol0 to generate a track recorder</li>
+<li>Also in Protocol0 backend to generate notification / prompt windows</li>
 </ul>
-<h1 id="basics">Basics</h1>
-<h2 id="install">Install</h2>
+<h3 id="singletonhttpsrefactoringgurudesign-patternssingleton"><a href="https://refactoring.guru/design-patterns/singleton">Singleton</a></h3>
 <ul>
-<li>Use pipenv</li>
-<li>Nesting can be removed</li>
-<li>Use .env with <a href="https://github.com/joke2k/django-environ">django-environ</a></li>
-<li><a href="https://django-debug-toolbar.readthedocs.io/en/latest/installation.html">django debug toolbar</a> like in symfony</li>
+<li>Used in basile ats client generation tests</li>
+<li>The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)</li>
 </ul>
-<h2 id="structure">Structure</h2>
+<h3 id="compositehttpsrefactoringgurudesign-patternscomposite"><a href="https://refactoring.guru/design-patterns/composite">Composite</a></h3>
 <ul>
-<li>Project == site: app == service. project many to many app</li>
-<li>apps can live anywhere in the python path</li>
+<li>Used to abstract composite tracks in protocol0 e.g. in arming tracks or soloing them.</li>
+<li>Implemented using classical inheritance with AbstractTrack</li>
+<li>Leaves are SimpleTracks, containers are AbstractGroupTracks</li>
+<li>We could remove the AbstractTrack.base_track as it breaks the encapsulation principle.</li>
 </ul>
-<h2 id="routing">Routing</h2>
-<ul>
-<li>Each app can define routes in a URLconf file</li>
-<li>The routing file is included in the main site routing URLconf</li>
-<li><code>include</code> chops off matched url part and sends to included for further processing</li>
-<li>Patterns don’t search GET and POST parameters, or the domain name</li>
-<li>Route has url, route name, view (HttpRequest handler) + kwargs. Like in Symfony</li>
-</ul>
-<h2 id="django-orm">Django ORM</h2>
-<ul>
-<li>Model classes</li>
-</ul>
-<h2 id="testing">Testing</h2>
-<h4 id="debugger">Debugger</h4>
-<ul>
-<li>Straightforward when running python scripts</li>
-<li>Using django server run configuration (see <a href="https://www.youtube.com/watch?v=zFuaU3Sl4-c">this video</a>)</li>
-</ul>
-<h1 id="difference-django--symfony">Difference django / symfony</h1>
-<ul>
-<li>django lighter and more options for views</li>
-<li>system of apps</li>
-</ul>
-<h4 id="orm">Orm</h4>
-<ul>
-<li>saving directly on the entitiy</li>
-<li>not great: magical methods in django (e.g. backward one to many, always use default args)</li>
-<li>app should be added to the installed apps</li>
-<li>better handling of choices / enum  in django (integrated to the model field definition)</li>
-<li>relations
-<ul>
-<li>one to many : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.ForeignKey"><code>ForeignKey</code></a> on the owning side</li>
-<li>many to many : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.ManyToManyField"><code>ManyToManyField</code></a></li>
-<li>one to one : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.OneToOneField"><code>OneToOneField</code></a></li>
-</ul>
-</li>
-</ul>
-<h1 id="contributing">Contributing</h1>
-<ul>
-<li><a href="https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/">Writing code</a></li>
-</ul>
+<h3 id="decoratorhttpsrefactoringgurudesign-patternsdecorator"><a href="https://refactoring.guru/design-patterns/decorator">Decorator</a></h3>
 <blockquote>
-<p>Django 4.0 will be a time-based release. Any features completed and committed to main by the alpha feature freeze deadline noted below will be included</p>
+<p>Used in its simple form but could be improved to implements the real pattern semantics.</p>
 </blockquote>
-<p>Schedule</p>
-<table>
-<thead>
-<tr>
-<th>September 20, 2021</th>
-<th>Django 4.0 alpha; feature freeze. (we will fork <code>stable/4.0.x</code> from <code>main</code>.)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>October 25</td>
-<td>Django 4.0 beta; non-release blocking bug fix freeze (all bug fixes except blocking ones)</td>
-</tr>
-<tr>
-<td>November 22</td>
-<td>Django 4.0 RC 1; translation string freeze.</td>
-</tr>
-<tr>
-<td>December 6</td>
-<td>Django 4.0 final</td>
-</tr>
-</tbody>
-</table>
-<h2 id="git-flow">Git flow</h2>
 <ul>
-<li>
-<p>Rebase to one commit before and after review (e.g. <code>git rebase -i HEAD~2</code>)</p>
-</li>
-<li>
-<p>On upstream change:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git fetch upstream
-git rebase
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<li>Used in protocol0, to augment behavior of notification classes.</li>
+<li>Used somewhat in basile to catch exceptions. Respects the pattern semantics but replaces the interface step by just using callables.</li>
+<li>Could improve the generation of missing ATS responses in basile. The ATSServiceFactory could return a ATSServiceResponseGeneratorDecorator implementing the interface without handling these kind of cases explicitely.</li>
+<li>Could also work for the ErrorHandlerService instead of catching the exceptions in the client code.</li>
+<li>Could also be used for offer synchronization by applying decorators at service instantiation time for company custom code instead of using inheritance. Might be overkill though.</li>
+</ul>
+<h3 id="template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></h3>
+<ul>
+<li>Used in basile ats synchonize offers</li>
+<li>Used in protocol0 recording system ()</li>
+</ul>
+<h3 id="observerhttpsrefactoringgurudesign-patternsobserver"><a href="https://refactoring.guru/design-patterns/observer">Observer</a></h3>
+<ul>
+<li>Used in protocol0 system notification system</li>
+<li>The inner notification window notifies values when buttons are clicked</li>
+<li>A decorator applied at instantiation (in the notification factory) observes the inner window and sends values to the script over midi.</li>
+</ul>
+<h3 id="pub--subhttpsenwikipediaorgwikipublishe28093subscribe_pattern"><a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Pub / sub</a></h3>
+<blockquote>
+<p>in a simple, synchronous way</p>
+</blockquote>
+<ul>
+<li>Used in Basile status synchronization</li>
+<li>The status code emits events on a event bus</li>
+<li>The event bus dispatches to observers subscribed to specific events</li>
+</ul>
+<h1 id="design-patterns-partially-used">Design patterns partially used</h1>
+<h3 id="builderhttpsrefactoringgurudesign-patternsbuilder"><a href="https://refactoring.guru/design-patterns/builder">Builder</a></h3>
+<ul>
+<li>Used in basile admin crud. ressemble because we don&rsquo;t use a bloated constructor.</li>
+<li>Not using a specific builder class but by passing directly an instantiated object</li>
+<li>Could be improved by creating an AdminCrudConfigBuilderInterface subclassed by AdminCrudConfigBuilder and AdminFormConfigBuilder. Not really the builder pattern because we would pass a specific builder class and not interface but close.</li>
+</ul>
+<h3 id="prototypehttpsrefactoringgurudesign-patternsprototype"><a href="https://refactoring.guru/design-patterns/prototype">Prototype</a></h3>
+<ul>
+<li>Used in basile to clone newsletters</li>
+<li>Not respecting the prototype pattern semantics but using __clone magic method</li>
+</ul>
+<h3 id="statehttpsrefactoringgurudesign-patternsstate"><a href="https://refactoring.guru/design-patterns/state">State</a></h3>
+<ul>
+<li>Used in Protocol0 Sequence code</li>
+<li>A Sequence can be in different states (unstarted, started, paused, cancelled, errored)</li>
+<li>Transitions are defined accordingly</li>
+<li>Implemented using the transitions package</li>
+<li>NB : states are not defined in specific classes which doesn&rsquo;t respect the pattern</li>
+</ul>
+<h1 id="design-patterns-that-could-improve-existing-projects">Design patterns that could improve existing projects</h1>
+<h3 id="abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></h3>
+<ul>
+<li>In basile ATSServiceFactory</li>
+<li>Instead of using a single class per ATS we could instead create one feature class per abstract ATS feature</li>
+<li>The current ats class could be replaced by a factory returning a feature class instance respecting the single responsibility principle.</li>
+<li>That would be beneficial for the status synchronization as we could have a single synchronizeStatusesInteface (with method synchronizeStatuses) instead of using a match in ATSSynchronizeStatusesService.</li>
+<li>Downside : would need a lot more classes and would complicate the subclassing of the ats code by a specific company&rsquo;s ats implementations.</li>
+</ul>
+<h3 id="adapterhttpsrefactoringgurudesign-patternsadapter"><a href="https://refactoring.guru/design-patterns/adapter">Adapter</a></h3>
+<ul>
+<li>Maybe on ATS system to abstract the different protocols used (if one day we use more that are not rest ..?)</li>
 </ul>
 
     </div>
