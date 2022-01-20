@@ -354,12 +354,22 @@ Code generation has the additional benefit of reducing the number of moving part
 
 # [SOLID](https://en.wikipedia.org/wiki/SOLID)
 
-- The [Single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle): "There should never be more than one reason for a [class](https://en.wikipedia.org/wiki/Class_(computer_programming)) to change."[[5\]](https://en.wikipedia.org/wiki/SOLID#cite_note-5) In other words, every class should have only one responsibility.[[6\]](https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6)
-- The [Open–closed principle](https://en.wikipedia.org/wiki/Open–closed_principle): "Software entities ... should be open for extension, but closed for modification."[[7\]](https://en.wikipedia.org/wiki/SOLID#cite_note-7)
+### [Single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle): 
+
+- "There should never be more than one reason for a [class](https://en.wikipedia.org/wiki/Class_(computer_programming)) to change."[[5\]](https://en.wikipedia.org/wiki/SOLID#cite_note-5) In other words, every class should have only one responsibility.[[6\]](https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6)
+- Factory method, Abstract Factory
+### [Open–closed principle](https://en.wikipedia.org/wiki/Open–closed_principle)
+- "Software entities ... should be open for extension, but closed for modification."[[7\]](https://en.wikipedia.org/wiki/SOLID#cite_note-7)
   Open for extension would mean association and interfaces (e.g. using dependency injection). Also present in e.g. factory patterns that create more implementations without modifying client code. 
-- The [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle): "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."[[8\]](https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8) See also [design by contract](https://en.wikipedia.org/wiki/Design_by_contract).[[8\]](https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8). LSP violation can be detected by the usage of instance of as it expects different behavior from objects with the same interface. More specific version of open/closed.
-- The [Interface segregation principle](https://en.wikipedia.org/wiki/Interface_segregation_principle): "Many client-specific interfaces are better than one general-purpose interface."[[9\]](https://en.wikipedia.org/wiki/SOLID#cite_note-9)[[4\]](https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4). Also meaning inheritance should be restricted and replaced by specific interface / traits. Note: as a result interfaces should ideally not extends other interfaces.
-- The [Dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle): "Depend upon abstractions, [not] concretions."[[10\]](https://en.wikipedia.org/wiki/SOLID#cite_note-10)[[4\]](https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4)
+- Factory method, Abstract Factory
+
+### [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
+- "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."[[8\]](https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8) See also [design by contract](https://en.wikipedia.org/wiki/Design_by_contract).[[8\]](https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8). LSP violation can be detected by the usage of instance of as it expects different behavior from objects with the same interface. More specific version of open/closed.
+### [Interface segregation principle](https://en.wikipedia.org/wiki/Interface_segregation_principle)
+- "Many client-specific interfaces are better than one general-purpose interface."[[9\]](https://en.wikipedia.org/wiki/SOLID#cite_note-9)[[4\]](https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4). Also meaning inheritance should be restricted and replaced by specific interface / traits. Note: as a result interfaces should ideally not extends other interfaces.
+### [Dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
+- "Depend upon abstractions, [not] concretions."[[10\]](https://en.wikipedia.org/wiki/SOLID#cite_note-10)[[4\]](https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4)
+- Factory method, Abstract Factory
 
 # ETC
 

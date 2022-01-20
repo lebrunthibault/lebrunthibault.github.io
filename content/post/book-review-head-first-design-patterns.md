@@ -3,6 +3,8 @@ title: "Head first design patterns"
 draft: true
 ---
 
+> and excerpts from https://refactoring.guru/
+
 # 1. Intro to design patterns
 
 Example of ducks (quacking, flying)
@@ -104,7 +106,7 @@ one of the flagship patterns of the **open-closed principle** and the **composit
 
 > Using the new is coding against an implementation and not an interface. New is “closed for modification.”
 
-### The Simple Factory
+## The Simple Factory
 
 > The Simple Factory isn’t actually a Design Pattern; it’s more of a programming idiom
 
@@ -114,7 +116,7 @@ one of the flagship patterns of the **open-closed principle** and the **composit
 
 **Problem**: If we process the pizza object after creation (in `orderPizza(string $type)`, we want the process to be in the factory but then we want to always use the same steps and not leave it to the factory implementation  !
 
-### The Factory method 
+## The Factory method
 
 - We create an abstract factory class with method `orderPizza(string $type)` and abstract method `createPizza(string $type)` and change is insulated. 
 - It's static behavior.
@@ -123,6 +125,61 @@ one of the flagship patterns of the **open-closed principle** and the **composit
 - With this behavior we need to create pizza classes for each combination of the 2 parameters (type and region)
 - It create parallel hierarchies (abstract factory => abstract object and factory => object subclasses)
 - The Factory Method Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+- The factory method (and abstract factory class) can be concrete to provide default values, in the absence of concrete factory subclasses
+
+#### The factory method parameter(s)
+
+- A factory method pattern using a parameter (here `string $type`) is called a **parameterized factory method**. But the pattern is still valid without parameters.
+- NB : a string parameter is not type safe, better use constants or enums
+
+#### Usage and advantages
+
+Respects 
+
+- "encapsulate what varies"
+- "Single responsibility principle"
+- "Open / closed principle"
+- "Dependency Inversion Principle" : Depend upon abstractions. Do not depend upon concrete classes.
+- Factory method is generally used when you have some generic processing in a class, but want to vary which kind of fruit you actually use
+- that is usually implement code in the abstract creator that makes use of the concrete types the subclasses create.
+
+
+
+#### Dependency inversion principle & guidelines
+
+- Close to "Program to an interface, not an implementation" but goes further : suggests that our high-level components should not depend on our low-level components; rather, they should both depend on abstractions (here Pizza)
+
+- Low level components (concrete pizza) depend on pizza
+- High level components (pizza store) also depend on pizza (instantiated via subclasses)
+- No variable should hold a reference to a concrete class
+- No class should derive from a concrete class (but should derive from an abstraction !)
+- No method should override an implemented method of any of its base classes.
+- These are guidelines and not rules. Sometimes it's easier to violate them. Especially when the concrete class is not likely to change.
+
+best case scenario is when you’re introducing the pattern into an existing hierarchy of creator classes (like here with pizza stores)
+
+[Factory Method](https://refactoring.guru/design-patterns/factory-method) is a specialization of [Template Method](https://refactoring.guru/design-patterns/template-method). At the same time, a *Factory Method* may serve as a step in a large *Template Method*.
+
+## The abstract factory
+
+Let's imagine we also want to create ingredients with another family of objects (regions). We don't want specific shops to alter ingredients.
+
+So we can inject a PizzaIngredientFactory in the concrete pizza class.
+
+- The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+- family of products = multiple product hierarchy
+
+## Difference between factory method and abstract factory
+
+- [Difference between simple factory / factory method / abstract factory, simple example](https://stackoverflow.com/questions/13029261/design-patterns-factory-vs-factory-method-vs-abstract-factory)
+
+- **often the methods of an Abstract Factory are implemented as factory methods** -> Like Factory method but with multiple factory methods in a same class (here creating multiple ingredients)
+- more technical : factory method uses (only) inheritance to create objects via subclassing whereas abstract factory uses composition (and inheritance because it uses factory method) by passing / instantiating the factory to the outer factory code. 
+- In short
+  - the factory method is used to create one object but usually some processing is done in the abstract factory once the object is created
+  - the abstract factory is used to create a family of related objects but will not process them in the abstract factory class.
+
+
 
 
 
