@@ -12,7 +12,7 @@ Most important principles :
 
 - Archunit java
 - equivalent in php : https://github.com/qossmic/deptrac
-- https://github.com/j6s/phparch
+- https://github.com/j6s/phparch : best
 - https://github.com/mihaeu/dephpend
 - https://github.com/carlosas/phpat
 

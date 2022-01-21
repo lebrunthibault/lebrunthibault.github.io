@@ -98,3 +98,120 @@ Book [here](https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Mar
 
 
 ![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/layered_architecture.PNG?raw=true)
+
+> When we create a software application, a large part of the application is not directly related to the domain, but it is part of the infrastructure or serves the software itself.
+
+- Partition a complex program into LAYERS. Develop a design within each LAYER that is cohesive and that depends only on the layers below
+- Concentrate all the code related to the domain model in one layer and isolate it from the user interface, application, and infrastructure code
+
+A common architectural solution for domain-driven designs contain four conceptual layers:
+
+- **User interface** (presentation layer) : Responsible for presenting information to the user and interpreting user commands
+- **Application Layer** : This is a thin layer which coordinates the application activity. It does not contain business logic. It does not hold the state of the business objects, but it can hold the state of an application task progress
+- **Domain layer **: This layer contains information about the domain. This is the heart of the business software. The state of business objects is held here. Persistence of the business objects and possibly their state is delegated to the infrastructure layer
+- **Infrastructure Layer** : This layer acts as a supporting library for all the other layers. It provides communication between layers, implements persistence for business objects, contains supporting libraries for the user interface layer, etc.
+
+> UI talks to application with talks to the domain and infrastructure (e.g. fetches domain object from infra, calls domain object methods and use infra to persist the objects)
+
+
+
+## Entities
+
+> There is a category of objects which seem to have an identity, which remains the same throughout the states of the software.
+
+- implementing entities in software means creating identity
+- When an object is distinguished by its identity, rather than its attributes, make this primary to its definition in the model
+- Be alert to requirements that call for matching objects by attributes. Define an operation that is guaranteed to produce a unique result for each object
+- The model must define what it means to be the same thing
+- It is also important to determine if an object needs to be an entity or not
+
+## Value objects
+
+##### Difference with DTO
+
+> - A value object is a simple object whose equality isn't based on identity. 
+> - A [data transfer object](https://martinfowler.com/eaaCatalog/dataTransferObject.html) is an object used to transfer data between software application subsystems, usually between business layers and UI. 
+> - It is focused just on plain data, so it doesn't have any behaviour. 
+> - Used to batch up multiple remote procedure calls in one call. 
+> - Another advantage is to encapsulate the serialization mechanism
+
+- It takes a lot of careful thinking to decide what makes an identity
+- There are also performance implications in making all objects entities
+- There are cases when we need to contain some attributes of a domain element. We are not interested in which object it is, but what attributes it has. 
+- **An object that is used to describe certain aspects of a domain, and which does not have identity, is named Value Object**
+- It is highly recommended that value objects be immutable (implement only getters)
+- Being immutable, and having no identity, Value Objects can be shared
+- Value Objects can contain other Value Objects, and they can even contain references to Entities
+
+## Services
+
+> Services act as interfaces which provide operations
+
+**3 Caracteristics of a service**
+
+- The operation performed by the Service refers to a domain concept which does not naturally belong to an Entity or Value Object. 
+- The operation performed refers to other objects in the domain
+- The operation is stateless
+
+### Domain segregation
+
+- It is easy to get confused between services which belong to the domain layer, and those belonging to the infrastructure. There are application services, domain services and infrastructure services
+- While working on the model and during the design phase, we need to make sure that the domain level remains isolated from the other levels
+- Deciding the layer a Service belongs to is difficul (application or domain ?)
+
+## Modules
+
+- for a large application it is necessary to organize the model into modules
+- It is widely accepted that software code should have a high level of cohesion and a low level of coupling
+- group highly related classes into modules to provide maximum cohesion possible
+- **communicational cohesion**: when the module operates on the same data
+- **functional cohesion**: all parts of the module work together to perform a well-defined task. Considered the best type of cohesion 
+- Using modules in design is a way to increase cohesion, maintainability and decrease coupling
+- **Modules should have well defined interfaces which are accessed by other modules**
+- Choose Modules that tell the story of the system and contain a cohesive set of concepts
+- Refine the model until it partitions according to high-level domain concepts and the corresponding code is decoupled as well
+- **Give the Modules names that become part of the Ubiquitous Language**
+
+
+
+## Aggregates
+
+> Factories and Repositories are two design patterns which help us deal with object creation and storage
+>
+> Aggregate is a domain pattern used to define object ownership and boundaries
+
+- Most of the time it pays of to eliminate or simplify relations from the model
+- One to many is more complicated than one to one and many to many is the most complicated to deal with especially when it's bidirectional
+- Firstly, associations which are not essential for the model should be removed
+- Secondly, multiplicity can be reduced by adding a constraint : if many objects satisfy a relationship, it is possible that only one will do it if the right constraint is imposed on the relationship (NB : meaning many to one to one to one ..?)
+- many times bidirectional associations can be transformed in unidirectional ones : (e.g. an engine doesn't need to have a car)
+- database transactions are used to enforce data integrity
+- It is also necessary to be able to enforce the invariants (rules which have to be maintained whenever data changes. meaning stuff that we cannot check at the database level ?)
+
+### Solution : aggregates
+
+- An Aggregate is a group of associated objects which are considered as one unit with regard to data changes
+- The Aggregate is demarcated by a boundary which separates the objects inside from those outside
+- Each Aggregate has one root. The root is an Entity, and it is the only object accessible from outside
+- NB in basile : 
+  - an AbstractApplication Aggreagate with absApp as root and ApplicationFormValue, Candidate, Status, Alerts ..?
+  - BonusAmount Aggreagte (with BonusAmountFilter) 
+  - Company: CompanyImage, CompanyLog
+  - Offer : OfferAdress, OfferPreference
+- The root object will enforce the invariants
+- It is possible for the root to pass transient references of internal objects to external ones, with the condition that the external objects do not hold the reference after the operation is finished
+- One simple way to do that is to pass copies of the Value Objects to external objects. Aggreagate integrity will be protected
+- If objects of an Aggregate are stored in a database, only the root should be obtainable through queries. The other objects should be obtained through traversal associations
+- Objects inside an Aggregate should be allowed to hold references to roots of other Aggregates
+- The root Entity has global identity, and is responsible for maintaining the invariants. Internal Entities have local identity
+- Cluster the Entities and Value Objects into Aggregates and define boundaries around each
+
+## Factories
+
+- Entities and Aggregates can often be large and complex
+- Factories are used to encapsulate the knowledge necessary for object creation, and they are especially useful to create Aggregates
+- When the root is created, it is necessary that all objects subject to invariants are created too (VO should have there valid state and an exception is thrown if anything goes astray)
+- shift the responsibility for creating instances of complex objects and Aggregates to a separate object, which may itself have no responsibility in the domain model but is still part of the domain design
+
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true)
+
