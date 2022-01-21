@@ -82,3 +82,19 @@ Book [here](https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Mar
 - Those who write the code should know the model very well, and should feel responsible for its integrity
 - Every person working on the project should contribute to all parts (dev to the model, business analysts to the code)
 - OOP is good for model driven design because classes and objects can contain behavior and relationships
+
+
+
+### Presentation of the most important model driven design patterns
+
+> Map of the different patterns
+
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/model_driven_design.PNG?raw=true)
+
+
+
+## Layered architecture
+
+
+
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/layered_architecture.PNG?raw=true)
