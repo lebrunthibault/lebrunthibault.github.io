@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T13:57:26+01:00" />
+<meta property="article:modified_time" content="2022-01-21T17:59:57+01:00" />
 
 <meta itemprop="name" content="Domain Driven Development Quickly">
 <meta itemprop="description" content="Book here">
-<meta itemprop="dateModified" content="2022-01-21T13:57:26+01:00" />
-<meta itemprop="wordCount" content="2187">
+<meta itemprop="dateModified" content="2022-01-21T17:59:57+01:00" />
+<meta itemprop="wordCount" content="2434">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Domain Driven Development Quickly"/>
 <meta name="twitter:description" content="Book here"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 11 mins read </span>
+            <span class="more-meta"> 12 mins read </span>
         </div>
     </header>
 
@@ -178,6 +178,7 @@
           </ul>
         </li>
         <li><a href="#factories">Factories</a></li>
+        <li><a href="#repositories">Repositories</a></li>
       </ul>
     </li>
   </ul>
@@ -394,7 +395,31 @@
 <li>When the root is created, it is necessary that all objects subject to invariants are created too (VO should have there valid state and an exception is thrown if anything goes astray)</li>
 <li>shift the responsibility for creating instances of complex objects and Aggregates to a separate object, which may itself have no responsibility in the domain model but is still part of the domain design</li>
 </ul>
-<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true" alt=""></p>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ddd_factory.PNG?raw=true" alt=""></p>
+<ul>
+<li>It is necessary that when such a component is created to automatically belong to a container. The client calls the createComponent(Type t) method of the container</li>
+<li>The concrete class of the component is determined based on its type</li>
+<li><strong>When creating a Factory, we are forced to violate an object’s encapsulation</strong></li>
+<li>Factories are tightly related to the objects they are created. That can be a weakness, but it can also be a strength</li>
+</ul>
+<p>Don&rsquo;t use factory method when</p>
+<ul>
+<li>The construction is not complicated.</li>
+<li>The creation of an object does not involve the creation of others, and all the attributes needed are passed via the constructor.</li>
+<li>The client is interested in the implementation, perhaps wants to choose the Strategy used.</li>
+<li>The class is the type. There is no hierarchy involved, so no need to choose between a list of concrete implementations.</li>
+</ul>
+<h2 id="repositories">Repositories</h2>
+<ul>
+<li>Using V0 and Aggregates can increase coupling between objects</li>
+<li>purpose of which is to encapsulate all the logic needed to obtain object references</li>
+<li>the Repository acts as a storage place for globally accessible objects</li>
+<li>The overall effect is that the domain model is decoupled from the need of storing objects or their references, and accessing the underlying persistence infrastructure</li>
+<li>create an object that can provide the illusion of an in-memory collection of all objects of that type</li>
+<li>Provide repositories only for Aggregate roots that actually need direct access</li>
+<li>the repository interface will be pure domain model</li>
+<li>Factory and Repository. They are both patterns of the model-driven design</li>
+</ul>
 
     </div>
 
