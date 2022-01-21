@@ -11,9 +11,11 @@
       <excludeFolder url="file://$MODULE_DIR$/static" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/public" />
+      <excludeFolder url="file://$MODULE_DIR$/public/img" />
     </content>
     <content url="file://$MODULE_DIR$/public/img" />
     <content url="file://$MODULE_DIR$/static/code" />
+    <content url="file://$MODULE_DIR$/static/img" />
     <orderEntry type="jdk" jdkName="Python 3.7 (blog)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

@@ -280,7 +280,7 @@ It also follows the LSP since version 7.4 by allowing :
 ### [Observer](https://refactoring.guru/fr/design-patterns/observer)
 
 
-{{< figure src="/img/observer.PNG" title="observer class diagram" >}}
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true)
 
 
 - Behavioral design pattern, the Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. The observers are *dependent* (coupled) on the subject

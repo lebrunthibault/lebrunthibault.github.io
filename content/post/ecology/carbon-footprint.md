@@ -11,11 +11,8 @@ draft: true
 9.8 T/an/habitant
 
 Objectif: 2T max
-{{< figure src="/img/carbon_footprint_france.PNG" title="carbon_footprint_france" >}}
 
-
-
-
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/carbon_footprint_france.PNG?raw=true)
 
 # Réduction
 

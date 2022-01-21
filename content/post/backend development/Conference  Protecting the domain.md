@@ -8,10 +8,6 @@ Most important principles :
 - Dependency inversion
 - DRY
 
-![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true)
-
-### 
-
 ### Testing tools
 
 - Archunit java
@@ -20,19 +16,19 @@ Most important principles :
 - https://github.com/mihaeu/dephpend
 - https://github.com/carlosas/phpat
 
-## Domain vs
+### Domain vs
 
 - DDD : domain driven development
 - encapsulates a specific part of the business code (entities, services ..)
 - higher level code than infrastructure
 
-## Infrastructure
+### Infrastructure
 
 - backend code
 - lower level code
 - implementations
 
-### Protect the domain
+## Protect the domain
 
 - Keep the domain safe from any external influence.  Defend the domain ! Agnostic.
 
@@ -44,6 +40,10 @@ Most important principles :
 - is an orm intrusive ? not necessarily
 - logic should be built on objects you have full control on 
 
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/agnostic_domain.PNG?raw=true)
+
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/domain_vs_infrastructure.PNG?raw=true)
+
 ### DTOs are enemies
 
 they are
@@ -52,13 +52,13 @@ they are
 - flat
 - different perspective
 
-should be replaced by value objects and events 
+should be replaced by ids, value objects and events 
 
 ### Testing
 
 - Tests should test the domain
 
-### Domain calling infrastructure 
+### Domain communication and calls 
 
 Options
 
@@ -72,7 +72,6 @@ To communicate between those 2
 - Create an interface
 - Create an adapter in the domain
 - Client code depends on the domain
-- Infrastructure 
 
 ### Multiple domains
 
@@ -88,8 +87,6 @@ Do we need application + domain + architecture ?
 
 No we can use application which is also architecture (pragmatic onion architecture aka hexagonal aka ports and adapters aka clean architecture)
 
-
-
 # Monolith vs micro services
 
 - micro services is slow to build
@@ -100,14 +97,14 @@ monolith should be broken down after some time
 Breaking it down
 
 - organize your code by entities ! like order.service and not service.order
-- instead of linking entities use literral id and get the entity from the other side
-- or use a detail object 
+- instead of linking entities use literal id and get the entity from the other side
+- or use a value object
 - cut the link from 2 domains
-- communication using a common domain events. or split events but any events can be accessed by any domain
-- but never using directly entities or services
-- test by using archunit and having less and less violations
+- communication using a common domain events (or event folder per domain) but any events can be accessed by any domain
+- never using directly entities or services
+- test by using arch unit and having less and less violations
 - use Value Object (VO) instead of DTOs
-- Sometimes you can create a Order object in Customer domain, "duplicating" the class name but it's good
+- Sometimes you can create a Order object in Customer domain, "duplicating" the class name but it's good because it doesn't serve the same goal
 
 ## Bounded context
 

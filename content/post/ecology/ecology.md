@@ -228,6 +228,6 @@ Action individuelle maximale = 25% de réduction.
 
 Avec investissements individuels (rénovation thermique + changement chaudière) et changement véhicule pour véhicule bas carbone (électrique) = 45% de réduction.
 
- {{< figure src="/img/co2_gestes_individuels.PNG" >}}
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/co2_gestes_individuels.PNG?raw=true)
 
 régiment végé = 10% de la réduction global de ges et 40% de réduction individuelle
