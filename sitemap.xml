@@ -3,7 +3,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <lastmod>2022-01-21T12:12:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -45,7 +45,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/ecology/carbon-footprint/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <lastmod>2022-01-21T12:12:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -71,8 +71,15 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/</loc>
+    <lastmod>2022-01-21T12:12:29+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/ecology/ecology/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <lastmod>2022-01-21T12:12:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -93,7 +100,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <lastmod>2022-01-21T12:12:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -121,7 +128,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <lastmod>2022-01-21T12:12:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -177,7 +184,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <lastmod>2022-01-21T12:12:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

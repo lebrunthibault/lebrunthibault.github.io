@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>carbon footprint - Home</title>
+  <title>Domain Driven Development Quickly - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="France 9." /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Book here" /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/ecology/carbon-footprint/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="carbon footprint" />
-<meta property="og:description" content="France 9." />
+<meta property="og:title" content="Domain Driven Development Quickly" />
+<meta property="og:description" content="Book here" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/ecology/carbon-footprint/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/" /><meta property="article:section" content="post" />
 
 <meta property="article:modified_time" content="2022-01-21T12:12:29+01:00" />
 
-<meta itemprop="name" content="carbon footprint">
-<meta itemprop="description" content="France 9.">
+<meta itemprop="name" content="Domain Driven Development Quickly">
+<meta itemprop="description" content="Book here">
 <meta itemprop="dateModified" content="2022-01-21T12:12:29+01:00" />
-<meta itemprop="wordCount" content="103">
+<meta itemprop="wordCount" content="875">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="carbon footprint"/>
-<meta name="twitter:description" content="France 9."/>
+<meta name="twitter:title" content="Domain Driven Development Quickly"/>
+<meta name="twitter:description" content="Book here"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,11 +114,11 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">carbon footprint</h1>
+        <h1 class="post-title">Domain Driven Development Quickly</h1>
 
         <div class="post-meta">
             
-            <span class="more-meta"> 1 min read </span>
+            <span class="more-meta"> 5 mins read </span>
         </div>
     </header>
 
@@ -127,39 +127,120 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#france">France</a></li>
-    <li><a href="#réduction">Réduction</a>
+    <li><a href="#intro">Intro</a>
       <ul>
-        <li><a href="#water">Water</a>
+        <li>
           <ul>
-            <li></li>
+            <li><a href="#code-design">Code design</a></li>
+            <li><a href="#existing-software-design-approaches">Existing Software design approaches</a></li>
+          </ul>
+        </li>
+        <li><a href="#building-domain-knowledge">Building domain knowledge</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-ubiquitous-language-the-need-for-a-common-language">The ubiquitous language, the need for a common language</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#impose-the-domain-language">Impose the domain language</a></li>
+          </ul>
+        </li>
+        <li><a href="#creating-the-ubiquitous-language">Creating the Ubiquitous Language</a>
+          <ul>
+            <li><a href="#expressing-the-language">Expressing the language</a></li>
           </ul>
         </li>
       </ul>
     </li>
+    <li><a href="#model-driven-design">Model driven design</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-        <h1 id="france">France</h1>
-<p>9.8 T/an/habitant</p>
-<p>Objectif: 2T max</p>
-<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/carbon_footprint_france.PNG?raw=true" alt=""></p>
-<h1 id="réduction">Réduction</h1>
-<p><a href="https://nosgestesclimat.fr/">coach carbone</a>  : <a href="https://nosgestesclimat.fr/fin?details=a1.52s1.11d0.54l0.52t0.17n0.08">https://nosgestesclimat.fr/fin?details=a1.52s1.11d0.54l0.52t0.17n0.08</a></p>
-<p><a href="https://www.ademe.fr/sites/default/files/assets/documents/compensation-volontaire-demarches-et-limites-7402.pdf">compensation volontaire ademe</a></p>
-<h2 id="water">Water</h2>
-<h4 id="toilet">Toilet</h4>
+        <p>Book <a href="https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Marinescu%20F.%20-%20Domain%20Driven%20Design%20Quickly.pdf">here</a></p>
+<h1 id="intro">Intro</h1>
 <blockquote>
-<p>Worldwide, wastewater treatment facilities account for 3 percent of electricity consumption and contribute 1.6 percent of emissions (from <a href="https://www.wired.com/story/the-water-in-your-toilet-could-fight-climate-change-one-day/">this</a>)</p>
-<p>flushing less often might make toilets harder to clean</p>
-<p>From &ldquo;how bad are babanas&rdquo;, a flush = 4g of CO2. We flush around 6 times a day. So flushing twice less = 3 * 4 * 365 = 4,38 kg.</p>
+<p>Software needs to incorporate the core concepts and elements of the domain, and to precisely realize the relationships between them. Software has to model the domain</p>
+<p>a domain model is not a particular diagram; it is the idea that the diagram is intended to convey</p>
+<p><em>we need to communicate the model</em></p>
 </blockquote>
-<h4 id="cleaning-dishes">Cleaning dishes</h4>
+<h3 id="code-design">Code design</h3>
+<ul>
+<li>code design is working on the details vs software design working on big picture</li>
+<li>Here code design patterns come handy, and they should be applied when necessary</li>
+</ul>
+<h3 id="existing-software-design-approaches">Existing Software design approaches</h3>
+<ul>
+<li>Classical software design, <strong>waterfall</strong> : The business experts put up a set of requirements which are communicated to the business analysts. The analysts create a model based on those requirements, and pass the results to the developers</li>
+<li><strong>Extreme Programming (XP)</strong>:
+<ul>
+<li>goes against waterfall.</li>
+<li>Try solving difficulties of trying to come up with all the requirements upfront, particularly in light of requirements change.</li>
+<li>Uses a lot refactoring instead of upfront design.</li>
+<li>Good but needs developers with solid design principles or the code will become hard to understand after several refactorings</li>
+<li>Can lead to the fear of a good design by opposition</li>
+</ul>
+</li>
+<li>Domain Drive Design
+<ul>
+<li>a bit of both</li>
+<li>combines design and development practice, and shows how design and development can work together to create a better solution</li>
+</ul>
+</li>
+</ul>
+<h2 id="building-domain-knowledge">Building domain knowledge</h2>
+<ul>
+<li>You need to learn as much as possible about the domain from the experts. And by putting the right questions, and processing the information in the right way, you and the experts will start to sketch a view of the domain, a domain model</li>
+<li>The building of the domain allows to put the maximum domain knowledge in the model, <strong>very</strong> important.</li>
+<li>The software specialists want to extract knowledge from the domain experts</li>
+<li>The analytical mind of the software designer helps unearth some of the key concepts of the model, because domain experts see things a way that is not always applicable to software</li>
+<li>the model is the place where those two areas of expertise meet (domain expertise and software expertise)</li>
+</ul>
+<h1 id="the-ubiquitous-language-the-need-for-a-common-language">The ubiquitous language, the need for a common language</h1>
+<ul>
+<li>A project faces serious problems when team members don’t share a common language for discussing the domain. Domain experts use their jargon while technical team members have their own language tuned for discussing the domain in terms of design</li>
+<li>the most incisive expressions of the domain often emerge in a transient form that is never captured in the code or even in writing</li>
+</ul>
 <blockquote>
-<p>[dishwasher could reduce greenhouse gas emissions](<a href="https://deepblue.lib.umich.edu/bitstream/handle/2027.42/148829/Porras_Gabriela_Thesis_Life">https://deepblue.lib.umich.edu/bitstream/handle/2027.42/148829/Porras_Gabriela_Thesis_Life</a> Cycle of Manual and Machine Dishwashing in Households .pdf?sequence=1&amp;isAllowed=y) from washing up by 72% compared to doing them by hand</p>
+<p>A core principle of domain-driven design is to use a language based on the model</p>
 </blockquote>
+<h3 id="impose-the-domain-language">Impose the domain language</h3>
+<ul>
+<li>Use the model as the backbone of a language</li>
+<li>Request that the team use the language consistently in all communications, and also in the code</li>
+<li>The Ubiquitous Language connects all the parts of the design, and creates the premise for the design team to function well</li>
+<li>The Ubiquitous Language connects all the parts of the design, and creates the premise for the design team to function well</li>
+<li>Iron out difficulties by experimenting with alternative expressions, which reflect alternative models. Then refactor the code, renaming classes, methods, and modules to conform to the new model</li>
+<li>he model and the language are strongly interconnected with one another. A change in the language should become a change to the model</li>
+</ul>
+<h2 id="creating-the-ubiquitous-language">Creating the Ubiquitous Language</h2>
+<ul>
+<li>By having domain interviews with the domain experts</li>
+<li>We have seen how the language is shared by the entire team, and also how it helps building knowledge and create the model.</li>
+</ul>
+<h3 id="expressing-the-language">Expressing the language</h3>
+<ul>
+<li>UML : great for a few classes but gets complicated when we add too much classes / knowledge</li>
+<li>UML cannot convey two important aspects of a model: the meaning of the concepts it represents and what the objects are supposed to do</li>
+<li>One advisable way of communicating the model is to make some small diagrams each containing a subset of the model</li>
+<li>Then we can add text to the diagram. The text will explain behavior and constraints which the diagram cannot</li>
+<li>Those documents can be even hand-drawn, because that transmits the feeling that they are temporary, and might be changed in the near future</li>
+<li>Avoid long documents that get outdated faster</li>
+<li>Sometimes code can be used (or test code) but the code even working doesn&rsquo;t always express the right thing.</li>
+</ul>
+<h1 id="model-driven-design">Model driven design</h1>
+<blockquote>
+<p>Starting from a model not easily adaptable, good developers might pull together a product which works, but will it stand the trials of time? Will it be easily extendable? Will it be easily maintainable?</p>
+</blockquote>
+<ul>
+<li>It is important to choose a model which can be easily and accurately put into code</li>
+<li><em>analysis model</em> : result of business domain analysis, resulting in a model which has no consideration for the software used for implementation. Such a model is used to understand the domain. After translation in code the code will start to move away from the model.</li>
+<li>A better approach is to closely relate domain modeling and design</li>
+<li>Those who write the code should know the model very well, and should feel responsible for its integrity</li>
+<li>Every person working on the project should contribute to all parts (dev to the model, business analysts to the code)</li>
+<li>OOP is good for model driven design because classes and objects can contain behavior and relationships</li>
+</ul>
 
     </div>
 

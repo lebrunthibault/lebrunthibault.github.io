@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-01-21T12:12:29+01:00" />
 
 <meta itemprop="name" content="">
 <meta itemprop="description" content="Protecting the domain by Victor Rentea talk on youtube">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="467">
+<meta itemprop="dateModified" content="2022-01-21T12:12:29+01:00" />
+<meta itemprop="wordCount" content="477">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="Protecting the domain by Victor Rentea talk on youtube"/>
@@ -131,17 +131,16 @@
       <ul>
         <li>
           <ul>
-            <li><a href="#heading"></a></li>
             <li><a href="#testing-tools">Testing tools</a></li>
+            <li><a href="#domain-vs">Domain vs</a></li>
+            <li><a href="#infrastructure">Infrastructure</a></li>
           </ul>
         </li>
-        <li><a href="#domain-vs">Domain vs</a></li>
-        <li><a href="#infrastructure">Infrastructure</a>
+        <li><a href="#protect-the-domain">Protect the domain</a>
           <ul>
-            <li><a href="#protect-the-domain">Protect the domain</a></li>
             <li><a href="#dtos-are-enemies">DTOs are enemies</a></li>
             <li><a href="#testing">Testing</a></li>
-            <li><a href="#domain-calling-infrastructure">Domain calling infrastructure</a></li>
+            <li><a href="#domain-communication-and-calls">Domain communication and calls</a></li>
             <li><a href="#multiple-domains">Multiple domains</a></li>
           </ul>
         </li>
@@ -168,8 +167,6 @@
 <li>Dependency inversion</li>
 <li>DRY</li>
 </ul>
-<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true" alt=""></p>
-<h3 id="heading"></h3>
 <h3 id="testing-tools">Testing tools</h3>
 <ul>
 <li>Archunit java</li>
@@ -178,19 +175,19 @@
 <li><a href="https://github.com/mihaeu/dephpend">https://github.com/mihaeu/dephpend</a></li>
 <li><a href="https://github.com/carlosas/phpat">https://github.com/carlosas/phpat</a></li>
 </ul>
-<h2 id="domain-vs">Domain vs</h2>
+<h3 id="domain-vs">Domain vs</h3>
 <ul>
 <li>DDD : domain driven development</li>
 <li>encapsulates a specific part of the business code (entities, services ..)</li>
 <li>higher level code than infrastructure</li>
 </ul>
-<h2 id="infrastructure">Infrastructure</h2>
+<h3 id="infrastructure">Infrastructure</h3>
 <ul>
 <li>backend code</li>
 <li>lower level code</li>
 <li>implementations</li>
 </ul>
-<h3 id="protect-the-domain">Protect the domain</h3>
+<h2 id="protect-the-domain">Protect the domain</h2>
 <ul>
 <li>
 <p>Keep the domain safe from any external influence.  Defend the domain ! Agnostic.</p>
@@ -217,6 +214,8 @@
 <p>logic should be built on objects you have full control on</p>
 </li>
 </ul>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/agnostic_domain.PNG?raw=true" alt=""></p>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/domain_vs_infrastructure.PNG?raw=true" alt=""></p>
 <h3 id="dtos-are-enemies">DTOs are enemies</h3>
 <p>they are</p>
 <ul>
@@ -224,12 +223,12 @@
 <li>flat</li>
 <li>different perspective</li>
 </ul>
-<p>should be replaced by value objects and events</p>
+<p>should be replaced by ids, value objects and events</p>
 <h3 id="testing">Testing</h3>
 <ul>
 <li>Tests should test the domain</li>
 </ul>
-<h3 id="domain-calling-infrastructure">Domain calling infrastructure</h3>
+<h3 id="domain-communication-and-calls">Domain communication and calls</h3>
 <p>Options</p>
 <ul>
 <li>RPC</li>
@@ -242,7 +241,6 @@
 <li>Create an interface</li>
 <li>Create an adapter in the domain</li>
 <li>Client code depends on the domain</li>
-<li>Infrastructure</li>
 </ul>
 <h3 id="multiple-domains">Multiple domains</h3>
 <p>Possible to have multiple domains (e.g. product and user)</p>
@@ -260,14 +258,14 @@
 <p>Breaking it down</p>
 <ul>
 <li>organize your code by entities ! like order.service and not service.order</li>
-<li>instead of linking entities use literral id and get the entity from the other side</li>
-<li>or use a detail object</li>
+<li>instead of linking entities use literal id and get the entity from the other side</li>
+<li>or use a value object</li>
 <li>cut the link from 2 domains</li>
-<li>communication using a common domain events. or split events but any events can be accessed by any domain</li>
-<li>but never using directly entities or services</li>
-<li>test by using archunit and having less and less violations</li>
+<li>communication using a common domain events (or event folder per domain) but any events can be accessed by any domain</li>
+<li>never using directly entities or services</li>
+<li>test by using arch unit and having less and less violations</li>
 <li>use Value Object (VO) instead of DTOs</li>
-<li>Sometimes you can create a Order object in Customer domain, &ldquo;duplicating&rdquo; the class name but it&rsquo;s good</li>
+<li>Sometimes you can create a Order object in Customer domain, &ldquo;duplicating&rdquo; the class name but it&rsquo;s good because it doesn&rsquo;t serve the same goal</li>
 </ul>
 <h2 id="bounded-context">Bounded context</h2>
 <p>Read <a href="https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Marinescu%20F.%20-%20Domain%20Driven%20Design%20Quickly.pdf">https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Marinescu%20F.%20-%20Domain%20Driven%20Design%20Quickly.pdf</a> or <a href="https://www.infoq.com/minibooks/domain-driven-design-quickly/">here</a></p>
