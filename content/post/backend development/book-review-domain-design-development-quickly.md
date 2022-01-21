@@ -213,5 +213,30 @@ A common architectural solution for domain-driven designs contain four conceptua
 - When the root is created, it is necessary that all objects subject to invariants are created too (VO should have there valid state and an exception is thrown if anything goes astray)
 - shift the responsibility for creating instances of complex objects and Aggregates to a separate object, which may itself have no responsibility in the domain model but is still part of the domain design
 
-![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true)
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ddd_factory.PNG?raw=true)
+
+- It is necessary that when such a component is created to automatically belong to a container. The client calls the createComponent(Type t) method of the container
+- The concrete class of the component is determined based on its type
+- **When creating a Factory, we are forced to violate an object’s encapsulation**
+- Factories are tightly related to the objects they are created. That can be a weakness, but it can also be a strength
+
+Don't use factory method when
+
+- The construction is not complicated. 
+- The creation of an object does not involve the creation of others, and all the attributes needed are passed via the constructor. 
+- The client is interested in the implementation, perhaps wants to choose the Strategy used. 
+- The class is the type. There is no hierarchy involved, so no need to choose between a list of concrete implementations.
+
+
+
+## Repositories
+
+- Using V0 and Aggregates can increase coupling between objects
+- purpose of which is to encapsulate all the logic needed to obtain object references
+- the Repository acts as a storage place for globally accessible objects
+- The overall effect is that the domain model is decoupled from the need of storing objects or their references, and accessing the underlying persistence infrastructure
+- create an object that can provide the illusion of an in-memory collection of all objects of that type
+- Provide repositories only for Aggregate roots that actually need direct access
+- the repository interface will be pure domain model
+- Factory and Repository. They are both patterns of the model-driven design
 
