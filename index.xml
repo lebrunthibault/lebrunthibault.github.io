@@ -8,253 +8,244 @@
     <language>en</language><atom:link href="https://lebrunthibault.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/food/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/food/</guid>
-      <description>https://solutionslocales.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://lebrunthibault.github.io/post/protecting-the-domain/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/protecting-the-domain/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/</guid>
       <description>Protecting the domain by Victor Rentea talk on youtube</description>
     </item>
     
     <item>
-      <title>Ableton notes</title>
-      <link>https://lebrunthibault.github.io/post/ableton/</link>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecology/food/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ableton/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecology/food/</guid>
+      <description>https://solutionslocales.</description>
+    </item>
+    
+    <item>
+      <title>Ableton notes</title>
+      <link>https://lebrunthibault.github.io/post/ableton/ableton/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ableton/ableton/</guid>
       <description>download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www.</description>
     </item>
     
     <item>
       <title>Afghanistan notes</title>
-      <link>https://lebrunthibault.github.io/post/afghanistan/</link>
+      <link>https://lebrunthibault.github.io/post/misc/afghanistan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/afghanistan/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/afghanistan/</guid>
       <description>Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE</description>
     </item>
     
     <item>
       <title>API management</title>
-      <link>https://lebrunthibault.github.io/post/api-management/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/api-management/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/api-management/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/api-management/</guid>
       <description>Api management   API landscape : ensemble of API</description>
     </item>
     
     <item>
       <title>Asyncio notes</title>
-      <link>https://lebrunthibault.github.io/post/asyncio/</link>
+      <link>https://lebrunthibault.github.io/post/dev/asyncio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/asyncio/</guid>
+      <guid>https://lebrunthibault.github.io/post/dev/asyncio/</guid>
       <description>single thread cooperative multitasking</description>
     </item>
     
     <item>
       <title>carbon footprint</title>
-      <link>https://lebrunthibault.github.io/post/carbon-footprint/</link>
+      <link>https://lebrunthibault.github.io/post/ecology/carbon-footprint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/carbon-footprint/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecology/carbon-footprint/</guid>
       <description>France 9.</description>
     </item>
     
     <item>
       <title>Design Patterns</title>
-      <link>https://lebrunthibault.github.io/post/design-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/design-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/design-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/design-patterns/</guid>
       <description>Design patterns currently used in projects Factory Method  Used textbook in Protocol0 to generate a track recorder Also in Protocol0 backend to generate notification / prompt windows  Singleton  Used in basile ats client generation tests The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)  Composite  Used to abstract composite tracks in protocol0 e.</description>
     </item>
     
     <item>
       <title>Django contribution</title>
-      <link>https://lebrunthibault.github.io/post/django/</link>
+      <link>https://lebrunthibault.github.io/post/dev/django/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/django/</guid>
+      <guid>https://lebrunthibault.github.io/post/dev/django/</guid>
       <description>links</description>
     </item>
     
     <item>
       <title>Ecology</title>
-      <link>https://lebrunthibault.github.io/post/ecology/</link>
+      <link>https://lebrunthibault.github.io/post/ecology/ecology/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecology/ecology/</guid>
       <description>Vocabulary</description>
     </item>
     
     <item>
       <title>Economy</title>
-      <link>https://lebrunthibault.github.io/post/economy/</link>
+      <link>https://lebrunthibault.github.io/post/misc/economy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/economy/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/economy/</guid>
       <description>Décroissance  croissance = augmentation du niveau de vie moyen</description>
     </item>
     
     <item>
       <title>Head first design patterns</title>
-      <link>https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/book-review-head-first-design-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/</guid>
       <description>and excerpts from https://refactoring.</description>
     </item>
     
     <item>
       <title>job interview</title>
-      <link>https://lebrunthibault.github.io/post/job-interview/</link>
+      <link>https://lebrunthibault.github.io/post/dev/job-interview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/job-interview/</guid>
+      <guid>https://lebrunthibault.github.io/post/dev/job-interview/</guid>
       <description>Mon Parcours LinkedIn profil rubrique expérience</description>
     </item>
     
     <item>
       <title>Job search</title>
-      <link>https://lebrunthibault.github.io/post/job/</link>
+      <link>https://lebrunthibault.github.io/post/dev/job/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/job/</guid>
+      <guid>https://lebrunthibault.github.io/post/dev/job/</guid>
       <description>Différence freelance vs cdi  Calculateur cout emauche (CDI) Freelance ou salarié en CDI : qui est le plus cher Calculateur Shine developpeur  Pour un TJM de 450 € : cout en CDI de 55 €k</description>
     </item>
     
     <item>
       <title>Politique</title>
-      <link>https://lebrunthibault.github.io/post/politique/</link>
+      <link>https://lebrunthibault.github.io/post/misc/politique/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/politique/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/politique/</guid>
       <description>Anne Hidalgo  Ps Maire de paris depuis 2014 (deuxième mandat 2020, coalition PS-PCF-EÉLV-G·s-PRG) Soutenue par Jean Jouzel pour son deuxième mandat (paléoclimatologue vice président du GIEC de 2002 à 2015, toujours soutenu des candidats du PS)  Salles de shoot  Défendue depuis le 14 décembre 2009 par le député Jean-Marie Le Guen, le gouvernement Jean-Marc Ayrault valide en 2013 l&amp;rsquo;ouverture d&amp;rsquo;une salle Finalement ouverte en 2016 a paris garde du nord  Politique fiscale et budgétaire Paris  La hausse de la taxe de séjour acquittée par les touristes apporte 55 millions d&amp;rsquo;euros à la ville en 201545.</description>
     </item>
     
     <item>
       <title>Protocol0 dev common problems</title>
-      <link>https://lebrunthibault.github.io/post/protocol0-dev-common-problems/</link>
+      <link>https://lebrunthibault.github.io/post/ableton/protocol0-dev-common-problems/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/protocol0-dev-common-problems/</guid>
+      <guid>https://lebrunthibault.github.io/post/ableton/protocol0-dev-common-problems/</guid>
       <description>Protocol0 dev common problems Pycharm  Files and folders not showing in project view : solution  Ableton   Live tempo slows down and no sound:</description>
     </item>
     
     <item>
       <title>Protocol0 technical overview</title>
-      <link>https://lebrunthibault.github.io/post/protocol0-technical-overview/</link>
+      <link>https://lebrunthibault.github.io/post/ableton/protocol0-technical-overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/protocol0-technical-overview/</guid>
+      <guid>https://lebrunthibault.github.io/post/ableton/protocol0-technical-overview/</guid>
       <description>This is technical documentation for my Protocol0 Ableton control surface script.</description>
     </item>
     
     <item>
       <title>Python 3 notes</title>
-      <link>https://lebrunthibault.github.io/post/python/</link>
+      <link>https://lebrunthibault.github.io/post/dev/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/python/</guid>
+      <guid>https://lebrunthibault.github.io/post/dev/python/</guid>
       <description>Modules &amp;amp; packages  __init__.</description>
     </item>
     
     <item>
       <title>Refactoring to patterns</title>
-      <link>https://lebrunthibault.github.io/post/book-review-refactoring-to-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/book-review-refactoring-to-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/book-review-refactoring-to-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/book-review-refactoring-to-patterns/</guid>
       <description>Test-driven development and continuous refactoring, two of the many excellent XP practices</description>
     </item>
     
     <item>
       <title>Rome notes</title>
-      <link>https://lebrunthibault.github.io/post/rome/</link>
+      <link>https://lebrunthibault.github.io/post/misc/rome/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/rome/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/rome/</guid>
       <description>Les institutions romaines Chronologie  Début : Petit état terittorial de quelques dizaine de milliers d&amp;rsquo;individus Rome Royale République (-200) Période augustéenne, Haut-Empire (0-200)  passage de la république à l&amp;rsquo;empire Etat administratif et bureaucratique Pax romana   Période de troubles et d&amp;rsquo;anarchie (200-375) : invasions, décomposition des institutions et de l&amp;rsquo;économie Bas-Empire: des empereurs de valeur essaient de faire face aux problèmes  Système tétrachique de Dioclétien Constantin: Empire chrétien    </description>
     </item>
     
     <item>
       <title>Shift Project</title>
-      <link>https://lebrunthibault.github.io/post/shift-project/</link>
+      <link>https://lebrunthibault.github.io/post/ecology/shift-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/shift-project/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecology/shift-project/</guid>
       <description>The Shifters Différence Shift Project et The Shifters  Shift Project :  pour entreprises Son ambition est d’être LE think tank de la transition carbone de l’économie   The Shifters  pour particuliers Les Shifters partagent sans réserve la vision du Shift Project sur la réalité du changement climatique et l&amp;rsquo;épuisement à court ou moyen terme des ressources en énergies fossiles    Définition  Charte des Shifters Si tu t&amp;rsquo;interroges sur l&amp;rsquo;orientation prise par le Shift Project ou les Shifters, notamment vis à vis des grands enjeux et débats qui animent notre société, la Foire aux Questions sur les positions et méthodes du Shift et des Shifters est faite pour toi !</description>
     </item>
     
     <item>
       <title>Societe</title>
-      <link>https://lebrunthibault.github.io/post/societe/</link>
+      <link>https://lebrunthibault.github.io/post/misc/societe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/societe/</guid>
       <description>Immigration Source INSEE :</description>
     </item>
     
     <item>
       <title>Software development techniques</title>
-      <link>https://lebrunthibault.github.io/post/software-development-principles/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/software-development-principles/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</guid>
       <description>I&amp;rsquo;m focusing on the languages I&amp;rsquo;ve used most : Python and PHP.</description>
     </item>
     
     <item>
       <title>Sécurité</title>
-      <link>https://lebrunthibault.github.io/post/s%C3%A9curit%C3%A9/</link>
+      <link>https://lebrunthibault.github.io/post/misc/s%C3%A9curit%C3%A9/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/s%C3%A9curit%C3%A9/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/s%C3%A9curit%C3%A9/</guid>
       <description>Sécurité Définitions  Les violences volontaires  Les 3 types d&amp;rsquo;infractions pénales (cf site service-public):</description>
     </item>
     
     <item>
-      <title>tobacco</title>
-      <link>https://lebrunthibault.github.io/post/tobacco/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/tobacco/</guid>
-      <description>https://www.lemonde.fr/sante/article/2021/11/03/vapotage-les-vrais-millions-des-fausses-organisations-de-consommateurs_6100830_1651302.html</description>
-    </item>
-    
-    <item>
       <title>Ubuntu tricks</title>
-      <link>https://lebrunthibault.github.io/post/ubuntu/</link>
+      <link>https://lebrunthibault.github.io/post/dev/ubuntu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ubuntu/</guid>
+      <guid>https://lebrunthibault.github.io/post/dev/ubuntu/</guid>
       <description>Install Jetbrains editor  Use toolbox app</description>
     </item>
     
     <item>
       <title>web best practices</title>
-      <link>https://lebrunthibault.github.io/post/web-best-practices/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/web-best-practices/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/web-best-practices/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/web-best-practices/</guid>
       <description>Web best practices The twelve factor app</description>
     </item>
     
     <item>
       <title>Windows tricks</title>
-      <link>https://lebrunthibault.github.io/post/windows-tricks/</link>
+      <link>https://lebrunthibault.github.io/post/dev/windows-tricks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/windows-tricks/</guid>
+      <guid>https://lebrunthibault.github.io/post/dev/windows-tricks/</guid>
       <description>Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor (gpedit.</description>
     </item>
     
