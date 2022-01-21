@@ -2,22 +2,31 @@
 
 talk on [youtube](https://www.youtube.com/watch?v=cK19rE2V9UY)
 
-Important principles :
+Most important principles :
 
+- Single Responsibility
 - Dependency inversion
 - DRY
-- Single Responsibility
 
-Archunit : equivalent in php : https://github.com/qossmic/deptrac or https://github.com/j6s/phparch or https://github.com/mihaeu/dephpend or https://github.com/carlosas/phpat
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true)
 
-## Domain
+### 
+
+### Testing tools
+
+- Archunit java
+- equivalent in php : https://github.com/qossmic/deptrac
+- https://github.com/j6s/phparch
+- https://github.com/mihaeu/dephpend
+- https://github.com/carlosas/phpat
+
+## Domain vs
 
 - DDD : domain driven development
+- encapsulates a specific part of the business code (entities, services ..)
+- higher level code than infrastructure
 
-- Client code
-- higher level code
-
-Infrastructure
+## Infrastructure
 
 - backend code
 - lower level code
@@ -30,18 +39,20 @@ Infrastructure
 - Defend it from someone else when you call lower level code
 - domain logic should not depend on infrastructure
 - Keep core logic independent of UI
-- independent of DB, no vendor lockins, no stored procedures, no too complicated sql
-- indepent of external apis
+- independent of DB, no vendor lock ins, no stored procedures, no too complicated sql
+- independent of external APIs
 - is an orm intrusive ? not necessarily
 - logic should be built on objects you have full control on 
 
-### DTOs are enemis
+### DTOs are enemies
 
 they are
 
 - bloated
 - flat
 - different perspective
+
+should be replaced by value objects and events 
 
 ### Testing
 
