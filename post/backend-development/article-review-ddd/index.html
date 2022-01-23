@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/article-review-ddd/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-23T12:52:33+01:00" />
+<meta property="article:modified_time" content="2022-01-23T13:59:51+01:00" />
 
 <meta itemprop="name" content="">
 <meta itemprop="description" content="See https://www.">
-<meta itemprop="dateModified" content="2022-01-23T12:52:33+01:00" />
-<meta itemprop="wordCount" content="469">
+<meta itemprop="dateModified" content="2022-01-23T13:59:51+01:00" />
+<meta itemprop="wordCount" content="559">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="See https://www."/>
@@ -140,6 +140,15 @@
         </li>
       </ul>
     </li>
+    <li><a href="#context-integration">Context integration</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#asynchronous">Asynchronous</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -195,6 +204,17 @@
 <li>The Application Layer takes commands from the User Interface Layer and translates these commands to use case invocations on the domain layer.</li>
 <li>The Application Layer also provides transaction control for business operations.</li>
 <li>The application layer is responsible to translate Aggregate data into the client specific presentation model by a Mediator or Data Transformer pattern</li>
+</ul>
+<h1 id="context-integration">Context integration</h1>
+<blockquote>
+<p>Integration between multiple domains</p>
+</blockquote>
+<p><strong>Domain Service</strong>: implements business logic which cannot be implemented by an Entity, Aggregate or ValueObject, because it does not belong there. For instance if the business logic invocation includes operation across multiple Domain Objects or in this case integration with another Bounded Context</p>
+<h3 id="asynchronous">Asynchronous</h3>
+<ul>
+<li><strong>Messaging</strong>: the reason we use messaging: system decoupling</li>
+<li>The infrastructure layer should call the application layer after a message is received</li>
+<li>it is a good practice to design Events as an idempotent operation (always the same result without side effects)</li>
 </ul>
 
     </div>

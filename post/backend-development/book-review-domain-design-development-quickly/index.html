@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-23T12:52:33+01:00" />
+<meta property="article:modified_time" content="2022-01-23T13:59:51+01:00" />
 
 <meta itemprop="name" content="Domain Driven Development Quickly">
 <meta itemprop="description" content="Book here">
-<meta itemprop="dateModified" content="2022-01-23T12:52:33+01:00" />
-<meta itemprop="wordCount" content="2520">
+<meta itemprop="dateModified" content="2022-01-23T13:59:51+01:00" />
+<meta itemprop="wordCount" content="2984">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Domain Driven Development Quickly"/>
 <meta name="twitter:description" content="Book here"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 12 mins read </span>
+            <span class="more-meta"> 15 mins read </span>
         </div>
     </header>
 
@@ -183,7 +183,19 @@
     </li>
     <li><a href="#refactoring-towards-deeper-insight">Refactoring towards deeper insight</a>
       <ul>
-        <li><a href="#bring-key-concepts-into-the-light">Bring key concepts into the light</a></li>
+        <li><a href="#bring-key-concepts-into-the-light">Bring key concepts into the light</a>
+          <ul>
+            <li><a href="#breakthrough">Breakthrough</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#preserving-model-integrity">Preserving Model Integrity</a>
+      <ul>
+        <li><a href="#bounded-context">Bounded Context</a></li>
+        <li><a href="#continuous-integration">Continuous Integration</a></li>
+        <li><a href="#context-map">Context Map</a></li>
+        <li><a href="#shared-kernel">Shared Kernel</a></li>
       </ul>
     </li>
   </ul>
@@ -433,6 +445,56 @@
 <li>Traditionally, refactoring is described in terms of code transformations with technical motivations. Refactoring can also be motivated by an insight into the domain and a corresponding refinement of the model or its expression in code</li>
 </ul>
 <h2 id="bring-key-concepts-into-the-light">Bring key concepts into the light</h2>
+<ul>
+<li>There are times when lots of small changes add very little value to the design, and there are times when few changes make a lot of difference. It’s a <strong>Breakthrough</strong></li>
+</ul>
+<h3 id="breakthrough">Breakthrough</h3>
+<ul>
+<li>A Breakthrough often involves a change in thinking, in the way we see the model.</li>
+<li>may imply a large amount of refactoring</li>
+<li>To reach a Breakthrough, we need to make the implicit concepts explicit</li>
+<li>They are <strong>implicit concepts</strong>, used to explain other concepts which are already in the model</li>
+<li>If they are domain concepts, they should be present in the model and the design</li>
+<li>Another obvious way of digging out model concepts is to use domain literature</li>
+</ul>
+<p>There are other concepts which are very useful when made explicit</p>
+<ul>
+<li><strong>Constraint</strong> : isolate the constraints (invariants) in specific methods</li>
+<li><strong>Process</strong>: use Services.  If there are different ways to carry out the process, then we can encapsulate the algorithm in an object and use a <strong>Strategy</strong></li>
+<li><strong>Specification</strong>:
+<ul>
+<li>used to test an object to see if it satisfies a certain criteria.</li>
+<li>useful when a constraint grows too big</li>
+<li>it should stay in the domain layer</li>
+</ul>
+</li>
+</ul>
+<h1 id="preserving-model-integrity">Preserving Model Integrity</h1>
+<h2 id="bounded-context">Bounded Context</h2>
+<ul>
+<li>Each model has a context. When we deal with a single model, the context is implicit. We do not need to define it</li>
+<li>A model should be small enough to be assigned to one team</li>
+<li>The main idea is to define the scope of a model, to draw up the boundaries of its context, then do the most possible to keep the model unified</li>
+<li>A Bounded Context is not a Module. A Bounded Context provides the logical frame inside of which the model evolves. Modules are used to organize the elements of a model, so Bounded Context encompasses the Module</li>
+<li>There is a price to pay for having multiple models</li>
+<li>We won’t be able to transfer any objects between different models, and we cannot invoke behavior freely as if there was no boundary</li>
+<li>It is much simpler for the e-shop application to send Value Objects containing purchase information to the warehouse using asynchronous messaging</li>
+</ul>
+<h2 id="continuous-integration">Continuous Integration</h2>
+<ul>
+<li>When a number of people are working in the same Bounded Context, there is a strong tendency for the model to fragment and lose a valuable level of integration and coherency</li>
+<li>For a single small team, daily merges are recommended</li>
+<li>Another necessary requirement is to perform automated tests</li>
+<li>Continuous Integration applies to a Bounded Context, it is not used to deal with relationships between neighboring Contexts</li>
+</ul>
+<h2 id="context-map">Context Map</h2>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true" alt=""></p>
+<ul>
+<li>An enterprise application has multiple models, and each model has its own Bounded Context</li>
+<li>A Context Map is a document which outlines the different Bounded Contexts and the relationships between them</li>
+<li>Each Bounded Context should have a name which should be part of the Ubiquitous Language and corresponds to a module</li>
+</ul>
+<h2 id="shared-kernel">Shared Kernel</h2>
 
     </div>
 

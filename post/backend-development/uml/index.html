@@ -44,11 +44,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/uml/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-23T12:52:33+01:00" />
+<meta property="article:modified_time" content="2022-01-23T13:59:51+01:00" />
 
 <meta itemprop="name" content="uml">
 <meta itemprop="description" content="Association vs Aggregation vs Composition If two classes in a model need to communicate with each other, there must be a link between them, and that can be represented by an association (connector).">
-<meta itemprop="dateModified" content="2022-01-23T12:52:33+01:00" />
+<meta itemprop="dateModified" content="2022-01-23T13:59:51+01:00" />
 <meta itemprop="wordCount" content="173">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="uml"/>
@@ -139,8 +139,14 @@
 <p><strong>Association</strong> = link between two classes. Can be unidirectional or bidirectional. Can be one to many or one to one</p>
 <p><strong>Aggregation</strong> and <strong>Composition</strong> are subsets of association meaning they are <strong>specific cases of association</strong>. In both aggregation and composition object of one class &ldquo;owns&rdquo; object of another class. But there is a subtle difference:</p>
 <ul>
-<li><strong>Aggregation</strong> implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.</li>
-<li><strong>Composition</strong> implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.</li>
+<li>
+<p><strong>Aggregation</strong> implies a relationship where the child can exist independently of the parent. Example: Class (parent) and Student (child). Delete the Class and the Students still exist.</p>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/aggregation.png?raw=true" alt=""></p>
+</li>
+<li>
+<p><strong>Composition</strong> implies a relationship where the child cannot exist independent of the parent. Example: House (parent) and Room (child). Rooms don&rsquo;t exist separate to a House.</p>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/composition.png?raw=true" alt=""></p>
+</li>
 </ul>
 
     </div>
