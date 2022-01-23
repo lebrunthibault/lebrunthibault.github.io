@@ -240,3 +240,16 @@ Don't use factory method when
 - the repository interface will be pure domain model
 - Factory and Repository. They are both patterns of the model-driven design
 
+
+
+# Refactoring towards deeper insight
+
+- tools to make refactoring easier
+- Technical refactoring, the one based on patterns, can be organized and structured. Refactoring toward deeper insight cannot be done in the same way
+- A good model is the result of deep thinking, insight, experience, and flair
+- Traditionally, refactoring is described in terms of code transformations with technical motivations. Refactoring can also be motivated by an insight into the domain and a corresponding refinement of the model or its expression in code
+
+## Bring key concepts into the light
+
+
+
