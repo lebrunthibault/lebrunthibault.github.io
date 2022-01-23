@@ -49,3 +49,14 @@ If you want to know more about the principles behind DDD, you can also consult t
 - The Application Layer also provides transaction control for business operations. 
 - The application layer is responsible to translate Aggregate data into the client specific presentation model by a Mediator or Data Transformer pattern
 
+# Context integration
+
+> Integration between multiple domains
+
+**Domain Service**: implements business logic which cannot be implemented by an Entity, Aggregate or ValueObject, because it does not belong there. For instance if the business logic invocation includes operation across multiple Domain Objects or in this case integration with another Bounded Context
+
+### Asynchronous 
+
+- **Messaging**: the reason we use messaging: system decoupling
+- The infrastructure layer should call the application layer after a message is received
+- it is a good practice to design Events as an idempotent operation (always the same result without side effects)

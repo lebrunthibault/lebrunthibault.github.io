@@ -251,5 +251,52 @@ Don't use factory method when
 
 ## Bring key concepts into the light
 
+- There are times when lots of small changes add very little value to the design, and there are times when few changes make a lot of difference. It’s a **Breakthrough**
 
+### Breakthrough
+
+- A Breakthrough often involves a change in thinking, in the way we see the model.
+- may imply a large amount of refactoring
+- To reach a Breakthrough, we need to make the implicit concepts explicit
+- They are **implicit concepts**, used to explain other concepts which are already in the model
+- If they are domain concepts, they should be present in the model and the design
+- Another obvious way of digging out model concepts is to use domain literature
+
+There are other concepts which are very useful when made explicit
+
+- **Constraint** : isolate the constraints (invariants) in specific methods
+- **Process**: use Services.  If there are different ways to carry out the process, then we can encapsulate the algorithm in an object and use a **Strategy**
+- **Specification**: 
+  - used to test an object to see if it satisfies a certain criteria.
+  - useful when a constraint grows too big
+  - it should stay in the domain layer
+
+# Preserving Model Integrity 
+
+## Bounded Context 
+
+- Each model has a context. When we deal with a single model, the context is implicit. We do not need to define it
+- A model should be small enough to be assigned to one team
+- The main idea is to define the scope of a model, to draw up the boundaries of its context, then do the most possible to keep the model unified
+- A Bounded Context is not a Module. A Bounded Context provides the logical frame inside of which the model evolves. Modules are used to organize the elements of a model, so Bounded Context encompasses the Module
+- There is a price to pay for having multiple models
+- We won’t be able to transfer any objects between different models, and we cannot invoke behavior freely as if there was no boundary
+- It is much simpler for the e-shop application to send Value Objects containing purchase information to the warehouse using asynchronous messaging
+
+## Continuous Integration 
+
+- When a number of people are working in the same Bounded Context, there is a strong tendency for the model to fragment and lose a valuable level of integration and coherency
+- For a single small team, daily merges are recommended
+- Another necessary requirement is to perform automated tests
+- Continuous Integration applies to a Bounded Context, it is not used to deal with relationships between neighboring Contexts
+
+## Context Map
+
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true)
+
+- An enterprise application has multiple models, and each model has its own Bounded Context
+- A Context Map is a document which outlines the different Bounded Contexts and the relationships between them
+- Each Bounded Context should have a name which should be part of the Ubiquitous Language and corresponds to a module
+
+## Shared Kernel 
 
