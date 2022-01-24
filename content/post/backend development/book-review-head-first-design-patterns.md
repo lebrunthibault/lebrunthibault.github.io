@@ -181,7 +181,70 @@ So we can inject a PizzaIngredientFactory in the concrete pizza class.
 
 
 
+# 5. The Singleton Pattern
 
+- There are many objects we only need one of: thread pools, caches, dialog boxes, objects that handle preferences and registry settings, objects used for logging, and objects that act as device drivers to devices like printers and graphics cards
+- In many ways, the Singleton Pattern is a convention for ensuring one and only one object is instantiated for a given class
+- Like a global variable but without the downside
+- Lazy loading contrary to a global variable
+
+> The Singleton Pattern ensures a class has only one instance, and provides a global point of access to it
+
+### Be careful about threads
+
+- Trivial fix : `public static synchronized Singleton getInstance()`
+- But synchronization is expensive and is not necessary when the object is singleton is already instantiated
+
+**Solution**
+
+- Do nothing else if `getInstance()` is not critical to the application
+- Move to an eagerly created instance rather than a lazily created one: create the singleton in a static initialized (thread safe)
+- Use “double-checked locking” to reduce the use of synchronization in getInstance()
+
+**Also**
+
+- It could be possible instead to use a class with only static variables / methods. But that can lead to subtle bugs, notably in java
+- Be careful when using multiple class loaders and singleton
+- reflection and serialization / deserialization can also present problems with Singletons
+- **Singleton breaks the loose class coupling**: Modifying the singleton will have potential side effects in every class owning it. Common criticism of the pattern. 
+- **Breaks the single responsibility principle** (somehow): by handing its own code + the single instantiation. Still it's a limited problem. Possible to abstract the instantiation code elsewhere.
+
+**Should we subclass Singleton**
+
+- Hard because the constructor is private and because a single variable holds the instance
+- Possible by turning the constructor protected or public and use a registry of sorts in the base class
+- But usually easier to duplicate the singleton instantiation code
+- Having too many singletons is a code smell : singletons are meant to be used sparingly
+
+**Don't use global variables, use singleton**
+
+- global variable provides global access but does not ensure only one instance of the class exists
+- global variable cannot provide eager instantiation
+- pollute the global namespace
+
+#### [Fixing possible class loading, reflection, serialization / deserialization issues](https://dzone.com/articles/java-singletons-using-enum)
+
+- (de)Serialization will create a new object even if the constructor is private (java)
+- The solution is that we have to implement the [readResolve](https://docs.oracle.com/javase/7/docs/platform/serialization/spec/input.html#5903) method, which is called when preparing the deserialized object before returning it to the caller.
+- Reflection can set the private constructor to public and create another singleton. No way to protect from that
+
+### Use an enum ! best way (in java)
+
+```java
+public enum Singleton {
+    INSTANCE;
+}
+```
+
+
+
+# 6. The Command Pattern
+
+> In this chapter, we take encapsulation to a whole new level: we’re going to encapsulate method invocation. Being able to log and undo easily.
+
+- The Command Pattern allows you to decouple the requester of an action from the object that actually performs the action.
+- introduce command objects into the design
+- The remote doesn’t have any idea what the work is, it just has a command object that knows how to talk to the right object to get the work done
 
 # 9. The Iterator and Composite Patterns
 
