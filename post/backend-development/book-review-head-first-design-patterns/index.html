@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-01-24T18:27:58+01:00" />
 
 <meta itemprop="name" content="Head first design patterns">
 <meta itemprop="description" content="and excerpts from https://refactoring.">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="1736">
+<meta itemprop="dateModified" content="2022-01-24T18:27:58+01:00" />
+<meta itemprop="wordCount" content="2263">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Head first design patterns"/>
 <meta name="twitter:description" content="and excerpts from https://refactoring."/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 9 mins read </span>
+            <span class="more-meta"> 11 mins read </span>
         </div>
     </header>
 
@@ -158,6 +158,17 @@
         <li><a href="#difference-between-factory-method-and-abstract-factory">Difference between factory method and abstract factory</a></li>
       </ul>
     </li>
+    <li><a href="#5-the-singleton-pattern">5. The Singleton Pattern</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#be-careful-about-threads">Be careful about threads</a></li>
+            <li><a href="#use-an-enum--best-way-in-java">Use an enum ! best way (in java)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#6-the-command-pattern">6. The Command Pattern</a></li>
     <li><a href="#9-the-iterator-and-composite-patterns">9. The Iterator and Composite Patterns</a>
       <ul>
         <li>
@@ -366,6 +377,76 @@
 <li>the abstract factory is used to create a family of related objects but will not process them in the abstract factory class.</li>
 </ul>
 </li>
+</ul>
+<h1 id="5-the-singleton-pattern">5. The Singleton Pattern</h1>
+<ul>
+<li>There are many objects we only need one of: thread pools, caches, dialog boxes, objects that handle preferences and registry settings, objects used for logging, and objects that act as device drivers to devices like printers and graphics cards</li>
+<li>In many ways, the Singleton Pattern is a convention for ensuring one and only one object is instantiated for a given class</li>
+<li>Like a global variable but without the downside</li>
+<li>Lazy loading contrary to a global variable</li>
+</ul>
+<blockquote>
+<p>The Singleton Pattern ensures a class has only one instance, and provides a global point of access to it</p>
+</blockquote>
+<h3 id="be-careful-about-threads">Be careful about threads</h3>
+<ul>
+<li>Trivial fix : <code>public static synchronized Singleton getInstance()</code></li>
+<li>But synchronization is expensive and is not necessary when the object is singleton is already instantiated</li>
+</ul>
+<p><strong>Solution</strong></p>
+<ul>
+<li>Do nothing else if <code>getInstance()</code> is not critical to the application</li>
+<li>Move to an eagerly created instance rather than a lazily created one: create the singleton in a static initialized (thread safe)</li>
+<li>Use “double-checked locking” to reduce the use of synchronization in getInstance()</li>
+</ul>
+<p><strong>Also</strong></p>
+<ul>
+<li>It could be possible instead to use a class with only static variables / methods. But that can lead to subtle bugs, notably in java</li>
+<li>Be careful when using multiple class loaders and singleton</li>
+<li>reflection and serialization / deserialization can also present problems with Singletons</li>
+<li><strong>Singleton breaks the loose class coupling</strong>: Modifying the singleton will have potential side effects in every class owning it. Common criticism of the pattern.</li>
+<li><strong>Breaks the single responsibility principle</strong> (somehow): by handing its own code + the single instantiation. Still it&rsquo;s a limited problem. Possible to abstract the instantiation code elsewhere.</li>
+</ul>
+<p><strong>Should we subclass Singleton</strong></p>
+<ul>
+<li>Hard because the constructor is private and because a single variable holds the instance</li>
+<li>Possible by turning the constructor protected or public and use a registry of sorts in the base class</li>
+<li>But usually easier to duplicate the singleton instantiation code</li>
+<li>Having too many singletons is a code smell : singletons are meant to be used sparingly</li>
+</ul>
+<p><strong>Don&rsquo;t use global variables, use singleton</strong></p>
+<ul>
+<li>global variable provides global access but does not ensure only one instance of the class exists</li>
+<li>global variable cannot provide eager instantiation</li>
+<li>pollute the global namespace</li>
+</ul>
+<h4 id="fixing-possible-class-loading-reflection-serialization--deserialization-issueshttpsdzonecomarticlesjava-singletons-using-enum"><a href="https://dzone.com/articles/java-singletons-using-enum">Fixing possible class loading, reflection, serialization / deserialization issues</a></h4>
+<ul>
+<li>(de)Serialization will create a new object even if the constructor is private (java)</li>
+<li>The solution is that we have to implement the <a href="https://docs.oracle.com/javase/7/docs/platform/serialization/spec/input.html#5903">readResolve</a> method, which is called when preparing the deserialized object before returning it to the caller.</li>
+<li>Reflection can set the private constructor to public and create another singleton. No way to protect from that</li>
+</ul>
+<h3 id="use-an-enum--best-way-in-java">Use an enum ! best way (in java)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Singleton</span> <span class="o">{</span>
+    <span class="n">INSTANCE</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="6-the-command-pattern">6. The Command Pattern</h1>
+<blockquote>
+<p>In this chapter, we take encapsulation to a whole new level: we’re going to encapsulate method invocation. Being able to log and undo easily.</p>
+</blockquote>
+<ul>
+<li>The Command Pattern allows you to decouple the requester of an action from the object that actually performs the action.</li>
+<li>introduce command objects into the design</li>
+<li>The remote doesn’t have any idea what the work is, it just has a command object that knows how to talk to the right object to get the work done</li>
 </ul>
 <h1 id="9-the-iterator-and-composite-patterns">9. The Iterator and Composite Patterns</h1>
 <h3 id="composite">Composite</h3>
