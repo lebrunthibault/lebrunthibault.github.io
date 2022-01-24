@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-23T13:59:51+01:00" />
+<meta property="article:modified_time" content="2022-01-24T01:57:32+01:00" />
 
 <meta itemprop="name" content="Domain Driven Development Quickly">
 <meta itemprop="description" content="Book here">
-<meta itemprop="dateModified" content="2022-01-23T13:59:51+01:00" />
-<meta itemprop="wordCount" content="2984">
+<meta itemprop="dateModified" content="2022-01-24T01:57:32+01:00" />
+<meta itemprop="wordCount" content="3710">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Domain Driven Development Quickly"/>
 <meta name="twitter:description" content="Book here"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 15 mins read </span>
+            <span class="more-meta"> 18 mins read </span>
         </div>
     </header>
 
@@ -196,6 +196,16 @@
         <li><a href="#continuous-integration">Continuous Integration</a></li>
         <li><a href="#context-map">Context Map</a></li>
         <li><a href="#shared-kernel">Shared Kernel</a></li>
+        <li><a href="#customer-supplier">Customer-Supplier</a></li>
+        <li><a href="#anticorruption-layer">Anticorruption Layer</a></li>
+        <li><a href="#separate-ways">Separate Ways</a></li>
+        <li><a href="#open-host-service">Open Host Service</a></li>
+        <li><a href="#distillation">Distillation</a>
+          <ul>
+            <li><a href="#implementing-a-generic-sub-domain">Implementing a Generic Sub Domain</a></li>
+            <li><a href="#ddd-matters-today-an-interview-with-eric-evans">DDD Matters Today: An interview with Eric Evans</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -488,13 +498,81 @@
 <li>Continuous Integration applies to a Bounded Context, it is not used to deal with relationships between neighboring Contexts</li>
 </ul>
 <h2 id="context-map">Context Map</h2>
-<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true" alt=""></p>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/context_map.PNG?raw=true" alt=""></p>
 <ul>
 <li>An enterprise application has multiple models, and each model has its own Bounded Context</li>
 <li>A Context Map is a document which outlines the different Bounded Contexts and the relationships between them</li>
 <li>Each Bounded Context should have a name which should be part of the Ubiquitous Language and corresponds to a module</li>
 </ul>
 <h2 id="shared-kernel">Shared Kernel</h2>
+<blockquote>
+<p>The purpose of the Shared Kernel is to reduce duplication, but still keep two separate contexts.</p>
+</blockquote>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/shared_kernel.PNG?raw=true" alt=""></p>
+<h2 id="customer-supplier">Customer-Supplier</h2>
+<ul>
+<li>There are times when two subsystems have a special relationship: one depends a lot on the other</li>
+<li>The 2 bounded contexts should talk as customer / supplier and define a timetable for features to be implemented in the supplier</li>
+<li>Tests should be written to assert the supplier implements the contract and added to the supplier code.</li>
+<li>When poor communication exists between supplier and customer, the customer  has to take some measures to protect itself from model changes</li>
+<li>The customer context should protect itself by using an Anticorruption Layer</li>
+</ul>
+<h2 id="anticorruption-layer">Anticorruption Layer</h2>
+<ul>
+<li>the Anticorruption Layer talks to the external model using the external language not the client one</li>
+<li>How should we implement the Anticorruption Layer? A very good solution is to see the layer as a Service from the client model</li>
+<li>e.g. using Façade, Adapter and Translator</li>
+</ul>
+<h2 id="separate-ways">Separate Ways</h2>
+<ul>
+<li>If we reach the conclusion that integration is more trouble than it is worth, then we should go the Separate Ways</li>
+<li>The Separate Ways pattern addresses the case when an enterprise application can be made up of several smaller applications which have little or nothing in common from a modeling perspective</li>
+<li>Before going on Separate Ways we need to make sure that we won’t be coming back to an integrated system. Models developed independently are very difficult to integrate</li>
+</ul>
+<h2 id="open-host-service">Open Host Service</h2>
+<ul>
+<li>When we try to integrate two subsystems, we usually create a translation layer between them</li>
+<li>Define a protocol that gives access to your subsystem as a set of Services</li>
+<li>Then, use a one-off translator to augment the protocol for that special case so that the shared protocol can stay simple and coherent</li>
+</ul>
+<h2 id="distillation">Distillation</h2>
+<ul>
+<li>When the domain stays big, even after many refactorings, the idea is to define a Core Domain which represents the essence of the domain, to <strong>distillate</strong> the model.</li>
+<li>The byproducts of the distillation process will be Generic Subdomains which will comprise the other parts of the domain</li>
+<li>The Route concept is used in many domains, and a generic model can be designed to describe it. It&rsquo;s not a Core Domain</li>
+<li>The Core Domain of an application may become a generic subdomain of another</li>
+<li>Boil the model down. Find the Core Domain and provide a means of easily distinguishing it from the mass of supporting model and code. Emphasize the most valuable and specialized concepts. Make the Core small.</li>
+<li>Some parts of the model add complexity without capturing or communicating specialized knowledge</li>
+<li>Best developers sould work on the Code Domain.</li>
+<li>consider off the shelf solutions or published models for these Generic Subdomains</li>
+</ul>
+<h3 id="implementing-a-generic-sub-domain">Implementing a Generic Sub Domain</h3>
+<ul>
+<li><strong>Off-the-shelf Solution</strong>: 3rd party solution (e.g. algolia). More dependencies. Not always easy integration</li>
+<li><strong>Outsourcing</strong>: The design and implementation is given to another team, probably from another company. The interface used to communicate with the subdomain needs to be defined and communicated to the other team</li>
+<li><strong>Existing Model</strong>: use some books which have published analysis patterns</li>
+<li><strong>In-House Implementation</strong>: best integration and extra maintenance effort</li>
+</ul>
+<h3 id="ddd-matters-today-an-interview-with-eric-evans">DDD Matters Today: An interview with Eric Evans</h3>
+<ul>
+<li>More out on the cutting-edge are the efforts in the area of domain-specific languages (DSLs), which I have long believed could be the next big step for DDD.</li>
+<li>Don&rsquo;t try to apply DDD to everything. Draw a context map and decide on where you will make a push for DDD and where you will no</li>
+</ul>
+<p>Also from <a href="https://domaindrivendesign.org/">What is DDD from Eric Evans video</a></p>
+<ul>
+<li>A complex logic (in a service) should not at the same time update database (separate logic from updating state)</li>
+<li>How we think about a domain problem should always be explained simply to a domain expert</li>
+<li>Spend more time discussing for software because there is more possibilities and it costs more than buying a car</li>
+<li>when you consider possibilities (vocabulary or software methods), trying consider at least 3 to come up with even more alternatives and make the right choice</li>
+<li>Every keyword uses in a conversation should translate in the model, even when we understand immediately the meaning (ex: the &ldquo;itinerary&rdquo;)</li>
+<li>we want to get broad at start</li>
+<li>we want at least a bad idea</li>
+</ul>
+<h4 id="generate-variation-dont-dither-dont-get-finicky">Generate variation, don&rsquo;t dither, don&rsquo;t get finicky</h4>
+<h4 id="what-is-a-model">What is a model</h4>
+<ul>
+<li>A map of the world serves a purpose : make it easy to calculate angles but not size (changes with latitude)</li>
+</ul>
 
     </div>
 

@@ -84,7 +84,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/backend-development/design-patterns/</guid>
-      <description>Design patterns currently used in projects Factory Method  Used textbook in Protocol0 to generate a track recorder Also in Protocol0 backend to generate notification / prompt windows  Singleton  Used in basile ats client generation tests The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)  Composite  Used to abstract composite tracks in protocol0 e.</description>
+      <description>Design patterns currently used in projects Factory Method  Used in Protocol0 backend to generate notification / prompt / select windows  Abstract Factory  Used textbook in Protocol0 to generate a track recorder The abstract factory generates for a track and record type :  A track recorder A scene index for the recording A bar length for the recording    Singleton  Used in basile ats client generation tests The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)  Composite  Used to abstract composite tracks in protocol0 e.</description>
     </item>
     
     <item>

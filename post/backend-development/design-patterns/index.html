@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-01-24T01:57:32+01:00" />
 
 <meta itemprop="name" content="Design Patterns">
 <meta itemprop="description" content="Notes bout design patterns">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="534">
+<meta itemprop="dateModified" content="2022-01-24T01:57:32+01:00" />
+<meta itemprop="wordCount" content="564">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Design Patterns"/>
 <meta name="twitter:description" content="Notes bout design patterns"/>
@@ -132,6 +132,7 @@
         <li>
           <ul>
             <li><a href="#factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory Method</a></a></li>
+            <li><a href="#abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></a></li>
             <li><a href="#singletonhttpsrefactoringgurudesign-patternssingleton"><a href="https://refactoring.guru/design-patterns/singleton">Singleton</a></a></li>
             <li><a href="#compositehttpsrefactoringgurudesign-patternscomposite"><a href="https://refactoring.guru/design-patterns/composite">Composite</a></a></li>
             <li><a href="#decoratorhttpsrefactoringgurudesign-patternsdecorator"><a href="https://refactoring.guru/design-patterns/decorator">Decorator</a></a></li>
@@ -157,7 +158,7 @@
       <ul>
         <li>
           <ul>
-            <li><a href="#abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></a></li>
+            <li><a href="#abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory-1"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></a></li>
             <li><a href="#adapterhttpsrefactoringgurudesign-patternsadapter"><a href="https://refactoring.guru/design-patterns/adapter">Adapter</a></a></li>
           </ul>
         </li>
@@ -171,8 +172,18 @@
         <h1 id="design-patterns-currently-used-in-projects">Design patterns currently used in projects</h1>
 <h3 id="factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory Method</a></h3>
 <ul>
+<li>Used in Protocol0 backend to generate notification / prompt / select windows</li>
+</ul>
+<h3 id="abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></h3>
+<ul>
 <li>Used textbook in Protocol0 to generate a track recorder</li>
-<li>Also in Protocol0 backend to generate notification / prompt windows</li>
+<li>The abstract factory generates for a track and record type :
+<ul>
+<li>A track recorder</li>
+<li>A scene index for the recording</li>
+<li>A bar length for the recording</li>
+</ul>
+</li>
 </ul>
 <h3 id="singletonhttpsrefactoringgurudesign-patternssingleton"><a href="https://refactoring.guru/design-patterns/singleton">Singleton</a></h3>
 <ul>
@@ -193,7 +204,7 @@
 <ul>
 <li>Used in protocol0, to augment behavior of notification classes.</li>
 <li>Used somewhat in basile to catch exceptions. Respects the pattern semantics but replaces the interface step by just using callables.</li>
-<li>Could improve the generation of missing ATS responses in basile. The ATSServiceFactory could return a ATSServiceResponseGeneratorDecorator implementing the interface without handling these kind of cases explicitely.</li>
+<li>Could improve the generation of missing ATS responses in basile. The ATSServiceFactory could return a ATSServiceResponseGeneratorDecorator implementing the interface without handling these kind of cases explicitly.</li>
 <li>Could also work for the ErrorHandlerService instead of catching the exceptions in the client code.</li>
 <li>Could also be used for offer synchronization by applying decorators at service instantiation time for company custom code instead of using inheritance. Might be overkill though.</li>
 </ul>
@@ -238,7 +249,7 @@
 <li>NB : states are not defined in specific classes which doesn&rsquo;t respect the pattern</li>
 </ul>
 <h1 id="design-patterns-that-could-improve-existing-projects">Design patterns that could improve existing projects</h1>
-<h3 id="abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></h3>
+<h3 id="abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory-1"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></h3>
 <ul>
 <li>In basile ATSServiceFactory</li>
 <li>Instead of using a single class per ATS we could instead create one feature class per abstract ATS feature</li>
