@@ -292,11 +292,82 @@ There are other concepts which are very useful when made explicit
 
 ## Context Map
 
-![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true)
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/context_map.PNG?raw=true)
 
 - An enterprise application has multiple models, and each model has its own Bounded Context
 - A Context Map is a document which outlines the different Bounded Contexts and the relationships between them
 - Each Bounded Context should have a name which should be part of the Ubiquitous Language and corresponds to a module
 
 ## Shared Kernel 
+
+> The purpose of the Shared Kernel is to reduce duplication, but still keep two separate contexts.
+
+![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/shared_kernel.PNG?raw=true)
+
+## Customer-Supplier 
+
+- There are times when two subsystems have a special relationship: one depends a lot on the other
+- The 2 bounded contexts should talk as customer / supplier and define a timetable for features to be implemented in the supplier
+- Tests should be written to assert the supplier implements the contract and added to the supplier code.
+- When poor communication exists between supplier and customer, the customer  has to take some measures to protect itself from model changes
+- The customer context should protect itself by using an Anticorruption Layer
+
+## Anticorruption Layer 
+
+- the Anticorruption Layer talks to the external model using the external language not the client one
+- How should we implement the Anticorruption Layer? A very good solution is to see the layer as a Service from the client model
+- e.g. using Façade, Adapter and Translator
+
+## Separate Ways 
+
+- If we reach the conclusion that integration is more trouble than it is worth, then we should go the Separate Ways
+- The Separate Ways pattern addresses the case when an enterprise application can be made up of several smaller applications which have little or nothing in common from a modeling perspective
+- Before going on Separate Ways we need to make sure that we won’t be coming back to an integrated system. Models developed independently are very difficult to integrate
+
+## Open Host Service 
+
+- When we try to integrate two subsystems, we usually create a translation layer between them
+- Define a protocol that gives access to your subsystem as a set of Services
+- Then, use a one-off translator to augment the protocol for that special case so that the shared protocol can stay simple and coherent
+
+## Distillation
+
+- When the domain stays big, even after many refactorings, the idea is to define a Core Domain which represents the essence of the domain, to **distillate** the model.
+- The byproducts of the distillation process will be Generic Subdomains which will comprise the other parts of the domain
+- The Route concept is used in many domains, and a generic model can be designed to describe it. It's not a Core Domain
+- The Core Domain of an application may become a generic subdomain of another
+- Boil the model down. Find the Core Domain and provide a means of easily distinguishing it from the mass of supporting model and code. Emphasize the most valuable and specialized concepts. Make the Core small.
+- Some parts of the model add complexity without capturing or communicating specialized knowledge
+- Best developers sould work on the Code Domain.
+- consider off the shelf solutions or published models for these Generic Subdomains
+
+### Implementing a Generic Sub Domain
+
+- **Off-the-shelf Solution**: 3rd party solution (e.g. algolia). More dependencies. Not always easy integration
+- **Outsourcing**: The design and implementation is given to another team, probably from another company. The interface used to communicate with the subdomain needs to be defined and communicated to the other team
+- **Existing Model**: use some books which have published analysis patterns
+- **In-House Implementation**: best integration and extra maintenance effort
+
+### DDD Matters Today: An interview with Eric Evans
+
+- More out on the cutting-edge are the efforts in the area of domain-specific languages (DSLs), which I have long believed could be the next big step for DDD.
+- Don't try to apply DDD to everything. Draw a context map and decide on where you will make a push for DDD and where you will no
+
+
+
+Also from [What is DDD from Eric Evans video](https://domaindrivendesign.org/)
+
+- A complex logic (in a service) should not at the same time update database (separate logic from updating state)
+- How we think about a domain problem should always be explained simply to a domain expert
+- Spend more time discussing for software because there is more possibilities and it costs more than buying a car
+- when you consider possibilities (vocabulary or software methods), trying consider at least 3 to come up with even more alternatives and make the right choice
+- Every keyword uses in a conversation should translate in the model, even when we understand immediately the meaning (ex: the "itinerary")
+- we want to get broad at start
+- we want at least a bad idea
+
+#### Generate variation, don't dither, don't get finicky
+
+#### What is a model
+
+- A map of the world serves a purpose : make it easy to calculate angles but not size (changes with latitude)
 

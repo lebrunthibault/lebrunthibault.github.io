@@ -13,8 +13,15 @@ keywords:
 
 ### [Factory Method](https://refactoring.guru/design-patterns/factory-method)
 
+- Used in Protocol0 backend to generate notification / prompt / select windows
+
+### [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
+
 - Used textbook in Protocol0 to generate a track recorder
-- Also in Protocol0 backend to generate notification / prompt windows
+- The abstract factory generates for a track and record type :
+  - A track recorder
+  - A scene index for the recording
+  - A bar length for the recording
 
 ### [Singleton](https://refactoring.guru/design-patterns/singleton)
 
@@ -34,7 +41,7 @@ keywords:
 
 - Used in protocol0, to augment behavior of notification classes.
 - Used somewhat in basile to catch exceptions. Respects the pattern semantics but replaces the interface step by just using callables.
-- Could improve the generation of missing ATS responses in basile. The ATSServiceFactory could return a ATSServiceResponseGeneratorDecorator implementing the interface without handling these kind of cases explicitely.
+- Could improve the generation of missing ATS responses in basile. The ATSServiceFactory could return a ATSServiceResponseGeneratorDecorator implementing the interface without handling these kind of cases explicitly.
 - Could also work for the ErrorHandlerService instead of catching the exceptions in the client code.
 - Could also be used for offer synchronization by applying decorators at service instantiation time for company custom code instead of using inheritance. Might be overkill though.  
 
