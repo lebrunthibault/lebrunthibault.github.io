@@ -58,5 +58,5 @@ If you want to know more about the principles behind DDD, you can also consult t
 ### Asynchronous 
 
 - **Messaging**: the reason we use messaging: system decoupling
-- The infrastructure layer should call the application layer after a message is received
+- The infrastructure layer should call the application layer after a message is received (NB: message -> command oriented)
 - it is a good practice to design Events as an idempotent operation (always the same result without side effects)

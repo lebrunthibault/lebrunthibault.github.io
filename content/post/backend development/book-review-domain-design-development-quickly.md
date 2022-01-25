@@ -34,12 +34,10 @@ Book [here](https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Mar
 ## Building domain knowledge
 
 - You need to learn as much as possible about the domain from the experts. And by putting the right questions, and processing the information in the right way, you and the experts will start to sketch a view of the domain, a domain model
-- The building of the domain allows to put the maximum domain knowledge in the model, **very** important.
+- The building of the domain allows to put the maximum domain knowledge in the model, **very** important (NB: all vocabulary terms should be present)
 - The software specialists want to extract knowledge from the domain experts
 - The analytical mind of the software designer helps unearth some of the key concepts of the model, because domain experts see things a way that is not always applicable to software
 - the model is the place where those two areas of expertise meet (domain expertise and software expertise)
-
-
 
 # The ubiquitous language, the need for a common language
 
@@ -53,14 +51,8 @@ Book [here](https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Mar
 - Use the model as the backbone of a language
 - Request that the team use the language consistently in all communications, and also in the code
 - The Ubiquitous Language connects all the parts of the design, and creates the premise for the design team to function well
-- The Ubiquitous Language connects all the parts of the design, and creates the premise for the design team to function well
 - Iron out difficulties by experimenting with alternative expressions, which reflect alternative models. Then refactor the code, renaming classes, methods, and modules to conform to the new model
-- he model and the language are strongly interconnected with one another. A change in the language should become a change to the model
-
-## Creating the Ubiquitous Language 
-
-- By having domain interviews with the domain experts
-- We have seen how the language is shared by the entire team, and also how it helps building knowledge and create the model.
+- The model and the language are strongly interconnected with one another. A change in the language should become a change to the model
 
 ### Expressing the language
 
@@ -113,8 +105,6 @@ A common architectural solution for domain-driven designs contain four conceptua
 
 > UI talks to application with talks to the domain and infrastructure (e.g. fetches domain object from infra, calls domain object methods and use infra to persist the objects)
 
-
-
 ## Entities
 
 > There is a category of objects which seem to have an identity, which remains the same throughout the states of the software.
@@ -135,7 +125,7 @@ A common architectural solution for domain-driven designs contain four conceptua
 > - Used to batch up multiple remote procedure calls in one call. 
 > - Another advantage is to encapsulate the serialization mechanism
 
-- It takes a lot of careful thinking to decide what makes an identity
+- It takes a lot of careful thinking to decide what makes an entity
 - There are also performance implications in making all objects entities
 - There are cases when we need to contain some attributes of a domain element. We are not interested in which object it is, but what attributes it has. 
 - **An object that is used to describe certain aspects of a domain, and which does not have identity, is named Value Object**
@@ -147,7 +137,7 @@ A common architectural solution for domain-driven designs contain four conceptua
 
 > Services act as interfaces which provide operations
 
-**3 Caracteristics of a service**
+**3 Characteristics of a service**
 
 - The operation performed by the Service refers to a domain concept which does not naturally belong to an Entity or Value Object. 
 - The operation performed refers to other objects in the domain
