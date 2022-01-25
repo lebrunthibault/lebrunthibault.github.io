@@ -80,25 +80,63 @@ Thing to think about
 - Passing data can be better **pull** than **push** to allow for evolving observers later on. And so that changing the enriching the data doesn't change existing observers (in the case of multiple arguments)
 - Order of notifications to observers is not always garanteed.
 
+
+
 # 3. The decorator pattern
 
-One main advantage is run time modification of behavior of an object.
+One main advantage is **run time modification** of behavior of an object vs static behavior.
 
 But it also simplifies the businness code by extracting responsibility from either objects or client code.
 
 one of the flagship patterns of the **open-closed principle** and the **composition (and delegation) over inheritance principle**
 
-- Decorators should have the same supertype as objects they wrap
-- They can add behavior before or after the wrapped object call
+
+
+### Open-closed principle
+- Classes should be open for extension, but closed for modification
+- Be careful when choosing the areas of code that need to be extended; applying the Open-Closed Principle EVERYWHERE is wasteful and unnecessary, and can lead to complex, hard-to-understand code
+- The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+
+
+### What we know about decorators
+
+- Decorators have the same supertype as the objects they decorate. 
+- You can use one or more decorators to wrap an object. 
+- Given that the decorator has the same supertype as the object it decorates, we can pass around a decorated object in place of the original (wrapped) object. 
+- **The decorator adds its own behavior before and/or after delegating to the object it decorates to do the rest of the job**. 
+- Objects can be decorated at any time, so we can decorate objects dynamically at runtime with as many decorators as we like
+
+
+
+#### Composition but still inheritance
+
 - The patterns uses inheritance to achieve the type matching, but not to get behavior
+
+
+
+#### Comparison with other patterns
+
 - The pattern starts getting stronger when used in conjunction with Factory or Builder to centralize the composition.
-- Contrary to the Chain of Responsibility pattern, decorators aren’t allowed to break the flow of the reques
+
+- Contrary to the Chain of Responsibility pattern, decorators aren’t allowed to break the flow of the request
+
 - Contrary to the Adapter pattern decorators have the same interface as the objects they decorate.
-- D
-- ecorator ressembles composite but has a single child and adds behavior.
+
+- Decorator ressembles composite but has a single child and adds behavior.
+
 - Decorator lets you change the skin of an object, while Strategy lets you change the guts
 
-> It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack
+  
+
+#### Potential problems
+
+- Adds a lot of small classes, can lead to an unclear design
+- **typing problems**: you can usually insert decorators transparently and the client never has to know it’s dealing with a decorator
+- introducing decorators can increase the complexity of the code needed to instantiate the component (then use **Factory** or **Builder**)
+- It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack
+
+
 
 
 
