@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> - Home</title>
+  <title>Messsaging - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="See https://www." /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Notes bout message queues / events" /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/article-review-ddd/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/messaging/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="See https://www." />
+<meta property="og:title" content="Messsaging" />
+<meta property="og:description" content="Notes bout message queues / events" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/article-review-ddd/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/messaging/" /><meta property="article:section" content="post" />
 
 <meta property="article:modified_time" content="2022-01-25T02:02:38+01:00" />
 
-<meta itemprop="name" content="">
-<meta itemprop="description" content="See https://www.">
+<meta itemprop="name" content="Messsaging">
+<meta itemprop="description" content="Notes bout message queues / events">
 <meta itemprop="dateModified" content="2022-01-25T02:02:38+01:00" />
-<meta itemprop="wordCount" content="574">
+<meta itemprop="wordCount" content="14">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="See https://www."/>
+<meta name="twitter:title" content="Messsaging"/>
+<meta name="twitter:description" content="Notes bout message queues / events"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,11 +114,11 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title"></h1>
+        <h1 class="post-title">Messsaging</h1>
 
         <div class="post-meta">
             
-            <span class="more-meta"> 3 mins read </span>
+            <span class="more-meta"> 1 min read </span>
         </div>
     </header>
 
@@ -127,95 +127,16 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#overview-and-building-blockshttpswwwmirkoserticdeblog201207domain-driven-design-overview-and-building-blocks"><a href="https://www.mirkosertic.de/blog/2012/07/domain-driven-design-overview-and-building-blocks/">Overview and building blocks</a></a>
-      <ul>
-        <li><a href="#core-definitions">Core definitions</a></li>
-        <li><a href="#prerequisites-for-the-successful-application-of-ddd">Prerequisites for the successful application of DDD</a></li>
-        <li><a href="#building-blocks-strategic-patterns">Building blocks strategic patterns</a></li>
-        <li><a href="#layers">Layers</a>
-          <ul>
-            <li><a href="#domain-layer">Domain Layer</a></li>
-            <li><a href="#application-layer">Application Layer</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#context-integration">Context integration</a>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#asynchronous">Asynchronous</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+    <li><a href="#messaging">Messaging</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-        <p>See <a href="https://www.mirkosertic.de/blog/2013/04/domain-driven-design-example/">https://www.mirkosertic.de/blog/2013/04/domain-driven-design-example/</a></p>
-<blockquote>
-<p>A Domain is a “sphere of knowledge”, for instance the business the company runs. A Domain is also called a “problem space”, so the problem for which we have to design a solution</p>
-</blockquote>
-<p>See also : <strong><a href="https://medium.com/tiller-systems/pourquoi-avoir-choisi-dutiliser-l-architecture-cqrs-e04c082f8b5f#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImNhMDA2MjBjNWFhN2JlOGNkMDNhNmYzYzY4NDA2ZTQ1ZTkzYjNjYWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NDMwNDUzOTYsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExNDUwMTk3OTM1ODU4NzM4Nzg1MCIsImVtYWlsIjoidGhpYmF1bHRwaWFub0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiMjE2Mjk2MDM1ODM0LWsxazZxZTA2MHMydHAyYTJqYW00bGpkY21zMDBzdHRnLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6IlRoaWJhdWx0IExlYnJ1biIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaDVqUnFKeGpqbE1Cc3BXMjI0QWhWQ05ISGRWUHJDV3pvdGpHcGI3Zz1zOTYtYyIsImdpdmVuX25hbWUiOiJUaGliYXVsdCIsImZhbWlseV9uYW1lIjoiTGVicnVuIiwiaWF0IjoxNjQzMDQ1Njk2LCJleHAiOjE2NDMwNDkyOTYsImp0aSI6IjllMjExYWNjNzQyNjBjZmU1ZDE2YTI2ZDVmZTY4YTg4NjhmMmMzMGQifQ.lAyHsJLBl8FsFSpA2bsX8T3oz1xvWXGOj1RSO9KfxlcDrBAzPYbiHXP8e5KeOuan42l0u-c_nt-mN_xz1qsu0rqZ8UWSe-mHe4hO_2K2WPXDuvJ3pcSIkaUieiecmRWRV-PRuITTKtz6PYfDfRJC-_Pu9cQCefw4xGCaEya67RANBWvUcaRwkXXNege38wtWoDUOq2rtELop-D-pKZZNCQsBn3crX2BfEbU6vlGF2dXaxkfzy1tAvCMROA4yPnErH7oyDwXwZoOiSdY92euaHQ9FbRU3LZeMEHBpJBD7XSTr3FNrYCZtTpkR3DlxBG9vCw3uy-WzvaoIIdh27UtIGw">Pourquoi avoir choisi d’utiliser l’architecture CQRS ?</a></strong></p>
-<h1 id="overview-and-building-blockshttpswwwmirkoserticdeblog201207domain-driven-design-overview-and-building-blocks"><a href="https://www.mirkosertic.de/blog/2012/07/domain-driven-design-overview-and-building-blocks/">Overview and building blocks</a></h1>
-<p>If you want to know more about the principles behind DDD, you can also consult the <a href="http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)">GRASP Patterns</a> or the <a href="http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID Patterns</a></p>
-<h2 id="core-definitions">Core definitions</h2>
+        <h1 id="messaging">Messaging</h1>
 <ul>
-<li>Domain: A sphere of knowledge (ontology), influence, or activity. The subject area to which the user applies a program is the domain of the software.</li>
-<li>Model: A system of abstractions that describes selected aspects of a domain and can be used to solve problems related to that domain.</li>
-<li>Ubiquitous Language: A language structured around the domain model and used by all team members to connect all the activities of the team with the software.</li>
-<li>Context: The setting in which a word or statement appears that determines its meaning.</li>
-</ul>
-<h2 id="prerequisites-for-the-successful-application-of-ddd">Prerequisites for the successful application of DDD</h2>
-<ul>
-<li>Your domain is not trivial</li>
-<li>The project team has experience and interest in Object Oriented Programming/Design</li>
-<li>You have access to domain experts</li>
-<li>You have an iterative process</li>
-</ul>
-<h2 id="building-blocks-strategic-patterns">Building blocks strategic patterns</h2>
-<ul>
-<li>
-<p>Domain, and Subdomains: As mentioned above, a Domain is a sphere of knowledge. A Domain can be split into Subdomains if it is too large. The Domain is usually known as the problem space.</p>
-</li>
-<li>
-<p>Bounded Context: A Bounded context should be aligned with a Domain or a Subdomain. There is one Ubiquitous Language applied within a Bounded Context. A Bounded Context is usually the solution space, where we design our software or business solution.</p>
-</li>
-<li>
-<p>Context Map: A Context Map displays the alignment of Domains, Subdomains and their Bounded Contexts. A Context Map also shows dependencies between Bounded Contexts. Such dependencies can be upstream or downstream. Dependencies show where integration patterns should or must be applied</p>
-</li>
-</ul>
-<h2 id="layers">Layers</h2>
-<ul>
-<li>The client sends a command to the Application Service</li>
-<li>The Application Service translates the command to a Domain Model use case invocation</li>
-<li>It is always a good choice to keep transaction control out of the domain model (technical, not business)</li>
-</ul>
-<h3 id="domain-layer">Domain Layer</h3>
-<ul>
-<li>The Domain Layer contains the real business logic, but does not contain any infrastructure specific code.</li>
-<li>The infrastructure specific implementation is provided by the Infrastructure Layer.</li>
-<li>The Domain Model should be designed as described by the <a href="https://en.wikipedia.org/wiki/Command%E2%80%93query_separation">CQS</a>(Command-Query-Separation) principle.</li>
-<li>CQS : There can be query methods which do just return data without affecting state, and there are command methods, which affect state but do not return anything</li>
-</ul>
-<h3 id="application-layer">Application Layer</h3>
-<ul>
-<li>The Application Layer takes commands from the User Interface Layer and translates these commands to use case invocations on the domain layer.</li>
-<li>The Application Layer also provides transaction control for business operations.</li>
-<li>The application layer is responsible to translate Aggregate data into the client specific presentation model by a Mediator or Data Transformer pattern</li>
-</ul>
-<h1 id="context-integration">Context integration</h1>
-<blockquote>
-<p>Integration between multiple domains</p>
-</blockquote>
-<p><strong>Domain Service</strong>: implements business logic which cannot be implemented by an Entity, Aggregate or ValueObject, because it does not belong there. For instance if the business logic invocation includes operation across multiple Domain Objects or in this case integration with another Bounded Context</p>
-<h3 id="asynchronous">Asynchronous</h3>
-<ul>
-<li><strong>Messaging</strong>: the reason we use messaging: system decoupling</li>
-<li>The infrastructure layer should call the application layer after a message is received (NB: message -&gt; command oriented)</li>
-<li>it is a good practice to design Events as an idempotent operation (always the same result without side effects)</li>
+<li><a href="https://medium.com/omarelgabrys-blog/threads-vs-queues-a71e8dc30156">Threads Vs Queues</a>: why queues are better than threads</li>
+<li><a href="https://docs.celeryproject.org/en/stable/getting-started/first-steps-with-celery.html">Getting started with celery</a></li>
 </ul>
 
     </div>

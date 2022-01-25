@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-24T01:57:32+01:00" />
+<meta property="article:modified_time" content="2022-01-25T02:02:38+01:00" />
 
 <meta itemprop="name" content="Domain Driven Development Quickly">
 <meta itemprop="description" content="Book here">
-<meta itemprop="dateModified" content="2022-01-24T01:57:32+01:00" />
-<meta itemprop="wordCount" content="3710">
+<meta itemprop="dateModified" content="2022-01-25T02:02:38+01:00" />
+<meta itemprop="wordCount" content="3661">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Domain Driven Development Quickly"/>
 <meta name="twitter:description" content="Book here"/>
@@ -143,10 +143,6 @@
         <li>
           <ul>
             <li><a href="#impose-the-domain-language">Impose the domain language</a></li>
-          </ul>
-        </li>
-        <li><a href="#creating-the-ubiquitous-language">Creating the Ubiquitous Language</a>
-          <ul>
             <li><a href="#expressing-the-language">Expressing the language</a></li>
           </ul>
         </li>
@@ -247,7 +243,7 @@
 <h2 id="building-domain-knowledge">Building domain knowledge</h2>
 <ul>
 <li>You need to learn as much as possible about the domain from the experts. And by putting the right questions, and processing the information in the right way, you and the experts will start to sketch a view of the domain, a domain model</li>
-<li>The building of the domain allows to put the maximum domain knowledge in the model, <strong>very</strong> important.</li>
+<li>The building of the domain allows to put the maximum domain knowledge in the model, <strong>very</strong> important (NB: all vocabulary terms should be present)</li>
 <li>The software specialists want to extract knowledge from the domain experts</li>
 <li>The analytical mind of the software designer helps unearth some of the key concepts of the model, because domain experts see things a way that is not always applicable to software</li>
 <li>the model is the place where those two areas of expertise meet (domain expertise and software expertise)</li>
@@ -265,14 +261,8 @@
 <li>Use the model as the backbone of a language</li>
 <li>Request that the team use the language consistently in all communications, and also in the code</li>
 <li>The Ubiquitous Language connects all the parts of the design, and creates the premise for the design team to function well</li>
-<li>The Ubiquitous Language connects all the parts of the design, and creates the premise for the design team to function well</li>
 <li>Iron out difficulties by experimenting with alternative expressions, which reflect alternative models. Then refactor the code, renaming classes, methods, and modules to conform to the new model</li>
-<li>he model and the language are strongly interconnected with one another. A change in the language should become a change to the model</li>
-</ul>
-<h2 id="creating-the-ubiquitous-language">Creating the Ubiquitous Language</h2>
-<ul>
-<li>By having domain interviews with the domain experts</li>
-<li>We have seen how the language is shared by the entire team, and also how it helps building knowledge and create the model.</li>
+<li>The model and the language are strongly interconnected with one another. A change in the language should become a change to the model</li>
 </ul>
 <h3 id="expressing-the-language">Expressing the language</h3>
 <ul>
@@ -343,7 +333,7 @@
 </ul>
 </blockquote>
 <ul>
-<li>It takes a lot of careful thinking to decide what makes an identity</li>
+<li>It takes a lot of careful thinking to decide what makes an entity</li>
 <li>There are also performance implications in making all objects entities</li>
 <li>There are cases when we need to contain some attributes of a domain element. We are not interested in which object it is, but what attributes it has.</li>
 <li><strong>An object that is used to describe certain aspects of a domain, and which does not have identity, is named Value Object</strong></li>
@@ -355,7 +345,7 @@
 <blockquote>
 <p>Services act as interfaces which provide operations</p>
 </blockquote>
-<p><strong>3 Caracteristics of a service</strong></p>
+<p><strong>3 Characteristics of a service</strong></p>
 <ul>
 <li>The operation performed by the Service refers to a domain concept which does not naturally belong to an Entity or Value Object.</li>
 <li>The operation performed refers to other objects in the domain</li>
