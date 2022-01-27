@@ -106,15 +106,17 @@ draft: true
 
 #### The Dependency Inversion Principle (DIP)
 
+> See [this](https://wkrzywiec.medium.com/ports-adapters-architecture-on-example-19cab9e93be7) for Ports and Adapters
+
 - As the Domain Model layer depends on concrete infrastructure implementations, the Dependency Inversion Principle⁷ could be applied by relocating the Infrastructure layer on top of the other three layers
 - **High level modules should not depend upon low level modules. Both should depend upon abstractions**
 - Hexagonal Architecture (also known as **Ports and Adapters**) : represents the application as an hexagon where each side represents a Port with one or more Adapters
 - A Port is a connector with a pluggable Adapter which transforms an **outside** input to something the **inside** application can understand 
 - brings up the concept of symmetry
 - no longer make sense to talk about a “top” layer nor a “bottom” layer. Instead, Hexagonal Architecture talks mainly in terms of the ‘outside’ and the ‘inside’.
-- *the core logic is at the center*. A realistic number of ports is about 2 to 4, not necessarily 6 (hexa) which has no special meaning
+- ***the core logic is at the center***. A realistic number of ports is about 2 to 4, not necessarily 6 (hexa) which has no special meaning
 
-<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ports-and-adapters.png?raw=true" style="zoom:50%;" />
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ports_and_adapters.png?raw=true" style="zoom:50%;" />
 
 Port = interface
 
@@ -122,7 +124,23 @@ adapter = implementation (The Adapter is in charge of defining the way in which 
 
 DIC = inject adapter from port
 
+-  **Port** it defines all the interactions that a core will have with anything outside. These ports are like contracts (or APIs) and can be divided into two groups **incoming** (primary) and **outgoing** (secondary). 
+- The adapters that **tell** our application to do something are called **Primary or Driving Adapters** while the ones that are **told** by our application to do something are called **Secondary or Driven Adapters**.
+- **the Ports (Interfaces) belong inside the business logic**, while the adapters belong outside
+- First one are responsible of how you can interact with business core (what commands you can use on it) and latter are used by the core to talk to the outside world
+- **ports are only definitions of \*what\* we would like to do. They are not saying of \*how\* to achieve them**
+- This problem is taken by an **adapter**. These are implementation of the ports
+- We can define multiple adapters for a single port, because the business logic should not care how you get/save data from/to database
+
 - From now on, hexagonal architecture will be the foundational architecture used to build and explain CQRS and Event Sourcing
+
+
+
+See also  [this article grouping hexagonal architecture and DDD](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
+
+
+
+
 
 
 
