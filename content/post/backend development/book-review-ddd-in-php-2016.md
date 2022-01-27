@@ -140,7 +140,7 @@ See also  [this article grouping hexagonal architecture and DDD](https://herbert
 
 
 
-
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/explicit_architecture.png?raw=true"  />
 
 
 
