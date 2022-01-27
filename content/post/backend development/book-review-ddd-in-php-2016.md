@@ -113,6 +113,8 @@ draft: true
 - brings up the concept of symmetry
 - no longer make sense to talk about a “top” layer nor a “bottom” layer. Instead, Hexagonal Architecture talks mainly in terms of the ‘outside’ and the ‘inside’.
 
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ports-and-adapters.png?raw=true" style="zoom:50%;" />
+
 Port = interface
 
 adapter = implementation (The Adapter is in charge of defining the way in which the blog posts will be retrieved using a specific technology)
@@ -183,4 +185,6 @@ CQRS seeks an even more aggressive separation of concerns splitting the Model in
 - store them in an **eventstore**
 - **The fundamental idea behind Event Sourcing is to express the state of Aggregates as a linear sequence of events**
 - instead of persisting each entity, with event sourcing we can persist **only** events, resulting in .. **a single database table !**
+
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/event_sourcing_apply_history.png?raw=true" style="zoom:50%;" />
 
