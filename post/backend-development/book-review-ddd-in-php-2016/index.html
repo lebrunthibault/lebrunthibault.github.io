@@ -44,11 +44,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-27T01:20:40+01:00" />
+<meta property="article:modified_time" content="2022-01-27T01:25:40+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
 <meta itemprop="description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;">
-<meta itemprop="dateModified" content="2022-01-27T01:20:40+01:00" />
+<meta itemprop="dateModified" content="2022-01-27T01:25:40+01:00" />
 <meta itemprop="wordCount" content="1630">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
@@ -268,6 +268,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>brings up the concept of symmetry</li>
 <li>no longer make sense to talk about a “top” layer nor a “bottom” layer. Instead, Hexagonal Architecture talks mainly in terms of the ‘outside’ and the ‘inside’.</li>
 </ul>
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ports-and-adapters.png?raw=true" style="zoom:50%;" />
 <p>Port = interface</p>
 <p>adapter = implementation (The Adapter is in charge of defining the way in which the blog posts will be retrieved using a specific technology)</p>
 <p>DIC = inject adapter from port</p>
@@ -333,6 +334,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li><strong>The fundamental idea behind Event Sourcing is to express the state of Aggregates as a linear sequence of events</strong></li>
 <li>instead of persisting each entity, with event sourcing we can persist <strong>only</strong> events, resulting in .. <strong>a single database table !</strong></li>
 </ul>
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/event_sourcing_apply_history.png?raw=true" style="zoom:50%;" />
 
     </div>
 
