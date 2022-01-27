@@ -112,6 +112,7 @@ draft: true
 - A Port is a connector with a pluggable Adapter which transforms an **outside** input to something the **inside** application can understand 
 - brings up the concept of symmetry
 - no longer make sense to talk about a “top” layer nor a “bottom” layer. Instead, Hexagonal Architecture talks mainly in terms of the ‘outside’ and the ‘inside’.
+- *the core logic is at the center*. A realistic number of ports is about 2 to 4, not necessarily 6 (hexa) which has no special meaning
 
 <img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ports-and-adapters.png?raw=true" style="zoom:50%;" />
 
