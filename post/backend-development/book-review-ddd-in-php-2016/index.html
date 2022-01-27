@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-27T00:24:33+01:00" />
+<meta property="article:modified_time" content="2022-01-27T01:20:40+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
 <meta itemprop="description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;">
-<meta itemprop="dateModified" content="2022-01-27T00:24:33+01:00" />
-<meta itemprop="wordCount" content="305">
+<meta itemprop="dateModified" content="2022-01-27T01:20:40+01:00" />
+<meta itemprop="wordCount" content="1630">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
 <meta name="twitter:description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 2 mins read </span>
+            <span class="more-meta"> 8 mins read </span>
         </div>
     </header>
 
@@ -142,6 +142,22 @@
     <li><a href="#2-architectural-styles">2. Architectural Styles</a>
       <ul>
         <li><a href="#layered-architecture">Layered architecture</a></li>
+        <li><a href="#model-view-controller-mvc">Model view controller MVC</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#inverting-dependencies-hexagonal-architecture">Inverting Dependencies. Hexagonal Architecture</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#command-query-responsibility-segregation">Command Query Responsibility Segregation</a>
+          <ul>
+            <li><a href="#cqs">CQS</a></li>
+          </ul>
+        </li>
+        <li><a href="#event-sourcing">Event Sourcing</a></li>
       </ul>
     </li>
   </ul>
@@ -200,6 +216,122 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <h2 id="layered-architecture">Layered architecture</h2>
 <ul>
 <li>An essential rule of the Layered architecture is that each layer may be tightly coupled with the layers beneath it</li>
+</ul>
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/layered_architecture.png?raw=true" style="zoom:50%;" />
+<h2 id="model-view-controller-mvc">Model view controller MVC</h2>
+<blockquote>
+<p>Model-View-Controller is an architectural pattern and paradigm that divides the application into three main layers: • The Model: Captures and centralizes all the domain model behaviour. This layer manages all the data, logic and business rules independently of the data representation.</p>
+</blockquote>
+<ul>
+<li>It can be said that the Model layer is the heart and soul of every MVC application.</li>
+<li>The Controller: Orchestrates interactions between the other layers. Triggers actions on the model in order to update its state and refreshes the representations associated to the model. Additionally, the Controller can also send messages to the View layer in order to change the specific Model representation.</li>
+<li>The View: A layer whose main purpose is to expose the differing representations of the Model layer and to give a way to trigger changes on the Model’s state.</li>
+</ul>
+<h4 id="the-model">The Model</h4>
+<blockquote>
+<p>the Application services are the ones that make things happen and they are the direct clients of a Domain Model. No other type of object should be able to directly talk to the internal layers of the Model layer.</p>
+<p>NB : Any service is an application service ..?</p>
+</blockquote>
+<h4 id="the-view">The View</h4>
+<ul>
+<li>Generally speaking, the View layer receives an object, often a Data Transfer Object (DTO)</li>
+<li>Why create a DTO instead of giving an instance of the Model to the View layer? The main reason and the short answer is, again, <strong>Separation of Concerns</strong>.</li>
+<li>Letting the view inspect and use a Model instance leads to tight coupling between the View layer and the Model layer</li>
+<li>Most of the time, when the Model triggers a state change, it also notifies the related Views so that the UI can get refreshed. In web, usually mean use a js framework.</li>
+</ul>
+<h4 id="the-controller">The Controller</h4>
+<ul>
+<li>
+<p>The Controller layer is responsible for organizing and orchestrating the View and the Mode</p>
+</li>
+<li>
+<p>It receives messages from the View layer and triggers Model behaviour in order to perform the desired action. Furthermore, it sends messages to the View in order to display Model representations</p>
+</li>
+<li>
+<p>Both operations are performed thanks to the Application Layer, responsible for orchestrating, organizing and encapsulating domain behaviour</p>
+</li>
+<li>
+<p>In terms of a web application in PHP, the controller = &ldquo;speak http&rdquo; (request -&gt; response)</p>
+</li>
+</ul>
+<h2 id="inverting-dependencies-hexagonal-architecture">Inverting Dependencies. Hexagonal Architecture</h2>
+<ul>
+<li>Following the essential rule of Layered Architecture, there is a risk to end up implementing domain interfaces that need to make use of infrastructural concerns within the domain model layer</li>
+<li>e.g. a repository is part of the model in MVC but should not necessarily be in the domain layer because of SOC</li>
+</ul>
+<h4 id="the-dependency-inversion-principle-dip">The Dependency Inversion Principle (DIP)</h4>
+<ul>
+<li>As the Domain Model layer depends on concrete infrastructure implementations, the Dependency Inversion Principle⁷ could be applied by relocating the Infrastructure layer on top of the other three layers</li>
+<li><strong>High level modules should not depend upon low level modules. Both should depend upon abstractions</strong></li>
+<li>Hexagonal Architecture (also known as <strong>Ports and Adapters</strong>) : represents the application as an hexagon where each side represents a Port with one or more Adapters</li>
+<li>A Port is a connector with a pluggable Adapter which transforms an <strong>outside</strong> input to something the <strong>inside</strong> application can understand</li>
+<li>brings up the concept of symmetry</li>
+<li>no longer make sense to talk about a “top” layer nor a “bottom” layer. Instead, Hexagonal Architecture talks mainly in terms of the ‘outside’ and the ‘inside’.</li>
+</ul>
+<p>Port = interface</p>
+<p>adapter = implementation (The Adapter is in charge of defining the way in which the blog posts will be retrieved using a specific technology)</p>
+<p>DIC = inject adapter from port</p>
+<ul>
+<li>From now on, hexagonal architecture will be the foundational architecture used to build and explain CQRS and Event Sourcing</li>
+</ul>
+<h2 id="command-query-responsibility-segregation">Command Query Responsibility Segregation</h2>
+<ul>
+<li>If the problem is having multiple and disparate views, we can exclude them from the Domain Model and start treating them as a purely infrastructural concern</li>
+<li>This option is based on a design principle, named <strong>Command Query Separation CQS</strong>, defined by Bertrand Meyer which gave birth to a new architectural pattern named <strong>Command Query Responsibility Segregatio</strong>n defined by Greg Young</li>
+</ul>
+<h3 id="cqs">CQS</h3>
+<ul>
+<li>Asking a question should not change its answer</li>
+<li>This design principle states that every method should be either a Command, that performs an action, or a Query, that returns data to the caller, but not both</li>
+</ul>
+<p>CQRS seeks an even more aggressive separation of concerns splitting the Model in two:</p>
+<ul>
+<li>The <strong>Write Model</strong>: Also known as the <strong>Command Model</strong>, it performs the writes and takes responsibility for the true domain behavior</li>
+<li>The <strong>Read Model</strong>: It takes responsibility of the reads within the application and treats them as something that should be out of the <strong>Domain Model</strong></li>
+</ul>
+<h5 id="eventual-consistency">Eventual Consistency</h5>
+<ul>
+<li>This strict separation triggers another problem, <strong>Eventual Consistency</strong></li>
+<li>The consistency of the read model now is subject to the commands performed by the write model</li>
+<li>every time the write model performs a command it will pull up a process that will be responsible to update the read model according to the last updates on the write model.</li>
+<li>e.g. Cache systems are eventually consistent</li>
+<li>This kind of processes, speaking in CQRS terminology, are called <strong>Write Model Projections</strong> or just <strong>Projections</strong> : We project the write model onto the read model</li>
+<li>sync or async</li>
+<li>it can be done thanks to another useful tactical design pattern that will be explained in detail later on in the book, <strong>Domain Events</strong></li>
+<li>The basis of the write model projections is to gather all the published domain events and update the read model with all the information coming from the events</li>
+</ul>
+<h4 id="the-write-model">The Write Model</h4>
+<ul>
+<li>repo simplified to save() and byId(), freed from all read concerns except one, the byId which is responsible for loading the aggregate by its’ ID so that we can operate on it</li>
+<li>And once this is done, all the query methods are also stripped down from the Post model, leaving it only with command methods (remove all getters !)</li>
+<li>Instead, domain events will be published in order to be able to trigger write model projections by subscribing to them</li>
+<li>NB <strong>Domain events</strong> should totally replace all data access and manipulation</li>
+<li>All actions that trigger a state change are implemented via domain events</li>
+<li>For each domain event published there is an apply method responsible to reflect the state change. NB : that is defined in the aggregateRoot so as to act on private fields.</li>
+</ul>
+<h4 id="the-read-model">The Read Model</h4>
+<ul>
+<li>The read model, also known as the Query Model, is a pure denormalized (NB : normalize = object =&gt; array and vice versa) data model lifted from domain concerns</li>
+<li>These database tables / UI views will be updated using write model projections triggered from the domain events published by the write side.</li>
+<li>An important feature of this architectural style is that the read model should be completely disposable since the true state of the application is handled by the write model.</li>
+<li>NB : single source of truth : write model domain events</li>
+<li>read model doens&rsquo;t need to be relationnal (can be elasticsearch for example)</li>
+<li>However, the write model might benefit from the use of an object-relational mapper as they allow you to organize and structure the read model</li>
+</ul>
+<h4 id="synchronizing-the-write-model-with-the-read-model">Synchronizing the Write Model with the Read Model</h4>
+<ul>
+<li>tricky part</li>
+<li>one-to-one relationship between domain events and projections</li>
+</ul>
+<h2 id="event-sourcing">Event Sourcing</h2>
+<ul>
+<li>giving you a high-level degree of detail of what is going on within your domain</li>
+<li>Domain Events are one of the key tactical patterns because of their significance within the domain, as they describe past occurrences</li>
+<li>An ever growing number of events is a smell of the business overlooking insight in the Domain.</li>
+<li>By using CQRS we gained a highly sophisticated history of all the relevant occurrences at a level that the whole state of the domain model can be expressed just by reproducing domain events</li>
+<li>store them in an <strong>eventstore</strong></li>
+<li><strong>The fundamental idea behind Event Sourcing is to express the state of Aggregates as a linear sequence of events</strong></li>
+<li>instead of persisting each entity, with event sourcing we can persist <strong>only</strong> events, resulting in .. <strong>a single database table !</strong></li>
 </ul>
 
     </div>
