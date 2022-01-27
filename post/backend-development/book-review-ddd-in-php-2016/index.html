@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-27T01:29:40+01:00" />
+<meta property="article:modified_time" content="2022-01-27T11:42:32+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
 <meta itemprop="description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;">
-<meta itemprop="dateModified" content="2022-01-27T01:29:40+01:00" />
-<meta itemprop="wordCount" content="1656">
+<meta itemprop="dateModified" content="2022-01-27T11:42:32+01:00" />
+<meta itemprop="wordCount" content="1837">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
 <meta name="twitter:description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 8 mins read </span>
+            <span class="more-meta"> 9 mins read </span>
         </div>
     </header>
 
@@ -260,6 +260,9 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>e.g. a repository is part of the model in MVC but should not necessarily be in the domain layer because of SOC</li>
 </ul>
 <h4 id="the-dependency-inversion-principle-dip">The Dependency Inversion Principle (DIP)</h4>
+<blockquote>
+<p>See <a href="https://wkrzywiec.medium.com/ports-adapters-architecture-on-example-19cab9e93be7">this</a> for Ports and Adapters</p>
+</blockquote>
 <ul>
 <li>As the Domain Model layer depends on concrete infrastructure implementations, the Dependency Inversion Principle⁷ could be applied by relocating the Infrastructure layer on top of the other three layers</li>
 <li><strong>High level modules should not depend upon low level modules. Both should depend upon abstractions</strong></li>
@@ -267,15 +270,39 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>A Port is a connector with a pluggable Adapter which transforms an <strong>outside</strong> input to something the <strong>inside</strong> application can understand</li>
 <li>brings up the concept of symmetry</li>
 <li>no longer make sense to talk about a “top” layer nor a “bottom” layer. Instead, Hexagonal Architecture talks mainly in terms of the ‘outside’ and the ‘inside’.</li>
-<li><em>the core logic is at the center</em>. A realistic number of ports is about 2 to 4, not necessarily 6 (hexa) which has no special meaning</li>
+<li><em><strong>the core logic is at the center</strong></em>. A realistic number of ports is about 2 to 4, not necessarily 6 (hexa) which has no special meaning</li>
 </ul>
-<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ports-and-adapters.png?raw=true" style="zoom:50%;" />
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ports_and_adapters.png?raw=true" style="zoom:50%;" />
 <p>Port = interface</p>
 <p>adapter = implementation (The Adapter is in charge of defining the way in which the blog posts will be retrieved using a specific technology)</p>
 <p>DIC = inject adapter from port</p>
 <ul>
-<li>From now on, hexagonal architecture will be the foundational architecture used to build and explain CQRS and Event Sourcing</li>
+<li>
+<p><strong>Port</strong> it defines all the interactions that a core will have with anything outside. These ports are like contracts (or APIs) and can be divided into two groups <strong>incoming</strong> (primary) and <strong>outgoing</strong> (secondary).</p>
+</li>
+<li>
+<p>The adapters that <strong>tell</strong> our application to do something are called <strong>Primary or Driving Adapters</strong> while the ones that are <strong>told</strong> by our application to do something are called <strong>Secondary or Driven Adapters</strong>.</p>
+</li>
+<li>
+<p><strong>the Ports (Interfaces) belong inside the business logic</strong>, while the adapters belong outside</p>
+</li>
+<li>
+<p>First one are responsible of how you can interact with business core (what commands you can use on it) and latter are used by the core to talk to the outside world</p>
+</li>
+<li>
+<p><strong>ports are only definitions of *what* we would like to do. They are not saying of *how* to achieve them</strong></p>
+</li>
+<li>
+<p>This problem is taken by an <strong>adapter</strong>. These are implementation of the ports</p>
+</li>
+<li>
+<p>We can define multiple adapters for a single port, because the business logic should not care how you get/save data from/to database</p>
+</li>
+<li>
+<p>From now on, hexagonal architecture will be the foundational architecture used to build and explain CQRS and Event Sourcing</p>
+</li>
 </ul>
+<p>See also  <a href="https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/">this article grouping hexagonal architecture and DDD</a></p>
 <h2 id="command-query-responsibility-segregation">Command Query Responsibility Segregation</h2>
 <ul>
 <li>If the problem is having multiple and disparate views, we can exclude them from the Domain Model and start treating them as a purely infrastructural concern</li>
