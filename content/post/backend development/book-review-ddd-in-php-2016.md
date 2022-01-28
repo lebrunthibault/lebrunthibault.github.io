@@ -156,7 +156,7 @@ See also  [this article grouping hexagonal architecture and DDD](https://herbert
 
 CQRS seeks an even more aggressive separation of concerns splitting the Model in two:
 
-- The **Write Model**: Also known as the **Command Model**, it performs the writes and takes responsibility for the true domain behavior
+- The **Write Model**: Also known as the **Command Model**, it performs the writes and takes responsibility for the true domain behavior. It alters entites state by using domain events
 - The **Read Model**: It takes responsibility of the reads within the application and treats them as something that should be out of the **Domain Model**
 
 ##### Eventual Consistency
@@ -198,6 +198,7 @@ CQRS seeks an even more aggressive separation of concerns splitting the Model in
 ## Event Sourcing
 
 - giving you a high-level degree of detail of what is going on within your domain
+- if repositories become hard to maintain then it is time to consider the use of CQRS, to split read and write concerns
 - Domain Events are one of the key tactical patterns because of their significance within the domain, as they describe past occurrences
 - An ever growing number of events is a smell of the business overlooking insight in the Domain.
 - By using CQRS we gained a highly sophisticated history of all the relevant occurrences at a level that the whole state of the domain model can be expressed just by reproducing domain events
@@ -206,4 +207,60 @@ CQRS seeks an even more aggressive separation of concerns splitting the Model in
 - instead of persisting each entity, with event sourcing we can persist **only** events, resulting in .. **a single database table !**
 
 <img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/event_sourcing_apply_history.png?raw=true" style="zoom:50%;" />
+
+
+
+
+
+# 3. Value Objects
+
+- equality is not based on identity
+- slow memory footprint : new instance creation is favoured over reference reuse
+- they follow value semantics rather than reference semantics
+- value objects should be entirely immutable
+- provides **encapsulation**
+- *[Self-encapsulation](https://martinfowler.com/bliki/SelfEncapsulation.html)* 
+  - indicates that all *internal* access to a data field should also go through accessor methods as well
+  - need to create private getters
+  - support the [UniformAccessPrinciple](https://martinfowler.com/bliki/UniformAccessPrinciple.html). 
+  - Usually **not worth the effort** with small classes having dummies setters and getters
+  - Good when there is logic in setters or an inheritance structure
+  - From Martin Fowler: use **direct access to fields** and refactor to **self encapsulate field** later.
+  - But often better to **extract a new class**.
+
+
+
+## Characteristics
+
+- you should always favour Value Objects over Entities
+- immutable and **Side-Effect-Free** behaviour
+- immutable so Value Objects are always in a valid state
+- Empty constructors with multiple setters and getters move the creation responsibility to the client, resulting in the Anemic Domain Model⁶, which is considered an anti-pattern
+- it is not recommended to hold references to entities in your Value Objects. Entities are mutable, and as such this could lead to undesirable side-effects occurring in the Value Object
+- to emulate Java overloading we can use different factory methods (always use self, static can lead to bugs when the VO is inherited)
+- to handle mutability use the following construct
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220128121232232.png" alt="image-20220128121232232" style="zoom:67%;" />
+
+- VO provide **Single responsibility** and **DRY**
+- NB : We could use Email VO in Basile
+- in PHP, it is common place to compare two Value Objects using  ==
+- a solution is to implement a conventional equals method in each VO
+- in PHP string are immutable: strtolower returns a new string
+- Value Objects are not persisted on their own, they are typically persisted within an Aggregate
+- [NB](https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.) : ValueObjects can be integrated in the FlyWeight pattern.
+
+
+
+#### NB : Object relational Stuctural patterns (persistence)
+
+- **Active record** : the entity has methods to save, remove .. on itself and inherits a base class. **Eloquent**
+- **Data mapper pattern**: the entity persistence is handled by the ORM. **Symfony** 
+- **[Dependent mapping pattern](https://www.sourcecodeexamples.net/2018/05/dependent-mapping-pattern.html)** : Has one class perform the database mapping for a child class (e.g. Person -> address). When a dependent object doesn’t need to be accessed on its own.
+- **[Embedded Value pattern](https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.)** 
+  - particular case of the [Dependent Mapping](http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-2) one, where it is realized with a single table. 
+  - It is a further departure from the naive mapping one table, one class and one object, one row And the [Active Record](http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-active) pattern
+  - add complexity to the object-relational mapper but usually interesting in the long run because the complexity is mostly handled by the ORM.
+  - employed in conjunction with [Value Objects](http://www.c2.com/cgi/wiki?ValueObject), and it is very useful when having a 1:1 relationship from an Entity towards a Value Object
+  - With an Embedded Value mapping, the VO will reside in the same row of the User that owns it, as an additional column
 
