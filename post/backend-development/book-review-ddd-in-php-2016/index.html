@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.1 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" />
@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-27T11:42:32+01:00" />
+<meta property="article:modified_time" content="2022-01-28T12:37:11+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
 <meta itemprop="description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;">
-<meta itemprop="dateModified" content="2022-01-27T11:42:32+01:00" />
-<meta itemprop="wordCount" content="1837">
+<meta itemprop="dateModified" content="2022-01-28T12:37:11+01:00" />
+<meta itemprop="wordCount" content="2338">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
 <meta name="twitter:description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 9 mins read </span>
+            <span class="more-meta"> 11 mins read </span>
         </div>
     </header>
 
@@ -158,6 +158,15 @@
           </ul>
         </li>
         <li><a href="#event-sourcing">Event Sourcing</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-value-objects">3. Value Objects</a>
+      <ul>
+        <li><a href="#characteristics">Characteristics</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -303,6 +312,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 </li>
 </ul>
 <p>See also  <a href="https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/">this article grouping hexagonal architecture and DDD</a></p>
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/explicit_architecture.png?raw=true"  />
 <h2 id="command-query-responsibility-segregation">Command Query Responsibility Segregation</h2>
 <ul>
 <li>If the problem is having multiple and disparate views, we can exclude them from the Domain Model and start treating them as a purely infrastructural concern</li>
@@ -315,7 +325,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 </ul>
 <p>CQRS seeks an even more aggressive separation of concerns splitting the Model in two:</p>
 <ul>
-<li>The <strong>Write Model</strong>: Also known as the <strong>Command Model</strong>, it performs the writes and takes responsibility for the true domain behavior</li>
+<li>The <strong>Write Model</strong>: Also known as the <strong>Command Model</strong>, it performs the writes and takes responsibility for the true domain behavior. It alters entites state by using domain events</li>
 <li>The <strong>Read Model</strong>: It takes responsibility of the reads within the application and treats them as something that should be out of the <strong>Domain Model</strong></li>
 </ul>
 <h5 id="eventual-consistency">Eventual Consistency</h5>
@@ -355,6 +365,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <h2 id="event-sourcing">Event Sourcing</h2>
 <ul>
 <li>giving you a high-level degree of detail of what is going on within your domain</li>
+<li>if repositories become hard to maintain then it is time to consider the use of CQRS, to split read and write concerns</li>
 <li>Domain Events are one of the key tactical patterns because of their significance within the domain, as they describe past occurrences</li>
 <li>An ever growing number of events is a smell of the business overlooking insight in the Domain.</li>
 <li>By using CQRS we gained a highly sophisticated history of all the relevant occurrences at a level that the whole state of the domain model can be expressed just by reproducing domain events</li>
@@ -363,6 +374,60 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>instead of persisting each entity, with event sourcing we can persist <strong>only</strong> events, resulting in .. <strong>a single database table !</strong></li>
 </ul>
 <img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/event_sourcing_apply_history.png?raw=true" style="zoom:50%;" />
+<h1 id="3-value-objects">3. Value Objects</h1>
+<ul>
+<li>equality is not based on identity</li>
+<li>slow memory footprint : new instance creation is favoured over reference reuse</li>
+<li>they follow value semantics rather than reference semantics</li>
+<li>value objects should be entirely immutable</li>
+<li>provides <strong>encapsulation</strong></li>
+<li><em><a href="https://martinfowler.com/bliki/SelfEncapsulation.html">Self-encapsulation</a></em>
+<ul>
+<li>indicates that all <em>internal</em> access to a data field should also go through accessor methods as well</li>
+<li>need to create private getters</li>
+<li>support the <a href="https://martinfowler.com/bliki/UniformAccessPrinciple.html">UniformAccessPrinciple</a>.</li>
+<li>Usually <strong>not worth the effort</strong> with small classes having dummies setters and getters</li>
+<li>Good when there is logic in setters or an inheritance structure</li>
+<li>From Martin Fowler: use <strong>direct access to fields</strong> and refactor to <strong>self encapsulate field</strong> later.</li>
+<li>But often better to <strong>extract a new class</strong>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="characteristics">Characteristics</h2>
+<ul>
+<li>you should always favour Value Objects over Entities</li>
+<li>immutable and <strong>Side-Effect-Free</strong> behaviour</li>
+<li>immutable so Value Objects are always in a valid state</li>
+<li>Empty constructors with multiple setters and getters move the creation responsibility to the client, resulting in the Anemic Domain Model⁶, which is considered an anti-pattern</li>
+<li>it is not recommended to hold references to entities in your Value Objects. Entities are mutable, and as such this could lead to undesirable side-effects occurring in the Value Object</li>
+<li>to emulate Java overloading we can use different factory methods (always use self, static can lead to bugs when the VO is inherited)</li>
+<li>to handle mutability use the following construct</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220128121232232.png" alt="image-20220128121232232" style="zoom:67%;" />
+<ul>
+<li>VO provide <strong>Single responsibility</strong> and <strong>DRY</strong></li>
+<li>NB : We could use Email VO in Basile</li>
+<li>in PHP, it is common place to compare two Value Objects using  ==</li>
+<li>a solution is to implement a conventional equals method in each VO</li>
+<li>in PHP string are immutable: strtolower returns a new string</li>
+<li>Value Objects are not persisted on their own, they are typically persisted within an Aggregate</li>
+<li><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">NB</a> : ValueObjects can be integrated in the FlyWeight pattern.</li>
+</ul>
+<h4 id="nb--object-relational-stuctural-patterns-persistence">NB : Object relational Stuctural patterns (persistence)</h4>
+<ul>
+<li><strong>Active record</strong> : the entity has methods to save, remove .. on itself and inherits a base class. <strong>Eloquent</strong></li>
+<li><strong>Data mapper pattern</strong>: the entity persistence is handled by the ORM. <strong>Symfony</strong></li>
+<li><strong><a href="https://www.sourcecodeexamples.net/2018/05/dependent-mapping-pattern.html">Dependent mapping pattern</a></strong> : Has one class perform the database mapping for a child class (e.g. Person -&gt; address). When a dependent object doesn’t need to be accessed on its own.</li>
+<li><strong><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">Embedded Value pattern</a></strong>
+<ul>
+<li>particular case of the <a href="http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-2">Dependent Mapping</a> one, where it is realized with a single table.</li>
+<li>It is a further departure from the naive mapping one table, one class and one object, one row And the <a href="http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-active">Active Record</a> pattern</li>
+<li>add complexity to the object-relational mapper but usually interesting in the long run because the complexity is mostly handled by the ORM.</li>
+<li>employed in conjunction with <a href="http://www.c2.com/cgi/wiki?ValueObject">Value Objects</a>, and it is very useful when having a 1:1 relationship from an Entity towards a Value Object</li>
+<li>With an Embedded Value mapping, the VO will reside in the same row of the User that owns it, as an additional column</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
