@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Preface  initially started as &amp;ldquo;Hexagonal architecture with PHP&amp;rdquo;" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="book here" /><meta name="keywords" content="" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)" />
-<meta property="og:description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;" />
+<meta property="og:description" content="book here" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-28T12:37:11+01:00" />
+<meta property="article:modified_time" content="2022-01-31T21:20:11+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
-<meta itemprop="description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;">
-<meta itemprop="dateModified" content="2022-01-28T12:37:11+01:00" />
-<meta itemprop="wordCount" content="2338">
+<meta itemprop="description" content="book here">
+<meta itemprop="dateModified" content="2022-01-31T21:20:11+01:00" />
+<meta itemprop="wordCount" content="3579">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
-<meta name="twitter:description" content="Preface  initially started as &ldquo;Hexagonal architecture with PHP&rdquo;"/>
+<meta name="twitter:description" content="book here"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 11 mins read </span>
+            <span class="more-meta"> 17 mins read </span>
         </div>
     </header>
 
@@ -165,6 +165,41 @@
         <li><a href="#characteristics">Characteristics</a>
           <ul>
             <li></li>
+            <li><a href="#embedded-value-patternhttpsdzonecomarticlespractical-php-patternspractical-php-patterns-3textthe20embedded20value20is20ana20direct20reference20to20it"><strong><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">Embedded Value pattern</a></strong></a></li>
+            <li><a href="#why-doctrine-">Why Doctrine ?</a></li>
+            <li><a href="#serialize-lob-single-large-object-patternhttpswwwmartinfowlercomeaacatalogserializedlobhtml"><a href="https://www.martinfowler.com/eaaCatalog/serializedLOB.html">Serialize LOB (single large object) Pattern</a></a></li>
+            <li><a href="#persisting-vo-collections">Persisting VO collections</a></li>
+            <li><a href="#security">Security</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-entities">4. Entities</a>
+      <ul>
+        <li><a href="#identity-operation">Identity operation</a>
+          <ul>
+            <li><a href="#persistence-mechanism-generates-identity">Persistence Mechanism Generates Identity</a></li>
+            <li><a href="#client-provides-identity">Client Provides Identity</a></li>
+            <li><a href="#application-generates-identity">Application Generates Identity</a></li>
+            <li><a href="#other-bounded-context-generates-identity">Other Bounded Context Generates Identity</a></li>
+          </ul>
+        </li>
+        <li><a href="#persisting-entities">Persisting Entities</a></li>
+        <li><a href="#testing-entities">Testing entities</a></li>
+        <li><a href="#validation">Validation</a>
+          <ul>
+            <li><a href="#attribute-validation">Attribute Validation</a></li>
+            <li><a href="#entire-object-validation">Entire Object Validation</a></li>
+            <li><a href="#validating-object-compositions">Validating Object Compositions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5-services">5. Services</a>
+      <ul>
+        <li><a href="#application-services">Application services</a>
+          <ul>
+            <li><a href="#transactions">Transactions</a></li>
           </ul>
         </li>
       </ul>
@@ -174,7 +209,8 @@
   </div>
 </div>
     <div class="post-content">
-        <h1 id="preface">Preface</h1>
+        <p><a href="https://drive.google.com/file/d/16pQ8ET7pLOzadr5ayF9PPUidOgCEJQVl/view?usp=sharing">book here</a></p>
+<h1 id="preface">Preface</h1>
 <blockquote>
 <p>initially started as &ldquo;<strong>Hexagonal</strong> architecture with PHP&rdquo;</p>
 </blockquote>
@@ -418,15 +454,188 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li><strong>Active record</strong> : the entity has methods to save, remove .. on itself and inherits a base class. <strong>Eloquent</strong></li>
 <li><strong>Data mapper pattern</strong>: the entity persistence is handled by the ORM. <strong>Symfony</strong></li>
 <li><strong><a href="https://www.sourcecodeexamples.net/2018/05/dependent-mapping-pattern.html">Dependent mapping pattern</a></strong> : Has one class perform the database mapping for a child class (e.g. Person -&gt; address). When a dependent object doesn’t need to be accessed on its own.</li>
-<li><strong><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">Embedded Value pattern</a></strong>
+</ul>
+<h3 id="embedded-value-patternhttpsdzonecomarticlespractical-php-patternspractical-php-patterns-3textthe20embedded20value20is20ana20direct20reference20to20it"><strong><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">Embedded Value pattern</a></strong></h3>
 <ul>
 <li>particular case of the <a href="http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-2">Dependent Mapping</a> one, where it is realized with a single table.</li>
 <li>It is a further departure from the naive mapping one table, one class and one object, one row And the <a href="http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-active">Active Record</a> pattern</li>
 <li>add complexity to the object-relational mapper but usually interesting in the long run because the complexity is mostly handled by the ORM.</li>
 <li>employed in conjunction with <a href="http://www.c2.com/cgi/wiki?ValueObject">Value Objects</a>, and it is very useful when having a 1:1 relationship from an Entity towards a Value Object</li>
 <li>With an Embedded Value mapping, the VO will reside in the same row of the User that owns it, as an additional column</li>
+<li>Depending on the case, a VO will be fine when we <strong>won&rsquo;t be adding fields</strong> else it should be an entity</li>
+<li>If we want to access the data <strong>independently</strong> then it&rsquo;s an entity</li>
+</ul>
+<h3 id="why-doctrine-">Why Doctrine ?</h3>
+<blockquote>
+<p>We recommend using Doctrine in most cases when dealing with Entities and business logic</p>
+</blockquote>
+<ul>
+<li>Embedded value with <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.11/tutorials/embeddables.html">embedabbles</a></li>
+<li>Also possible to use surrogate fields mapped directly (doctrine &lt; 2.4)
+<ul>
+<li>In this case it&rsquo;s better to use Abstract Factory to generate Product or DoctrineProduct (subclass)</li>
 </ul>
 </li>
+</ul>
+<h3 id="serialize-lob-single-large-object-patternhttpswwwmartinfowlercomeaacatalogserializedlobhtml"><a href="https://www.martinfowler.com/eaaCatalog/serializedLOB.html">Serialize LOB (single large object) Pattern</a></h3>
+<ul>
+<li>Object models often contain complicated graphs of small objects</li>
+<li>Using a relations in db works but is awkward and slow (multiple joins)</li>
+<li>Another form of persistence is serialization, where a whole graph of objects is written out as a single large object (LOB) in a table</li>
+<li>this Serialized LOB then becomes a form of memento [Gang of Four]</li>
+<li>The persistence footprint requirements get reduced to a single column</li>
+<li><strong>We can&rsquo;t query fields with this pattern</strong></li>
+<li>Serialization can be improved with <a href="http://jmsyst.com/libs/serializer">JMS Serializer</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.11/cookbook/custom-mapping-types.html">Doctrine Custom Types</a></li>
+</ul>
+<h3 id="persisting-vo-collections">Persisting VO collections</h3>
+<ul>
+<li>Using embeddable value when we know the collection size</li>
+</ul>
+<h4 id="collection-serialized-into-a-single-column">Collection Serialized into a Single Column</h4>
+<ul>
+<li>With Doctrine you can use an Object or Custom Type</li>
+<li>Check the row size</li>
+</ul>
+<h4 id="collection-backed-by-a-join-table">Collection backed by a Join Table</h4>
+<ul>
+<li>If we need querying capabilities on VO</li>
+<li>Can be one to many or many to many</li>
+<li>Doctrine requires that all database entities to have a unique identity. Because we want to persist Money Value Objects we need to then add an artificial identity so Doctrine can handle its persistence</li>
+<li>Solution 1: put the surrogate identity in the Money class
+<ul>
+<li>Problem The identity is infrastructure and not domain</li>
+</ul>
+</li>
+<li>Solution 2 : put surrogate field in a subclass and use factories.
+<ul>
+<li>The factory should be passed in application service and any other domain objects</li>
+</ul>
+</li>
+</ul>
+<h4 id="postgresql-and-jsonb">PostgreSQL and JSONB</h4>
+<ul>
+<li>Now postgres allows querying directly json with <a href="https://www.postgresql.org/docs/9.4/functions-json.html">JSONB</a></li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li>Manipulating VO is safer as you manipulate valid objects</li>
+<li>If you centralize the <a href="https://en.wikipedia.org/wiki/Guard_(computer_science)">guards</a> in the constructor and pass into your model a IATA Value Object avoiding SQL Injections or similar attacks get easier</li>
+<li><a href="http://dearjunior.blogspot.com/search/label/domain%20driven%20security">Dan Bergh Johnsson : Secure by design</a></li>
+</ul>
+<h1 id="4-entities">4. Entities</h1>
+<p>Most of the time the identity of an entity is represented as a primitive type: usually a string or an integer. But using a value object to represent it has more advantages:</p>
+<ul>
+<li>Value Objects are immutable, so they cannot be modified</li>
+<li>Value Objects are complex types that can have custom behaviours that otherwise with primitive types cannot have</li>
+<li>makes equality more explicit</li>
+</ul>
+<h2 id="identity-operation">Identity operation</h2>
+<p>There are usually 4 ways to define the identity of an entity</p>
+<ul>
+<li>A client provides the identity</li>
+<li>the application itself provides an identity</li>
+<li>the persistence mechanism provides the identity
+<ul>
+<li>Usual and simple but <strong>we won’t have the identity of the entity until we persist it</strong></li>
+<li>will couple the identity operation with the underlying persistence store</li>
+</ul>
+</li>
+<li>another bounded context provides an identity</li>
+</ul>
+<h3 id="persistence-mechanism-generates-identity">Persistence Mechanism Generates Identity</h3>
+<h4 id="surrogate-identity">Surrogate identity</h4>
+<p>The simplest way to handle that situation is by using a <a href="https://martinfowler.com/eaaCatalog/layerSupertype.html">Layer SuperType</a> where we put the identity field created for the persistence store.</p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131150038305.png" alt="image-20220131150038305"></p>
+<h4 id="active-record-vs-data-mapper-for-rich-domain-models">Active Record vs Data Mapper for Rich Domain Models</h4>
+<p>An Active Record implementation is fine mostly for CRUD applications, but it’s not the ideal solution for rich domain models</p>
+<ul>
+<li>The Active Record pattern assumes a one-to-one relation between an entity and a database table. So it couples the design of the database to the design of the object system</li>
+<li>Advanced things like collections or inheritance are tricky to implement</li>
+<li>Most of the implementations force the use, through inheritance, of some sort of constructions to impose several conventions. This can lead to persistence leakage into the domain model by coupling the domain model with the ORM</li>
+<li>Currently <strong>the best ORM for PHP out there is Doctrine</strong>. It’s an implementation of the Data Mapper pattern⁶. Data Mapper decouples the persistence concerns from the domain concerns, leading to persistence-free entities</li>
+</ul>
+<h3 id="client-provides-identity">Client Provides Identity</h3>
+<p>Probably this is the ideal case, because the identity can be modelled quite easy</p>
+<ul>
+<li>Example : an ISBN</li>
+</ul>
+<h3 id="application-generates-identity">Application Generates Identity</h3>
+<ul>
+<li>
+<p>If the client cannot provide the identity generally the preferred way to handle the identity operation is to let the application generate the identities, usually through a UUID</p>
+</li>
+<li>
+<p>Several libraries provide this, e.g. <a href="https://github.com/ramsey/uuid">https://github.com/ramsey/uuid</a></p>
+</li>
+<li>
+<p>The preferred place to put the creation of the identity would be inside a Repository</p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131151058018.png" alt="image-20220131151058018"></p>
+</li>
+</ul>
+<h3 id="other-bounded-context-generates-identity">Other Bounded Context Generates Identity</h3>
+<ul>
+<li>Probably this would be the most complex identity generation strategy, because it enforces to have a local entity to be dependent not only on local bounded context events, but in external bounded contexts events</li>
+<li>When synchronization is needed between the entities of the Bounded Contexts, usually can be achieved with an Event Driven architecture on each of the Bounded Context that need to be notified when the original entity is changed</li>
+</ul>
+<h2 id="persisting-entities">Persisting Entities</h2>
+<ul>
+<li>Using doctrine</li>
+<li>Using annotation
+<ul>
+<li>Simple and elegant but</li>
+<li>domain concerns are mixed with infrastructure concerns</li>
+<li>s entity is tightly coupled to the mapping information specified by the annotations in the source code</li>
+</ul>
+</li>
+<li>Using config files :
+<ul>
+<li>The best way</li>
+</ul>
+</li>
+</ul>
+<h2 id="testing-entities">Testing entities</h2>
+<ul>
+<li>It’s relatively easy to test entities</li>
+<li>the test should be the invariants that the entity protects</li>
+</ul>
+<h2 id="validation">Validation</h2>
+<ul>
+<li>Validation is a highly important process in our domain model</li>
+<li>Should test all attributes are valid and also whole object is valid. It is not an equivalence</li>
+</ul>
+<h3 id="attribute-validation">Attribute Validation</h3>
+<ul>
+<li>Some people understand validation as the process whereby a service validates the state of a given object. In this case, the validation conforms to a <a href="https://en.wikipedia.org/wiki/Design_by_contract">design-by-contract</a> approach - consisting of preconditions, post-conditions and invariants.</li>
+<li>Here we will be using guards as an easy way of validating the pre-conditions (username string validation)</li>
+<li>Some developers may see this kind of validation as defensive programming</li>
+<li>but we control only the correctness of our domain state</li>
+</ul>
+<h3 id="entire-object-validation">Entire Object Validation</h3>
+<ul>
+<li>It can be tempting to add this kind of validation to the object itself, but generally this is an antipattern</li>
+<li>Higher-level validation is likely to change at different times to the object itself. Also it is good practice to separate these responsibilities</li>
+<li>The validation informs the client about any errors that have been found, or collect the results to be reviewed later. Sometimes we do not want to stop the execution at the first sign of trouble</li>
+<li>An abstract and reusable Validator could be something like</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131151954274.png" alt="image-20220131151954274"></p>
+<h3 id="validating-object-compositions">Validating Object Compositions</h3>
+<ul>
+<li>Validating object compositions can be complicated, because of this, the preferred way of achieving this is through a Domain Service</li>
+<li>We can use Domain Events to notify other parts of the system that a particular element has been validated</li>
+</ul>
+<h1 id="5-services">5. Services</h1>
+<p>When there are operations that need to be represented, we can consider them to be services. There are typically three different types of service which you will encounter, these are :</p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131154707521.png" alt="image-20220131154707521"></p>
+<h2 id="application-services">Application services</h2>
+<ul>
+<li>Application services are the middleware between the outside world and the domain logic. The purpose of such a mechanism is to transform commands from the outside world into meaningful domain instructions</li>
+<li>As following the same contract for every service is convenient (will see that later), the communication between the delivery mechanism and the domain is carried by data structures called DTOs (Data Transfer Objects) (NB : UserSigninRequest $request)</li>
+</ul>
+<h3 id="transactions">Transactions</h3>
+<ul>
+<li>In Domain-Driven Design, transactions are handled at the Application Service level. You are not going to find any beginTransaction or similar anywhere in your Domain code</li>
+<li>All the operations performed during the execution of the Application Service are going to be run atomically against your database</li>
 </ul>
 
     </div>
