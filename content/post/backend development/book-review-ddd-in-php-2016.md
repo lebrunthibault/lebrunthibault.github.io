@@ -1,7 +1,10 @@
 ---
 title: "Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"
 draft: true
+
 ---
+
+[book here](https://drive.google.com/file/d/16pQ8ET7pLOzadr5ayF9PPUidOgCEJQVl/view?usp=sharing)
 
 # Preface
 
@@ -257,10 +260,186 @@ CQRS seeks an even more aggressive separation of concerns splitting the Model in
 - **Active record** : the entity has methods to save, remove .. on itself and inherits a base class. **Eloquent**
 - **Data mapper pattern**: the entity persistence is handled by the ORM. **Symfony** 
 - **[Dependent mapping pattern](https://www.sourcecodeexamples.net/2018/05/dependent-mapping-pattern.html)** : Has one class perform the database mapping for a child class (e.g. Person -> address). When a dependent object doesn’t need to be accessed on its own.
-- **[Embedded Value pattern](https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.)** 
-  - particular case of the [Dependent Mapping](http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-2) one, where it is realized with a single table. 
-  - It is a further departure from the naive mapping one table, one class and one object, one row And the [Active Record](http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-active) pattern
-  - add complexity to the object-relational mapper but usually interesting in the long run because the complexity is mostly handled by the ORM.
-  - employed in conjunction with [Value Objects](http://www.c2.com/cgi/wiki?ValueObject), and it is very useful when having a 1:1 relationship from an Entity towards a Value Object
-  - With an Embedded Value mapping, the VO will reside in the same row of the User that owns it, as an additional column
+
+
+
+### **[Embedded Value pattern](https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.)** 
+
+- particular case of the [Dependent Mapping](http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-2) one, where it is realized with a single table. 
+- It is a further departure from the naive mapping one table, one class and one object, one row And the [Active Record](http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-active) pattern
+- add complexity to the object-relational mapper but usually interesting in the long run because the complexity is mostly handled by the ORM.
+- employed in conjunction with [Value Objects](http://www.c2.com/cgi/wiki?ValueObject), and it is very useful when having a 1:1 relationship from an Entity towards a Value Object
+- With an Embedded Value mapping, the VO will reside in the same row of the User that owns it, as an additional column
+- Depending on the case, a VO will be fine when we **won't be adding fields** else it should be an entity
+- If we want to access the data **independently** then it's an entity
+
+### Why Doctrine ?
+
+>  We recommend using Doctrine in most cases when dealing with Entities and business logic
+
+- Embedded value with [embedabbles](https://www.doctrine-project.org/projects/doctrine-orm/en/2.11/tutorials/embeddables.html)
+- Also possible to use surrogate fields mapped directly (doctrine < 2.4)
+  - In this case it's better to use Abstract Factory to generate Product or DoctrineProduct (subclass)
+
+### [Serialize LOB (single large object) Pattern](https://www.martinfowler.com/eaaCatalog/serializedLOB.html)
+
+- Object models often contain complicated graphs of small objects
+- Using a relations in db works but is awkward and slow (multiple joins)
+- Another form of persistence is serialization, where a whole graph of objects is written out as a single large object (LOB) in a table
+- this Serialized LOB then becomes a form of memento [Gang of Four]
+- The persistence footprint requirements get reduced to a single column
+- **We can't query fields with this pattern**
+- Serialization can be improved with [JMS Serializer](http://jmsyst.com/libs/serializer)
+- [Doctrine Custom Types](https://www.doctrine-project.org/projects/doctrine-orm/en/2.11/cookbook/custom-mapping-types.html) 
+
+### Persisting VO collections
+
+- Using embeddable value when we know the collection size
+
+#### Collection Serialized into a Single Column
+
+-  With Doctrine you can use an Object or Custom Type
+- Check the row size
+
+#### Collection backed by a Join Table
+
+- If we need querying capabilities on VO
+- Can be one to many or many to many
+- Doctrine requires that all database entities to have a unique identity. Because we want to persist Money Value Objects we need to then add an artificial identity so Doctrine can handle its persistence
+- Solution 1: put the surrogate identity in the Money class 
+  - Problem The identity is infrastructure and not domain
+- Solution 2 : put surrogate field in a subclass and use factories.
+  - The factory should be passed in application service and any other domain objects
+
+#### PostgreSQL and JSONB
+
+- Now postgres allows querying directly json with [JSONB](https://www.postgresql.org/docs/9.4/functions-json.html)
+
+### Security
+
+- Manipulating VO is safer as you manipulate valid objects
+-  If you centralize the [guards](https://en.wikipedia.org/wiki/Guard_(computer_science)) in the constructor and pass into your model a IATA Value Object avoiding SQL Injections or similar attacks get easier
+- [Dan Bergh Johnsson : Secure by design](http://dearjunior.blogspot.com/search/label/domain%20driven%20security)
+
+
+
+# 4. Entities
+
+Most of the time the identity of an entity is represented as a primitive type: usually a string or an integer. But using a value object to represent it has more advantages:
+
+- Value Objects are immutable, so they cannot be modified
+- Value Objects are complex types that can have custom behaviours that otherwise with primitive types cannot have
+- makes equality more explicit
+
+## Identity operation
+
+There are usually 4 ways to define the identity of an entity
+
+- A client provides the identity
+- the application itself provides an identity
+- the persistence mechanism provides the identity
+  - Usual and simple but **we won’t have the identity of the entity until we persist it**
+  - will couple the identity operation with the underlying persistence store
+- another bounded context provides an identity
+
+### Persistence Mechanism Generates Identity 
+
+#### Surrogate identity
+
+The simplest way to handle that situation is by using a [Layer SuperType](https://martinfowler.com/eaaCatalog/layerSupertype.html) where we put the identity field created for the persistence store.
+
+![image-20220131150038305](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131150038305.png)
+
+#### Active Record vs Data Mapper for Rich Domain Models
+
+An Active Record implementation is fine mostly for CRUD applications, but it’s not the ideal solution for rich domain models
+
+- The Active Record pattern assumes a one-to-one relation between an entity and a database table. So it couples the design of the database to the design of the object system
+-  Advanced things like collections or inheritance are tricky to implement
+- Most of the implementations force the use, through inheritance, of some sort of constructions to impose several conventions. This can lead to persistence leakage into the domain model by coupling the domain model with the ORM
+- Currently **the best ORM for PHP out there is Doctrine**. It’s an implementation of the Data Mapper pattern⁶. Data Mapper decouples the persistence concerns from the domain concerns, leading to persistence-free entities
+
+### Client Provides Identity
+
+ Probably this is the ideal case, because the identity can be modelled quite easy
+
+- Example : an ISBN
+
+### Application Generates Identity
+
+- If the client cannot provide the identity generally the preferred way to handle the identity operation is to let the application generate the identities, usually through a UUID
+
+- Several libraries provide this, e.g. https://github.com/ramsey/uuid
+
+- The preferred place to put the creation of the identity would be inside a Repository
+
+  ![image-20220131151058018](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131151058018.png)
+
+### Other Bounded Context Generates Identity
+
+- Probably this would be the most complex identity generation strategy, because it enforces to have a local entity to be dependent not only on local bounded context events, but in external bounded contexts events
+- When synchronization is needed between the entities of the Bounded Contexts, usually can be achieved with an Event Driven architecture on each of the Bounded Context that need to be notified when the original entity is changed
+
+## Persisting Entities
+
+- Using doctrine
+- Using annotation
+  - Simple and elegant but
+  - domain concerns are mixed with infrastructure concerns
+  - s entity is tightly coupled to the mapping information specified by the annotations in the source code
+- Using config files :
+  - The best way
+
+## Testing entities
+
+- It’s relatively easy to test entities
+-  the test should be the invariants that the entity protects
+
+## Validation
+
+- Validation is a highly important process in our domain model
+- Should test all attributes are valid and also whole object is valid. It is not an equivalence
+
+###  Attribute Validation
+
+- Some people understand validation as the process whereby a service validates the state of a given object. In this case, the validation conforms to a [design-by-contract](https://en.wikipedia.org/wiki/Design_by_contract) approach - consisting of preconditions, post-conditions and invariants.
+-  Here we will be using guards as an easy way of validating the pre-conditions (username string validation)
+- Some developers may see this kind of validation as defensive programming
+-  but we control only the correctness of our domain state
+
+### Entire Object Validation
+
+- It can be tempting to add this kind of validation to the object itself, but generally this is an antipattern
+-  Higher-level validation is likely to change at different times to the object itself. Also it is good practice to separate these responsibilities
+- The validation informs the client about any errors that have been found, or collect the results to be reviewed later. Sometimes we do not want to stop the execution at the first sign of trouble
+- An abstract and reusable Validator could be something like
+
+![image-20220131151954274](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131151954274.png)
+
+
+
+### Validating Object Compositions
+
+-  Validating object compositions can be complicated, because of this, the preferred way of achieving this is through a Domain Service
+- We can use Domain Events to notify other parts of the system that a particular element has been validated
+
+
+
+# 5. Services
+
+When there are operations that need to be represented, we can consider them to be services. There are typically three different types of service which you will encounter, these are :
+
+![image-20220131154707521](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131154707521.png)
+
+
+
+## Application services
+
+- Application services are the middleware between the outside world and the domain logic. The purpose of such a mechanism is to transform commands from the outside world into meaningful domain instructions
+- As following the same contract for every service is convenient (will see that later), the communication between the delivery mechanism and the domain is carried by data structures called DTOs (Data Transfer Objects) (NB : UserSigninRequest $request)
+
+### Transactions
+
+- In Domain-Driven Design, transactions are handled at the Application Service level. You are not going to find any beginTransaction or similar anywhere in your Domain code
+- All the operations performed during the execution of the Application Service are going to be run atomically against your database
 
