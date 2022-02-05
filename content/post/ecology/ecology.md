@@ -21,6 +21,9 @@ keywords:
 
 > [sea vs plane](https://www.sourcinghub.io/air-freight-vs-sea-freight-carbon-footprint/)
 
+- Global shipping by boat accounts for 2.4%
+- Global freight accounts for 10% including road freight
+
 
 
 ### Advices for trips (from [this](https://ourworldindata.org/travel-carbon-footprint))

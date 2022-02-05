@@ -24,9 +24,8 @@ Advice:
 
 #### “Program to an interface” really means “Program to a supertype.”
 
-> An abstract supertype (could be an abstract class OR interface). The important part is that we don't know the concrete type. That's what program to an interface really means.
->
-> in design patterns, the phrase “implement an interface” does NOT always mean “write a class that implements a Java interface, by using the ‘implements' keyword in the class declaration.” In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a abstract class OR interface) is still considered to be “implementing the interface” of that supertype
+- An abstract supertype (could be an abstract class OR interface). The important part is that we don't know the concrete type. That's what program to an interface really means.
+- in design patterns, the phrase “implement an interface” does NOT always mean “write a class that implements a Java interface, by using the ‘implements' keyword in the class declaration.” In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a abstract class OR interface) is still considered to be “implementing the interface” of that supertype
 
 **What we get**:
 
@@ -48,9 +47,18 @@ Also : we can add setters to modify behaviors at run time (e.g. start with defau
 
 > We spend more time in maintaining than developing. We should favor maintainability and extensibility over reuse. That is composition over inheritance.
 
---> We used the **strategy pattern** : The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+## The Strategy pattern
 
+> Favor composition over inheritance.
+>
+> The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
 
+- We used the **strategy pattern** : The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+- Strategy works by using composition and delegation
+- Strategy allows runtime behavior change
+- The strategy pattern really encapsulate a **family of algorithms**
+
+- *Template Method* works at the class level, so it’s static. *Strategy* works on the object level, letting you switch behaviors at runtime.
 
 # 2. The observer pattern
 

@@ -433,7 +433,7 @@ When there are operations that need to be represented, we can consider them to b
 
 
 
-## Application services
+## Application Services
 
 - Application services are the middleware between the outside world and the domain logic. The purpose of such a mechanism is to transform commands from the outside world into meaningful domain instructions
 - As following the same contract for every service is convenient (will see that later), the communication between the delivery mechanism and the domain is carried by data structures called DTOs (Data Transfer Objects) (NB : UserSigninRequest $request)
@@ -442,4 +442,153 @@ When there are operations that need to be represented, we can consider them to b
 
 - In Domain-Driven Design, transactions are handled at the Application Service level. You are not going to find any beginTransaction or similar anywhere in your Domain code
 - All the operations performed during the execution of the Application Service are going to be run atomically against your database
+
+## Domain Services
+
+- you will come across concepts in the Ubiquitous Language that cannot be neatly represented as either an Entity or Value
+- **domain services are stateless operations.**
+
+### Domain Services With Multiple Implementations
+
+- It is common to encounter infrastructural dependencies when modeling a domain service
+- use [Separated Interface](https://martinfowler.com/eaaCatalog/separatedInterface.html) : 
+  -  use Separated Interface to define an interface in one package but implement it in another
+  - This way a client that needs the dependency to the interface can be completely unaware of the implementation.
+  - The Separated Interface provides a good plug point for Gateway
+- in symfony we use the dependency injection configuration to swap implementations
+
+
+
+## Anemic Domain Models vs Rich Domain Models
+
+- Caution must be had to not overuse domain service abstractions within your system. Following this path can lead to entities and value objects stripped of all behaviour, becoming mere data containers
+- This is contrary to the goal of OOP, which can be thought of as the gathering of both data and behaviour into semantic units called objects
+-  considered an anti-pattern and is referenced to as the **Anemic domain model**
+- to reuse code changing an entity some suggest the use of a [Service Layer](https://martinfowler.com/eaaCatalog/serviceLayer.html), making the operations explicit and reusable. But
+
+### Anemic Domain Model Breaks Encapsulation
+
+- the service layer is required to know every detail of its internal representation
+-  This finding goes against the fundamental rule of object-oriented programming, combining data with subsequent behaviour
+
+### Anemic Domain Model Brings a False Sense of Code Reuse
+
+- we cannot guard against someone bypassing the service layer and accessing an entity 
+- invariants should be correctly guarded, and the best way to do this is to let the true domain model handle it
+- This leads to far richer classes, were behaviour is the ideal direction to aim for resulting code reuse. This is commonly referred to as a **rich domain model**
+
+###  How to Avoid Anemic Domain Model ?
+
+- think of the behaviour first. Databases, ORMs, and so on are just implementation details
+
+# 6. Domain events
+
+-  PHP developers are not generally used to work with events
+- Domain Events are events related to Domain changes. Domain Events are things that happen in our Domain that domain experts care about
+- While developing a single application, events come handy to decoupling components
+- Open / closed principle
+
+## Definition
+
+- Domain Events are one specific type of event used for notifying Domain changes to local or remote Bounded Contexts
+- captures the memory of something interesting which affects the domain (Martin Fowler)
+
+##  Examples
+
+- Domain Events are useful for dealing with eventual consistency and integrating different Bounded Contexts
+- Aggregates create Events and publish them
+- Subscribers may store Events and then forward them to remote subscribers
+
+![image-20220203190547379](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220203190547379.png)
+
+## Characteristics
+
+- Domain events are ordinarily immutable, as they are a record of something in the past
+- a domain event typically contains a timestamp for the time the event occurred and the identity of entities involved in the event
+- Also, a domain event often has a separate timestamp indicating when the event was entered into the system and the identity of the person who entered it
+- When useful, an identity for the domain event can be based on some set of these properties
+- All events should be represented as verbs in the past tense such as CustomerRelocated, CargoShipped, or InventoryLossageRecorded
+- Nouns tend to match up with “Transaction Objects” discussed later from Streamlined Object Modeling
+- . The introduction of the event makes the concept explicit **and part of the Ubiquitous Language**
+- Domain events are **different** from **[Symfony Event Dispatcher](https://symfony.com/doc/current/components/event_dispatcher.html)**, these are mutable
+
+## Modeling Events
+
+- DomainEvents are usually designed as immutable 
+- Constructor will initialize the full state of the DomainEvent 
+- DomainEvents will have getters to access its attributes 
+- Include the identity of the Aggregate that performs the action 
+- Include other Aggregate identities related with the first one 
+- Include parameters that caused the Event if useful
+
+> Thinking in other Bounded Context point of view could help modeling events
+
+-  don't include the whole User Entity from my Bounded Context in the Domain Event, NB : only literrals (email ..)
+
+## Persisting Domain Events
+
+- You can expose your Domain Events for other BC in a REST way
+- You can persist the Domain Event and the Aggregate changes in the same Database transaction before pushing it to RabbitMQ
+  - Don't want to push a notification to something that did not happend
+  - Don't want to miss notifications about something that did happen
+- Allows auditing entity changes
+- For Event Sourcing, you can reconstitute Aggregates from Domain Events
+
+### Event Store
+
+- An Event Store is a Domain Event repository that lives in our Domain space as an abstraction (interface or abstract class) its responsibility is to append Domain Events and query them
+- . An Entity or Value Object has sense inside a BC but DomainEvents define a communication protocol between BC
+
+## Publishing Events from the Domain Model
+
+- for a creating event, publishing can be done in the constructor and by using singleton to grab the publisher instance
+- You should struggle to publish Domain Events from deeper in the chain. The nearer inside the Entity or the Value Object, the better. **Not in domain or application services** which would result in an **anemic domain model**
+- A **DomainEventPublisher** is a Singleton class available from our Bounded Context in order to publish DomainEvents. It also has support to attach listeners, **DomainEventSubscriber**, that will be listening for any **DomainEvent** they are interested in
+- to persist domain events we can use a specific DomainEventSubscriber for persisting listening to all events.
+
+### Setting up DomainEventListeners
+
+- Where is the best place to set up the subscribers to the DomainEventPublisher ?
+  - For global subscribers that affect all the request, probably when building your DomainEventPublisher
+  - If some subscribers just affect a specific Application Service, when building the Application Service
+- example using silex
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220204143646093.png" alt="image-20220204143646093" style="zoom:67%;" />
+
+## Unit Testing
+
+-  use a specific EventListener that will work as an Spy to record if the Domain Event was published
+- [See martin fowler vocabulary about test doubles](https://www.martinfowler.com/bliki/TestDouble.html)
+
+## Spreading the News to Remote Bounded Contexts
+
+- 2 main non exclusive strategies
+  - REST
+  - Messaging 
+
+# 7. Modules
+
+> When you place some classes together in a Module, you are telling the next developer who looks at your design to think about them together. If your model is telling a story, the Modules are chapters. Eric Evans, Domain-Driven Design.
+
+- Modules should not be treated as a way to separate code but as a way to separate meaningful concepts in the model
+
+module folder structure example :
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220204144851562.png" alt="image-20220204144851562" style="zoom:50%;" />
+
+- Modules don’t separate code but separate meaningful concepts
+- we’re using Hexagonal Architecture to inverse the dependency between the domain and the infrastructure layer
+-  we will need a place where we can put all the implementations of the interfaces defined in the domain layer
+- for **infrastructure** we need to group the related implementations by the underlying technology
+
+###  Mixing Different Technologies
+
+- Use CQRS
+- or  use of the Proxy pattern from Gang of Four. 
+
+## Leverage Modules in PHP
+
+- PSR-0 and PSR-4 Namespacing Conventions
+
+# 8. Aggregates
 
