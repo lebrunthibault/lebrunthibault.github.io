@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-25T11:33:30+01:00" />
+<meta property="article:modified_time" content="2022-02-05T02:29:29+01:00" />
 
 <meta itemprop="name" content="Head first design patterns">
 <meta itemprop="description" content="and excerpts from https://refactoring.">
-<meta itemprop="dateModified" content="2022-01-25T11:33:30+01:00" />
-<meta itemprop="wordCount" content="2463">
+<meta itemprop="dateModified" content="2022-02-05T02:29:29+01:00" />
+<meta itemprop="wordCount" content="2538">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Head first design patterns"/>
 <meta name="twitter:description" content="and excerpts from https://refactoring."/>
@@ -134,6 +134,7 @@
             <li></li>
           </ul>
         </li>
+        <li><a href="#the-strategy-pattern">The Strategy pattern</a></li>
       </ul>
     </li>
     <li><a href="#2-the-observer-pattern">2. The observer pattern</a>
@@ -230,10 +231,10 @@
 </ul>
 <img src="C:\Users\thiba\Downloads\Capture.PNG" alt="Capture" style="zoom:50%;" />
 <h4 id="program-to-an-interface-really-means-program-to-a-supertype">“Program to an interface” really means “Program to a supertype.”</h4>
-<blockquote>
-<p>An abstract supertype (could be an abstract class OR interface). The important part is that we don&rsquo;t know the concrete type. That&rsquo;s what program to an interface really means.</p>
-<p>in design patterns, the phrase “implement an interface” does NOT always mean “write a class that implements a Java interface, by using the ‘implements' keyword in the class declaration.” In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a abstract class OR interface) is still considered to be “implementing the interface” of that supertype</p>
-</blockquote>
+<ul>
+<li>An abstract supertype (could be an abstract class OR interface). The important part is that we don&rsquo;t know the concrete type. That&rsquo;s what program to an interface really means.</li>
+<li>in design patterns, the phrase “implement an interface” does NOT always mean “write a class that implements a Java interface, by using the ‘implements' keyword in the class declaration.” In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a abstract class OR interface) is still considered to be “implementing the interface” of that supertype</li>
+</ul>
 <p><strong>What we get</strong>:</p>
 <p>With this design, other types of objects can reuse our fly and quack behaviors because these behaviors are no longer hidden away in our Duck classes! And we can add new behaviors without modifying any of our existing behavior classes or touching any of the Duck classes that use flying behaviors.</p>
 <p>Also : we can add setters to modify behaviors at run time (e.g. start with default implementation and modify it in a factory method)</p>
@@ -249,7 +250,28 @@
 <blockquote>
 <p>We spend more time in maintaining than developing. We should favor maintainability and extensibility over reuse. That is composition over inheritance.</p>
 </blockquote>
-<p>&ndash;&gt; We used the <strong>strategy pattern</strong> : The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+<h2 id="the-strategy-pattern">The Strategy pattern</h2>
+<blockquote>
+<p>Favor composition over inheritance.</p>
+<p>The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+</blockquote>
+<ul>
+<li>
+<p>We used the <strong>strategy pattern</strong> : The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+</li>
+<li>
+<p>Strategy works by using composition and delegation</p>
+</li>
+<li>
+<p>Strategy allows runtime behavior change</p>
+</li>
+<li>
+<p>The strategy pattern really encapsulate a <strong>family of algorithms</strong></p>
+</li>
+<li>
+<p><em>Template Method</em> works at the class level, so it’s static. <em>Strategy</em> works on the object level, letting you switch behaviors at runtime.</p>
+</li>
+</ul>
 <h1 id="2-the-observer-pattern">2. The observer pattern</h1>
 <blockquote>
 <p>Publishers + Subscribers = Observer Pattern</p>

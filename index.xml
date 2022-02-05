@@ -26,6 +26,15 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/symfony/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/symfony/</guid>
+      <description>Messenger Symfony Event Dispatcher vs Domain events   Events are mutable in symfony</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/ecology/food/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -139,6 +148,15 @@
       
       <guid>https://lebrunthibault.github.io/post/misc/economy/</guid>
       <description>Décroissance  croissance = augmentation du niveau de vie moyen</description>
+    </item>
+    
+    <item>
+      <title>Germany ecology</title>
+      <link>https://lebrunthibault.github.io/post/ecology/germany/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecology/germany/</guid>
+      <description>germany owid energy stats  energy per capita peaking in 1980, down by 20% electricity consumption per capita stable (small drop since 2015)   Share of electricity production from renewables in 2020 : 45% germany : 23% France Electricity intensity (per unit of GDP): same in France and Germany Carbon intensity of energy production : 0.</description>
     </item>
     
     <item>

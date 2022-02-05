@@ -16,6 +16,13 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/symfony/</loc>
+    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/ecology/food/</loc>
     <lastmod>2022-01-21T11:07:19+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -59,7 +66,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/</loc>
-    <lastmod>2022-01-31T21:20:11+01:00</lastmod>
+    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -100,7 +107,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/ecology/ecology/</loc>
-    <lastmod>2022-01-21T12:12:29+01:00</lastmod>
+    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -113,15 +120,22 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/ecology/germany/</loc>
+    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/</loc>
-    <lastmod>2022-01-25T11:33:30+01:00</lastmod>
+    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-01-31T21:20:11+01:00</lastmod>
+    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -163,7 +177,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-01-31T21:20:11+01:00</lastmod>
+    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

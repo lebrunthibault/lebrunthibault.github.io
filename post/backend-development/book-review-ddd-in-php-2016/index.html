@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-31T21:20:11+01:00" />
+<meta property="article:modified_time" content="2022-02-05T02:29:29+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
 <meta itemprop="description" content="book here">
-<meta itemprop="dateModified" content="2022-01-31T21:20:11+01:00" />
-<meta itemprop="wordCount" content="3579">
+<meta itemprop="dateModified" content="2022-02-05T02:29:29+01:00" />
+<meta itemprop="wordCount" content="4719">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
 <meta name="twitter:description" content="book here"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 17 mins read </span>
+            <span class="more-meta"> 23 mins read </span>
         </div>
     </header>
 
@@ -197,13 +197,56 @@
     </li>
     <li><a href="#5-services">5. Services</a>
       <ul>
-        <li><a href="#application-services">Application services</a>
+        <li><a href="#application-services">Application Services</a>
           <ul>
             <li><a href="#transactions">Transactions</a></li>
           </ul>
         </li>
+        <li><a href="#domain-services">Domain Services</a>
+          <ul>
+            <li><a href="#domain-services-with-multiple-implementations">Domain Services With Multiple Implementations</a></li>
+          </ul>
+        </li>
+        <li><a href="#anemic-domain-models-vs-rich-domain-models">Anemic Domain Models vs Rich Domain Models</a>
+          <ul>
+            <li><a href="#anemic-domain-model-breaks-encapsulation">Anemic Domain Model Breaks Encapsulation</a></li>
+            <li><a href="#anemic-domain-model-brings-a-false-sense-of-code-reuse">Anemic Domain Model Brings a False Sense of Code Reuse</a></li>
+            <li><a href="#how-to-avoid-anemic-domain-model-">How to Avoid Anemic Domain Model ?</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
+    <li><a href="#6-domain-events">6. Domain events</a>
+      <ul>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#characteristics-1">Characteristics</a></li>
+        <li><a href="#modeling-events">Modeling Events</a></li>
+        <li><a href="#persisting-domain-events">Persisting Domain Events</a>
+          <ul>
+            <li><a href="#event-store">Event Store</a></li>
+          </ul>
+        </li>
+        <li><a href="#publishing-events-from-the-domain-model">Publishing Events from the Domain Model</a>
+          <ul>
+            <li><a href="#setting-up-domaineventlisteners">Setting up DomainEventListeners</a></li>
+          </ul>
+        </li>
+        <li><a href="#unit-testing">Unit Testing</a></li>
+        <li><a href="#spreading-the-news-to-remote-bounded-contexts">Spreading the News to Remote Bounded Contexts</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-modules">7. Modules</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#mixing-different-technologies">Mixing Different Technologies</a></li>
+          </ul>
+        </li>
+        <li><a href="#leverage-modules-in-php">Leverage Modules in PHP</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-aggregates">8. Aggregates</a></li>
   </ul>
 </nav>
   </div>
@@ -627,7 +670,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <h1 id="5-services">5. Services</h1>
 <p>When there are operations that need to be represented, we can consider them to be services. There are typically three different types of service which you will encounter, these are :</p>
 <p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131154707521.png" alt="image-20220131154707521"></p>
-<h2 id="application-services">Application services</h2>
+<h2 id="application-services">Application Services</h2>
 <ul>
 <li>Application services are the middleware between the outside world and the domain logic. The purpose of such a mechanism is to transform commands from the outside world into meaningful domain instructions</li>
 <li>As following the same contract for every service is convenient (will see that later), the communication between the delivery mechanism and the domain is carried by data structures called DTOs (Data Transfer Objects) (NB : UserSigninRequest $request)</li>
@@ -637,6 +680,164 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>In Domain-Driven Design, transactions are handled at the Application Service level. You are not going to find any beginTransaction or similar anywhere in your Domain code</li>
 <li>All the operations performed during the execution of the Application Service are going to be run atomically against your database</li>
 </ul>
+<h2 id="domain-services">Domain Services</h2>
+<ul>
+<li>you will come across concepts in the Ubiquitous Language that cannot be neatly represented as either an Entity or Value</li>
+<li><strong>domain services are stateless operations.</strong></li>
+</ul>
+<h3 id="domain-services-with-multiple-implementations">Domain Services With Multiple Implementations</h3>
+<ul>
+<li>It is common to encounter infrastructural dependencies when modeling a domain service</li>
+<li>use <a href="https://martinfowler.com/eaaCatalog/separatedInterface.html">Separated Interface</a> :
+<ul>
+<li>use Separated Interface to define an interface in one package but implement it in another</li>
+<li>This way a client that needs the dependency to the interface can be completely unaware of the implementation.</li>
+<li>The Separated Interface provides a good plug point for Gateway</li>
+</ul>
+</li>
+<li>in symfony we use the dependency injection configuration to swap implementations</li>
+</ul>
+<h2 id="anemic-domain-models-vs-rich-domain-models">Anemic Domain Models vs Rich Domain Models</h2>
+<ul>
+<li>Caution must be had to not overuse domain service abstractions within your system. Following this path can lead to entities and value objects stripped of all behaviour, becoming mere data containers</li>
+<li>This is contrary to the goal of OOP, which can be thought of as the gathering of both data and behaviour into semantic units called objects</li>
+<li>considered an anti-pattern and is referenced to as the <strong>Anemic domain model</strong></li>
+<li>to reuse code changing an entity some suggest the use of a <a href="https://martinfowler.com/eaaCatalog/serviceLayer.html">Service Layer</a>, making the operations explicit and reusable. But</li>
+</ul>
+<h3 id="anemic-domain-model-breaks-encapsulation">Anemic Domain Model Breaks Encapsulation</h3>
+<ul>
+<li>the service layer is required to know every detail of its internal representation</li>
+<li>This finding goes against the fundamental rule of object-oriented programming, combining data with subsequent behaviour</li>
+</ul>
+<h3 id="anemic-domain-model-brings-a-false-sense-of-code-reuse">Anemic Domain Model Brings a False Sense of Code Reuse</h3>
+<ul>
+<li>we cannot guard against someone bypassing the service layer and accessing an entity</li>
+<li>invariants should be correctly guarded, and the best way to do this is to let the true domain model handle it</li>
+<li>This leads to far richer classes, were behaviour is the ideal direction to aim for resulting code reuse. This is commonly referred to as a <strong>rich domain model</strong></li>
+</ul>
+<h3 id="how-to-avoid-anemic-domain-model-">How to Avoid Anemic Domain Model ?</h3>
+<ul>
+<li>think of the behaviour first. Databases, ORMs, and so on are just implementation details</li>
+</ul>
+<h1 id="6-domain-events">6. Domain events</h1>
+<ul>
+<li>PHP developers are not generally used to work with events</li>
+<li>Domain Events are events related to Domain changes. Domain Events are things that happen in our Domain that domain experts care about</li>
+<li>While developing a single application, events come handy to decoupling components</li>
+<li>Open / closed principle</li>
+</ul>
+<h2 id="definition">Definition</h2>
+<ul>
+<li>Domain Events are one specific type of event used for notifying Domain changes to local or remote Bounded Contexts</li>
+<li>captures the memory of something interesting which affects the domain (Martin Fowler)</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<ul>
+<li>Domain Events are useful for dealing with eventual consistency and integrating different Bounded Contexts</li>
+<li>Aggregates create Events and publish them</li>
+<li>Subscribers may store Events and then forward them to remote subscribers</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220203190547379.png" alt="image-20220203190547379"></p>
+<h2 id="characteristics-1">Characteristics</h2>
+<ul>
+<li>Domain events are ordinarily immutable, as they are a record of something in the past</li>
+<li>a domain event typically contains a timestamp for the time the event occurred and the identity of entities involved in the event</li>
+<li>Also, a domain event often has a separate timestamp indicating when the event was entered into the system and the identity of the person who entered it</li>
+<li>When useful, an identity for the domain event can be based on some set of these properties</li>
+<li>All events should be represented as verbs in the past tense such as CustomerRelocated, CargoShipped, or InventoryLossageRecorded</li>
+<li>Nouns tend to match up with “Transaction Objects” discussed later from Streamlined Object Modeling</li>
+<li>. The introduction of the event makes the concept explicit <strong>and part of the Ubiquitous Language</strong></li>
+<li>Domain events are <strong>different</strong> from <strong><a href="https://symfony.com/doc/current/components/event_dispatcher.html">Symfony Event Dispatcher</a></strong>, these are mutable</li>
+</ul>
+<h2 id="modeling-events">Modeling Events</h2>
+<ul>
+<li>DomainEvents are usually designed as immutable</li>
+<li>Constructor will initialize the full state of the DomainEvent</li>
+<li>DomainEvents will have getters to access its attributes</li>
+<li>Include the identity of the Aggregate that performs the action</li>
+<li>Include other Aggregate identities related with the first one</li>
+<li>Include parameters that caused the Event if useful</li>
+</ul>
+<blockquote>
+<p>Thinking in other Bounded Context point of view could help modeling events</p>
+</blockquote>
+<ul>
+<li>don&rsquo;t include the whole User Entity from my Bounded Context in the Domain Event, NB : only literrals (email ..)</li>
+</ul>
+<h2 id="persisting-domain-events">Persisting Domain Events</h2>
+<ul>
+<li>You can expose your Domain Events for other BC in a REST way</li>
+<li>You can persist the Domain Event and the Aggregate changes in the same Database transaction before pushing it to RabbitMQ
+<ul>
+<li>Don&rsquo;t want to push a notification to something that did not happend</li>
+<li>Don&rsquo;t want to miss notifications about something that did happen</li>
+</ul>
+</li>
+<li>Allows auditing entity changes</li>
+<li>For Event Sourcing, you can reconstitute Aggregates from Domain Events</li>
+</ul>
+<h3 id="event-store">Event Store</h3>
+<ul>
+<li>An Event Store is a Domain Event repository that lives in our Domain space as an abstraction (interface or abstract class) its responsibility is to append Domain Events and query them</li>
+<li>. An Entity or Value Object has sense inside a BC but DomainEvents define a communication protocol between BC</li>
+</ul>
+<h2 id="publishing-events-from-the-domain-model">Publishing Events from the Domain Model</h2>
+<ul>
+<li>for a creating event, publishing can be done in the constructor and by using singleton to grab the publisher instance</li>
+<li>You should struggle to publish Domain Events from deeper in the chain. The nearer inside the Entity or the Value Object, the better. <strong>Not in domain or application services</strong> which would result in an <strong>anemic domain model</strong></li>
+<li>A <strong>DomainEventPublisher</strong> is a Singleton class available from our Bounded Context in order to publish DomainEvents. It also has support to attach listeners, <strong>DomainEventSubscriber</strong>, that will be listening for any <strong>DomainEvent</strong> they are interested in</li>
+<li>to persist domain events we can use a specific DomainEventSubscriber for persisting listening to all events.</li>
+</ul>
+<h3 id="setting-up-domaineventlisteners">Setting up DomainEventListeners</h3>
+<ul>
+<li>Where is the best place to set up the subscribers to the DomainEventPublisher ?
+<ul>
+<li>For global subscribers that affect all the request, probably when building your DomainEventPublisher</li>
+<li>If some subscribers just affect a specific Application Service, when building the Application Service</li>
+</ul>
+</li>
+<li>example using silex</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220204143646093.png" alt="image-20220204143646093" style="zoom:67%;" />
+<h2 id="unit-testing">Unit Testing</h2>
+<ul>
+<li>use a specific EventListener that will work as an Spy to record if the Domain Event was published</li>
+<li><a href="https://www.martinfowler.com/bliki/TestDouble.html">See martin fowler vocabulary about test doubles</a></li>
+</ul>
+<h2 id="spreading-the-news-to-remote-bounded-contexts">Spreading the News to Remote Bounded Contexts</h2>
+<ul>
+<li>2 main non exclusive strategies
+<ul>
+<li>REST</li>
+<li>Messaging</li>
+</ul>
+</li>
+</ul>
+<h1 id="7-modules">7. Modules</h1>
+<blockquote>
+<p>When you place some classes together in a Module, you are telling the next developer who looks at your design to think about them together. If your model is telling a story, the Modules are chapters. Eric Evans, Domain-Driven Design.</p>
+</blockquote>
+<ul>
+<li>Modules should not be treated as a way to separate code but as a way to separate meaningful concepts in the model</li>
+</ul>
+<p>module folder structure example :</p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220204144851562.png" alt="image-20220204144851562" style="zoom:50%;" />
+<ul>
+<li>Modules don’t separate code but separate meaningful concepts</li>
+<li>we’re using Hexagonal Architecture to inverse the dependency between the domain and the infrastructure layer</li>
+<li>we will need a place where we can put all the implementations of the interfaces defined in the domain layer</li>
+<li>for <strong>infrastructure</strong> we need to group the related implementations by the underlying technology</li>
+</ul>
+<h3 id="mixing-different-technologies">Mixing Different Technologies</h3>
+<ul>
+<li>Use CQRS</li>
+<li>or  use of the Proxy pattern from Gang of Four.</li>
+</ul>
+<h2 id="leverage-modules-in-php">Leverage Modules in PHP</h2>
+<ul>
+<li>PSR-0 and PSR-4 Namespacing Conventions</li>
+</ul>
+<h1 id="8-aggregates">8. Aggregates</h1>
 
     </div>
 
