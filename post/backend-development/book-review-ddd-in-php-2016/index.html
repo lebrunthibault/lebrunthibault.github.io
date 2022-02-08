@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-02-08T03:19:54+01:00" />
+<meta property="article:modified_time" content="2022-02-08T15:45:55+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
 <meta itemprop="description" content="book here">
-<meta itemprop="dateModified" content="2022-02-08T03:19:54+01:00" />
-<meta itemprop="wordCount" content="4829">
+<meta itemprop="dateModified" content="2022-02-08T15:45:55+01:00" />
+<meta itemprop="wordCount" content="5001">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
 <meta name="twitter:description" content="book here"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 23 mins read </span>
+            <span class="more-meta"> 24 mins read </span>
         </div>
     </header>
 
@@ -440,6 +440,19 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <ul>
 <li>tricky part</li>
 <li>one-to-one relationship between domain events and projections</li>
+</ul>
+<h4 id="command-pattern-vs-cqrs-command">Command pattern vs CQRS command</h4>
+<p>From <a href="https://stackoverflow.com/questions/47991017/understanding-the-command-pattern-in-a-ddd-context/47993398">stackoverflow</a> : The &lsquo;command&rsquo; in the Command design pattern combines both <em>data</em> and <em>behavior</em> within the same class. With CQRS, on the other hand, the command is simply a message, a data container, with no behavior. Behavior is moved to a &lsquo;handler&rsquo; class. The handler is identical to your old &lsquo;application services&rsquo; with the distinction that a handler has a very narrowly defined scope. This separation is the driver that enables the maintainability and flexibility of this design</p>
+<h4 id="cqrs-command-architecturehttpsblogscuttingedgeitstevenposts2011meanwhile-on-the-command-side-of-my-architecture"><a href="https://blogs.cuttingedge.it/steven/posts/2011/meanwhile-on-the-command-side-of-my-architecture/">CQRS command architecture</a></h4>
+<ul>
+<li>The use of decorators to add Cross-Cutting Concerns is the cleanest and most effective way to apply these common features I ever came across</li>
+<li>It is a form of <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect-Oriented Programming</a>
+<ul>
+<li>increase <a href="https://en.wikipedia.org/wiki/Modularity_(programming)">modularity</a> by allowing the <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of</a> <a href="https://en.wikipedia.org/wiki/Cross-cutting_concern">cross-cutting concerns</a></li>
+<li>Correct wiring all of dependencies, and writing and adding correctly functioning Cross-Cutting Concerns can be challenging. But at least this complexity is focused in a single part of the application (the startup path a.k.a. <a href="https://freecontent.manning.com/dependency-injection-in-net-2nd-edition-understanding-the-composition-root/">Composition Root</a>)</li>
+<li>this problem is best resolved with a DI library</li>
+</ul>
+</li>
 </ul>
 <h2 id="event-sourcing">Event Sourcing</h2>
 <ul>
