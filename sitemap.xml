@@ -66,7 +66,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/</loc>
-    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
+    <lastmod>2022-02-08T03:19:54+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -127,6 +127,13 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/grasp/</loc>
+    <lastmod>2022-02-08T03:19:54+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/</loc>
     <lastmod>2022-02-05T02:29:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -135,7 +142,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
+    <lastmod>2022-02-08T03:19:54+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -177,7 +184,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
+    <lastmod>2022-02-08T03:19:54+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

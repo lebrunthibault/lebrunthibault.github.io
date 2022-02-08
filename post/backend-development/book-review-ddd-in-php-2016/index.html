@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-02-05T02:29:29+01:00" />
+<meta property="article:modified_time" content="2022-02-08T03:19:54+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
 <meta itemprop="description" content="book here">
-<meta itemprop="dateModified" content="2022-02-05T02:29:29+01:00" />
-<meta itemprop="wordCount" content="4719">
+<meta itemprop="dateModified" content="2022-02-08T03:19:54+01:00" />
+<meta itemprop="wordCount" content="4829">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
 <meta name="twitter:description" content="book here"/>
@@ -668,6 +668,16 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>We can use Domain Events to notify other parts of the system that a particular element has been validated</li>
 </ul>
 <h1 id="5-services">5. Services</h1>
+<blockquote>
+<p>NB from <a href="http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/">http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/</a></p>
+<ul>
+<li>Domain services are very granular where as application services are a facade purposed with providing an API.</li>
+<li>Domain services contain domain logic that can’t naturally be placed in an entity or value object whereas application services orchestrate the execution of domain logic and don’t themselves implement any domain logic.</li>
+<li>Domain service methods can have other domain elements as operands and return values whereas application services operate upon trivial operands such as identity values and primitive data structures.</li>
+<li>Application services declare dependencies on infrastructural services required to execute domain logic.</li>
+<li>Command handlers are a flavor of application services which focus on handling a single command typically in a CQRS architecture.</li>
+</ul>
+</blockquote>
 <p>When there are operations that need to be represented, we can consider them to be services. There are typically three different types of service which you will encounter, these are :</p>
 <p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131154707521.png" alt="image-20220131154707521"></p>
 <h2 id="application-services">Application Services</h2>
@@ -737,7 +747,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>Aggregates create Events and publish them</li>
 <li>Subscribers may store Events and then forward them to remote subscribers</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220203190547379.png" alt="image-20220203190547379"></p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220203190547379.png" alt="image-20220203190547379" style="zoom: 150%;" />
 <h2 id="characteristics-1">Characteristics</h2>
 <ul>
 <li>Domain events are ordinarily immutable, as they are a record of something in the past</li>
@@ -746,7 +756,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>When useful, an identity for the domain event can be based on some set of these properties</li>
 <li>All events should be represented as verbs in the past tense such as CustomerRelocated, CargoShipped, or InventoryLossageRecorded</li>
 <li>Nouns tend to match up with “Transaction Objects” discussed later from Streamlined Object Modeling</li>
-<li>. The introduction of the event makes the concept explicit <strong>and part of the Ubiquitous Language</strong></li>
+<li>The introduction of the event makes the concept explicit <strong>and part of the Ubiquitous Language</strong></li>
 <li>Domain events are <strong>different</strong> from <strong><a href="https://symfony.com/doc/current/components/event_dispatcher.html">Symfony Event Dispatcher</a></strong>, these are mutable</li>
 </ul>
 <h2 id="modeling-events">Modeling Events</h2>
@@ -779,7 +789,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <h3 id="event-store">Event Store</h3>
 <ul>
 <li>An Event Store is a Domain Event repository that lives in our Domain space as an abstraction (interface or abstract class) its responsibility is to append Domain Events and query them</li>
-<li>. An Entity or Value Object has sense inside a BC but DomainEvents define a communication protocol between BC</li>
+<li>An Entity or Value Object has sense inside a BC but DomainEvents define a communication protocol between BC</li>
 </ul>
 <h2 id="publishing-events-from-the-domain-model">Publishing Events from the Domain Model</h2>
 <ul>

@@ -160,6 +160,15 @@
     </item>
     
     <item>
+      <title>grasp</title>
+      <link>https://lebrunthibault.github.io/post/backend-development/grasp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/grasp/</guid>
+      <description>GRASP Information expert  Assign responsibility to the class that has the information needed to fulfill it.</description>
+    </item>
+    
+    <item>
       <title>Head first design patterns</title>
       <link>https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
