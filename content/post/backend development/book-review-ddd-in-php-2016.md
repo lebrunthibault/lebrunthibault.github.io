@@ -267,7 +267,7 @@ From [stackoverflow](https://stackoverflow.com/questions/47991017/understanding-
 
 
 
-#### NB : Object relational Stuctural patterns (persistence)
+#### NB : Object relational Structural patterns (persistence)
 
 - **Active record** : the entity has methods to save, remove .. on itself and inherits a base class. **Eloquent**
 - **Data mapper pattern**: the entity persistence is handled by the ORM. **Symfony** 
@@ -332,6 +332,12 @@ From [stackoverflow](https://stackoverflow.com/questions/47991017/understanding-
 - Manipulating VO is safer as you manipulate valid objects
 -  If you centralize the [guards](https://en.wikipedia.org/wiki/Guard_(computer_science)) in the constructor and pass into your model a IATA Value Object avoiding SQL Injections or similar attacks get easier
 - [Dan Bergh Johnsson : Secure by design](http://dearjunior.blogspot.com/search/label/domain%20driven%20security)
+
+
+
+### [Symfony forms and value object](https://webmozart.io/blog/2015/09/09/value-objects-in-symfony-forms/)
+
+- The way to go ? Backed by a lot of people including ocramius
 
 
 
