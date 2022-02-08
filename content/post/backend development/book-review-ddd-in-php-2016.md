@@ -196,6 +196,18 @@ CQRS seeks an even more aggressive separation of concerns splitting the Model in
 - tricky part
 - one-to-one relationship between domain events and projections
 
+#### Command pattern vs CQRS command
+
+From [stackoverflow](https://stackoverflow.com/questions/47991017/understanding-the-command-pattern-in-a-ddd-context/47993398) : The 'command' in the Command design pattern combines both *data* and *behavior* within the same class. With CQRS, on the other hand, the command is simply a message, a data container, with no behavior. Behavior is moved to a 'handler' class. The handler is identical to your old 'application services' with the distinction that a handler has a very narrowly defined scope. This separation is the driver that enables the maintainability and flexibility of this design
+
+#### [CQRS command architecture](https://blogs.cuttingedge.it/steven/posts/2011/meanwhile-on-the-command-side-of-my-architecture/)
+
+- The use of decorators to add Cross-Cutting Concerns is the cleanest and most effective way to apply these common features I ever came across
+- It is a form of [Aspect-Oriented Programming](https://en.wikipedia.org/wiki/Aspect-oriented_programming)
+  -  increase [modularity](https://en.wikipedia.org/wiki/Modularity_(programming)) by allowing the [separation of](https://en.wikipedia.org/wiki/Separation_of_concerns) [cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern)
+  - Correct wiring all of dependencies, and writing and adding correctly functioning Cross-Cutting Concerns can be challenging. But at least this complexity is focused in a single part of the application (the startup path a.k.a. [Composition Root](https://freecontent.manning.com/dependency-injection-in-net-2nd-edition-understanding-the-composition-root/))
+  - this problem is best resolved with a DI library
+
 
 
 ## Event Sourcing
