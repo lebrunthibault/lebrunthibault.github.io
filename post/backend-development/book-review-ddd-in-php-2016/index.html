@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-02-08T15:45:55+01:00" />
+<meta property="article:modified_time" content="2022-02-08T18:42:55+01:00" />
 
 <meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
 <meta itemprop="description" content="book here">
-<meta itemprop="dateModified" content="2022-02-08T15:45:55+01:00" />
-<meta itemprop="wordCount" content="5001">
+<meta itemprop="dateModified" content="2022-02-08T18:42:55+01:00" />
+<meta itemprop="wordCount" content="5019">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
 <meta name="twitter:description" content="book here"/>
@@ -170,6 +170,7 @@
             <li><a href="#serialize-lob-single-large-object-patternhttpswwwmartinfowlercomeaacatalogserializedlobhtml"><a href="https://www.martinfowler.com/eaaCatalog/serializedLOB.html">Serialize LOB (single large object) Pattern</a></a></li>
             <li><a href="#persisting-vo-collections">Persisting VO collections</a></li>
             <li><a href="#security">Security</a></li>
+            <li><a href="#symfony-forms-and-value-objecthttpswebmozartioblog20150909value-objects-in-symfony-forms"><a href="https://webmozart.io/blog/2015/09/09/value-objects-in-symfony-forms/">Symfony forms and value object</a></a></li>
           </ul>
         </li>
       </ul>
@@ -505,7 +506,7 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>Value Objects are not persisted on their own, they are typically persisted within an Aggregate</li>
 <li><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">NB</a> : ValueObjects can be integrated in the FlyWeight pattern.</li>
 </ul>
-<h4 id="nb--object-relational-stuctural-patterns-persistence">NB : Object relational Stuctural patterns (persistence)</h4>
+<h4 id="nb--object-relational-structural-patterns-persistence">NB : Object relational Structural patterns (persistence)</h4>
 <ul>
 <li><strong>Active record</strong> : the entity has methods to save, remove .. on itself and inherits a base class. <strong>Eloquent</strong></li>
 <li><strong>Data mapper pattern</strong>: the entity persistence is handled by the ORM. <strong>Symfony</strong></li>
@@ -578,6 +579,10 @@ problems is not bad, the only problem is that sometimes thinking less technicall
 <li>Manipulating VO is safer as you manipulate valid objects</li>
 <li>If you centralize the <a href="https://en.wikipedia.org/wiki/Guard_(computer_science)">guards</a> in the constructor and pass into your model a IATA Value Object avoiding SQL Injections or similar attacks get easier</li>
 <li><a href="http://dearjunior.blogspot.com/search/label/domain%20driven%20security">Dan Bergh Johnsson : Secure by design</a></li>
+</ul>
+<h3 id="symfony-forms-and-value-objecthttpswebmozartioblog20150909value-objects-in-symfony-forms"><a href="https://webmozart.io/blog/2015/09/09/value-objects-in-symfony-forms/">Symfony forms and value object</a></h3>
+<ul>
+<li>The way to go ? Backed by a lot of people including ocramius</li>
 </ul>
 <h1 id="4-entities">4. Entities</h1>
 <p>Most of the time the identity of an entity is represented as a primitive type: usually a string or an integer. But using a value object to represent it has more advantages:</p>
