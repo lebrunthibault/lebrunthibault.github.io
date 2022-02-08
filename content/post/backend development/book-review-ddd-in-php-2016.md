@@ -427,6 +427,14 @@ An Active Record implementation is fine mostly for CRUD applications, but it’s
 
 # 5. Services
 
+> NB from http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/
+>
+> - Domain services are very granular where as application services are a facade purposed with providing an API.
+> - Domain services contain domain logic that can’t naturally be placed in an entity or value object whereas application services orchestrate the execution of domain logic and don’t themselves implement any domain logic.
+> - Domain service methods can have other domain elements as operands and return values whereas application services operate upon trivial operands such as identity values and primitive data structures.
+> - Application services declare dependencies on infrastructural services required to execute domain logic.
+> - Command handlers are a flavor of application services which focus on handling a single command typically in a CQRS architecture.
+
 When there are operations that need to be represented, we can consider them to be services. There are typically three different types of service which you will encounter, these are :
 
 ![image-20220131154707521](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131154707521.png)
@@ -499,7 +507,7 @@ When there are operations that need to be represented, we can consider them to b
 - Aggregates create Events and publish them
 - Subscribers may store Events and then forward them to remote subscribers
 
-![image-20220203190547379](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220203190547379.png)
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220203190547379.png" alt="image-20220203190547379" style="zoom: 150%;" />
 
 ## Characteristics
 
@@ -509,7 +517,7 @@ When there are operations that need to be represented, we can consider them to b
 - When useful, an identity for the domain event can be based on some set of these properties
 - All events should be represented as verbs in the past tense such as CustomerRelocated, CargoShipped, or InventoryLossageRecorded
 - Nouns tend to match up with “Transaction Objects” discussed later from Streamlined Object Modeling
-- . The introduction of the event makes the concept explicit **and part of the Ubiquitous Language**
+- The introduction of the event makes the concept explicit **and part of the Ubiquitous Language**
 - Domain events are **different** from **[Symfony Event Dispatcher](https://symfony.com/doc/current/components/event_dispatcher.html)**, these are mutable
 
 ## Modeling Events
@@ -537,7 +545,7 @@ When there are operations that need to be represented, we can consider them to b
 ### Event Store
 
 - An Event Store is a Domain Event repository that lives in our Domain space as an abstraction (interface or abstract class) its responsibility is to append Domain Events and query them
-- . An Entity or Value Object has sense inside a BC but DomainEvents define a communication protocol between BC
+- An Entity or Value Object has sense inside a BC but DomainEvents define a communication protocol between BC
 
 ## Publishing Events from the Domain Model
 
