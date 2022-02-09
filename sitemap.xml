@@ -85,6 +85,13 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-reference-eric-evans/</loc>
+    <lastmod>2022-02-09T12:56:51+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/design-patterns/</loc>
     <lastmod>2022-01-24T01:57:32+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -142,7 +149,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-02-08T18:42:55+01:00</lastmod>
+    <lastmod>2022-02-09T12:56:51+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -184,7 +191,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-02-08T18:42:55+01:00</lastmod>
+    <lastmod>2022-02-09T12:56:51+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
