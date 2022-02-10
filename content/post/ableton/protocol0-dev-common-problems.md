@@ -10,6 +10,6 @@ draft: true
 
 ## Ableton
 
-- Live tempo slows down and no sound: 
+- Live tempo slows down and no sound:
 
 - Minitaur no sound : change presets
