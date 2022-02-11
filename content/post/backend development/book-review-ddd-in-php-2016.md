@@ -6,6 +6,15 @@ draft: true
 
 [book here](https://drive.google.com/file/d/16pQ8ET7pLOzadr5ayF9PPUidOgCEJQVl/view?usp=sharing)
 
+
+
+NB CQRS / ES frameworks :
+
+- [Broadway](https://github.com/broadway/broadway) toolbox
+- [Prooph](https://github.com/prooph/event-store) event store
+
+
+
 # Preface
 
 > initially started as "**Hexagonal** architecture with PHP"
