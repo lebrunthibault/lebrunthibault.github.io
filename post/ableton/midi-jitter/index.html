@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Asyncio notes - Home</title>
+  <title> - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="single thread cooperative multitasking" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="MIDI Jitter http://www." /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.92.2 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/dev/asyncio/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/ableton/midi-jitter/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Asyncio notes" />
-<meta property="og:description" content="single thread cooperative multitasking" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="MIDI Jitter http://www." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/dev/asyncio/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/midi-jitter/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-02-11T21:19:42+01:00" />
 
-<meta itemprop="name" content="Asyncio notes">
-<meta itemprop="description" content="single thread cooperative multitasking">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="153">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="MIDI Jitter http://www.">
+<meta itemprop="dateModified" content="2022-02-11T21:19:42+01:00" />
+<meta itemprop="wordCount" content="146">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Asyncio notes"/>
-<meta name="twitter:description" content="single thread cooperative multitasking"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="MIDI Jitter http://www."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,7 +114,7 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">Asyncio notes</h1>
+        <h1 class="post-title"></h1>
 
         <div class="post-meta">
             
@@ -127,83 +127,78 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></a>
+    <li><a href="#midi-jitter">MIDI Jitter</a>
       <ul>
-        <li><a href="#coroutine"><a href="">Coroutine</a></a></li>
-        <li><a href="#task">Task</a></li>
-        <li><a href="#future">Future</a></li>
+        <li>
+          <ul>
+            <li><a href="#midi-connections-comparison">Midi connections comparison</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#running-an-asyncio-program">Running an asyncio program</a></li>
+    <li><a href="#midi-jitter-1">Midi jitter</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-        <blockquote>
-<p>single thread cooperative multitasking</p>
-</blockquote>
-<p><strong>test 2</strong></p>
-<h1 id="awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></h1>
-<h2 id="coroutine"><a href="">Coroutine</a></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">async</span> <span class="n">def</span><span class="p">:</span> <span class="k">pass</span>
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>A coroutine execution returns a coroutine object. Simply calling a coroutine will not schedule it to be executed</p>
-<p>Coroutine can be awaited and it makes the execution synchronous from the caller perspective</p>
-</blockquote>
-<p>Can be run with :</p>
+        <h1 id="midi-jitter">MIDI Jitter</h1>
+<p><a href="http://www.audiodesignguide.com/DAC_final/how.htm">http://www.audiodesignguide.com/DAC_final/how.htm</a></p>
+<p><a href="https://www.ableton.com/en/manual/midi-fact-sheet/">https://www.ableton.com/en/manual/midi-fact-sheet/</a></p>
+<p><a href="http://www.users.on.net/~mcdds001/mmmmqac/midi_jitter.html">Midi latency analyzer</a></p>
+<p><a href="https://www.reddit.com/r/linuxaudio/comments/9kg418/how_to_eliminate_midi_jitter/">how to eliminate midi jitter reddit</a></p>
+<p><a href="https://www.thomann.de/fr/e_rm_multiclock_usb.htm">https://www.thomann.de/fr/e_rm_multiclock_usb.htm</a> : 500 balles mais apparemment top: clock sync via un signal audio. <a href="https://reverb.com/fr/item/41066860-erm-multiclock-usb">moins cher ici</a></p>
+<h3 id="midi-connections-comparison">Midi connections comparison</h3>
 <ul>
-<li><code>await</code></li>
-<li><code>asyncio.run()</code></li>
-<li><code>asyncio.create_task()</code> to run coroutines concurrently as asyncio tasks</li>
+<li>DIN 5-pin classic MIDI:
+<ul>
+<li>A latency/jitter of minimum 1ms (time to process a 3 byte midi message)</li>
+<li>Jitter acceptable</li>
 </ul>
-<h2 id="task">Task</h2>
-<blockquote>
-<p>Tasks are used to schedule coroutines <em>concurrently</em></p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">async</span> <span class="k">def</span> <span class="nf">coroutine</span><span class="p">():</span>
-    <span class="k">return</span> <span class="mi">42</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Schedule nested() to run soon concurrently with &#34;main()&#34;.</span>
-    <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">coroutine</span><span class="p">())</span>
-    <span class="c1"># or task = asyncio.ensure_future(coroutine())</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="future">Future</h2>
-<blockquote>
-<p>A <a href="https://docs.python.org/3/library/asyncio-future.html#asyncio.Future"><code>Future</code></a> is a special <strong>low-level</strong> awaitable</p>
-<p>Future objects in asyncio are needed to allow callback-based code to be used with async/await.</p>
-</blockquote>
-<h1 id="running-an-asyncio-program">Running an asyncio program</h1>
+</li>
+<li>Usb:
 <ul>
-<li>Using <code>asyncio.run(coroutine())</code></li>
-<li>Creates an event loop and manages awaiting and closing the pool</li>
-<li>Only one pool allowed at the same time by thread</li>
+<li>More throughput</li>
+<li>Usually higher jitter</li>
+</ul>
+</li>
+<li>Ethernet / IP
+<ul>
+<li>better ?</li>
+</ul>
+</li>
+</ul>
+<p><strong>Possibilities</strong>:</p>
+<ul>
+<li><a href="https://www.iconnectivity.com/mioxm">https://www.iconnectivity.com/mioxm</a></li>
+</ul>
+<h1 id="midi-jitter-1">Midi jitter</h1>
+<ul>
+<li>Around 10ms at SR 44100</li>
+<li>Around 5ms at SR 88200</li>
+<li>High SR + low buffer size = 2 ms !</li>
+</ul>
+<p><strong>Solution</strong></p>
+<ul>
+<li>High SR</li>
+<li>Low buffer size</li>
+</ul>
+<p><strong>More</strong></p>
+<ul>
+<li>Check out focusrite windows optimizing <a href="https://support.focusrite.com/hc/en-gb/articles/207355205-Optimising-your-PC-for-Audio-on-Windows-10">tutorial</a></li>
+</ul>
+<h4 id="should-i-use-a-midi-interface--possibilities-are">Should I use a midi interface ? Possibilities are</h4>
+<ul>
+<li><a href="https://www.thomann.de/fr/roland_um_one_mkii.htm">Roland UM-One MkII</a> : cable usb to 2 * midi : peut permetttre de réduire le jitter de l&rsquo;ordi au synth par rapport a un cable usb normal</li>
+<li>Use a high end audio soundcard using pll (focusrite <a href="https://pro.focusrite.com/what-is-jetpll">jetpll</a>)</li>
 </ul>
 
     </div>

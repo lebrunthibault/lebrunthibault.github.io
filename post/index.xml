@@ -8,6 +8,51 @@
     <language>en</language><atom:link href="https://lebrunthibault.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/ableton/bugs-and-fixes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ableton/bugs-and-fixes/</guid>
+      <description>Minitaur editor disconnected  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor  Usamo setup not working  See the recording setup diagram</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ableton/latency/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ableton/latency/</guid>
+      <description>Reducing latency when monitoring  See focusrite article</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ableton/midi-jitter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ableton/midi-jitter/</guid>
+      <description>MIDI Jitter http://www.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ableton/recording-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ableton/recording-setup/</guid>
+      <description>Prophet recording setup </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ableton/set-performance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ableton/set-performance/</guid>
+      <description>Speed up sets load time  See ableton profiling info sheet</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/article-review-ddd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -44,11 +89,11 @@
     
     <item>
       <title>Ableton notes</title>
-      <link>https://lebrunthibault.github.io/post/ableton/ableton/</link>
+      <link>https://lebrunthibault.github.io/post/ableton/ableton-tips/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ableton/ableton/</guid>
-      <description>download archives  Bugs  Minitaur editor disconnected :  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor    MIDI Jitter http://www.</description>
+      <guid>https://lebrunthibault.github.io/post/ableton/ableton-tips/</guid>
+      <description>download ableton exe archives  Recording CC automation with Rev2 editor</description>
     </item>
     
     <item>
