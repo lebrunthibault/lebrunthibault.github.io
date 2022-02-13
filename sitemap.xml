@@ -58,8 +58,22 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/ecology/digital/</loc>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/ecology/food/</loc>
     <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/jobs/jobs/</loc>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -72,8 +86,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/misc/afghanistan/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/societe/afghanistan/</loc>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -155,8 +169,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/misc/economy/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/societe/economy/</loc>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -184,7 +198,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-02-11T21:19:42+01:00</lastmod>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -218,15 +232,15 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/misc/politique/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/societe/politique/</loc>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-02-11T21:19:42+01:00</lastmod>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -260,8 +274,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/misc/rome/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/societe/rome/</loc>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -274,8 +288,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/misc/societe/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/societe/societe/</loc>
+    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -288,7 +302,7 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/misc/s%C3%A9curit%C3%A9/</loc>
+    <loc>https://lebrunthibault.github.io/post/societe/s%C3%A9curit%C3%A9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
