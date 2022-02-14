@@ -24,7 +24,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/ableton/recording-setup/</loc>
-    <lastmod>2022-02-11T21:19:42+01:00</lastmod>
+    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -58,6 +58,13 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/ecology/banks/</loc>
+    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/ecology/digital/</loc>
     <lastmod>2022-02-13T18:31:23+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -72,8 +79,15 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/ecology/janco-/</loc>
+    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/jobs/jobs/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -198,7 +212,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -240,7 +254,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
