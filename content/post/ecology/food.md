@@ -15,7 +15,10 @@ keywords:
 
 
 
-[transport part of co2 footprint](https://ourworldindata.org/food-choice-vs-eating-local)
+- [transport part of co2 footprint](https://ourworldindata.org/food-choice-vs-eating-local)
+
+- https://ourworldindata.org/environmental-impacts-of-food?country=#carbon-footprint-of-food-products
+- https://ourworldindata.org/food-choice-vs-eating-local
 
 # Vocabulaire
 

@@ -39,3 +39,21 @@ Objectif: 2T max
 #### Cleaning dishes
 
 > [dishwasher could reduce greenhouse gas emissions](https://deepblue.lib.umich.edu/bitstream/handle/2027.42/148829/Porras_Gabriela_Thesis_Life Cycle of Manual and Machine Dishwashing in Households .pdf?sequence=1&isAllowed=y) from washing up by 72% compared to doing them by hand
+
+
+
+# Actions individuelles pour le climat
+
+[POUVOIR ET RESPONSABILITÉ DES INDIVIDUS, DES ENTREPRISES ET DE L'ÉTAT FACE À L’URGENCE CLIMATIQUE](https://www.carbone4.com/wp-content/uploads/2019/06/Publication-Carbone-4-Faire-sa-part-pouvoir-responsabilite-climat.pdf) de carbone4
+
+[Effectuer sa « BA » pour agir contre le changement climatique : quelques ordres de grandeur](https://jancovici.com/changement-climatique/agir-individuellement/effectuer-sa-ba-pour-agir-contre-le-changement-climatique-quelques-ordres-de-grandeur/). Jancovici 2000
+
+Empreinte francais moyen : 10t co2/an. Objectif 2t co2/an pour respecter l'accord de paris (2°). Soit 80% de réduction des émissions.
+
+Action individuelle maximale = 25% de réduction.
+
+Avec investissements individuels (rénovation thermique + changement chaudière) et changement véhicule pour véhicule bas carbone (électrique) = 45% de réduction.
+
+![](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/co2_gestes_individuels.PNG)
+
+régiment végé = 10% de la réduction global de ges et 40% de réduction individuelle
