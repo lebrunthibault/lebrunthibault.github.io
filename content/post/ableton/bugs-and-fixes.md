@@ -4,6 +4,11 @@
 - **simply reload the minitaur editor**
 - If not working unplug / plug the usb cable and reload editor
 
+# Minitaur no sound
+
+- change preset
+
+
 # [Usamo](https://www.expert-sleepers.co.uk/usamo.html) setup not working
 
 > See the [recording setup diagram](https://app.diagrams.net/#G1O35YGEMWm0MctmqZmRg2sVx-kob9ZtqC)
@@ -20,4 +25,3 @@ if there is garbage midi received
 - Power down & up soundcard
 
 NB : the midi thru is normally never in cause, no need to check the cables
-
