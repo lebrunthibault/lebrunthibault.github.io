@@ -289,8 +289,68 @@ public enum Singleton {
 > In this chapter, we take encapsulation to a whole new level: we’re going to encapsulate method invocation. Being able to log and undo easily.
 
 - The Command Pattern allows you to decouple the requester of an action from the object that actually performs the action.
-- introduce command objects into the design
+- So, here the requester would be the remote
+  control and the object that performs the action would be an instance of one of your
+  vendor classes.
+- introduce command objects into the design.
 - The remote doesn’t have any idea what the work is, it just has a command object that knows how to talk to the right object to get the work done
+
+
+
+### The order example
+
+- Think of the Order Slip as an object that acts as a request to prepare a meal.
+- Unique method orderUp + reference to the cook object
+- The Short-Order Cook is the object that really knows how to prepare meals. Totally decoupled from the waitress
+
+
+
+## Pattern
+
+![image-20220222135349158](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222135349158.png)
+
+
+
+
+
+![image-20220222135838913](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222135838913.png)
+
+
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222140325537.png" alt="image-20220222140325537" style="zoom:50%;" />
+
+
+
+- binding together a set of actions on a specific receiver : set of actions == command class. Specific receiver == class parameter.
+- Back at the diner, the Waitress was parameterized with multiple orders (commands) throughout the day. **Waitress is an invoker**
+- The command may / should be immutable
+- Most commands only handle the details of how a request is passed to the receiver, while the receiver itself does the actual work
+  - In general, we strive for “dumb” command objects that just invoke an action on a receiver; however, there are many
+    examples of “smart” command objects that implement most, if not all, of the logic needed to carry out a request. Certainly you can do this; just keep in mind you’ll no longer have the same level of decoupling between the invoker and receiver, nor will you be able to parameterize your commands with receivers.
+- As with any other object, a command can be serialized, which means converting it to a string that can be easily written to a file or a database. Later, the string can be restored as the initial command object. Thus, you can delay and schedule command execution. But there’s even more! In the same way, you can queue, log or send commands over the network
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222143043044.png" alt="image-20220222143043044" style="zoom:50%;" />
+
+
+
+> For commands with only one abstract method we can use lambda functions (e.g. for on and off)
+
+
+
+## Undo
+
+- add undo to the abstract command class
+- implement in subclasses, potentially keeping state
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222143541765.png" alt="image-20220222143541765" style="zoom:50%;" />
+
+
+
+## Macro commands
+
+
+
+
 
 # 9. The Iterator and Composite Patterns
 
