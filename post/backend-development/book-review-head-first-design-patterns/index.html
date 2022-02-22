@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-02-05T02:29:29+01:00" />
+<meta property="article:modified_time" content="2022-02-22T14:44:41+01:00" />
 
 <meta itemprop="name" content="Head first design patterns">
 <meta itemprop="description" content="and excerpts from https://refactoring.">
-<meta itemprop="dateModified" content="2022-02-05T02:29:29+01:00" />
-<meta itemprop="wordCount" content="2538">
+<meta itemprop="dateModified" content="2022-02-22T14:44:41+01:00" />
+<meta itemprop="wordCount" content="2855">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Head first design patterns"/>
 <meta name="twitter:description" content="and excerpts from https://refactoring."/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 12 mins read </span>
+            <span class="more-meta"> 14 mins read </span>
         </div>
     </header>
 
@@ -178,7 +178,18 @@
         </li>
       </ul>
     </li>
-    <li><a href="#6-the-command-pattern">6. The Command Pattern</a></li>
+    <li><a href="#6-the-command-pattern">6. The Command Pattern</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#the-order-example">The order example</a></li>
+          </ul>
+        </li>
+        <li><a href="#pattern">Pattern</a></li>
+        <li><a href="#undo">Undo</a></li>
+        <li><a href="#macro-commands">Macro commands</a></li>
+      </ul>
+    </li>
     <li><a href="#9-the-iterator-and-composite-patterns">9. The Iterator and Composite Patterns</a>
       <ul>
         <li>
@@ -505,9 +516,45 @@
 </blockquote>
 <ul>
 <li>The Command Pattern allows you to decouple the requester of an action from the object that actually performs the action.</li>
-<li>introduce command objects into the design</li>
+<li>So, here the requester would be the remote
+control and the object that performs the action would be an instance of one of your
+vendor classes.</li>
+<li>introduce command objects into the design.</li>
 <li>The remote doesn’t have any idea what the work is, it just has a command object that knows how to talk to the right object to get the work done</li>
 </ul>
+<h3 id="the-order-example">The order example</h3>
+<ul>
+<li>Think of the Order Slip as an object that acts as a request to prepare a meal.</li>
+<li>Unique method orderUp + reference to the cook object</li>
+<li>The Short-Order Cook is the object that really knows how to prepare meals. Totally decoupled from the waitress</li>
+</ul>
+<h2 id="pattern">Pattern</h2>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222135349158.png" alt="image-20220222135349158"></p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222135838913.png" alt="image-20220222135838913"></p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222140325537.png" alt="image-20220222140325537" style="zoom:50%;" />
+<ul>
+<li>binding together a set of actions on a specific receiver : set of actions == command class. Specific receiver == class parameter.</li>
+<li>Back at the diner, the Waitress was parameterized with multiple orders (commands) throughout the day. <strong>Waitress is an invoker</strong></li>
+<li>The command may / should be immutable</li>
+<li>Most commands only handle the details of how a request is passed to the receiver, while the receiver itself does the actual work
+<ul>
+<li>In general, we strive for “dumb” command objects that just invoke an action on a receiver; however, there are many
+examples of “smart” command objects that implement most, if not all, of the logic needed to carry out a request. Certainly you can do this; just keep in mind you’ll no longer have the same level of decoupling between the invoker and receiver, nor will you be able to parameterize your commands with receivers.</li>
+</ul>
+</li>
+<li>As with any other object, a command can be serialized, which means converting it to a string that can be easily written to a file or a database. Later, the string can be restored as the initial command object. Thus, you can delay and schedule command execution. But there’s even more! In the same way, you can queue, log or send commands over the network</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222143043044.png" alt="image-20220222143043044" style="zoom:50%;" />
+<blockquote>
+<p>For commands with only one abstract method we can use lambda functions (e.g. for on and off)</p>
+</blockquote>
+<h2 id="undo">Undo</h2>
+<ul>
+<li>add undo to the abstract command class</li>
+<li>implement in subclasses, potentially keeping state</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222143541765.png" alt="image-20220222143541765" style="zoom:50%;" />
+<h2 id="macro-commands">Macro commands</h2>
 <h1 id="9-the-iterator-and-composite-patterns">9. The Iterator and Composite Patterns</h1>
 <h3 id="composite">Composite</h3>
 <blockquote>
