@@ -350,6 +350,62 @@ public enum Singleton {
 
 
 
+# 7. The Adapter and Facade Patterns
+
+## Adapter
+
+- The client makes a request to the adapter by calling a method on it using the target interface.
+- The adapter translates the request into one or more calls on the adaptee using the adaptee interface.
+- The client receives the results of the call and never knows there is an adapter doing the translation.
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223105440918.png" alt="image-20220223105440918" style="zoom:50%;" />
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223105520370.png" alt="image-20220223105520370" style="zoom:50%;" />
+
+
+
+### Types of adapters
+
+- object adapters : see above
+- class adapters : using multiple inheritance. The adapter subclasses the target and adaptee class
+
+### Adapter vs decorator
+
+- both use composition to wrap an object
+- but the decorator adds **new behavior**
+- while the adapter **implements an interface**
+- adapter can also wrap multiple objects to implement an interface
+
+
+
+## Facade
+
+- A facade not only simplifies an interface, it decouples a client from a subsystem of components.
+- Facades and adapters may wrap multiple classes, but a facade’s intent is to simplify, while an adapter’s is to convert the interface to something different.
+- Facades don’t “encapsulate” the subsystem classes; they merely provide a simplified interface to their functionality. The subsystem classes still remain available for direct use by clients that need to use more specific interface
+- Each subsystem can have multiple facade
+- The intent of the Adapter Pattern is to alter an interface so that it matches one a client is expecting. The intent of the Facade Pattern is to provide a simplified interface to a subsystem.
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223111731344.png" alt="image-20220223111731344" style="zoom:50%;" />
+
+- An adapter wraps an object to change its interface, a decorator wraps an object to add new behaviors and responsibilities, and a facade “wraps” a set of objects to simplify.
+
+
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223114852994.png" alt="image-20220223114852994" style="zoom:50%;" />
+
+> also called Law of Demeter
+
+when you are designing a system, for any object, be careful of the number of classes it interacts with and also how it comes to interact with those classes.
+
+
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223115111940.png" alt="image-20220223115111940" style="zoom: 33%;" />
+
+
+
+
+
 
 
 # 9. The Iterator and Composite Patterns
