@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-24T01:57:32+01:00" />
+<meta property="article:modified_time" content="2022-02-23T11:59:59+01:00" />
 
 <meta itemprop="name" content="Design Patterns">
 <meta itemprop="description" content="Notes bout design patterns">
-<meta itemprop="dateModified" content="2022-01-24T01:57:32+01:00" />
-<meta itemprop="wordCount" content="564">
+<meta itemprop="dateModified" content="2022-02-23T11:59:59+01:00" />
+<meta itemprop="wordCount" content="688">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Design Patterns"/>
 <meta name="twitter:description" content="Notes bout design patterns"/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 3 mins read </span>
+            <span class="more-meta"> 4 mins read </span>
         </div>
     </header>
 
@@ -134,6 +134,7 @@
             <li><a href="#factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory Method</a></a></li>
             <li><a href="#abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></a></li>
             <li><a href="#singletonhttpsrefactoringgurudesign-patternssingleton"><a href="https://refactoring.guru/design-patterns/singleton">Singleton</a></a></li>
+            <li><a href="#facadehttpsrefactoringgurudesign-patternsfacade"><a href="https://refactoring.guru/design-patterns/facade">Facade</a></a></li>
             <li><a href="#compositehttpsrefactoringgurudesign-patternscomposite"><a href="https://refactoring.guru/design-patterns/composite">Composite</a></a></li>
             <li><a href="#decoratorhttpsrefactoringgurudesign-patternsdecorator"><a href="https://refactoring.guru/design-patterns/decorator">Decorator</a></a></li>
             <li><a href="#template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></a></li>
@@ -159,6 +160,7 @@
         <li>
           <ul>
             <li><a href="#abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory-1"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></a></li>
+            <li><a href="#commandhttpsrefactoringgurudesign-patternscommand"><a href="https://refactoring.guru/design-patterns/command">Command</a></a></li>
             <li><a href="#adapterhttpsrefactoringgurudesign-patternsadapter"><a href="https://refactoring.guru/design-patterns/adapter">Adapter</a></a></li>
           </ul>
         </li>
@@ -189,6 +191,11 @@
 <ul>
 <li>Used in basile ats client generation tests</li>
 <li>The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)</li>
+</ul>
+<h3 id="facadehttpsrefactoringgurudesign-patternsfacade"><a href="https://refactoring.guru/design-patterns/facade">Facade</a></h3>
+<ul>
+<li>Used in protocol0 SongFacade to expose readonly access to song objects</li>
+<li>Also in Scheduler to expose simplified facade to scheduling methods from 2 scheduler classes</li>
 </ul>
 <h3 id="compositehttpsrefactoringgurudesign-patternscomposite"><a href="https://refactoring.guru/design-patterns/composite">Composite</a></h3>
 <ul>
@@ -257,9 +264,24 @@
 <li>That would be beneficial for the status synchronization as we could have a single synchronizeStatusesInteface (with method synchronizeStatuses) instead of using a match in ATSSynchronizeStatusesService.</li>
 <li>Downside : would need a lot more classes and would complicate the subclassing of the ats code by a specific company&rsquo;s ats implementations.</li>
 </ul>
+<h3 id="commandhttpsrefactoringgurudesign-patternscommand"><a href="https://refactoring.guru/design-patterns/command">Command</a></h3>
+<ul>
+<li>Replace the encoder action code with commands</li>
+<li>create a command class per feature</li>
+<li>logging by command (using command class name)</li>
+<li>add an undo button doing multiple undo.</li>
+<li>undo can be used for undoing recordings as well</li>
+<li>define macro commands using commands arm track, show plugins ..</li>
+</ul>
+<p>In basile</p>
+<ul>
+<li>NB : in basile we use messages as commands but it’s messsage handlers that connect to a specific receiver and not client code</li>
+<li>We could use commands to wire up some frontend and backoffice features but how do we serialize the command in the front ?</li>
+</ul>
 <h3 id="adapterhttpsrefactoringgurudesign-patternsadapter"><a href="https://refactoring.guru/design-patterns/adapter">Adapter</a></h3>
 <ul>
 <li>Maybe on ATS system to abstract the different protocols used (if one day we use more that are not rest ..?)</li>
+<li>For ATS V1</li>
 </ul>
 
     </div>
