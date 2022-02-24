@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-02-23T11:59:59+01:00" />
+<meta property="article:modified_time" content="2022-02-24T13:41:29+01:00" />
 
 <meta itemprop="name" content="Head first design patterns">
 <meta itemprop="description" content="and excerpts from https://refactoring.">
-<meta itemprop="dateModified" content="2022-02-23T11:59:59+01:00" />
-<meta itemprop="wordCount" content="3149">
+<meta itemprop="dateModified" content="2022-02-24T13:41:29+01:00" />
+<meta itemprop="wordCount" content="3542">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Head first design patterns"/>
 <meta name="twitter:description" content="and excerpts from https://refactoring."/>
@@ -118,7 +118,7 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 15 mins read </span>
+            <span class="more-meta"> 17 mins read </span>
         </div>
     </header>
 
@@ -199,6 +199,15 @@
           </ul>
         </li>
         <li><a href="#facade">Facade</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-the-template-method-pattern">8. The Template Method Pattern</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hooks">Hooks</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#9-the-iterator-and-composite-patterns">9. The Iterator and Composite Patterns</a>
@@ -605,6 +614,66 @@ examples of “smart” command objects that implement most, if not all, of the 
 </blockquote>
 <p>when you are designing a system, for any object, be careful of the number of classes it interacts with and also how it comes to interact with those classes.</p>
 <img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223115111940.png" alt="image-20220223115111940" style="zoom: 33%;" />
+<h1 id="8-the-template-method-pattern">8. The Template Method Pattern</h1>
+<blockquote>
+<p>The Template Method defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.</p>
+</blockquote>
+<ul>
+<li>Allows a base class to control the algorithm, letting subclasses modify parts of it</li>
+<li>class concentrates knowledge about the algorithm and relies on subclasses to provide complete implementations</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224130432327.png" alt="image-20220224130432327" style="zoom:50%;" />
+<ul>
+<li>template  = method that define an algorithm as a set of steps</li>
+<li>One or more of these steps is defined to be abstract and implemented by a subclass</li>
+<li>important technique for code reuse</li>
+</ul>
+<h3 id="hooks">Hooks</h3>
+<ul>
+<li>
+<p>A hook is a method that is declared in the abstract class, but only given an empty or default implementation. This gives subclasses the ability to “hook into” the algorithm at various points, if they wish; a subclass is also free to ignore the hook</p>
+</li>
+<li>
+<p>A hook is a method the concrete class can implement but doesn’t have to (no body or simple body)</p>
+</li>
+<li>
+<p>abstract method : subclass must implement. Hook not</p>
+</li>
+<li>
+<p>a hook can also be used to notify the concrete class of a change</p>
+</li>
+<li>
+<p>Number of abstract methods : trade off between number of methods to implement and granularity / flexibility</p>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224131209482.png" alt="image-20220224131209482" style="zoom:50%;" />
+<ul>
+<li>The Hollywood Principle gives us a way to prevent “dependency rot.” Dependency rot happens when you have high-level components depending on low-level components etc ..</li>
+<li>With the Hollywood Principle, we allow low-level components to hook themselves into a system, but the high-level components determine when they are needed, and how</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224131354907.png" alt="image-20220224131354907" style="zoom: 33%;" />
+<ul>
+<li>Subclass never call parent explicitly</li>
+<li>Parent control part of their API that can be hooked / implemented</li>
+<li>Related patterns Hollywood principle : factory method (specialization of template method with one method, can also be part of a template method), observer</li>
+<li>Strategy resemble template method but works at the object level using composition / runtime. Template method works at the class level using inheritance. It is static
+<ul>
+<li>Also strategy encapsulate the whole algorithm whereas template method concrete class implement only parts of it. And don’t touch the structure</li>
+<li>Template method better when few changes are expected. If implementations are quite different, strategy will be fine because we don’t need as much reuse.</li>
+</ul>
+</li>
+<li>Hollywood principle vs Dependency injection
+<ul>
+<li>They both limit the dependencies between classes, and decoupling</li>
+<li>the Dependency Inversion Principle makes a much stronger and more general statement about how to avoid dependencies in design</li>
+</ul>
+</li>
+</ul>
+<p>Real world examples :</p>
+<ul>
+<li>subclassing list</li>
+<li>creating frameworks</li>
+</ul>
 <h1 id="9-the-iterator-and-composite-patterns">9. The Iterator and Composite Patterns</h1>
 <h3 id="composite">Composite</h3>
 <blockquote>
