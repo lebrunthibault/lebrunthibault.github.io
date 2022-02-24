@@ -406,6 +406,52 @@ when you are designing a system, for any object, be careful of the number of cla
 
 
 
+# 8. The Template Method Pattern
+
+> The Template Method defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.
+
+- Allows a base class to control the algorithm, letting subclasses modify parts of it
+- class concentrates knowledge about the algorithm and relies on subclasses to provide complete implementations
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224130432327.png" alt="image-20220224130432327" style="zoom:50%;" />
+
+- template  = method that define an algorithm as a set of steps
+- One or more of these steps is defined to be abstract and implemented by a subclass
+- important technique for code reuse
+
+### Hooks
+
+- A hook is a method that is declared in the abstract class, but only given an empty or default implementation. This gives subclasses the ability to “hook into” the algorithm at various points, if they wish; a subclass is also free to ignore the hook
+- A hook is a method the concrete class can implement but doesn’t have to (no body or simple body)
+- abstract method : subclass must implement. Hook not
+- a hook can also be used to notify the concrete class of a change
+
+
+
+- Number of abstract methods : trade off between number of methods to implement and granularity / flexibility
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224131209482.png" alt="image-20220224131209482" style="zoom:50%;" />
+
+- The Hollywood Principle gives us a way to prevent “dependency rot.” Dependency rot happens when you have high-level components depending on low-level components etc ..
+- With the Hollywood Principle, we allow low-level components to hook themselves into a system, but the high-level components determine when they are needed, and how
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224131354907.png" alt="image-20220224131354907" style="zoom: 33%;" />
+
+- Subclass never call parent explicitly
+- Parent control part of their API that can be hooked / implemented
+- Related patterns Hollywood principle : factory method (specialization of template method with one method, can also be part of a template method), observer
+- Strategy resemble template method but works at the object level using composition / runtime. Template method works at the class level using inheritance. It is static
+  - Also strategy encapsulate the whole algorithm whereas template method concrete class implement only parts of it. And don’t touch the structure
+  - Template method better when few changes are expected. If implementations are quite different, strategy will be fine because we don’t need as much reuse.
+- Hollywood principle vs Dependency injection
+  - They both limit the dependencies between classes, and decoupling
+  - the Dependency Inversion Principle makes a much stronger and more general statement about how to avoid dependencies in design
+
+Real world examples :
+
+- subclassing list
+- creating frameworks
+
 
 
 # 9. The Iterator and Composite Patterns
