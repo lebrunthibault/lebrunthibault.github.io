@@ -28,6 +28,11 @@ keywords:
 - Used in basile ats client generation tests
 - The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)
 
+### [Facade](https://refactoring.guru/design-patterns/facade)
+
+- Used in protocol0 SongFacade to expose readonly access to song objects
+- Also in Scheduler to expose simplified facade to scheduling methods from 2 scheduler classes
+
 ### [Composite](https://refactoring.guru/design-patterns/composite)
 
 - Used to abstract composite tracks in protocol0 e.g. in arming tracks or soloing them.
@@ -95,11 +100,26 @@ keywords:
 - That would be beneficial for the status synchronization as we could have a single synchronizeStatusesInteface (with method synchronizeStatuses) instead of using a match in ATSSynchronizeStatusesService.
 - Downside : would need a lot more classes and would complicate the subclassing of the ats code by a specific company's ats implementations.
 
+### [Command](https://refactoring.guru/design-patterns/command)
+
+- Replace the encoder action code with commands
+- create a command class per feature
+- logging by command (using command class name)
+- add an undo button doing multiple undo.
+- undo can be used for undoing recordings as well
+- define macro commands using commands arm track, show plugins .. 
+
+In basile
+
+- NB : in basile we use messages as commands but it’s messsage handlers that connect to a specific receiver and not client code
+- We could use commands to wire up some frontend and backoffice features but how do we serialize the command in the front ? 
+
 
 
 ### [Adapter](https://refactoring.guru/design-patterns/adapter)
 
 - Maybe on ATS system to abstract the different protocols used (if one day we use more that are not rest ..?) 
+- For ATS V1
 
 
 

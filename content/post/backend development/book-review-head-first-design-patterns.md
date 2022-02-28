@@ -289,8 +289,170 @@ public enum Singleton {
 > In this chapter, we take encapsulation to a whole new level: we’re going to encapsulate method invocation. Being able to log and undo easily.
 
 - The Command Pattern allows you to decouple the requester of an action from the object that actually performs the action.
-- introduce command objects into the design
+- So, here the requester would be the remote
+  control and the object that performs the action would be an instance of one of your
+  vendor classes.
+- introduce command objects into the design.
 - The remote doesn’t have any idea what the work is, it just has a command object that knows how to talk to the right object to get the work done
+
+
+
+### The order example
+
+- Think of the Order Slip as an object that acts as a request to prepare a meal.
+- Unique method orderUp + reference to the cook object
+- The Short-Order Cook is the object that really knows how to prepare meals. Totally decoupled from the waitress
+
+
+
+## Pattern
+
+![image-20220222135349158](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222135349158.png)
+
+
+
+
+
+![image-20220222135838913](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222135838913.png)
+
+
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222140325537.png" alt="image-20220222140325537" style="zoom:50%;" />
+
+
+
+- binding together a set of actions on a specific receiver : set of actions == command class. Specific receiver == class parameter.
+- Back at the diner, the Waitress was parameterized with multiple orders (commands) throughout the day. **Waitress is an invoker**
+- The command may / should be immutable
+- Most commands only handle the details of how a request is passed to the receiver, while the receiver itself does the actual work
+  - In general, we strive for “dumb” command objects that just invoke an action on a receiver; however, there are many
+    examples of “smart” command objects that implement most, if not all, of the logic needed to carry out a request. Certainly you can do this; just keep in mind you’ll no longer have the same level of decoupling between the invoker and receiver, nor will you be able to parameterize your commands with receivers.
+- As with any other object, a command can be serialized, which means converting it to a string that can be easily written to a file or a database. Later, the string can be restored as the initial command object. Thus, you can delay and schedule command execution. But there’s even more! In the same way, you can queue, log or send commands over the network
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222143043044.png" alt="image-20220222143043044" style="zoom:50%;" />
+
+
+
+> For commands with only one abstract method we can use lambda functions (e.g. for on and off)
+
+
+
+## Undo
+
+- add undo to the abstract command class
+- implement in subclasses, potentially keeping state
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222143541765.png" alt="image-20220222143541765" style="zoom:50%;" />
+
+
+
+## Macro commands
+
+
+
+# 7. The Adapter and Facade Patterns
+
+## Adapter
+
+- The client makes a request to the adapter by calling a method on it using the target interface.
+- The adapter translates the request into one or more calls on the adaptee using the adaptee interface.
+- The client receives the results of the call and never knows there is an adapter doing the translation.
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223105440918.png" alt="image-20220223105440918" style="zoom:50%;" />
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223105520370.png" alt="image-20220223105520370" style="zoom:50%;" />
+
+
+
+### Types of adapters
+
+- object adapters : see above
+- class adapters : using multiple inheritance. The adapter subclasses the target and adaptee class
+
+### Adapter vs decorator
+
+- both use composition to wrap an object
+- but the decorator adds **new behavior**
+- while the adapter **implements an interface**
+- adapter can also wrap multiple objects to implement an interface
+
+
+
+## Facade
+
+- A facade not only simplifies an interface, it decouples a client from a subsystem of components.
+- Facades and adapters may wrap multiple classes, but a facade’s intent is to simplify, while an adapter’s is to convert the interface to something different.
+- Facades don’t “encapsulate” the subsystem classes; they merely provide a simplified interface to their functionality. The subsystem classes still remain available for direct use by clients that need to use more specific interface
+- Each subsystem can have multiple facade
+- The intent of the Adapter Pattern is to alter an interface so that it matches one a client is expecting. The intent of the Facade Pattern is to provide a simplified interface to a subsystem.
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223111731344.png" alt="image-20220223111731344" style="zoom:50%;" />
+
+- An adapter wraps an object to change its interface, a decorator wraps an object to add new behaviors and responsibilities, and a facade “wraps” a set of objects to simplify.
+
+
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223114852994.png" alt="image-20220223114852994" style="zoom:50%;" />
+
+> also called Law of Demeter
+
+when you are designing a system, for any object, be careful of the number of classes it interacts with and also how it comes to interact with those classes.
+
+
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223115111940.png" alt="image-20220223115111940" style="zoom: 33%;" />
+
+
+
+
+
+# 8. The Template Method Pattern
+
+> The Template Method defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.
+
+- Allows a base class to control the algorithm, letting subclasses modify parts of it
+- class concentrates knowledge about the algorithm and relies on subclasses to provide complete implementations
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224130432327.png" alt="image-20220224130432327" style="zoom:50%;" />
+
+- template  = method that define an algorithm as a set of steps
+- One or more of these steps is defined to be abstract and implemented by a subclass
+- important technique for code reuse
+
+### Hooks
+
+- A hook is a method that is declared in the abstract class, but only given an empty or default implementation. This gives subclasses the ability to “hook into” the algorithm at various points, if they wish; a subclass is also free to ignore the hook
+- A hook is a method the concrete class can implement but doesn’t have to (no body or simple body)
+- abstract method : subclass must implement. Hook not
+- a hook can also be used to notify the concrete class of a change
+
+
+
+- Number of abstract methods : trade off between number of methods to implement and granularity / flexibility
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224131209482.png" alt="image-20220224131209482" style="zoom:50%;" />
+
+- The Hollywood Principle gives us a way to prevent “dependency rot.” Dependency rot happens when you have high-level components depending on low-level components etc ..
+- With the Hollywood Principle, we allow low-level components to hook themselves into a system, but the high-level components determine when they are needed, and how
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224131354907.png" alt="image-20220224131354907" style="zoom: 33%;" />
+
+- Subclass never call parent explicitly
+- Parent control part of their API that can be hooked / implemented
+- Related patterns Hollywood principle : factory method (specialization of template method with one method, can also be part of a template method), observer
+- Strategy resemble template method but works at the object level using composition / runtime. Template method works at the class level using inheritance. It is static
+  - Also strategy encapsulate the whole algorithm whereas template method concrete class implement only parts of it. And don’t touch the structure
+  - Template method better when few changes are expected. If implementations are quite different, strategy will be fine because we don’t need as much reuse.
+- Hollywood principle vs Dependency injection
+  - They both limit the dependencies between classes, and decoupling
+  - the Dependency Inversion Principle makes a much stronger and more general statement about how to avoid dependencies in design
+
+Real world examples :
+
+- subclassing list
+- creating frameworks
+
+
 
 # 9. The Iterator and Composite Patterns
 
