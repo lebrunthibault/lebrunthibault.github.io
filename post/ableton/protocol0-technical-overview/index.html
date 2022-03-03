@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.93.1 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/ableton/protocol0-technical-overview/" />
@@ -368,14 +368,14 @@ To be clearer it is equivalent to defining a method listening on a subject (that
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">duplicate_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-    <span class="c1"># type: (Song, int) -&gt; Sequence</span>
-    <span class="n">seq</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">()</span>  <span class="c1"># instantiate the Sequence class</span>
-    <span class="c1"># add the callable to the sequence</span>
-    <span class="n">seq</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_song</span><span class="o">.</span><span class="n">duplicate_track</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">complete_on</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">songManager</span><span class="o">.</span><span class="n">tracks_listener</span><span class="p">)</span>  <span class="c1"># declare the completion step</span>
-    <span class="n">seq</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># waits one tick (around 17ms on my system, often needed to let live process changes)</span>
-    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>  <span class="c1"># call seq.done to trigger the sequence</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">duplicate_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># type: (Song, int) -&gt; Sequence</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">()</span>  <span class="c1"># instantiate the Sequence class</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># add the callable to the sequence</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_song</span><span class="o">.</span><span class="n">duplicate_track</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">complete_on</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">songManager</span><span class="o">.</span><span class="n">tracks_listener</span><span class="p">)</span>  <span class="c1"># declare the completion step</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># waits one tick (around 17ms on my system, often needed to let live process changes)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>  <span class="c1"># call seq.done to trigger the sequence</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>A sequence step should always define its completion step and not expect the next step to handle any timeout or checks. Like this any step can always be assured that it executes after the previous one has succeeded or failed (thus ending the sequence).</li>

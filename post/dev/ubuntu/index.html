@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.93.1 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/dev/ubuntu/" />
@@ -187,20 +187,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">backing up my repos</span>
-
-<span class="k">[Service]</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
-<span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">true</span>
-<span class="na">User</span><span class="o">=</span><span class="s">thibault</span>
-<span class="na">Group</span><span class="o">=</span><span class="s">thibault</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">true</span>
-<span class="na">ExecStop</span><span class="o">=</span><span class="s">/usr/bin/python3 /home/thibault/bin/backup-repos.py</span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[Unit]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Description</span><span class="o">=</span><span class="s">backing up my repos</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Service]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
+</span></span><span class="line"><span class="cl"><span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">User</span><span class="o">=</span><span class="s">thibault</span>
+</span></span><span class="line"><span class="cl"><span class="na">Group</span><span class="o">=</span><span class="s">thibault</span>
+</span></span><span class="line"><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">ExecStop</span><span class="o">=</span><span class="s">/usr/bin/python3 /home/thibault/bin/backup-repos.py</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
+</span></span><span class="line"><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>sudo systemctl daemon-reload</code></p>
 <p>Test with :</p>

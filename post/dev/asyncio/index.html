@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.93.1 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/dev/asyncio/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Asyncio notes">
 <meta itemprop="description" content="single thread cooperative multitasking">
 <meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="153">
+<meta itemprop="wordCount" content="152">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Asyncio notes"/>
 <meta name="twitter:description" content="single thread cooperative multitasking"/>
@@ -151,8 +151,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">async</span> <span class="n">def</span><span class="p">:</span> <span class="k">pass</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">async</span> <span class="n">def</span><span class="p">:</span> <span class="k">pass</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>A coroutine execution returns a coroutine object. Simply calling a coroutine will not schedule it to be executed</p>
@@ -170,29 +170,27 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">async</span> <span class="k">def</span> <span class="nf">coroutine</span><span class="p">():</span>
-    <span class="k">return</span> <span class="mi">42</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Schedule nested() to run soon concurrently with &#34;main()&#34;.</span>
-    <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">coroutine</span><span class="p">())</span>
-    <span class="c1"># or task = asyncio.ensure_future(coroutine())</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">coroutine</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">42</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Schedule nested() to run soon concurrently with &#34;main()&#34;.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">coroutine</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># or task = asyncio.ensure_future(coroutine())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="future">Future</h2>
 <blockquote>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.93.1 with theme even" />
 
 
 <link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/" />
@@ -44,11 +44,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-02-24T13:41:29+01:00" />
+<meta property="article:modified_time" content="2022-03-03T02:16:56+01:00" />
 
 <meta itemprop="name" content="Head first design patterns">
 <meta itemprop="description" content="and excerpts from https://refactoring.">
-<meta itemprop="dateModified" content="2022-02-24T13:41:29+01:00" />
+<meta itemprop="dateModified" content="2022-03-03T02:16:56+01:00" />
 <meta itemprop="wordCount" content="3542">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Head first design patterns"/>
@@ -264,7 +264,7 @@
 <h4 id="program-to-an-interface-really-means-program-to-a-supertype">“Program to an interface” really means “Program to a supertype.”</h4>
 <ul>
 <li>An abstract supertype (could be an abstract class OR interface). The important part is that we don&rsquo;t know the concrete type. That&rsquo;s what program to an interface really means.</li>
-<li>in design patterns, the phrase “implement an interface” does NOT always mean “write a class that implements a Java interface, by using the ‘implements' keyword in the class declaration.” In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a abstract class OR interface) is still considered to be “implementing the interface” of that supertype</li>
+<li>in design patterns, the phrase “implement an interface” does NOT always mean “write a class that implements a Java interface, by using the ‘implements&rsquo; keyword in the class declaration.” In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a abstract class OR interface) is still considered to be “implementing the interface” of that supertype</li>
 </ul>
 <p><strong>What we get</strong>:</p>
 <p>With this design, other types of objects can reuse our fly and quack behaviors because these behaviors are no longer hidden away in our Duck classes! And we can add new behaviors without modifying any of our existing behavior classes or touching any of the Duck classes that use flying behaviors.</p>
@@ -525,10 +525,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Singleton</span> <span class="o">{</span>
-    <span class="n">INSTANCE</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Singleton</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">INSTANCE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="6-the-command-pattern">6. The Command Pattern</h1>
 <blockquote>
