@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.93.2 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/ableton/protocol0-technical-overview/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/ableton/p0-technical-overview/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -42,13 +42,13 @@
 <meta property="og:title" content="Protocol0 technical overview" />
 <meta property="og:description" content="Protocol0 Ableton Surface Script technical overview and discussion" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/protocol0-technical-overview/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/p0-technical-overview/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-03-05T17:03:45+01:00" />
 
 <meta itemprop="name" content="Protocol0 technical overview">
 <meta itemprop="description" content="Protocol0 Ableton Surface Script technical overview and discussion">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
+<meta itemprop="dateModified" content="2022-03-05T17:03:45+01:00" />
 <meta itemprop="wordCount" content="3174">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Protocol0 technical overview"/>
@@ -347,7 +347,7 @@ That is <code>Sequence</code>s can be nested allowing deep asynchronous function
 <h3 id="asynchronous-behavior-declaration">Asynchronous behavior declaration</h3>
 <p>The code can declare asynchronous behavior in 3 ways:</p>
 <ul>
-<li>via  <code>seq.add(wait=&lt;ticks&gt;)</code> which leverages <code>Live.Base.Timer</code> fast tick for tasks where we have a rough idea of the delay and guess without too much hassle (see <a href="#using-timers">below</a>)</li>
+<li>via  <code>seq.add(wait=&lt;ticks&gt;)</code> which leverages <code>Live.Base.Timer</code> fast tick for tasks where we have a rough idea of the delay and guess without too much hassle (see <a href="#using-timers-using-timers">below</a>)</li>
 <li>via <code>seq.add(wait_beats=&lt;beats)</code> (or <code>wait_bars</code>) that leverages the <code>current_song_time</code> Live event (see <code>SyncedScheduler</code> which notifies when beats change)</li>
 <li>via the <code>seq.add(on_complete=&lt;listener&gt;)</code> that defers the completion of the step until a listener is called.</li>
 </ul>
