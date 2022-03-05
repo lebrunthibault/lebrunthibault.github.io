@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Protecting the domain by Victor Rentea talk on youtube" /><meta name="keywords" content="" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Protecting the domain by Victor Rentea talk on youtube" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-01-21T13:57:26+01:00" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Protecting the domain by Victor Rentea talk on youtube">
+<meta itemprop="dateModified" content="2022-01-21T13:57:26+01:00" />
+<meta itemprop="wordCount" content="479">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Protecting the domain by Victor Rentea talk on youtube"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title"></h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 3 mins read </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#protecting-the-domain-by-victor-renteahttpsvictorrentearo">Protecting the domain by <a href="https://victorrentea.ro/">Victor Rentea</a></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#testing-tools">Testing tools</a></li>
+            <li><a href="#domain-vs">Domain vs</a></li>
+            <li><a href="#infrastructure">Infrastructure</a></li>
+          </ul>
+        </li>
+        <li><a href="#protect-the-domain">Protect the domain</a>
+          <ul>
+            <li><a href="#dtos-are-enemies">DTOs are enemies</a></li>
+            <li><a href="#testing">Testing</a></li>
+            <li><a href="#domain-communication-and-calls">Domain communication and calls</a></li>
+            <li><a href="#multiple-domains">Multiple domains</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#monolith-vs-micro-services">Monolith vs micro services</a>
+      <ul>
+        <li><a href="#bounded-context">Bounded context</a></li>
+        <li><a href="#anti-corruption-layer">Anti corruption layer</a></li>
+        <li><a href="#event-driven-">Event driven ?</a></li>
+        <li><a href="#tests">Tests</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <h1 id="protecting-the-domain-by-victor-renteahttpsvictorrentearo">Protecting the domain by <a href="https://victorrentea.ro/">Victor Rentea</a></h1>
+<p>talk on <a href="https://www.youtube.com/watch?v=cK19rE2V9UY">youtube</a></p>
+<p>Most important principles :</p>
+<ul>
+<li>Single Responsibility</li>
+<li>Dependency inversion</li>
+<li>DRY</li>
+</ul>
+<h3 id="testing-tools">Testing tools</h3>
+<ul>
+<li>Archunit java</li>
+<li>equivalent in php : <a href="https://github.com/qossmic/deptrac">https://github.com/qossmic/deptrac</a></li>
+<li><a href="https://github.com/j6s/phparch">https://github.com/j6s/phparch</a> : best</li>
+<li><a href="https://github.com/mihaeu/dephpend">https://github.com/mihaeu/dephpend</a></li>
+<li><a href="https://github.com/carlosas/phpat">https://github.com/carlosas/phpat</a></li>
+</ul>
+<h3 id="domain-vs">Domain vs</h3>
+<ul>
+<li>DDD : domain driven development</li>
+<li>encapsulates a specific part of the business code (entities, services ..)</li>
+<li>higher level code than infrastructure</li>
+</ul>
+<h3 id="infrastructure">Infrastructure</h3>
+<ul>
+<li>backend code</li>
+<li>lower level code</li>
+<li>implementations</li>
+</ul>
+<h2 id="protect-the-domain">Protect the domain</h2>
+<ul>
+<li>
+<p>Keep the domain safe from any external influence.  Defend the domain ! Agnostic.</p>
+</li>
+<li>
+<p>Defend it from someone else when you call lower level code</p>
+</li>
+<li>
+<p>domain logic should not depend on infrastructure</p>
+</li>
+<li>
+<p>Keep core logic independent of UI</p>
+</li>
+<li>
+<p>independent of DB, no vendor lock ins, no stored procedures, no too complicated sql</p>
+</li>
+<li>
+<p>independent of external APIs</p>
+</li>
+<li>
+<p>is an orm intrusive ? not necessarily</p>
+</li>
+<li>
+<p>logic should be built on objects you have full control on</p>
+</li>
+</ul>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/agnostic_domain.PNG?raw=true" alt=""></p>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/domain_vs_infrastructure.PNG?raw=true" alt=""></p>
+<h3 id="dtos-are-enemies">DTOs are enemies</h3>
+<p>they are</p>
+<ul>
+<li>bloated</li>
+<li>flat</li>
+<li>different perspective</li>
+</ul>
+<p>should be replaced by ids, value objects and events</p>
+<h3 id="testing">Testing</h3>
+<ul>
+<li>Tests should test the domain</li>
+</ul>
+<h3 id="domain-communication-and-calls">Domain communication and calls</h3>
+<p>Options</p>
+<ul>
+<li>RPC</li>
+<li>Queue</li>
+<li>FTP</li>
+<li>DB</li>
+</ul>
+<p>To communicate between those 2</p>
+<ul>
+<li>Create an interface</li>
+<li>Create an adapter in the domain</li>
+<li>Client code depends on the domain</li>
+</ul>
+<h3 id="multiple-domains">Multiple domains</h3>
+<p>Possible to have multiple domains (e.g. product and user)</p>
+<p><strong>Modularizing the monolith</strong></p>
+<p>Protecting from the database ? is database the enemy ? not necessarily</p>
+<p>Read <a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html">clean architecture</a></p>
+<p>Do we need application + domain + architecture ?</p>
+<p>No we can use application which is also architecture (pragmatic onion architecture aka hexagonal aka ports and adapters aka clean architecture)</p>
+<h1 id="monolith-vs-micro-services">Monolith vs micro services</h1>
+<ul>
+<li>micro services is slow to build</li>
+<li>monolith is fast but should be modular</li>
+</ul>
+<p>monolith should be broken down after some time</p>
+<p>Breaking it down</p>
+<ul>
+<li>organize your code by entities ! like order.service and not service.order</li>
+<li>instead of linking entities use literal id and get the entity from the other side</li>
+<li>or use a value object</li>
+<li>cut the link from 2 domains</li>
+<li>communication using a common domain events (or event folder per domain) but any events can be accessed by any domain</li>
+<li>never using directly entities or services</li>
+<li>test by using arch unit and having less and less violations</li>
+<li>use Value Object (VO) instead of DTOs</li>
+<li>Sometimes you can create a Order object in Customer domain, &ldquo;duplicating&rdquo; the class name but it&rsquo;s good because it doesn&rsquo;t serve the same goal</li>
+</ul>
+<h2 id="bounded-context">Bounded context</h2>
+<p>Read <a href="https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Marinescu%20F.%20-%20Domain%20Driven%20Design%20Quickly.pdf">https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Marinescu%20F.%20-%20Domain%20Driven%20Design%20Quickly.pdf</a> or <a href="https://www.infoq.com/minibooks/domain-driven-design-quickly/">here</a></p>
+<p>When 2 contexts have different expectations you should create a bounded context and so create multiple class Chickens for example and disperse the fields in each entity.</p>
+<h2 id="anti-corruption-layer">Anti corruption layer</h2>
+<ul>
+<li>
+<p>Make sure nothing from outside goes inside</p>
+</li>
+<li>
+<p>In frontend : MVVM viper architecture : read</p>
+</li>
+</ul>
+<h2 id="event-driven-">Event driven ?</h2>
+<ul>
+<li>
+<p>events or direct service calls ?</p>
+</li>
+<li>
+<p>if no return expected -&gt; events potentially over queue</p>
+</li>
+<li>
+<p>event = asynchronous message queue, propaget change</p>
+</li>
+<li>
+<p>fetch data over GET (sync RPC)</p>
+</li>
+<li>
+<p>DDD uses a lot domain events</p>
+</li>
+</ul>
+<h2 id="tests">Tests</h2>
+<ul>
+<li>Test DSL : for end to end</li>
+</ul>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
+        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+<script>
+    function isDevMode() {
+        new URLSearchParams(window.location.search).get("dev") !== null ||
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
+
+        
+        return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
+    }
+    const devMode = isDevMode()
+    localStorage.setItem("dev-mode",devMode ? "true": "")
+
+    if (devMode) {
+        
+        Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
+    }
+
+    if (document.querySelector("#search-bar")) {
+        if (window.location.pathname === "/" ||devMode) {
+            loadAlgolia();
+        }
+    }
+
+    function loadAlgolia() {
+        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3')
+        const search = instantsearch({
+            indexName: 'blog',
+            searchClient,
+            searchFunction: helper => {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
+                    $('#hits').hide()
+                } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
+                    helper.search();
+                }
+            }
+        });
+
+        function itemToHtml(item) {
+            title = item._highlightResult.title.value || item.title
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords && item._highlightResult.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            return `<a href="${item.url}">
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
+        }
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#search-bar',
+                placeholder: 'Search for posts',
+                autofocus: true,
+                showReset: false,
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: {
+                    item: itemToHtml
+                },
+            })
+
+        ]);
+
+        search.start();
+
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('.ais-InstantSearch').length) {
+                $('#hits').hide()
+            }
+        });
+
+        
+        $('.ais-InstantSearch').on('click keypress', function (event) {
+            $('#hits').show()
+        });
+
+
+        $('.ais-SearchBox-input').on('focus', function (event) {
+            $('#hits').show()
+        });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
+    }
+</script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>

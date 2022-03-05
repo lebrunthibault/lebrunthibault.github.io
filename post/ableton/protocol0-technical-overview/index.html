@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Protocol0 technical overview - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Protocol0 Ableton Surface Script technical overview and discussion" /><meta name="keywords" content="Ableton, Ableton Remote Script, Ableton Control Surface Script, Python" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/ableton/protocol0-technical-overview/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Protocol0 technical overview" />
+<meta property="og:description" content="Protocol0 Ableton Surface Script technical overview and discussion" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/ableton/protocol0-technical-overview/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+
+<meta itemprop="name" content="Protocol0 technical overview">
+<meta itemprop="description" content="Protocol0 Ableton Surface Script technical overview and discussion">
+<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
+<meta itemprop="wordCount" content="3174">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Protocol0 technical overview"/>
+<meta name="twitter:description" content="Protocol0 Ableton Surface Script technical overview and discussion"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title">Protocol0 technical overview</h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 15 mins read </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#object-model">Object Model</a>
+      <ul>
+        <li><a href="#track-classes">Track Classes</a>
+          <ul>
+            <li><a href="#contextual-explanation">Contextual Explanation</a></li>
+          </ul>
+        </li>
+        <li><a href="#global-track-objects-and-lists">Global track objects and lists</a>
+          <ul>
+            <li><a href="#songmanager-private-track-lists">SongManager private track lists</a></li>
+            <li><a href="#track-lists-in-song">Track Lists in Song</a></li>
+            <li><a href="#track-objects-in-song">Track Objects in Song</a></li>
+          </ul>
+        </li>
+        <li><a href="#track-clip_slot-and-clip-generation">Track, Clip_slot and Clip generation</a>
+          <ul>
+            <li><a href="#maintaining-state-through-lom-changes">Maintaining state through LOM changes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#asynchronous-tasks-and-scheduling">Asynchronous tasks and scheduling</a>
+      <ul>
+        <li><a href="#using-listeners">Using listeners</a>
+          <ul>
+            <li><a href="#the-sequence-class">The Sequence class</a></li>
+            <li><a href="#asynchronous-behavior-declaration">Asynchronous behavior declaration</a></li>
+          </ul>
+        </li>
+        <li><a href="#using-timers">Using timers</a>
+          <ul>
+            <li><a href="#via-controlsurface-schedule_message">Via <code>ControlSurface.schedule_message</code></a></li>
+            <li><a href="#via-live-base-timer">Via <code>Live.Base.Timer</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#changes-cannot-be-triggered-by-notification-error">Changes cannot be triggered by notification error</a>
+      <ul>
+        <li><a href="#potential-solution">Potential solution</a></li>
+      </ul>
+    </li>
+    <li><a href="#interface-and-controls">Interface and controls</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#classes">Classes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#development">Development</a>
+      <ul>
+        <li><a href="#editor">Editor</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#typing">Typing</a></li>
+        <li><a href="#logging">Logging</a>
+          <ul>
+            <li><a href="#powershell-formatting">Log formatting</a></li>
+            <li><a href="#data-model-dump">Data model dump</a></li>
+          </ul>
+        </li>
+        <li><a href="#testing">Testing</a>
+          <ul>
+            <li><a href="#jupyter-notebooks">Jupyter notebooks</a></li>
+            <li><a href="#pytest">Pytest</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <blockquote>
+<p>This is technical documentation for my <a href="https://github.com/lebrunthibault/Protocol-0-Surface-Script">Protocol0 Ableton control surface script</a>. Context and goals on the <a href="https://github.com/lebrunthibault/Protocol-0-Surface-Script">GitHub readme</a>. Some global remote scripting tips in <a href="https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing">this google doc</a></p>
+</blockquote>
+<p><em>This doc is here to shed some light on the script’s object model, a few techniques I’ve set up and the tools I’m using for development. It goes from global discussion on remote scripting concepts / problems to tiny details about the script but is not a full technical documentation.</em> Please read the GitHub readme first.</p>
+<p><u>NB</u> : This script is a selected_track/clip/scene_control kindof script.  Actions dispatched after moving knobs always apply to what is selected in the set.</p>
+<p>I’ve decided to start with an explanation of the most complex stuff of my object model : tracks. What are the different track objects, and how do I generate them at script initialization and when the LOM changes.</p>
+<br/>
+<h1 id="object-model">Object Model</h1>
+<p>I’ve wrapped most of the Live objects I’m using in my own classes (tracks, clip_slots, clips, devices, parameters.. ). The most complex part is the handling of tracks (not surprisingly).</p>
+<h2 id="track-classes">Track Classes</h2>
+<p>TLDR :</p>
+<ul>
+<li>A <code>Live.Track.Track</code> is wrapped in a <code>SimpleTrack</code></li>
+<li>A <code>SimpleTrack</code> that is also a group track is mapped to an <code>AbstractGroupTrack</code> allowing seamless manipulation of different type of group tracks.</li>
+<li>All track objects inherits from <code>AbstractTrack</code> enforcing a common interface.</li>
+<li>Indeed the track layout uses the Composite design pattern</li>
+</ul>
+<p>Mini Glossary :</p>
+<ul>
+<li>When I speak about <code>Live.Track.Track</code> I speak about the LOM object representing a track</li>
+<li>When I speak about <code>SimpleTrack</code> or <code>AbstractGroupTrack</code>  I’m talking about the classes I defined.</li>
+<li>When I speak about a group track, I just mean a group track in a set (that is foldable and has sub_tracks).</li>
+</ul>
+<h3 id="contextual-explanation">Contextual Explanation</h3>
+<blockquote>
+<p>This was tricky to setup so I went in depth with this explanation</p>
+</blockquote>
+<p>I’ve created the <code>SimpleTrack</code> class originally to make handling tracks easier than with the stock <code>Live.Track.Track</code> objects (because I can add my listeners, events, methods etc) and also to get a stronger typing experience. Conceptually they are simple and a one to one mapping to a track. In reality I pimped them quite a bit.</p>
+<p>But what I really wanted when I started the script was to be able to manipulate group tracks as if they were a non group track (e.g. arming / soloing / recording etc …). This is because I wanted to record midi and audio in a group track at the same time, the group track representing actually one instrument (e.g. my prophet rev2).</p>
+<p>So I created the <code>AbstractGroupTrack</code> which is another way of representing a group track and wraps a <code>SimpleTrack</code> (because all tracks are still <code>SimpleTrack</code>s). But because all my tracks are already wrapped by a <code>SimpleTrack</code>, sub tracks of an <code>AbstractGroupTrack</code> are either <code>SimpleTrack</code> or <code>AbstractGroupTrack</code> (the Composite pattern !). and <code>AbstractGroupTrack.base_track</code> is this <code>SimpleTrack</code> while <code>SimpleTrack.abstract_group_track</code> is the opposite relationship. This base_track property somehow breaks the composite pattern so I could maybe remove it one day.</p>
+<p>What is conceptual here is that I’m creating a double mapping layer (iterating twice on the track list on set startup). The first layer is just <code>SimpleTrack</code> creation and is straightforward.</p>
+<p>The second layer is the <code>AbstractGroupTrack</code> creation and is not as straightforward. I’m effectively mapping all group tracks of the set into subclasses of <code>AbstractGroupTrack</code>. But I’m still keeping the <code>SimpleTrack</code> mapping, it is necessary for several reasons, notably that the <code>SimpleTrack</code> handles access to the underlying LOM objects, but also because non foldable tracks are always simply <code>SimpleTrack</code>s</p>
+<p>The only thing complicated here is that each group track is both a <code>SimpleTrack</code> and an <code>AbstractGroupTrack</code> . Both objects can access the other and that’s part of the glue between the 2 layers.</p>
+<p>One touchy thing with this setup is for example if we have nested group tracks then we will effectively have the two layer setup with <code>SimpleTrack</code> group track objects having <code>SimpleTrack</code> sub tracks and <code>AbstractGroupTrack</code> having either <code>AbstractGroupTrack</code> or <code>SimpleTrack</code> sub tracks.</p>
+<p>So it means that when accessing an <code>AbstractGroupTrack</code> sub tracks we have either classes (so actually : <code>List[AbstractTrack]</code>). But when accessing the same Live track from its <code>SimpleTrack</code> wrapper object the sub_tracks are : <code>List[SimpleTrack]</code>.</p>
+<p>It’s a bit convoluted but for me it means <code>AbstractTrack</code>s are the interface to the controller and what the interface sees. They handle logic but leave implementation details to the lower <code>SimpleTrack</code>s layer. The lower layer handles all the tiny lom logic and listeners and emit their own events when necessary.</p>
+<p>Details :</p>
+<ul>
+<li>
+<p><code>SimpleTrack</code>: one to one mapping with <code>Live.Track.Track</code>. Subclassed by</p>
+</li>
+<li>
+<p><code>AbstractGroupTrack</code> (abstract) : One to one on a Live group track (<code>SimpleTrack</code>) and handling actions on sub_tracks.</p>
+<p>Sub tracks of an <code>AbstractGroupTrack</code> can access their <code>SimpleTrack</code> group_track by <code>self.group_track</code> (as any grouped track) and abstract_group_track (<code>AbstractGroupTrack</code>) by <code>self.abstract_group_track</code>.
+Subclassed by</p>
+<ul>
+<li><code>SimpleGroupTrack</code> : A group track with no specific behavior.</li>
+<li><code>ExternalSynthTrack</code>. Allows recording an external synth easily: abstraction track wrapping :
+<ul>
+<li>A midi <code>SimpleMidiTrack</code></li>
+<li>An audio <code>SimpleAudioTrack</code></li>
+<li>An audio <code>SimpleAudioTailTrack</code> : to record clip tails</li>
+<li>One or many <code>SimpleDummyTrack</code>s : because clip automation doesn&rsquo;t exist for group tracks.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>AbstractTrack </code>: top of the inheritance hierarchy for any track object (and an abstract class). This class groups all common attributes and methods that are indeed the interface of any track object. Including :</p>
+<ul>
+<li><code>self.base_track</code> is always the track itself or the group_track in the case of an <code>AbstractGroupTrack</code></li>
+<li><code>self._track</code> is the underlying <code>Live.Track.Track</code> object (and == <code>self.base_track._track</code>)</li>
+<li><code>self.group_track</code> is the <code>SimpleTrack</code> mapping of <code>self._track.group_track</code></li>
+<li><code>self.abstract_group_track</code> is the <code>AbstractGroupTrack</code> parent if it exists</li>
+</ul>
+</li>
+</ul>
+<h2 id="global-track-objects-and-lists">Global track objects and lists</h2>
+<h3 id="songmanager-private-track-lists">SongManager private track lists</h3>
+<p>Starting with a <code>Live.Track.Track</code> object, 2 layers of abstraction are necessary to map the Live track object to our own tracAbstractGroupTrackk object:</p>
+<ul>
+<li>_live_track_id_to_simple_track : maps a <code>Live.Track.Track</code> id to a <code>SimpleTrack</code> object</li>
+<li>The <code>AbstractGroupTrack</code> are reached through the <code>SimpleTrack</code>s</li>
+</ul>
+<p>With these 2 lists we can reach the right level of abstraction from e.g. <code>Live.Song.Song.selected_track</code></p>
+<h3 id="track-lists-in-song">Track Lists in Song</h3>
+<ul>
+<li><code>song.simple_tracks</code> : a List of <code>SimpleTrack</code> (that is <code>len(song.simple_tracks) == len(tracks)</code> (in a Live set except master and return tracks)</li>
+<li><code>song.abstract_tracks</code> : the top track layer as they most specific form (that is <code>SimpleTrack</code> for lone tracks and <code>AbstractGroupTrack</code>s for the group tracks). It also equals the sum of :
+<ul>
+<li><code>song.abstract_group_tracks</code></li>
+<li><code>song.simple_tracks</code> MINUS simple_tracks that belong to an <code>AbstractGroupTrack</code></li>
+</ul>
+</li>
+</ul>
+<p>Regarding my explanation above, the first list is the lower level and the second a part (because only top tracks) the higher level of the 2 layers track mapping. Actually the controller sees both layers because some controls are specific to <code>SimpleTrack</code> objects.</p>
+<h3 id="track-objects-in-song">Track Objects in Song</h3>
+<ul>
+<li>
+<p><code>song.selected_track</code> : the selected <code>SimpleTrack</code> object</p>
+</li>
+<li>
+<p><code>song.current_track</code> : the most iconic property of the script. It equals <code>song.selected_track.abstract_group_track or song.selected_track</code>. And indeed always outputs the appropriate abstraction level from the currently selected_track.</p>
+<p>This property allows transparent track manipulation from the controller</p>
+</li>
+</ul>
+<h2 id="track-clip_slot-and-clip-generation">Track, Clip_slot and Clip generation</h2>
+<h3 id="maintaining-state-through-lom-changes">Maintaining state through LOM changes</h3>
+<p>The underlying lom objects do not change (even though the index in e.g. <code>&lt;Track.Track object at 0x000000009AFAD6C8&gt;)</code> changes ..). Moreover the <code>_live_ptr</code> property on all objects will stay the same. It took me a long time to realize this simple fact god knows why.</p>
+<p>As objects don’t change it is possible to reuse existing objects so that’s what I’m doing when I have a track change or scene change. Reusing all my tracks objects and taking care of re building my clip slots (e.g. on scene add) while reusing existing ones. Like this my state is preserved while the set is open.</p>
+<h1 id="asynchronous-tasks-and-scheduling">Asynchronous tasks and scheduling</h1>
+<p><strong>Tl;dr</strong> : <em>When the code cannot be executed synchronously (some LOM changes are asynchronous, dispatching keystrokes and clicks is also asynchronous etc ..) we need to defer callbacks to be run later. There are 2 ways to handle this : either by listening on LOM properties (when possible) or by delaying callbacks using a timer.</em></p>
+<p>Here are the 2 ways of scheduling asynchronous tasks in the code :</p>
+<ul>
+<li>
+<p>The clean one is to listen to changes on the LOM by setting up listeners. It should be used wherever it is possible (See explanations <a href="https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing">in this doc</a>). Obviously this technique works only when the changes can be observed by listening to observable properties.</p>
+</li>
+<li>
+<p>The other way is to wait for a constant duration instead of having a reactive workflow. This usually happens in the following cases :</p>
+<ul>
+<li>We cannot set up listeners on objects (some properties are not listenable) or even the changes will not be reflected in the LOM (e.g. showing a VST doesn’t trigger changes in the LOM).</li>
+<li>The scheduling does not imply LOM changes (e.g. overcoming the <em>changes cannot be triggered by notifications</em>)</li>
+<li>It just seems easier to define a duration in ms than to setup some complicated listener pattern</li>
+</ul>
+<p>This second way works by leveraging a timer loop given by the Live API. It seems to be the only way possible as using <code>threading.timer</code> does not work and is detailed in the timer scheduling following section.</p>
+</li>
+</ul>
+<h2 id="using-listeners">Using listeners</h2>
+<ul>
+<li>Using listeners directly <a href="https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing">in this doc</a>. This means attaching callbacks to listeners in some way and implies setting at least one callback variable. This method is <strong>not</strong> used in the script.</li>
+<li>Using the Sequence class (see doc in code).</li>
+</ul>
+<p>**Tl;dr **: The sequence class uses both scheduling workflows (listener and timer). For the listener workflow it makes it easier to work with listeners by handling the callback registration on the listeners themselves and also makes the syntax cleaner when splitting a functionality in different asynchronous steps(reducing boilerplate code). This is possible when using the p0_subject_slot decorator instead of the subject_slot framework decorator. I like this class a lot ^^. Part of this is probably already obsolete as of Live 11 because now we might use asyncio.</p>
+<h3 id="the-sequence-class">The Sequence class</h3>
+<p>Replacement of the _Framework Task as it does not seem to allow variable timeouts like triggers from listeners.</p>
+<ul>
+<li>A <code>Sequence</code> usually represents a number of statements (usually a whole method) and a <code>SequenceStep</code> one statement (usually a method call)</li>
+<li>A <code>SequenceStep</code> is very often a function call that could return a <code>Sequence</code>.
+That is <code>Sequence</code>s can be nested allowing deep asynchronous function calls.</li>
+<li>A <code>Sequence</code> should never be passed to the called code but instead the called code should return it&rsquo;s own sequence to be appended (and executed) to the calling one.</li>
+<li>A <code>Sequence</code> instantiation should always finish by calling <code>Sequence.done()</code> which is an alias of <code>Sequence.start()</code>
+<ul>
+<li>Why should the sequence always be started explicitely by the inner code ? Well it&rsquo;s because it allows the Sequence pattern to be hidden from the calling code. A method using the Sequence pattern can be called synchronously and we are insured the Sequence will be called.</li>
+<li>The exception to this rule is if you want to trigger a sequence from within a running sequence (creating a non linear / parallel execution paths). Much can be done without resorting to this somewhat obscure pattern. Notably using listeners.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Attention</strong>: The called code is gonna be called synchronously, any data lookup (e.g. on Live API) is gonna be computed at sequence instantiation time and not at sequence runtime.</p>
+<p>If you don&rsquo;t want this behavior to happen, wrap your lookup calls in a method as a single step. But the fast way to solve this is to do lookups in lambda functions.</p>
+<h3 id="asynchronous-behavior-declaration">Asynchronous behavior declaration</h3>
+<p>The code can declare asynchronous behavior in 3 ways:</p>
+<ul>
+<li>via  <code>seq.add(wait=&lt;ticks&gt;)</code> which leverages <code>Live.Base.Timer</code> fast tick for tasks where we have a rough idea of the delay and guess without too much hassle (see <a href="#using-timers">below</a>)</li>
+<li>via <code>seq.add(wait_beats=&lt;beats)</code> (or <code>wait_bars</code>) that leverages the <code>current_song_time</code> Live event (see <code>SyncedScheduler</code> which notifies when beats change)</li>
+<li>via the <code>seq.add(on_complete=&lt;listener&gt;)</code> that defers the completion of the step until a listener is called.</li>
+</ul>
+<p>This listener should be :</p>
+<p>a function decorated by <code>@p0_subject_slot</code>  which returns a <code>CallbackDescriptor</code> decorated function : the step executes when the function is called next (usually by Live listener system). Just replace <code>@subject_slot</code> by <code>@p0_subject_slot</code> and the listener will integrate in the Sequence pattern.</p>
+<p>This is the best part because it allows us to react to the execution of Live listeners or even our own listeners.
+To be clearer it is equivalent to defining a method listening on a subject (that is : a listener) that would call back the sequence when executed.</p>
+<p>NB : instead of giving a listener method to <code>complete_on</code>, we could instead pass an object and an event. But that would spread event strings and we would loose a central place to see which events are being used throughout the script. So a listener method needs to be defined for each event that we want to use in the Sequence pattern. Hence, some listeners in the code do nothing and are meant just for Sequence execution.</p>
+<h5 id="example-usage">Example usage</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">duplicate_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># type: (Song, int) -&gt; Sequence</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">()</span>  <span class="c1"># instantiate the Sequence class</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># add the callable to the sequence</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_song</span><span class="o">.</span><span class="n">duplicate_track</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">complete_on</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">songManager</span><span class="o">.</span><span class="n">tracks_listener</span><span class="p">)</span>  <span class="c1"># declare the completion step</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># waits one tick (around 17ms on my system, often needed to let live process changes)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>  <span class="c1"># call seq.done to trigger the sequence</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A sequence step should always define its completion step and not expect the next step to handle any timeout or checks. Like this any step can always be assured that it executes after the previous one has succeeded or failed (thus ending the sequence).</li>
+</ul>
+<h2 id="using-timers">Using timers</h2>
+<p><em>They are (to my knowledge) 2 ways of scheduling asynchronous tasks via timers using the Live API. Both leverage a timer that runs every n millisecond so that a task (a callable) can not be called faster than this interval</em></p>
+<h3 id="via-controlsurface-schedule_message">Via <code>ControlSurface.schedule_message</code></h3>
+<ul>
+<li>The tick interval is about 100ms +- 20ms (roughly)</li>
+<li>called via <code>ControlSurface.schedule_messag</code>e(<code>delay_in_ticks: int, callable: Callable</code>)</li>
+<li>This seem to be the historical way of scheduling tasks using timers and the easiest way also as the tasks and timing management is handled by the framework</li>
+</ul>
+<h3 id="via-live-base-timer">Via <code>Live.Base.Timer</code></h3>
+<ul>
+<li>The tick interval is much shorter (around 17ms +- 3ms on my system)</li>
+<li>This way the handling of the task queue needs to be done by the script (not so complicated)</li>
+<li>This technique is used by the push2 code and also by a famous remote script</li>
+</ul>
+<p>As the 2nd method is the fastest that’s what I used. The numbers associated to wait parameters always refer to this tick interval.</p>
+<h1 id="changes-cannot-be-triggered-by-notification-error">Changes cannot be triggered by notification error</h1>
+<p>This infamous error appears when we want to apply modifications to the LOM in the same tick as we received a notification (that is a listener was triggered somewhere). Not all changes to the LOM trigger this error, only certain property changes.</p>
+<p>It is quite boring and there might be a clean solution to handling this. I didn’t find it and so there are a lot of places where I defer changes by using the <code>self.parent.defer</code> methods. This just delays the callable execution to the next tick (equivalent to doing <code>sequence.add(wait=1)</code>. It is inconvenient for 2 reasons :</p>
+<ul>
+<li>First it means wrapping assignments in syntax of the type partial(<code>settattr</code>, …)) which is not clear and not as well understood by <code>pycharm</code> as normal assignments or method calls.</li>
+<li>Second it is not so clear why there are all these defers because deferring can be done for other reasons as well</li>
+</ul>
+<h2 id="potential-solution">Potential solution</h2>
+<p>The solution is to defer all actions done after a listener. Adding a defer in the @p0_subject_slot would be a start. I didn’t do this because I used to work with the 100 ms tick and didn’t want to slow down all the code for this trivial issue, as the deferring could potentially add up to more than one tick and noticeably slow down the interface for complex tasks. Now I’m using the faster <code>Live.Base.Timer</code> tick so it might be a better choice indeed.</p>
+<p><strong>Old Solution</strong> : I used to use a decorator on properties setter that would catch this error and defer the call to the next tick. It worked perfectly but I stopped using it because I didn’t like the fact that I didn’t know if the property was changed or not. Didn’t cause any problems but I thought it could (or had) potentially introduce subtle bugs.</p>
+<p>**Current Solution **:</p>
+<p>it is not such a big issue because it doesn’t happen often and is very easy to fix. So for now I’m just deferring stuff. Also I’m always deferring callback execution when they are attached to a listener.</p>
+<h1 id="interface-and-controls">Interface and controls</h1>
+<p>The interface is exposed in the <code>components/actionGroup</code>s folder. It is targeted at my FaderFox ec4 which is composed of 16 knobs. knobs (or encoders) can send notes via press or CC via scroll.</p>
+<h3 id="classes">Classes</h3>
+<ul>
+<li><code>AbstractActionGroup</code> : corresponds to a midi configuration (or group) for the 16 knobs (the ec4 has many groups). A channel is assigned to it and all knobs of the group should trigger CC/Notes on that channel</li>
+<li><code>MultiEncoder</code> : corresponds to a knob on the EC4 and is assigned a midi identifier (for cc or Note).</li>
+</ul>
+<p>As such, any controller with configurable note / cc can be used with this interface. But the controller should be configured to match the script Midi ids and channels.</p>
+<p>The <code>MultiEncoder</code> class handles difference “moves” :</p>
+<ul>
+<li>presses</li>
+<li>long presses</li>
+<li>scroll</li>
+</ul>
+<p>Any of this theses moves will trigger “actions” (that is execute a callable)</p>
+<h1 id="development">Development</h1>
+<blockquote>
+<p>headstart for remote scripting</p>
+</blockquote>
+<h2 id="editor">Editor</h2>
+<p>Pycharm of course.</p>
+<h4 id="autocompletion">Autocompletion</h4>
+<p>Is done by adding some folders as content roots.</p>
+<ul>
+<li>Adding decompiled version of framework or Ableton v2 is really necessary as it allows Pycharm to make it’s autocompletion magic</li>
+<li>Adding <a href="https://github.com/cylab/AbletonLive-API-Stub">https://github.com/cylab/AbletonLive-API-Stub</a> as content root will allow pycharm to enable auto completion on the Live module</li>
+</ul>
+<h2 id="typing">Typing</h2>
+<p>I’m using python2.7&rsquo;s typing system and it helps a lot. the typing module is not available in the Live10 python build so  it is necessary to install it locally and insert the site-packages folder in <code>sys.path</code> before anything else in the <code>__init__.py</code></p>
+<h2 id="logging">Logging</h2>
+<h3 id="powershell-formatting">Log formatting</h3>
+<p>I wrote a little PowerShell script (in my <a href="https://github.com/lebrunthibault/Protocol-0-backend">Protocol0-backend repo</a> that filters, colors and formats Ableton log file with only my script info (and errors). Works also with my logging level in the script. It helps a good deal.</p>
+<h3 id="data-model-dump">Data model dump</h3>
+<p>I also have a &ldquo;dump&rdquo; method that dumps the most interesting part of my model data to the log file (to inspect the script state) and is mapped to one button of my controller.</p>
+<h2 id="testing">Testing</h2>
+<h3 id="jupyter-notebooks">Jupyter notebooks</h3>
+<p>I wrote a dummy Live stub that allows me to load the script in tests and jupyter notebooks. A real Live stub could be written but I don&rsquo;t think it&rsquo;s worth a shot as it would need to be quite complex to emulate real situations. Still, jupyter is great for small python tests.</p>
+<h3 id="pytest">Pytest</h3>
+<p>As for the jupyter notebooks it is possible to test parts of the script by using the dummy Live Stub. I&rsquo;ve also created a few mocks for the track class etc.. Like this we can test functions and classes that don’t interact too deeply with the Live API. Limited but useful.</p>
+<p>Wider tests could be achieved by mocking the LOM in more detail. Seems overkill as stated above.</p>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
+        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+<script>
+    function isDevMode() {
+        new URLSearchParams(window.location.search).get("dev") !== null ||
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
+
+        
+        return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
+    }
+    const devMode = isDevMode()
+    localStorage.setItem("dev-mode",devMode ? "true": "")
+
+    if (devMode) {
+        
+        Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
+    }
+
+    if (document.querySelector("#search-bar")) {
+        if (window.location.pathname === "/" ||devMode) {
+            loadAlgolia();
+        }
+    }
+
+    function loadAlgolia() {
+        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3')
+        const search = instantsearch({
+            indexName: 'blog',
+            searchClient,
+            searchFunction: helper => {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
+                    $('#hits').hide()
+                } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
+                    helper.search();
+                }
+            }
+        });
+
+        function itemToHtml(item) {
+            title = item._highlightResult.title.value || item.title
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords && item._highlightResult.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            return `<a href="${item.url}">
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
+        }
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#search-bar',
+                placeholder: 'Search for posts',
+                autofocus: true,
+                showReset: false,
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: {
+                    item: itemToHtml
+                },
+            })
+
+        ]);
+
+        search.start();
+
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('.ais-InstantSearch').length) {
+                $('#hits').hide()
+            }
+        });
+
+        
+        $('.ais-InstantSearch').on('click keypress', function (event) {
+            $('#hits').show()
+        });
+
+
+        $('.ais-SearchBox-input').on('focus', function (event) {
+            $('#hits').show()
+        });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
+    }
+</script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>

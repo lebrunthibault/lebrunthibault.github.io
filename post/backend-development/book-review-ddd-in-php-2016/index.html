@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016) - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="book here" /><meta name="keywords" content="" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)" />
+<meta property="og:description" content="book here" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-03-05T16:49:39+01:00" />
+
+<meta itemprop="name" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)">
+<meta itemprop="description" content="book here">
+<meta itemprop="dateModified" content="2022-03-05T16:49:39+01:00" />
+<meta itemprop="wordCount" content="5030">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)"/>
+<meta name="twitter:description" content="book here"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title">Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)</h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 24 mins read </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#preface">Preface</a></li>
+    <li><a href="#1-getting-started-with-ddd">1. Getting Started with DDD</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#ubiquitous-language">Ubiquitous language</a></li>
+            <li><a href="#should-i-start-considering-domain-driven-design-as-an-option">Should I start considering Domain-Driven Design as an option?</a></li>
+            <li><a href="#business-value">Business value</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2-architectural-styles">2. Architectural Styles</a>
+      <ul>
+        <li><a href="#layered-architecture">Layered architecture</a></li>
+        <li><a href="#model-view-controller-mvc">Model view controller MVC</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#inverting-dependencies-hexagonal-architecture">Inverting Dependencies. Hexagonal Architecture</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#command-query-responsibility-segregation">Command Query Responsibility Segregation</a>
+          <ul>
+            <li><a href="#cqs">CQS</a></li>
+          </ul>
+        </li>
+        <li><a href="#event-sourcing">Event Sourcing</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-value-objects">3. Value Objects</a>
+      <ul>
+        <li><a href="#characteristics">Characteristics</a>
+          <ul>
+            <li></li>
+            <li><a href="#embedded-value-patternhttpsdzonecomarticlespractical-php-patternspractical-php-patterns-3textthe20embedded20value20is20ana20direct20reference20to20it"><strong><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">Embedded Value pattern</a></strong></a></li>
+            <li><a href="#why-doctrine-">Why Doctrine ?</a></li>
+            <li><a href="#serialize-lob-single-large-object-patternhttpswwwmartinfowlercomeaacatalogserializedlobhtml"><a href="https://www.martinfowler.com/eaaCatalog/serializedLOB.html">Serialize LOB (single large object) Pattern</a></a></li>
+            <li><a href="#persisting-vo-collections">Persisting VO collections</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#symfony-forms-and-value-objecthttpswebmozartioblog20150909value-objects-in-symfony-forms"><a href="https://webmozart.io/blog/2015/09/09/value-objects-in-symfony-forms/">Symfony forms and value object</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-entities">4. Entities</a>
+      <ul>
+        <li><a href="#identity-operation">Identity operation</a>
+          <ul>
+            <li><a href="#persistence-mechanism-generates-identity">Persistence Mechanism Generates Identity</a></li>
+            <li><a href="#client-provides-identity">Client Provides Identity</a></li>
+            <li><a href="#application-generates-identity">Application Generates Identity</a></li>
+            <li><a href="#other-bounded-context-generates-identity">Other Bounded Context Generates Identity</a></li>
+          </ul>
+        </li>
+        <li><a href="#persisting-entities">Persisting Entities</a></li>
+        <li><a href="#testing-entities">Testing entities</a></li>
+        <li><a href="#validation">Validation</a>
+          <ul>
+            <li><a href="#attribute-validation">Attribute Validation</a></li>
+            <li><a href="#entire-object-validation">Entire Object Validation</a></li>
+            <li><a href="#validating-object-compositions">Validating Object Compositions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5-services">5. Services</a>
+      <ul>
+        <li><a href="#application-services">Application Services</a>
+          <ul>
+            <li><a href="#transactions">Transactions</a></li>
+          </ul>
+        </li>
+        <li><a href="#domain-services">Domain Services</a>
+          <ul>
+            <li><a href="#domain-services-with-multiple-implementations">Domain Services With Multiple Implementations</a></li>
+          </ul>
+        </li>
+        <li><a href="#anemic-domain-models-vs-rich-domain-models">Anemic Domain Models vs Rich Domain Models</a>
+          <ul>
+            <li><a href="#anemic-domain-model-breaks-encapsulation">Anemic Domain Model Breaks Encapsulation</a></li>
+            <li><a href="#anemic-domain-model-brings-a-false-sense-of-code-reuse">Anemic Domain Model Brings a False Sense of Code Reuse</a></li>
+            <li><a href="#how-to-avoid-anemic-domain-model-">How to Avoid Anemic Domain Model ?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#6-domain-events">6. Domain events</a>
+      <ul>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#characteristics-1">Characteristics</a></li>
+        <li><a href="#modeling-events">Modeling Events</a></li>
+        <li><a href="#persisting-domain-events">Persisting Domain Events</a>
+          <ul>
+            <li><a href="#event-store">Event Store</a></li>
+          </ul>
+        </li>
+        <li><a href="#publishing-events-from-the-domain-model">Publishing Events from the Domain Model</a>
+          <ul>
+            <li><a href="#setting-up-domaineventlisteners">Setting up DomainEventListeners</a></li>
+          </ul>
+        </li>
+        <li><a href="#unit-testing">Unit Testing</a></li>
+        <li><a href="#spreading-the-news-to-remote-bounded-contexts">Spreading the News to Remote Bounded Contexts</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-modules">7. Modules</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#mixing-different-technologies">Mixing Different Technologies</a></li>
+          </ul>
+        </li>
+        <li><a href="#leverage-modules-in-php">Leverage Modules in PHP</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-aggregates">8. Aggregates</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <p><a href="https://drive.google.com/file/d/16pQ8ET7pLOzadr5ayF9PPUidOgCEJQVl/view?usp=sharing">book here</a></p>
+<p>NB CQRS / ES frameworks :</p>
+<ul>
+<li><a href="https://github.com/broadway/broadway">Broadway</a> toolbox</li>
+<li><a href="https://github.com/prooph/event-store">Prooph</a> event store</li>
+</ul>
+<h1 id="preface">Preface</h1>
+<blockquote>
+<p>initially started as &ldquo;<strong>Hexagonal</strong> architecture with PHP&rdquo;</p>
+</blockquote>
+<ul>
+<li>
+<p>Bounded Contexts can be implemented in different ways and using different approaches. However, two styles are getting more popular, <strong>Hexagonal Architecture</strong> and <strong>CQRS + ES</strong></p>
+</li>
+<li>
+<p>Integrating bounded contexts : REST is our suggestion for synchronous communication and messaging with RabbitMQ for asynchronous</p>
+</li>
+</ul>
+<h1 id="1-getting-started-with-ddd">1. Getting Started with DDD</h1>
+<blockquote>
+<p>See DDD quickly for concepts</p>
+<p>DDD provides a framework for <strong>strategic</strong> and <strong>tactical</strong> design</p>
+</blockquote>
+<h3 id="ubiquitous-language">Ubiquitous language</h3>
+<ul>
+<li>Along with Bounded Contexts the Ubiquitous Language is one of the main strengths of DDD</li>
+<li>For now, consider a Bounded Context is a conceptual boundary around a system. The Ubiquitous Language inside a boundary has a specific contextual meaning. Concepts out of this context can have a different meaning</li>
+<li>Label with names for actions physical and conceptual domain concepts.</li>
+<li>Create a glossary of terms and definitions.</li>
+<li>Capture important software concepts with some kind of documentation.</li>
+<li>Share and evolve the knowledge collected with the rest of the team</li>
+</ul>
+<h3 id="should-i-start-considering-domain-driven-design-as-an-option">Should I start considering Domain-Driven Design as an option?</h3>
+<ul>
+<li>not for data centric + CRUD application</li>
+<li>If your application has less than 30 use-cases, it might be simpler to use a framework like Symfony
+or Laravel to handle your business logic</li>
+<li>If you know your application is gonna grow and is likely to change often, DDD will definitively help in managing the complexity and refactoring your model over time.</li>
+</ul>
+<h3 id="business-value">Business value</h3>
+<blockquote>
+<p>Thinking in technical
+problems is not bad, the only problem is that sometimes thinking less technically is better</p>
+</blockquote>
+<ul>
+<li>Useful and meaningful model of its domain</li>
+<li>Domain experts contribute to software design</li>
+<li>Better user experience</li>
+<li>Clear boundaries</li>
+<li>Better architecture organization</li>
+<li>Iterative and continuous modeling on agile fashion</li>
+<li>Better tools, strategic and tactical</li>
+</ul>
+<h1 id="2-architectural-styles">2. Architectural Styles</h1>
+<h2 id="layered-architecture">Layered architecture</h2>
+<ul>
+<li>An essential rule of the Layered architecture is that each layer may be tightly coupled with the layers beneath it</li>
+</ul>
+<h2 id="model-view-controller-mvc">Model view controller MVC</h2>
+<blockquote>
+<p>Model-View-Controller is an architectural pattern and paradigm that divides the application into three main layers: • The Model: Captures and centralizes all the domain model behaviour. This layer manages all the data, logic and business rules independently of the data representation.</p>
+</blockquote>
+<ul>
+<li>It can be said that the Model layer is the heart and soul of every MVC application.</li>
+<li>The Controller: Orchestrates interactions between the other layers. Triggers actions on the model in order to update its state and refreshes the representations associated to the model. Additionally, the Controller can also send messages to the View layer in order to change the specific Model representation.</li>
+<li>The View: A layer whose main purpose is to expose the differing representations of the Model layer and to give a way to trigger changes on the Model’s state.</li>
+</ul>
+<h4 id="the-model">The Model</h4>
+<blockquote>
+<p>the Application services are the ones that make things happen and they are the direct clients of a Domain Model. No other type of object should be able to directly talk to the internal layers of the Model layer.</p>
+<p>NB : Any service is an application service ..?</p>
+</blockquote>
+<h4 id="the-view">The View</h4>
+<ul>
+<li>Generally speaking, the View layer receives an object, often a Data Transfer Object (DTO)</li>
+<li>Why create a DTO instead of giving an instance of the Model to the View layer? The main reason and the short answer is, again, <strong>Separation of Concerns</strong>.</li>
+<li>Letting the view inspect and use a Model instance leads to tight coupling between the View layer and the Model layer</li>
+<li>Most of the time, when the Model triggers a state change, it also notifies the related Views so that the UI can get refreshed. In web, usually mean use a js framework.</li>
+</ul>
+<h4 id="the-controller">The Controller</h4>
+<ul>
+<li>
+<p>The Controller layer is responsible for organizing and orchestrating the View and the Mode</p>
+</li>
+<li>
+<p>It receives messages from the View layer and triggers Model behaviour in order to perform the desired action. Furthermore, it sends messages to the View in order to display Model representations</p>
+</li>
+<li>
+<p>Both operations are performed thanks to the Application Layer, responsible for orchestrating, organizing and encapsulating domain behaviour</p>
+</li>
+<li>
+<p>In terms of a web application in PHP, the controller = &ldquo;speak http&rdquo; (request -&gt; response)</p>
+</li>
+</ul>
+<h2 id="inverting-dependencies-hexagonal-architecture">Inverting Dependencies. Hexagonal Architecture</h2>
+<ul>
+<li>Following the essential rule of Layered Architecture, there is a risk to end up implementing domain interfaces that need to make use of infrastructural concerns within the domain model layer</li>
+<li>e.g. a repository is part of the model in MVC but should not necessarily be in the domain layer because of SOC</li>
+</ul>
+<h4 id="the-dependency-inversion-principle-dip">The Dependency Inversion Principle (DIP)</h4>
+<blockquote>
+<p>See <a href="https://wkrzywiec.medium.com/ports-adapters-architecture-on-example-19cab9e93be7">this</a> for Ports and Adapters</p>
+</blockquote>
+<ul>
+<li>As the Domain Model layer depends on concrete infrastructure implementations, the Dependency Inversion Principle⁷ could be applied by relocating the Infrastructure layer on top of the other three layers</li>
+<li><strong>High level modules should not depend upon low level modules. Both should depend upon abstractions</strong></li>
+<li>Hexagonal Architecture (also known as <strong>Ports and Adapters</strong>) : represents the application as an hexagon where each side represents a Port with one or more Adapters</li>
+<li>A Port is a connector with a pluggable Adapter which transforms an <strong>outside</strong> input to something the <strong>inside</strong> application can understand</li>
+<li>brings up the concept of symmetry</li>
+<li>no longer make sense to talk about a “top” layer nor a “bottom” layer. Instead, Hexagonal Architecture talks mainly in terms of the ‘outside’ and the ‘inside’.</li>
+<li><em><strong>the core logic is at the center</strong></em>. A realistic number of ports is about 2 to 4, not necessarily 6 (hexa) which has no special meaning</li>
+</ul>
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ports_and_adapters.png?raw=true" style="zoom:50%;" />
+<p>Port = interface</p>
+<p>adapter = implementation (The Adapter is in charge of defining the way in which the blog posts will be retrieved using a specific technology)</p>
+<p>DIC = inject adapter from port</p>
+<ul>
+<li>
+<p><strong>Port</strong> it defines all the interactions that a core will have with anything outside. These ports are like contracts (or APIs) and can be divided into two groups <strong>incoming</strong> (primary) and <strong>outgoing</strong> (secondary).</p>
+</li>
+<li>
+<p>The adapters that <strong>tell</strong> our application to do something are called <strong>Primary or Driving Adapters</strong> while the ones that are <strong>told</strong> by our application to do something are called <strong>Secondary or Driven Adapters</strong>.</p>
+</li>
+<li>
+<p><strong>the Ports (Interfaces) belong inside the business logic</strong>, while the adapters belong outside</p>
+</li>
+<li>
+<p>First one are responsible of how you can interact with business core (what commands you can use on it) and latter are used by the core to talk to the outside world</p>
+</li>
+<li>
+<p><strong>ports are only definitions of *what* we would like to do. They are not saying of *how* to achieve them</strong></p>
+</li>
+<li>
+<p>This problem is taken by an <strong>adapter</strong>. These are implementation of the ports</p>
+</li>
+<li>
+<p>We can define multiple adapters for a single port, because the business logic should not care how you get/save data from/to database</p>
+</li>
+<li>
+<p>From now on, hexagonal architecture will be the foundational architecture used to build and explain CQRS and Event Sourcing</p>
+</li>
+</ul>
+<p>See also  <a href="https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/">this article grouping hexagonal architecture and DDD</a></p>
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/explicit_architecture.png?raw=true"  />
+<h2 id="command-query-responsibility-segregation">Command Query Responsibility Segregation</h2>
+<ul>
+<li>If the problem is having multiple and disparate views, we can exclude them from the Domain Model and start treating them as a purely infrastructural concern</li>
+<li>This option is based on a design principle, named <strong>Command Query Separation CQS</strong>, defined by Bertrand Meyer which gave birth to a new architectural pattern named <strong>Command Query Responsibility Segregatio</strong>n defined by Greg Young</li>
+</ul>
+<h3 id="cqs">CQS</h3>
+<ul>
+<li>Asking a question should not change its answer</li>
+<li>This design principle states that every method should be either a Command, that performs an action, or a Query, that returns data to the caller, but not both</li>
+</ul>
+<p>CQRS seeks an even more aggressive separation of concerns splitting the Model in two:</p>
+<ul>
+<li>The <strong>Write Model</strong>: Also known as the <strong>Command Model</strong>, it performs the writes and takes responsibility for the true domain behavior. It alters entites state by using domain events</li>
+<li>The <strong>Read Model</strong>: It takes responsibility of the reads within the application and treats them as something that should be out of the <strong>Domain Model</strong></li>
+</ul>
+<h5 id="eventual-consistency">Eventual Consistency</h5>
+<ul>
+<li>This strict separation triggers another problem, <strong>Eventual Consistency</strong></li>
+<li>The consistency of the read model now is subject to the commands performed by the write model</li>
+<li>every time the write model performs a command it will pull up a process that will be responsible to update the read model according to the last updates on the write model.</li>
+<li>e.g. Cache systems are eventually consistent</li>
+<li>This kind of processes, speaking in CQRS terminology, are called <strong>Write Model Projections</strong> or just <strong>Projections</strong> : We project the write model onto the read model</li>
+<li>sync or async</li>
+<li>it can be done thanks to another useful tactical design pattern that will be explained in detail later on in the book, <strong>Domain Events</strong></li>
+<li>The basis of the write model projections is to gather all the published domain events and update the read model with all the information coming from the events</li>
+</ul>
+<h4 id="the-write-model">The Write Model</h4>
+<ul>
+<li>repo simplified to save() and byId(), freed from all read concerns except one, the byId which is responsible for loading the aggregate by its’ ID so that we can operate on it</li>
+<li>And once this is done, all the query methods are also stripped down from the Post model, leaving it only with command methods (remove all getters !)</li>
+<li>Instead, domain events will be published in order to be able to trigger write model projections by subscribing to them</li>
+<li>NB <strong>Domain events</strong> should totally replace all data access and manipulation</li>
+<li>All actions that trigger a state change are implemented via domain events</li>
+<li>For each domain event published there is an apply method responsible to reflect the state change. NB : that is defined in the aggregateRoot so as to act on private fields.</li>
+</ul>
+<h4 id="the-read-model">The Read Model</h4>
+<ul>
+<li>The read model, also known as the Query Model, is a pure denormalized (NB : normalize = object =&gt; array and vice versa) data model lifted from domain concerns</li>
+<li>These database tables / UI views will be updated using write model projections triggered from the domain events published by the write side.</li>
+<li>An important feature of this architectural style is that the read model should be completely disposable since the true state of the application is handled by the write model.</li>
+<li>NB : single source of truth : write model domain events</li>
+<li>read model doens&rsquo;t need to be relationnal (can be elasticsearch for example)</li>
+<li>However, the write model might benefit from the use of an object-relational mapper as they allow you to organize and structure the read model</li>
+</ul>
+<h4 id="synchronizing-the-write-model-with-the-read-model">Synchronizing the Write Model with the Read Model</h4>
+<ul>
+<li>tricky part</li>
+<li>one-to-one relationship between domain events and projections</li>
+</ul>
+<h4 id="command-pattern-vs-cqrs-command">Command pattern vs CQRS command</h4>
+<p>From <a href="https://stackoverflow.com/questions/47991017/understanding-the-command-pattern-in-a-ddd-context/47993398">stackoverflow</a> : The &lsquo;command&rsquo; in the Command design pattern combines both <em>data</em> and <em>behavior</em> within the same class. With CQRS, on the other hand, the command is simply a message, a data container, with no behavior. Behavior is moved to a &lsquo;handler&rsquo; class. The handler is identical to your old &lsquo;application services&rsquo; with the distinction that a handler has a very narrowly defined scope. This separation is the driver that enables the maintainability and flexibility of this design</p>
+<h4 id="cqrs-command-architecturehttpsblogscuttingedgeitstevenposts2011meanwhile-on-the-command-side-of-my-architecture"><a href="https://blogs.cuttingedge.it/steven/posts/2011/meanwhile-on-the-command-side-of-my-architecture/">CQRS command architecture</a></h4>
+<ul>
+<li>The use of decorators to add Cross-Cutting Concerns is the cleanest and most effective way to apply these common features I ever came across</li>
+<li>It is a form of <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect-Oriented Programming</a>
+<ul>
+<li>increase <a href="https://en.wikipedia.org/wiki/Modularity_(programming)">modularity</a> by allowing the <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of</a> <a href="https://en.wikipedia.org/wiki/Cross-cutting_concern">cross-cutting concerns</a></li>
+<li>Correct wiring all of dependencies, and writing and adding correctly functioning Cross-Cutting Concerns can be challenging. But at least this complexity is focused in a single part of the application (the startup path a.k.a. <a href="https://freecontent.manning.com/dependency-injection-in-net-2nd-edition-understanding-the-composition-root/">Composition Root</a>)</li>
+<li>this problem is best resolved with a DI library</li>
+</ul>
+</li>
+</ul>
+<h2 id="event-sourcing">Event Sourcing</h2>
+<ul>
+<li>giving you a high-level degree of detail of what is going on within your domain</li>
+<li>if repositories become hard to maintain then it is time to consider the use of CQRS, to split read and write concerns</li>
+<li>Domain Events are one of the key tactical patterns because of their significance within the domain, as they describe past occurrences</li>
+<li>An ever growing number of events is a smell of the business overlooking insight in the Domain.</li>
+<li>By using CQRS we gained a highly sophisticated history of all the relevant occurrences at a level that the whole state of the domain model can be expressed just by reproducing domain events</li>
+<li>store them in an <strong>eventstore</strong></li>
+<li><strong>The fundamental idea behind Event Sourcing is to express the state of Aggregates as a linear sequence of events</strong></li>
+<li>instead of persisting each entity, with event sourcing we can persist <strong>only</strong> events, resulting in .. <strong>a single database table !</strong></li>
+</ul>
+<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/event_sourcing_apply_history.png?raw=true" style="zoom:50%;" />
+<h1 id="3-value-objects">3. Value Objects</h1>
+<ul>
+<li>equality is not based on identity</li>
+<li>slow memory footprint : new instance creation is favoured over reference reuse</li>
+<li>they follow value semantics rather than reference semantics</li>
+<li>value objects should be entirely immutable</li>
+<li>provides <strong>encapsulation</strong></li>
+<li><em><a href="https://martinfowler.com/bliki/SelfEncapsulation.html">Self-encapsulation</a></em>
+<ul>
+<li>indicates that all <em>internal</em> access to a data field should also go through accessor methods as well</li>
+<li>need to create private getters</li>
+<li>support the <a href="https://martinfowler.com/bliki/UniformAccessPrinciple.html">UniformAccessPrinciple</a>.</li>
+<li>Usually <strong>not worth the effort</strong> with small classes having dummies setters and getters</li>
+<li>Good when there is logic in setters or an inheritance structure</li>
+<li>From Martin Fowler: use <strong>direct access to fields</strong> and refactor to <strong>self encapsulate field</strong> later.</li>
+<li>But often better to <strong>extract a new class</strong>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="characteristics">Characteristics</h2>
+<ul>
+<li>you should always favour Value Objects over Entities</li>
+<li>immutable and <strong>Side-Effect-Free</strong> behaviour</li>
+<li>immutable so Value Objects are always in a valid state</li>
+<li>Empty constructors with multiple setters and getters move the creation responsibility to the client, resulting in the Anemic Domain Model⁶, which is considered an anti-pattern</li>
+<li>it is not recommended to hold references to entities in your Value Objects. Entities are mutable, and as such this could lead to undesirable side-effects occurring in the Value Object</li>
+<li>to emulate Java overloading we can use different factory methods (always use self, static can lead to bugs when the VO is inherited)</li>
+<li>to handle mutability use the following construct</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220128121232232.png" alt="image-20220128121232232" style="zoom:67%;" />
+<ul>
+<li>VO provide <strong>Single responsibility</strong> and <strong>DRY</strong></li>
+<li>NB : We could use Email VO in Basile</li>
+<li>in PHP, it is common place to compare two Value Objects using  ==</li>
+<li>a solution is to implement a conventional equals method in each VO</li>
+<li>in PHP string are immutable: strtolower returns a new string</li>
+<li>Value Objects are not persisted on their own, they are typically persisted within an Aggregate</li>
+<li><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">NB</a> : ValueObjects can be integrated in the FlyWeight pattern.</li>
+</ul>
+<h4 id="nb--object-relational-structural-patterns-persistence">NB : Object relational Structural patterns (persistence)</h4>
+<ul>
+<li><strong>Active record</strong> : the entity has methods to save, remove .. on itself and inherits a base class. <strong>Eloquent</strong></li>
+<li><strong>Data mapper pattern</strong>: the entity persistence is handled by the ORM. <strong>Symfony</strong></li>
+<li><strong><a href="https://www.sourcecodeexamples.net/2018/05/dependent-mapping-pattern.html">Dependent mapping pattern</a></strong> : Has one class perform the database mapping for a child class (e.g. Person -&gt; address). When a dependent object doesn’t need to be accessed on its own.</li>
+</ul>
+<h3 id="embedded-value-patternhttpsdzonecomarticlespractical-php-patternspractical-php-patterns-3textthe20embedded20value20is20ana20direct20reference20to20it"><strong><a href="https://dzone.com/articles/practical-php-patterns/practical-php-patterns-3#:~:text=The%20Embedded%20Value%20is%20an,a%20direct%20reference%20to%20it.">Embedded Value pattern</a></strong></h3>
+<ul>
+<li>particular case of the <a href="http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-2">Dependent Mapping</a> one, where it is realized with a single table.</li>
+<li>It is a further departure from the naive mapping one table, one class and one object, one row And the <a href="http://css.dzone.com/books/practical-php-patterns/practical-php-patterns-active">Active Record</a> pattern</li>
+<li>add complexity to the object-relational mapper but usually interesting in the long run because the complexity is mostly handled by the ORM.</li>
+<li>employed in conjunction with <a href="http://www.c2.com/cgi/wiki?ValueObject">Value Objects</a>, and it is very useful when having a 1:1 relationship from an Entity towards a Value Object</li>
+<li>With an Embedded Value mapping, the VO will reside in the same row of the User that owns it, as an additional column</li>
+<li>Depending on the case, a VO will be fine when we <strong>won&rsquo;t be adding fields</strong> else it should be an entity</li>
+<li>If we want to access the data <strong>independently</strong> then it&rsquo;s an entity</li>
+</ul>
+<h3 id="why-doctrine-">Why Doctrine ?</h3>
+<blockquote>
+<p>We recommend using Doctrine in most cases when dealing with Entities and business logic</p>
+</blockquote>
+<ul>
+<li>Embedded value with <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.11/tutorials/embeddables.html">embedabbles</a></li>
+<li>Also possible to use surrogate fields mapped directly (doctrine &lt; 2.4)
+<ul>
+<li>In this case it&rsquo;s better to use Abstract Factory to generate Product or DoctrineProduct (subclass)</li>
+</ul>
+</li>
+</ul>
+<h3 id="serialize-lob-single-large-object-patternhttpswwwmartinfowlercomeaacatalogserializedlobhtml"><a href="https://www.martinfowler.com/eaaCatalog/serializedLOB.html">Serialize LOB (single large object) Pattern</a></h3>
+<ul>
+<li>Object models often contain complicated graphs of small objects</li>
+<li>Using a relations in db works but is awkward and slow (multiple joins)</li>
+<li>Another form of persistence is serialization, where a whole graph of objects is written out as a single large object (LOB) in a table</li>
+<li>this Serialized LOB then becomes a form of memento [Gang of Four]</li>
+<li>The persistence footprint requirements get reduced to a single column</li>
+<li><strong>We can&rsquo;t query fields with this pattern</strong></li>
+<li>Serialization can be improved with <a href="http://jmsyst.com/libs/serializer">JMS Serializer</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.11/cookbook/custom-mapping-types.html">Doctrine Custom Types</a></li>
+</ul>
+<h3 id="persisting-vo-collections">Persisting VO collections</h3>
+<ul>
+<li>Using embeddable value when we know the collection size</li>
+</ul>
+<h4 id="collection-serialized-into-a-single-column">Collection Serialized into a Single Column</h4>
+<ul>
+<li>With Doctrine you can use an Object or Custom Type</li>
+<li>Check the row size</li>
+</ul>
+<h4 id="collection-backed-by-a-join-table">Collection backed by a Join Table</h4>
+<ul>
+<li>If we need querying capabilities on VO</li>
+<li>Can be one to many or many to many</li>
+<li>Doctrine requires that all database entities to have a unique identity. Because we want to persist Money Value Objects we need to then add an artificial identity so Doctrine can handle its persistence</li>
+<li>Solution 1: put the surrogate identity in the Money class
+<ul>
+<li>Problem The identity is infrastructure and not domain</li>
+</ul>
+</li>
+<li>Solution 2 : put surrogate field in a subclass and use factories.
+<ul>
+<li>The factory should be passed in application service and any other domain objects</li>
+</ul>
+</li>
+</ul>
+<h4 id="postgresql-and-jsonb">PostgreSQL and JSONB</h4>
+<ul>
+<li>Now postgres allows querying directly json with <a href="https://www.postgresql.org/docs/9.4/functions-json.html">JSONB</a></li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li>Manipulating VO is safer as you manipulate valid objects</li>
+<li>If you centralize the <a href="https://en.wikipedia.org/wiki/Guard_(computer_science)">guards</a> in the constructor and pass into your model a IATA Value Object avoiding SQL Injections or similar attacks get easier</li>
+<li><a href="http://dearjunior.blogspot.com/search/label/domain%20driven%20security">Dan Bergh Johnsson : Secure by design</a></li>
+</ul>
+<h3 id="symfony-forms-and-value-objecthttpswebmozartioblog20150909value-objects-in-symfony-forms"><a href="https://webmozart.io/blog/2015/09/09/value-objects-in-symfony-forms/">Symfony forms and value object</a></h3>
+<ul>
+<li>The way to go ? Backed by a lot of people including ocramius</li>
+</ul>
+<h1 id="4-entities">4. Entities</h1>
+<p>Most of the time the identity of an entity is represented as a primitive type: usually a string or an integer. But using a value object to represent it has more advantages:</p>
+<ul>
+<li>Value Objects are immutable, so they cannot be modified</li>
+<li>Value Objects are complex types that can have custom behaviours that otherwise with primitive types cannot have</li>
+<li>makes equality more explicit</li>
+</ul>
+<h2 id="identity-operation">Identity operation</h2>
+<p>There are usually 4 ways to define the identity of an entity</p>
+<ul>
+<li>A client provides the identity</li>
+<li>the application itself provides an identity</li>
+<li>the persistence mechanism provides the identity
+<ul>
+<li>Usual and simple but <strong>we won’t have the identity of the entity until we persist it</strong></li>
+<li>will couple the identity operation with the underlying persistence store</li>
+</ul>
+</li>
+<li>another bounded context provides an identity</li>
+</ul>
+<h3 id="persistence-mechanism-generates-identity">Persistence Mechanism Generates Identity</h3>
+<h4 id="surrogate-identity">Surrogate identity</h4>
+<p>The simplest way to handle that situation is by using a <a href="https://martinfowler.com/eaaCatalog/layerSupertype.html">Layer SuperType</a> where we put the identity field created for the persistence store.</p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131150038305.png" alt="image-20220131150038305"></p>
+<h4 id="active-record-vs-data-mapper-for-rich-domain-models">Active Record vs Data Mapper for Rich Domain Models</h4>
+<p>An Active Record implementation is fine mostly for CRUD applications, but it’s not the ideal solution for rich domain models</p>
+<ul>
+<li>The Active Record pattern assumes a one-to-one relation between an entity and a database table. So it couples the design of the database to the design of the object system</li>
+<li>Advanced things like collections or inheritance are tricky to implement</li>
+<li>Most of the implementations force the use, through inheritance, of some sort of constructions to impose several conventions. This can lead to persistence leakage into the domain model by coupling the domain model with the ORM</li>
+<li>Currently <strong>the best ORM for PHP out there is Doctrine</strong>. It’s an implementation of the Data Mapper pattern⁶. Data Mapper decouples the persistence concerns from the domain concerns, leading to persistence-free entities</li>
+</ul>
+<h3 id="client-provides-identity">Client Provides Identity</h3>
+<p>Probably this is the ideal case, because the identity can be modelled quite easy</p>
+<ul>
+<li>Example : an ISBN</li>
+</ul>
+<h3 id="application-generates-identity">Application Generates Identity</h3>
+<ul>
+<li>
+<p>If the client cannot provide the identity generally the preferred way to handle the identity operation is to let the application generate the identities, usually through a UUID</p>
+</li>
+<li>
+<p>Several libraries provide this, e.g. <a href="https://github.com/ramsey/uuid">https://github.com/ramsey/uuid</a></p>
+</li>
+<li>
+<p>The preferred place to put the creation of the identity would be inside a Repository</p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131151058018.png" alt="image-20220131151058018"></p>
+</li>
+</ul>
+<h3 id="other-bounded-context-generates-identity">Other Bounded Context Generates Identity</h3>
+<ul>
+<li>Probably this would be the most complex identity generation strategy, because it enforces to have a local entity to be dependent not only on local bounded context events, but in external bounded contexts events</li>
+<li>When synchronization is needed between the entities of the Bounded Contexts, usually can be achieved with an Event Driven architecture on each of the Bounded Context that need to be notified when the original entity is changed</li>
+</ul>
+<h2 id="persisting-entities">Persisting Entities</h2>
+<ul>
+<li>Using doctrine</li>
+<li>Using annotation
+<ul>
+<li>Simple and elegant but</li>
+<li>domain concerns are mixed with infrastructure concerns</li>
+<li>s entity is tightly coupled to the mapping information specified by the annotations in the source code</li>
+</ul>
+</li>
+<li>Using config files :
+<ul>
+<li>The best way</li>
+</ul>
+</li>
+</ul>
+<h2 id="testing-entities">Testing entities</h2>
+<ul>
+<li>It’s relatively easy to test entities</li>
+<li>the test should be the invariants that the entity protects</li>
+</ul>
+<h2 id="validation">Validation</h2>
+<ul>
+<li>Validation is a highly important process in our domain model</li>
+<li>Should test all attributes are valid and also whole object is valid. It is not an equivalence</li>
+</ul>
+<h3 id="attribute-validation">Attribute Validation</h3>
+<ul>
+<li>Some people understand validation as the process whereby a service validates the state of a given object. In this case, the validation conforms to a <a href="https://en.wikipedia.org/wiki/Design_by_contract">design-by-contract</a> approach - consisting of preconditions, post-conditions and invariants.</li>
+<li>Here we will be using guards as an easy way of validating the pre-conditions (username string validation)</li>
+<li>Some developers may see this kind of validation as defensive programming</li>
+<li>but we control only the correctness of our domain state</li>
+</ul>
+<h3 id="entire-object-validation">Entire Object Validation</h3>
+<ul>
+<li>It can be tempting to add this kind of validation to the object itself, but generally this is an antipattern</li>
+<li>Higher-level validation is likely to change at different times to the object itself. Also it is good practice to separate these responsibilities</li>
+<li>The validation informs the client about any errors that have been found, or collect the results to be reviewed later. Sometimes we do not want to stop the execution at the first sign of trouble</li>
+<li>An abstract and reusable Validator could be something like</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131151954274.png" alt="image-20220131151954274"></p>
+<h3 id="validating-object-compositions">Validating Object Compositions</h3>
+<ul>
+<li>Validating object compositions can be complicated, because of this, the preferred way of achieving this is through a Domain Service</li>
+<li>We can use Domain Events to notify other parts of the system that a particular element has been validated</li>
+</ul>
+<h1 id="5-services">5. Services</h1>
+<blockquote>
+<p>NB from <a href="http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/">http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/</a></p>
+<ul>
+<li>Domain services are very granular where as application services are a facade purposed with providing an API.</li>
+<li>Domain services contain domain logic that can’t naturally be placed in an entity or value object whereas application services orchestrate the execution of domain logic and don’t themselves implement any domain logic.</li>
+<li>Domain service methods can have other domain elements as operands and return values whereas application services operate upon trivial operands such as identity values and primitive data structures.</li>
+<li>Application services declare dependencies on infrastructural services required to execute domain logic.</li>
+<li>Command handlers are a flavor of application services which focus on handling a single command typically in a CQRS architecture.</li>
+</ul>
+</blockquote>
+<p>When there are operations that need to be represented, we can consider them to be services. There are typically three different types of service which you will encounter, these are :</p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220131154707521.png" alt="image-20220131154707521"></p>
+<h2 id="application-services">Application Services</h2>
+<ul>
+<li>Application services are the middleware between the outside world and the domain logic. The purpose of such a mechanism is to transform commands from the outside world into meaningful domain instructions</li>
+<li>As following the same contract for every service is convenient (will see that later), the communication between the delivery mechanism and the domain is carried by data structures called DTOs (Data Transfer Objects) (NB : UserSigninRequest $request)</li>
+</ul>
+<h3 id="transactions">Transactions</h3>
+<ul>
+<li>In Domain-Driven Design, transactions are handled at the Application Service level. You are not going to find any beginTransaction or similar anywhere in your Domain code</li>
+<li>All the operations performed during the execution of the Application Service are going to be run atomically against your database</li>
+</ul>
+<h2 id="domain-services">Domain Services</h2>
+<ul>
+<li>you will come across concepts in the Ubiquitous Language that cannot be neatly represented as either an Entity or Value</li>
+<li><strong>domain services are stateless operations.</strong></li>
+</ul>
+<h3 id="domain-services-with-multiple-implementations">Domain Services With Multiple Implementations</h3>
+<ul>
+<li>It is common to encounter infrastructural dependencies when modeling a domain service</li>
+<li>use <a href="https://martinfowler.com/eaaCatalog/separatedInterface.html">Separated Interface</a> :
+<ul>
+<li>use Separated Interface to define an interface in one package but implement it in another</li>
+<li>This way a client that needs the dependency to the interface can be completely unaware of the implementation.</li>
+<li>The Separated Interface provides a good plug point for Gateway</li>
+</ul>
+</li>
+<li>in symfony we use the dependency injection configuration to swap implementations</li>
+</ul>
+<h2 id="anemic-domain-models-vs-rich-domain-models">Anemic Domain Models vs Rich Domain Models</h2>
+<ul>
+<li>Caution must be had to not overuse domain service abstractions within your system. Following this path can lead to entities and value objects stripped of all behaviour, becoming mere data containers</li>
+<li>This is contrary to the goal of OOP, which can be thought of as the gathering of both data and behaviour into semantic units called objects</li>
+<li>considered an anti-pattern and is referenced to as the <strong>Anemic domain model</strong></li>
+<li>to reuse code changing an entity some suggest the use of a <a href="https://martinfowler.com/eaaCatalog/serviceLayer.html">Service Layer</a>, making the operations explicit and reusable. But</li>
+</ul>
+<h3 id="anemic-domain-model-breaks-encapsulation">Anemic Domain Model Breaks Encapsulation</h3>
+<ul>
+<li>the service layer is required to know every detail of its internal representation</li>
+<li>This finding goes against the fundamental rule of object-oriented programming, combining data with subsequent behaviour</li>
+</ul>
+<h3 id="anemic-domain-model-brings-a-false-sense-of-code-reuse">Anemic Domain Model Brings a False Sense of Code Reuse</h3>
+<ul>
+<li>we cannot guard against someone bypassing the service layer and accessing an entity</li>
+<li>invariants should be correctly guarded, and the best way to do this is to let the true domain model handle it</li>
+<li>This leads to far richer classes, were behaviour is the ideal direction to aim for resulting code reuse. This is commonly referred to as a <strong>rich domain model</strong></li>
+</ul>
+<h3 id="how-to-avoid-anemic-domain-model-">How to Avoid Anemic Domain Model ?</h3>
+<ul>
+<li>think of the behaviour first. Databases, ORMs, and so on are just implementation details</li>
+</ul>
+<h1 id="6-domain-events">6. Domain events</h1>
+<ul>
+<li>PHP developers are not generally used to work with events</li>
+<li>Domain Events are events related to Domain changes. Domain Events are things that happen in our Domain that domain experts care about</li>
+<li>While developing a single application, events come handy to decoupling components</li>
+<li>Open / closed principle</li>
+</ul>
+<h2 id="definition">Definition</h2>
+<ul>
+<li>Domain Events are one specific type of event used for notifying Domain changes to local or remote Bounded Contexts</li>
+<li>captures the memory of something interesting which affects the domain (Martin Fowler)</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<ul>
+<li>Domain Events are useful for dealing with eventual consistency and integrating different Bounded Contexts</li>
+<li>Aggregates create Events and publish them</li>
+<li>Subscribers may store Events and then forward them to remote subscribers</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220203190547379.png" alt="image-20220203190547379" style="zoom: 150%;" />
+<h2 id="characteristics-1">Characteristics</h2>
+<ul>
+<li>Domain events are ordinarily immutable, as they are a record of something in the past</li>
+<li>a domain event typically contains a timestamp for the time the event occurred and the identity of entities involved in the event</li>
+<li>Also, a domain event often has a separate timestamp indicating when the event was entered into the system and the identity of the person who entered it</li>
+<li>When useful, an identity for the domain event can be based on some set of these properties</li>
+<li>All events should be represented as verbs in the past tense such as CustomerRelocated, CargoShipped, or InventoryLossageRecorded</li>
+<li>Nouns tend to match up with “Transaction Objects” discussed later from Streamlined Object Modeling</li>
+<li>The introduction of the event makes the concept explicit <strong>and part of the Ubiquitous Language</strong></li>
+<li>Domain events are <strong>different</strong> from <strong><a href="https://symfony.com/doc/current/components/event_dispatcher.html">Symfony Event Dispatcher</a></strong>, these are mutable</li>
+</ul>
+<h2 id="modeling-events">Modeling Events</h2>
+<ul>
+<li>DomainEvents are usually designed as immutable</li>
+<li>Constructor will initialize the full state of the DomainEvent</li>
+<li>DomainEvents will have getters to access its attributes</li>
+<li>Include the identity of the Aggregate that performs the action</li>
+<li>Include other Aggregate identities related with the first one</li>
+<li>Include parameters that caused the Event if useful</li>
+</ul>
+<blockquote>
+<p>Thinking in other Bounded Context point of view could help modeling events</p>
+</blockquote>
+<ul>
+<li>don&rsquo;t include the whole User Entity from my Bounded Context in the Domain Event, NB : only literrals (email ..)</li>
+</ul>
+<h2 id="persisting-domain-events">Persisting Domain Events</h2>
+<ul>
+<li>You can expose your Domain Events for other BC in a REST way</li>
+<li>You can persist the Domain Event and the Aggregate changes in the same Database transaction before pushing it to RabbitMQ
+<ul>
+<li>Don&rsquo;t want to push a notification to something that did not happend</li>
+<li>Don&rsquo;t want to miss notifications about something that did happen</li>
+</ul>
+</li>
+<li>Allows auditing entity changes</li>
+<li>For Event Sourcing, you can reconstitute Aggregates from Domain Events</li>
+</ul>
+<h3 id="event-store">Event Store</h3>
+<ul>
+<li>An Event Store is a Domain Event repository that lives in our Domain space as an abstraction (interface or abstract class) its responsibility is to append Domain Events and query them</li>
+<li>An Entity or Value Object has sense inside a BC but DomainEvents define a communication protocol between BC</li>
+</ul>
+<h2 id="publishing-events-from-the-domain-model">Publishing Events from the Domain Model</h2>
+<ul>
+<li>for a creating event, publishing can be done in the constructor and by using singleton to grab the publisher instance</li>
+<li>You should struggle to publish Domain Events from deeper in the chain. The nearer inside the Entity or the Value Object, the better. <strong>Not in domain or application services</strong> which would result in an <strong>anemic domain model</strong></li>
+<li>A <strong>DomainEventPublisher</strong> is a Singleton class available from our Bounded Context in order to publish DomainEvents. It also has support to attach listeners, <strong>DomainEventSubscriber</strong>, that will be listening for any <strong>DomainEvent</strong> they are interested in</li>
+<li>to persist domain events we can use a specific DomainEventSubscriber for persisting listening to all events.</li>
+</ul>
+<h3 id="setting-up-domaineventlisteners">Setting up DomainEventListeners</h3>
+<ul>
+<li>Where is the best place to set up the subscribers to the DomainEventPublisher ?
+<ul>
+<li>For global subscribers that affect all the request, probably when building your DomainEventPublisher</li>
+<li>If some subscribers just affect a specific Application Service, when building the Application Service</li>
+</ul>
+</li>
+<li>example using silex</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220204143646093.png" alt="image-20220204143646093" style="zoom:67%;" />
+<h2 id="unit-testing">Unit Testing</h2>
+<ul>
+<li>use a specific EventListener that will work as an Spy to record if the Domain Event was published</li>
+<li><a href="https://www.martinfowler.com/bliki/TestDouble.html">See martin fowler vocabulary about test doubles</a></li>
+</ul>
+<h2 id="spreading-the-news-to-remote-bounded-contexts">Spreading the News to Remote Bounded Contexts</h2>
+<ul>
+<li>2 main non exclusive strategies
+<ul>
+<li>REST</li>
+<li>Messaging</li>
+</ul>
+</li>
+</ul>
+<h1 id="7-modules">7. Modules</h1>
+<blockquote>
+<p>When you place some classes together in a Module, you are telling the next developer who looks at your design to think about them together. If your model is telling a story, the Modules are chapters. Eric Evans, Domain-Driven Design.</p>
+</blockquote>
+<ul>
+<li>Modules should not be treated as a way to separate code but as a way to separate meaningful concepts in the model</li>
+</ul>
+<p>module folder structure example :</p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220204144851562.png" alt="image-20220204144851562" style="zoom:50%;" />
+<ul>
+<li>Modules don’t separate code but separate meaningful concepts</li>
+<li>we’re using Hexagonal Architecture to inverse the dependency between the domain and the infrastructure layer</li>
+<li>we will need a place where we can put all the implementations of the interfaces defined in the domain layer</li>
+<li>for <strong>infrastructure</strong> we need to group the related implementations by the underlying technology</li>
+</ul>
+<h3 id="mixing-different-technologies">Mixing Different Technologies</h3>
+<ul>
+<li>Use CQRS</li>
+<li>or  use of the Proxy pattern from Gang of Four.</li>
+</ul>
+<h2 id="leverage-modules-in-php">Leverage Modules in PHP</h2>
+<ul>
+<li>PSR-0 and PSR-4 Namespacing Conventions</li>
+</ul>
+<h1 id="8-aggregates">8. Aggregates</h1>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
+        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+<script>
+    function isDevMode() {
+        new URLSearchParams(window.location.search).get("dev") !== null ||
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
+
+        
+        return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
+    }
+    const devMode = isDevMode()
+    localStorage.setItem("dev-mode",devMode ? "true": "")
+
+    if (devMode) {
+        
+        Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
+    }
+
+    if (document.querySelector("#search-bar")) {
+        if (window.location.pathname === "/" ||devMode) {
+            loadAlgolia();
+        }
+    }
+
+    function loadAlgolia() {
+        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3')
+        const search = instantsearch({
+            indexName: 'blog',
+            searchClient,
+            searchFunction: helper => {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
+                    $('#hits').hide()
+                } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
+                    helper.search();
+                }
+            }
+        });
+
+        function itemToHtml(item) {
+            title = item._highlightResult.title.value || item.title
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords && item._highlightResult.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            return `<a href="${item.url}">
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
+        }
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#search-bar',
+                placeholder: 'Search for posts',
+                autofocus: true,
+                showReset: false,
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: {
+                    item: itemToHtml
+                },
+            })
+
+        ]);
+
+        search.start();
+
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('.ais-InstantSearch').length) {
+                $('#hits').hide()
+            }
+        });
+
+        
+        $('.ais-InstantSearch').on('click keypress', function (event) {
+            $('#hits').show()
+        });
+
+
+        $('.ais-SearchBox-input').on('focus', function (event) {
+            $('#hits').show()
+        });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
+    }
+</script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>

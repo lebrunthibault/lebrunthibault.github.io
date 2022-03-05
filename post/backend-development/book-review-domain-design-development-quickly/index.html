@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Domain Driven Development Quickly - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Book here" /><meta name="keywords" content="" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Domain Driven Development Quickly" />
+<meta property="og:description" content="Book here" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-03-05T16:49:39+01:00" />
+
+<meta itemprop="name" content="Domain Driven Development Quickly">
+<meta itemprop="description" content="Book here">
+<meta itemprop="dateModified" content="2022-03-05T16:49:39+01:00" />
+<meta itemprop="wordCount" content="3661">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Domain Driven Development Quickly"/>
+<meta name="twitter:description" content="Book here"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title">Domain Driven Development Quickly</h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 18 mins read </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#code-design">Code design</a></li>
+            <li><a href="#existing-software-design-approaches">Existing Software design approaches</a></li>
+          </ul>
+        </li>
+        <li><a href="#building-domain-knowledge">Building domain knowledge</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-ubiquitous-language-the-need-for-a-common-language">The ubiquitous language, the need for a common language</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#impose-the-domain-language">Impose the domain language</a></li>
+            <li><a href="#expressing-the-language">Expressing the language</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#model-driven-design">Model driven design</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#presentation-of-the-most-important-model-driven-design-patterns">Presentation of the most important model driven design patterns</a></li>
+          </ul>
+        </li>
+        <li><a href="#layered-architecture">Layered architecture</a></li>
+        <li><a href="#entities">Entities</a></li>
+        <li><a href="#value-objects">Value objects</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#services">Services</a>
+          <ul>
+            <li><a href="#domain-segregation">Domain segregation</a></li>
+          </ul>
+        </li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#aggregates">Aggregates</a>
+          <ul>
+            <li><a href="#solution--aggregates">Solution : aggregates</a></li>
+          </ul>
+        </li>
+        <li><a href="#factories">Factories</a></li>
+        <li><a href="#repositories">Repositories</a></li>
+      </ul>
+    </li>
+    <li><a href="#refactoring-towards-deeper-insight">Refactoring towards deeper insight</a>
+      <ul>
+        <li><a href="#bring-key-concepts-into-the-light">Bring key concepts into the light</a>
+          <ul>
+            <li><a href="#breakthrough">Breakthrough</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#preserving-model-integrity">Preserving Model Integrity</a>
+      <ul>
+        <li><a href="#bounded-context">Bounded Context</a></li>
+        <li><a href="#continuous-integration">Continuous Integration</a></li>
+        <li><a href="#context-map">Context Map</a></li>
+        <li><a href="#shared-kernel">Shared Kernel</a></li>
+        <li><a href="#customer-supplier">Customer-Supplier</a></li>
+        <li><a href="#anticorruption-layer">Anticorruption Layer</a></li>
+        <li><a href="#separate-ways">Separate Ways</a></li>
+        <li><a href="#open-host-service">Open Host Service</a></li>
+        <li><a href="#distillation">Distillation</a>
+          <ul>
+            <li><a href="#implementing-a-generic-sub-domain">Implementing a Generic Sub Domain</a></li>
+            <li><a href="#ddd-matters-today-an-interview-with-eric-evans">DDD Matters Today: An interview with Eric Evans</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <p>Book <a href="https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Marinescu%20F.%20-%20Domain%20Driven%20Design%20Quickly.pdf">here</a></p>
+<h1 id="intro">Intro</h1>
+<blockquote>
+<p>Software needs to incorporate the core concepts and elements of the domain, and to precisely realize the relationships between them. Software has to model the domain</p>
+<p>a domain model is not a particular diagram; it is the idea that the diagram is intended to convey</p>
+<p><em>we need to communicate the model</em></p>
+</blockquote>
+<h3 id="code-design">Code design</h3>
+<ul>
+<li>code design is working on the details vs software design working on big picture</li>
+<li>Here code design patterns come handy, and they should be applied when necessary</li>
+</ul>
+<h3 id="existing-software-design-approaches">Existing Software design approaches</h3>
+<ul>
+<li>Classical software design, <strong>waterfall</strong> : The business experts put up a set of requirements which are communicated to the business analysts. The analysts create a model based on those requirements, and pass the results to the developers</li>
+<li><strong>Extreme Programming (XP)</strong>:
+<ul>
+<li>goes against waterfall.</li>
+<li>Try solving difficulties of trying to come up with all the requirements upfront, particularly in light of requirements change.</li>
+<li>Uses a lot refactoring instead of upfront design.</li>
+<li>Good but needs developers with solid design principles or the code will become hard to understand after several refactorings</li>
+<li>Can lead to the fear of a good design by opposition</li>
+</ul>
+</li>
+<li>Domain Drive Design
+<ul>
+<li>a bit of both</li>
+<li>combines design and development practice, and shows how design and development can work together to create a better solution</li>
+</ul>
+</li>
+</ul>
+<h2 id="building-domain-knowledge">Building domain knowledge</h2>
+<ul>
+<li>You need to learn as much as possible about the domain from the experts. And by putting the right questions, and processing the information in the right way, you and the experts will start to sketch a view of the domain, a domain model</li>
+<li>The building of the domain allows to put the maximum domain knowledge in the model, <strong>very</strong> important (NB: all vocabulary terms should be present)</li>
+<li>The software specialists want to extract knowledge from the domain experts</li>
+<li>The analytical mind of the software designer helps unearth some of the key concepts of the model, because domain experts see things a way that is not always applicable to software</li>
+<li>the model is the place where those two areas of expertise meet (domain expertise and software expertise)</li>
+</ul>
+<h1 id="the-ubiquitous-language-the-need-for-a-common-language">The ubiquitous language, the need for a common language</h1>
+<ul>
+<li>A project faces serious problems when team members don’t share a common language for discussing the domain. Domain experts use their jargon while technical team members have their own language tuned for discussing the domain in terms of design</li>
+<li>the most incisive expressions of the domain often emerge in a transient form that is never captured in the code or even in writing</li>
+</ul>
+<blockquote>
+<p>A core principle of domain-driven design is to use a language based on the model</p>
+</blockquote>
+<h3 id="impose-the-domain-language">Impose the domain language</h3>
+<ul>
+<li>Use the model as the backbone of a language</li>
+<li>Request that the team use the language consistently in all communications, and also in the code</li>
+<li>The Ubiquitous Language connects all the parts of the design, and creates the premise for the design team to function well</li>
+<li>Iron out difficulties by experimenting with alternative expressions, which reflect alternative models. Then refactor the code, renaming classes, methods, and modules to conform to the new model</li>
+<li>The model and the language are strongly interconnected with one another. A change in the language should become a change to the model</li>
+</ul>
+<h3 id="expressing-the-language">Expressing the language</h3>
+<ul>
+<li>UML : great for a few classes but gets complicated when we add too much classes / knowledge</li>
+<li>UML cannot convey two important aspects of a model: the meaning of the concepts it represents and what the objects are supposed to do</li>
+<li>One advisable way of communicating the model is to make some small diagrams each containing a subset of the model</li>
+<li>Then we can add text to the diagram. The text will explain behavior and constraints which the diagram cannot</li>
+<li>Those documents can be even hand-drawn, because that transmits the feeling that they are temporary, and might be changed in the near future</li>
+<li>Avoid long documents that get outdated faster</li>
+<li>Sometimes code can be used (or test code) but the code even working doesn&rsquo;t always express the right thing.</li>
+</ul>
+<h1 id="model-driven-design">Model driven design</h1>
+<blockquote>
+<p>Starting from a model not easily adaptable, good developers might pull together a product which works, but will it stand the trials of time? Will it be easily extendable? Will it be easily maintainable?</p>
+</blockquote>
+<ul>
+<li>It is important to choose a model which can be easily and accurately put into code</li>
+<li><em>analysis model</em> : result of business domain analysis, resulting in a model which has no consideration for the software used for implementation. Such a model is used to understand the domain. After translation in code the code will start to move away from the model.</li>
+<li>A better approach is to closely relate domain modeling and design</li>
+<li>Those who write the code should know the model very well, and should feel responsible for its integrity</li>
+<li>Every person working on the project should contribute to all parts (dev to the model, business analysts to the code)</li>
+<li>OOP is good for model driven design because classes and objects can contain behavior and relationships</li>
+</ul>
+<h3 id="presentation-of-the-most-important-model-driven-design-patterns">Presentation of the most important model driven design patterns</h3>
+<blockquote>
+<p>Map of the different patterns</p>
+</blockquote>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/model_driven_design.PNG?raw=true" alt=""></p>
+<h2 id="layered-architecture">Layered architecture</h2>
+<blockquote>
+<p>When we create a software application, a large part of the application is not directly related to the domain, but it is part of the infrastructure or serves the software itself.</p>
+</blockquote>
+<ul>
+<li>Partition a complex program into LAYERS. Develop a design within each LAYER that is cohesive and that depends only on the layers below</li>
+<li>Concentrate all the code related to the domain model in one layer and isolate it from the user interface, application, and infrastructure code</li>
+</ul>
+<p>A common architectural solution for domain-driven designs contain four conceptual layers:</p>
+<ul>
+<li><strong>User interface</strong> (presentation layer) : Responsible for presenting information to the user and interpreting user commands</li>
+<li><strong>Application Layer</strong> : This is a thin layer which coordinates the application activity. It does not contain business logic. It does not hold the state of the business objects, but it can hold the state of an application task progress</li>
+<li>**Domain layer **: This layer contains information about the domain. This is the heart of the business software. The state of business objects is held here. Persistence of the business objects and possibly their state is delegated to the infrastructure layer</li>
+<li><strong>Infrastructure Layer</strong> : This layer acts as a supporting library for all the other layers. It provides communication between layers, implements persistence for business objects, contains supporting libraries for the user interface layer, etc.</li>
+</ul>
+<blockquote>
+<p>UI talks to application with talks to the domain and infrastructure (e.g. fetches domain object from infra, calls domain object methods and use infra to persist the objects)</p>
+</blockquote>
+<h2 id="entities">Entities</h2>
+<blockquote>
+<p>There is a category of objects which seem to have an identity, which remains the same throughout the states of the software.</p>
+</blockquote>
+<ul>
+<li>implementing entities in software means creating identity</li>
+<li>When an object is distinguished by its identity, rather than its attributes, make this primary to its definition in the model</li>
+<li>Be alert to requirements that call for matching objects by attributes. Define an operation that is guaranteed to produce a unique result for each object</li>
+<li>The model must define what it means to be the same thing</li>
+<li>It is also important to determine if an object needs to be an entity or not</li>
+</ul>
+<h2 id="value-objects">Value objects</h2>
+<h5 id="difference-with-dto">Difference with DTO</h5>
+<blockquote>
+<ul>
+<li>A value object is a simple object whose equality isn&rsquo;t based on identity.</li>
+<li>A <a href="https://martinfowler.com/eaaCatalog/dataTransferObject.html">data transfer object</a> is an object used to transfer data between software application subsystems, usually between business layers and UI.</li>
+<li>It is focused just on plain data, so it doesn&rsquo;t have any behaviour.</li>
+<li>Used to batch up multiple remote procedure calls in one call.</li>
+<li>Another advantage is to encapsulate the serialization mechanism</li>
+</ul>
+</blockquote>
+<ul>
+<li>It takes a lot of careful thinking to decide what makes an entity</li>
+<li>There are also performance implications in making all objects entities</li>
+<li>There are cases when we need to contain some attributes of a domain element. We are not interested in which object it is, but what attributes it has.</li>
+<li><strong>An object that is used to describe certain aspects of a domain, and which does not have identity, is named Value Object</strong></li>
+<li>It is highly recommended that value objects be immutable (implement only getters)</li>
+<li>Being immutable, and having no identity, Value Objects can be shared</li>
+<li>Value Objects can contain other Value Objects, and they can even contain references to Entities</li>
+</ul>
+<h2 id="services">Services</h2>
+<blockquote>
+<p>Services act as interfaces which provide operations</p>
+</blockquote>
+<p><strong>3 Characteristics of a service</strong></p>
+<ul>
+<li>The operation performed by the Service refers to a domain concept which does not naturally belong to an Entity or Value Object.</li>
+<li>The operation performed refers to other objects in the domain</li>
+<li>The operation is stateless</li>
+</ul>
+<h3 id="domain-segregation">Domain segregation</h3>
+<ul>
+<li>It is easy to get confused between services which belong to the domain layer, and those belonging to the infrastructure. There are application services, domain services and infrastructure services</li>
+<li>While working on the model and during the design phase, we need to make sure that the domain level remains isolated from the other levels</li>
+<li>Deciding the layer a Service belongs to is difficul (application or domain ?)</li>
+</ul>
+<h2 id="modules">Modules</h2>
+<ul>
+<li>for a large application it is necessary to organize the model into modules</li>
+<li>It is widely accepted that software code should have a high level of cohesion and a low level of coupling</li>
+<li>group highly related classes into modules to provide maximum cohesion possible</li>
+<li><strong>communicational cohesion</strong>: when the module operates on the same data</li>
+<li><strong>functional cohesion</strong>: all parts of the module work together to perform a well-defined task. Considered the best type of cohesion</li>
+<li>Using modules in design is a way to increase cohesion, maintainability and decrease coupling</li>
+<li><strong>Modules should have well defined interfaces which are accessed by other modules</strong></li>
+<li>Choose Modules that tell the story of the system and contain a cohesive set of concepts</li>
+<li>Refine the model until it partitions according to high-level domain concepts and the corresponding code is decoupled as well</li>
+<li><strong>Give the Modules names that become part of the Ubiquitous Language</strong></li>
+</ul>
+<h2 id="aggregates">Aggregates</h2>
+<blockquote>
+<p>Factories and Repositories are two design patterns which help us deal with object creation and storage</p>
+<p>Aggregate is a domain pattern used to define object ownership and boundaries</p>
+</blockquote>
+<ul>
+<li>Most of the time it pays of to eliminate or simplify relations from the model</li>
+<li>One to many is more complicated than one to one and many to many is the most complicated to deal with especially when it&rsquo;s bidirectional</li>
+<li>Firstly, associations which are not essential for the model should be removed</li>
+<li>Secondly, multiplicity can be reduced by adding a constraint : if many objects satisfy a relationship, it is possible that only one will do it if the right constraint is imposed on the relationship (NB : meaning many to one to one to one ..?)</li>
+<li>many times bidirectional associations can be transformed in unidirectional ones : (e.g. an engine doesn&rsquo;t need to have a car)</li>
+<li>database transactions are used to enforce data integrity</li>
+<li>It is also necessary to be able to enforce the invariants (rules which have to be maintained whenever data changes. meaning stuff that we cannot check at the database level ?)</li>
+</ul>
+<h3 id="solution--aggregates">Solution : aggregates</h3>
+<ul>
+<li>An Aggregate is a group of associated objects which are considered as one unit with regard to data changes</li>
+<li>The Aggregate is demarcated by a boundary which separates the objects inside from those outside</li>
+<li>Each Aggregate has one root. The root is an Entity, and it is the only object accessible from outside</li>
+<li>NB in basile :
+<ul>
+<li>an AbstractApplication Aggreagate with absApp as root and ApplicationFormValue, Candidate, Status, Alerts ..?</li>
+<li>BonusAmount Aggreagte (with BonusAmountFilter)</li>
+<li>Company: CompanyImage, CompanyLog</li>
+<li>Offer : OfferAdress, OfferPreference</li>
+</ul>
+</li>
+<li>The root object will enforce the invariants</li>
+<li>It is possible for the root to pass transient references of internal objects to external ones, with the condition that the external objects do not hold the reference after the operation is finished</li>
+<li>One simple way to do that is to pass copies of the Value Objects to external objects. Aggreagate integrity will be protected</li>
+<li>If objects of an Aggregate are stored in a database, only the root should be obtainable through queries. The other objects should be obtained through traversal associations</li>
+<li>Objects inside an Aggregate should be allowed to hold references to roots of other Aggregates</li>
+<li>The root Entity has global identity, and is responsible for maintaining the invariants. Internal Entities have local identity</li>
+<li>Cluster the Entities and Value Objects into Aggregates and define boundaries around each</li>
+</ul>
+<h2 id="factories">Factories</h2>
+<ul>
+<li>Entities and Aggregates can often be large and complex</li>
+<li>Factories are used to encapsulate the knowledge necessary for object creation, and they are especially useful to create Aggregates</li>
+<li>When the root is created, it is necessary that all objects subject to invariants are created too (VO should have there valid state and an exception is thrown if anything goes astray)</li>
+<li>shift the responsibility for creating instances of complex objects and Aggregates to a separate object, which may itself have no responsibility in the domain model but is still part of the domain design</li>
+</ul>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/ddd_factory.PNG?raw=true" alt=""></p>
+<ul>
+<li>It is necessary that when such a component is created to automatically belong to a container. The client calls the createComponent(Type t) method of the container</li>
+<li>The concrete class of the component is determined based on its type</li>
+<li><strong>When creating a Factory, we are forced to violate an object’s encapsulation</strong></li>
+<li>Factories are tightly related to the objects they are created. That can be a weakness, but it can also be a strength</li>
+</ul>
+<p>Don&rsquo;t use factory method when</p>
+<ul>
+<li>The construction is not complicated.</li>
+<li>The creation of an object does not involve the creation of others, and all the attributes needed are passed via the constructor.</li>
+<li>The client is interested in the implementation, perhaps wants to choose the Strategy used.</li>
+<li>The class is the type. There is no hierarchy involved, so no need to choose between a list of concrete implementations.</li>
+</ul>
+<h2 id="repositories">Repositories</h2>
+<ul>
+<li>Using V0 and Aggregates can increase coupling between objects</li>
+<li>purpose of which is to encapsulate all the logic needed to obtain object references</li>
+<li>the Repository acts as a storage place for globally accessible objects</li>
+<li>The overall effect is that the domain model is decoupled from the need of storing objects or their references, and accessing the underlying persistence infrastructure</li>
+<li>create an object that can provide the illusion of an in-memory collection of all objects of that type</li>
+<li>Provide repositories only for Aggregate roots that actually need direct access</li>
+<li>the repository interface will be pure domain model</li>
+<li>Factory and Repository. They are both patterns of the model-driven design</li>
+</ul>
+<h1 id="refactoring-towards-deeper-insight">Refactoring towards deeper insight</h1>
+<ul>
+<li>tools to make refactoring easier</li>
+<li>Technical refactoring, the one based on patterns, can be organized and structured. Refactoring toward deeper insight cannot be done in the same way</li>
+<li>A good model is the result of deep thinking, insight, experience, and flair</li>
+<li>Traditionally, refactoring is described in terms of code transformations with technical motivations. Refactoring can also be motivated by an insight into the domain and a corresponding refinement of the model or its expression in code</li>
+</ul>
+<h2 id="bring-key-concepts-into-the-light">Bring key concepts into the light</h2>
+<ul>
+<li>There are times when lots of small changes add very little value to the design, and there are times when few changes make a lot of difference. It’s a <strong>Breakthrough</strong></li>
+</ul>
+<h3 id="breakthrough">Breakthrough</h3>
+<ul>
+<li>A Breakthrough often involves a change in thinking, in the way we see the model.</li>
+<li>may imply a large amount of refactoring</li>
+<li>To reach a Breakthrough, we need to make the implicit concepts explicit</li>
+<li>They are <strong>implicit concepts</strong>, used to explain other concepts which are already in the model</li>
+<li>If they are domain concepts, they should be present in the model and the design</li>
+<li>Another obvious way of digging out model concepts is to use domain literature</li>
+</ul>
+<p>There are other concepts which are very useful when made explicit</p>
+<ul>
+<li><strong>Constraint</strong> : isolate the constraints (invariants) in specific methods</li>
+<li><strong>Process</strong>: use Services.  If there are different ways to carry out the process, then we can encapsulate the algorithm in an object and use a <strong>Strategy</strong></li>
+<li><strong>Specification</strong>:
+<ul>
+<li>used to test an object to see if it satisfies a certain criteria.</li>
+<li>useful when a constraint grows too big</li>
+<li>it should stay in the domain layer</li>
+</ul>
+</li>
+</ul>
+<h1 id="preserving-model-integrity">Preserving Model Integrity</h1>
+<h2 id="bounded-context">Bounded Context</h2>
+<ul>
+<li>Each model has a context. When we deal with a single model, the context is implicit. We do not need to define it</li>
+<li>A model should be small enough to be assigned to one team</li>
+<li>The main idea is to define the scope of a model, to draw up the boundaries of its context, then do the most possible to keep the model unified</li>
+<li>A Bounded Context is not a Module. A Bounded Context provides the logical frame inside of which the model evolves. Modules are used to organize the elements of a model, so Bounded Context encompasses the Module</li>
+<li>There is a price to pay for having multiple models</li>
+<li>We won’t be able to transfer any objects between different models, and we cannot invoke behavior freely as if there was no boundary</li>
+<li>It is much simpler for the e-shop application to send Value Objects containing purchase information to the warehouse using asynchronous messaging</li>
+</ul>
+<h2 id="continuous-integration">Continuous Integration</h2>
+<ul>
+<li>When a number of people are working in the same Bounded Context, there is a strong tendency for the model to fragment and lose a valuable level of integration and coherency</li>
+<li>For a single small team, daily merges are recommended</li>
+<li>Another necessary requirement is to perform automated tests</li>
+<li>Continuous Integration applies to a Bounded Context, it is not used to deal with relationships between neighboring Contexts</li>
+</ul>
+<h2 id="context-map">Context Map</h2>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/context_map.PNG?raw=true" alt=""></p>
+<ul>
+<li>An enterprise application has multiple models, and each model has its own Bounded Context</li>
+<li>A Context Map is a document which outlines the different Bounded Contexts and the relationships between them</li>
+<li>Each Bounded Context should have a name which should be part of the Ubiquitous Language and corresponds to a module</li>
+</ul>
+<h2 id="shared-kernel">Shared Kernel</h2>
+<blockquote>
+<p>The purpose of the Shared Kernel is to reduce duplication, but still keep two separate contexts.</p>
+</blockquote>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/shared_kernel.PNG?raw=true" alt=""></p>
+<h2 id="customer-supplier">Customer-Supplier</h2>
+<ul>
+<li>There are times when two subsystems have a special relationship: one depends a lot on the other</li>
+<li>The 2 bounded contexts should talk as customer / supplier and define a timetable for features to be implemented in the supplier</li>
+<li>Tests should be written to assert the supplier implements the contract and added to the supplier code.</li>
+<li>When poor communication exists between supplier and customer, the customer  has to take some measures to protect itself from model changes</li>
+<li>The customer context should protect itself by using an Anticorruption Layer</li>
+</ul>
+<h2 id="anticorruption-layer">Anticorruption Layer</h2>
+<ul>
+<li>the Anticorruption Layer talks to the external model using the external language not the client one</li>
+<li>How should we implement the Anticorruption Layer? A very good solution is to see the layer as a Service from the client model</li>
+<li>e.g. using Façade, Adapter and Translator</li>
+</ul>
+<h2 id="separate-ways">Separate Ways</h2>
+<ul>
+<li>If we reach the conclusion that integration is more trouble than it is worth, then we should go the Separate Ways</li>
+<li>The Separate Ways pattern addresses the case when an enterprise application can be made up of several smaller applications which have little or nothing in common from a modeling perspective</li>
+<li>Before going on Separate Ways we need to make sure that we won’t be coming back to an integrated system. Models developed independently are very difficult to integrate</li>
+</ul>
+<h2 id="open-host-service">Open Host Service</h2>
+<ul>
+<li>When we try to integrate two subsystems, we usually create a translation layer between them</li>
+<li>Define a protocol that gives access to your subsystem as a set of Services</li>
+<li>Then, use a one-off translator to augment the protocol for that special case so that the shared protocol can stay simple and coherent</li>
+</ul>
+<h2 id="distillation">Distillation</h2>
+<ul>
+<li>When the domain stays big, even after many refactorings, the idea is to define a Core Domain which represents the essence of the domain, to <strong>distillate</strong> the model.</li>
+<li>The byproducts of the distillation process will be Generic Subdomains which will comprise the other parts of the domain</li>
+<li>The Route concept is used in many domains, and a generic model can be designed to describe it. It&rsquo;s not a Core Domain</li>
+<li>The Core Domain of an application may become a generic subdomain of another</li>
+<li>Boil the model down. Find the Core Domain and provide a means of easily distinguishing it from the mass of supporting model and code. Emphasize the most valuable and specialized concepts. Make the Core small.</li>
+<li>Some parts of the model add complexity without capturing or communicating specialized knowledge</li>
+<li>Best developers sould work on the Code Domain.</li>
+<li>consider off the shelf solutions or published models for these Generic Subdomains</li>
+</ul>
+<h3 id="implementing-a-generic-sub-domain">Implementing a Generic Sub Domain</h3>
+<ul>
+<li><strong>Off-the-shelf Solution</strong>: 3rd party solution (e.g. algolia). More dependencies. Not always easy integration</li>
+<li><strong>Outsourcing</strong>: The design and implementation is given to another team, probably from another company. The interface used to communicate with the subdomain needs to be defined and communicated to the other team</li>
+<li><strong>Existing Model</strong>: use some books which have published analysis patterns</li>
+<li><strong>In-House Implementation</strong>: best integration and extra maintenance effort</li>
+</ul>
+<h3 id="ddd-matters-today-an-interview-with-eric-evans">DDD Matters Today: An interview with Eric Evans</h3>
+<ul>
+<li>More out on the cutting-edge are the efforts in the area of domain-specific languages (DSLs), which I have long believed could be the next big step for DDD.</li>
+<li>Don&rsquo;t try to apply DDD to everything. Draw a context map and decide on where you will make a push for DDD and where you will no</li>
+</ul>
+<p>Also from <a href="https://domaindrivendesign.org/">What is DDD from Eric Evans video</a></p>
+<ul>
+<li>A complex logic (in a service) should not at the same time update database (separate logic from updating state)</li>
+<li>How we think about a domain problem should always be explained simply to a domain expert</li>
+<li>Spend more time discussing for software because there is more possibilities and it costs more than buying a car</li>
+<li>when you consider possibilities (vocabulary or software methods), trying consider at least 3 to come up with even more alternatives and make the right choice</li>
+<li>Every keyword uses in a conversation should translate in the model, even when we understand immediately the meaning (ex: the &ldquo;itinerary&rdquo;)</li>
+<li>we want to get broad at start</li>
+<li>we want at least a bad idea</li>
+</ul>
+<h4 id="generate-variation-dont-dither-dont-get-finicky">Generate variation, don&rsquo;t dither, don&rsquo;t get finicky</h4>
+<h4 id="what-is-a-model">What is a model</h4>
+<ul>
+<li>A map of the world serves a purpose : make it easy to calculate angles but not size (changes with latitude)</li>
+</ul>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
+        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+<script>
+    function isDevMode() {
+        new URLSearchParams(window.location.search).get("dev") !== null ||
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
+
+        
+        return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
+    }
+    const devMode = isDevMode()
+    localStorage.setItem("dev-mode",devMode ? "true": "")
+
+    if (devMode) {
+        
+        Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
+    }
+
+    if (document.querySelector("#search-bar")) {
+        if (window.location.pathname === "/" ||devMode) {
+            loadAlgolia();
+        }
+    }
+
+    function loadAlgolia() {
+        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3')
+        const search = instantsearch({
+            indexName: 'blog',
+            searchClient,
+            searchFunction: helper => {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
+                    $('#hits').hide()
+                } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
+                    helper.search();
+                }
+            }
+        });
+
+        function itemToHtml(item) {
+            title = item._highlightResult.title.value || item.title
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords && item._highlightResult.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            return `<a href="${item.url}">
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
+        }
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#search-bar',
+                placeholder: 'Search for posts',
+                autofocus: true,
+                showReset: false,
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: {
+                    item: itemToHtml
+                },
+            })
+
+        ]);
+
+        search.start();
+
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('.ais-InstantSearch').length) {
+                $('#hits').hide()
+            }
+        });
+
+        
+        $('.ais-InstantSearch').on('click keypress', function (event) {
+            $('#hits').show()
+        });
+
+
+        $('.ais-SearchBox-input').on('focus', function (event) {
+            $('#hits').show()
+        });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
+    }
+</script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>

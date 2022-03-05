@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Software development techniques - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="My software development techniques notes" /><meta name="keywords" content="Software development, Backend development, Design patterns" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/software-development-principles/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Software development techniques" />
+<meta property="og:description" content="My software development techniques notes" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/software-development-principles/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-01-25T11:33:30+01:00" />
+
+<meta itemprop="name" content="Software development techniques">
+<meta itemprop="description" content="My software development techniques notes">
+<meta itemprop="dateModified" content="2022-01-25T11:33:30+01:00" />
+<meta itemprop="wordCount" content="2930">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Software development techniques"/>
+<meta name="twitter:description" content="My software development techniques notes"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title">Software development techniques</h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 14 mins read </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#typing">Typing</a>
+      <ul>
+        <li><a href="#literal-types-type-hints">Literal types: type-hints</a></li>
+        <li><a href="#logical-types-data-transfer-objectshttpsmartinfowlercomeaacatalogdatatransferobjecthtml">Logical types: <a href="https://martinfowler.com/eaaCatalog/dataTransferObject.html">Data Transfer Objects</a></a></li>
+        <li><a href="#structural-types--interfaces--mixins">Structural types : interfaces &amp; mixins</a></li>
+      </ul>
+    </li>
+    <li><a href="#dry"><a href="http://wiki.c2.com/?DontRepeatYourself">DRY</a></a>
+      <ul>
+        <li><a href="#literals">Literals</a>
+          <ul>
+            <li><a href="#exceptions-to-this-rule">Exceptions to this rule</a></li>
+            <li><a href="#where-are-configuration-literals-allowed">Where are configuration literals allowed</a></li>
+          </ul>
+        </li>
+        <li><a href="#logic-and-knowledge">Logic and knowledge</a></li>
+      </ul>
+    </li>
+    <li><a href="#decoupling">Decoupling</a>
+      <ul>
+        <li><a href="#main-00-concepts">Main 00 concepts</a></li>
+        <li><a href="#loose-coupling">Loose coupling</a></li>
+        <li><a href="#encapsulation">Encapsulation</a></li>
+        <li><a href="#inheritance">Inheritance</a>
+          <ul>
+            <li><a href="#the-problems-with-inheritance">The problems with inheritance</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+          </ul>
+        </li>
+        <li><a href="#how-can-we-abstract-multiple-similar-classes-">How can we abstract multiple similar classes ?</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#building-interfaces">Building interfaces</a></li>
+        <li><a href="#state">State</a></li>
+        <li><a href="#other-principles">Other principles</a></li>
+        <li><a href="#liskov-substitution-principlehttpsstitcherioblogliskov-and-type-safety"><a href="https://stitcher.io/blog/liskov-and-type-safety">Liskov substitution principle</a></a>
+          <ul>
+            <li><a href="#invariance-in-php">Invariance in PHP</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#design-patterns">Design Patterns</a></li>
+    <li><a href="#creational-patterns">Creational Patterns</a>
+      <ul>
+        <li><a href="#static-creation-methodhttpsrefactoringgurudesign-patternsfactory-comparison"><a href="https://refactoring.guru/design-patterns/factory-comparison">Static Creation method</a></a></li>
+        <li><a href="#factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory method</a></a></li>
+        <li><a href="#finite-state-machines">Finite State Machines</a></li>
+        <li><a href="#event-systems">Event systems</a></li>
+      </ul>
+    </li>
+    <li><a href="#behavioral-patternshttpsrefactoringgurudesign-patternsbehavioral-patterns"><a href="https://refactoring.guru/design-patterns/behavioral-patterns">Behavioral Patterns</a></a>
+      <ul>
+        <li><a href="#template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></a>
+          <ul>
+            <li><a href="#observerhttpsrefactoringgurufrdesign-patternsobserver"><a href="https://refactoring.guru/fr/design-patterns/observer">Observer</a></a></li>
+            <li><a href="#mediator">Mediator</a></li>
+            <li><a href="#event-bus">Event bus</a></li>
+            <li><a href="#pub--sub">Pub / Sub</a></li>
+          </ul>
+        </li>
+        <li><a href="#reactive-programming2">Reactive programming</a></li>
+        <li><a href="#client---service-communication-via-schema">Client - Service communication via schema</a></li>
+      </ul>
+    </li>
+    <li><a href="#solidhttpsenwikipediaorgwikisolid"><a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#single-responsibility-principlehttpsenwikipediaorgwikisingle-responsibility_principle"><a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single-responsibility principle</a>:</a></li>
+            <li><a href="#openclosed-principlehttpsenwikipediaorgwikiopenclosed_principle"><a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open–closed principle</a></a></li>
+            <li><a href="#liskov-substitution-principlehttpsenwikipediaorgwikiliskov_substitution_principle"><a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a></a></li>
+            <li><a href="#interface-segregation-principlehttpsenwikipediaorgwikiinterface_segregation_principle"><a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a></a></li>
+            <li><a href="#dependency-inversion-principlehttpsenwikipediaorgwikidependency_inversion_principle"><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion principle</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#etc">ETC</a>
+      <ul>
+        <li><a href="#error-handling">Error handling</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <blockquote>
+<p>I&rsquo;m focusing on the languages I&rsquo;ve used most : Python and PHP.</p>
+<p>I&rsquo;ve structured this document as going from lower level development techniques to higher level concepts like design patterns.</p>
+</blockquote>
+<h1 id="typing">Typing</h1>
+<blockquote>
+<p>Made a distinction between</p>
+<ul>
+<li><u>literal types</u>: types as seen by a type checker,</li>
+<li><u>logical types</u>: types as how they carry logic and state</li>
+<li><u>structural types</u>: interfaces, how components are structured at the higher level of the codebase</li>
+</ul>
+</blockquote>
+<h2 id="literal-types-type-hints">Literal types: type-hints</h2>
+<blockquote>
+<p>Using extensively language types / type-hinting possibilities makes dynamically typed languages feel more a statically typed ones and as such automatically detect a whole range of bugs that would have otherwise arisen at runtime. Compilation is replaced by type checkers static analysis.</p>
+<br/>
+<p>Maybe as importantly, it makes the code much easier to grasp at first sight and feels like loosening the coupling between components at the type level (we don&rsquo;t need to understand what a method logically returns only what type it returns)</p>
+</blockquote>
+<ul>
+<li>The editor should be configured to error about wrong parameter types.</li>
+<li>Setup static analysis tools (like mypy) with strict settings. They should be integrated in the IDE, run as pre-commit and in the test / deploy pipeline.</li>
+</ul>
+<h2 id="logical-types-data-transfer-objectshttpsmartinfowlercomeaacatalogdatatransferobjecthtml">Logical types: <a href="https://martinfowler.com/eaaCatalog/dataTransferObject.html">Data Transfer Objects</a></h2>
+<blockquote>
+<p>DTOs handling can be painful and should generally not be used to encapsulate function parameters.</p>
+</blockquote>
+<ul>
+<li>As soon as the type hint system does not go deep enough (php) or that we need to encapsulate state we could use Data Transfer Objects . Make these DTO minimal and focused with no domain logic attached.</li>
+<li>Can be useful to encapsulate serialization in c</li>
+<li>Use language constructs like python&rsquo;s decorator <code>@dataclass</code>.</li>
+<li>Never manipulate arrays that contain mixed types as keys or values. Use DTO / custom classes instead + enums.</li>
+<li>Never use literal string as dictionary indexes if you later need to subscript it directly. This violates DRY, does not play well with IDEs and makes refactoring painful.</li>
+</ul>
+<h2 id="structural-types--interfaces--mixins">Structural types : interfaces &amp; mixins</h2>
+<ul>
+<li>&ldquo;Code against interfaces&rdquo;. At a high level the program should look like interfaces interacting with each other thus enforcing the typing experience at this level also.</li>
+<li>More in-depth explanation <a href="#design-patterns">below</a></li>
+</ul>
+<h1 id="dry"><a href="http://wiki.c2.com/?DontRepeatYourself">DRY</a></h1>
+<blockquote>
+<p>Maybe the single most important (and simplest) rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum. It has architectural as well as technical implications. It is easier to spot and correct than to get right from the start.</p>
+<p>Here again I&rsquo;ll go from lower level (technical) techniques to higher level thinking.</p>
+</blockquote>
+<h2 id="literals">Literals</h2>
+<blockquote>
+<p>Literal values are the simplest dry violation to spot, especially string ones. They should almost never happen</p>
+</blockquote>
+<p>Literal values (especially strings) usually belong to configuration / data and should be banned from code files containing logic, e.g. services.</p>
+<h3 id="exceptions-to-this-rule">Exceptions to this rule</h3>
+<ul>
+<li>Documentation</li>
+<li>Logs</li>
+<li>String arguments for external library calls (use enums or class constants if possible)</li>
+<li>Hardcoded filenames</li>
+<li>Coding conventions (e.g. the env file is called .env)</li>
+</ul>
+<h3 id="where-are-configuration-literals-allowed">Where are configuration literals allowed</h3>
+<ul>
+<li>Environment (.env) for environment dependent variables and sensitive data</li>
+<li>Configuration files (json, yaml ..) for global configuration variable as to centralize them and change them easily</li>
+<li>Enumerations
+<ul>
+<li>They are great and should be used extensively whenever multiple literals can be grouped together.</li>
+<li>Enums can be grouped at the same place in the codebase making it easier to see configuration values at a glance.</li>
+<li>They can also be stored to store more complex data than an object and in this case getters should be added to the enum class.</li>
+<li>They can be used with database columns.</li>
+</ul>
+</li>
+<li>Class constants :
+<ul>
+<li>They can be useful especially when prototyping but should not be used when literals can be stored in enums or configuration files.</li>
+<li>Private constants only accessed by the class can be useful.</li>
+<li>Downsides :
+<ul>
+<li>Public class constants break encapsulation and expose internals of a class</li>
+<li>Using them with inheritance can be confusing</li>
+<li>Don&rsquo;t play well with refactoring components in sub components.</li>
+<li>Don&rsquo;t necessarily play well with interfaces</li>
+<li>Configuration data is spread over many files</li>
+<li>It&rsquo;s better to keep configuration away from logic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="logic-and-knowledge">Logic and knowledge</h2>
+<ul>
+<li>duplication is present when different part of a system knows the internal of other parts. It&rsquo;s called implicit knowledge and is closely related to <a href="#decoupling">Decoupling</a></li>
+</ul>
+<h1 id="decoupling">Decoupling</h1>
+<blockquote>
+<p>Coupling is the enemy of change because it transitively links together things that must change in parallel.</p>
+</blockquote>
+<h2 id="main-00-concepts">Main 00 concepts</h2>
+<ul>
+<li>Identify the aspects of your application that vary and separate them from what stays the same.</li>
+<li>Program to an interface, not an implementation.</li>
+<li>Favor composition over inheritance : composition is relationship defined at runtime, inheritance represents static relationships.</li>
+<li>Strive for loosely coupled designs between objects that interact.</li>
+</ul>
+<h2 id="loose-coupling">Loose coupling</h2>
+<ul>
+<li>Loose coupling is coupling on an interface instead of implementation.</li>
+<li>All the rest can change without bring breaking changes</li>
+</ul>
+<h2 id="encapsulation">Encapsulation</h2>
+<ul>
+<li>Tell, don&rsquo;t ask : objects internals should not be available and known to the client code</li>
+<li>See also Law of Demeter</li>
+<li>The severity of the encapsulation is a pragmatic decision</li>
+</ul>
+<h2 id="inheritance">Inheritance</h2>
+<p>The canonical way to use inheritance is when we have different kind of classes related to a parent class with only minimal changes necessary, and usually not core logic changes. Most other kind of usages can usually be replaced by a better pattern.</p>
+<h3 id="the-problems-with-inheritance">The problems with inheritance</h3>
+<ul>
+<li>Coupling between child and parent class : any change in the parent will affect all child classes.</li>
+<li>using inheritance when using only part of the parent class interface is bad because of the law of demeter.</li>
+<li>Semantically the parent class can loose its (semantical) meaning especially when the child class partially uses the parent class.</li>
+<li>Not so easy to swap logic in the parent class if the class internals are used by the child classes.</li>
+<li>Code gets confusing as soon as multiple levels are involved, even without considering multiple inheritance</li>
+</ul>
+<h3 id="solutions">Solutions</h3>
+<ul>
+<li>Interfaces</li>
+<li>Delegation</li>
+<li>Mixins</li>
+</ul>
+<h2 id="how-can-we-abstract-multiple-similar-classes-">How can we abstract multiple similar classes ?</h2>
+<ul>
+<li>Create an interface</li>
+<li>Interface default implementation can be :
+<ul>
+<li>In an abstract class</li>
+<li>In a mixin</li>
+</ul>
+</li>
+<li>Using the interface + mixin is the most modular as any client class can declare implementing different interfaces &ndash;&gt; best</li>
+<li>We can still have client classes extending an abstract class for common stuff to all classes. This abstract class does not necessarily implement an interface (except if we want to get more abstraction when using it in factories / mocks / dependency injection ..)</li>
+</ul>
+<h5 id="special-case-two-level-inheritance-vs-single-level--interface--mixin">Special case two level inheritance vs single level + interface / mixin</h5>
+<blockquote>
+<p>When subclassing a class already inheriting from an abstract class the simple way is to directly inherit from this parent class and add methods to it</p>
+<p>The flexible way is to make this parent class an interface (if only its subclasses are gonna be instantiated) and create a mixin. This approach has two advantages :</p>
+<ul>
+<li>it&rsquo;s a bit clearer as we can type hint on the interface. Also multiple inheritance levels are not so readable (two clicks away from the abstract class vs one)</li>
+<li>it&rsquo;s open to modification by simply implementing another interface + adding a mixin</li>
+</ul>
+<p>I think it&rsquo;s useful even if the child classes are never gonna implement another interface.</p>
+</blockquote>
+<h2 id="building-interfaces">Building interfaces</h2>
+<ul>
+<li>Law of Demeter : a class should not expose sub objects only a clean and minimal interface. See <a href="https://fr.wikipedia.org/wiki/Loi_de_D%C3%A9m%C3%A9ter">Wikipedia</a></li>
+<li>Consequence → encapsulation. An object should be responsible for managing its own logic.</li>
+</ul>
+<h2 id="state">State</h2>
+<ul>
+<li>Logic and state should not be mixed</li>
+<li>State should be encapsulated in Data objects handling only minimal logic</li>
+</ul>
+<h2 id="other-principles">Other principles</h2>
+<ul>
+<li>Uniform access: hide the implementation details (see <a href="#encapsulation">Encapsulation</a>]). Python&rsquo;s <code>@property</code></li>
+</ul>
+<h2 id="liskov-substitution-principlehttpsstitcherioblogliskov-and-type-safety"><a href="https://stitcher.io/blog/liskov-and-type-safety">Liskov substitution principle</a></h2>
+<blockquote>
+<p>Inheritance is not like &ldquo;re-using parts of the parent type, and overriding other parts in the sub-type&rdquo;, rather it is extending the behaviour defined by its parent. This is what the LSP guards against.</p>
+</blockquote>
+<p>Rules :</p>
+<ul>
+<li>There must be contravariance of the method arguments in the subtype.</li>
+<li>There must be covariance of the return types in the subtype.</li>
+<li>No new exceptions are allowed.</li>
+</ul>
+<h3 id="invariance-in-php">Invariance in PHP</h3>
+<p>PHP allows polymorphism and follows the LSP by forbidding subclass methods to :</p>
+<ul>
+<li>use subtypes in parameters types</li>
+<li>use parent types in return type</li>
+</ul>
+<p>It also follows the LSP since version 7.4 by allowing :</p>
+<ul>
+<li>Covariance: allows a child&rsquo;s method to return a more specific type than the return type of its parent&rsquo;s method</li>
+<li>Contravariance: allows a parameter type to be less specific in a child method, than that of its parent</li>
+</ul>
+<h1 id="design-patterns">Design Patterns</h1>
+<blockquote>
+<p><a href="https://refactoring.guru/design-patterns">https://refactoring.guru/design-patterns</a></p>
+<p>When should we use patterns ? At any time of the development process. But usually when refactoring. Say</p>
+<ul>
+<li>first try : simple implementation tight to specific classes</li>
+<li>second try: still the same</li>
+<li>third try : refactoring using design patterns</li>
+</ul>
+</blockquote>
+<h1 id="creational-patterns">Creational Patterns</h1>
+<h2 id="static-creation-methodhttpsrefactoringgurudesign-patternsfactory-comparison"><a href="https://refactoring.guru/design-patterns/factory-comparison">Static Creation method</a></h2>
+<ul>
+<li>Not a real pattern but just the classical static creation method</li>
+<li>Simpler to spot in code, single responsibility, and useful when the constructor cannot accept arguments (e.g. using fixtures)</li>
+<li>Can leverage singleton</li>
+</ul>
+<h2 id="factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory method</a></h2>
+<blockquote>
+<p>Used when we don&rsquo;t know the exact type and dependencies of the object, as well as to simplify object creation.</p>
+</blockquote>
+<ul>
+<li>Let the object instantiation be done by  a Creator class.</li>
+<li><code>def create() -&gt; ProductInterface</code> (let&rsquo;s use create instead of make)</li>
+<li>created objects must implement an interface</li>
+<li>Creator classes can be subclassed to return different implementations of the product interface</li>
+<li>Allows extension by creating new product creator and classes</li>
+<li>Follows single responsibility (one place to create) and open / closed (extensible via inheritance)</li>
+</ul>
+<blockquote>
+<p>NB : the factory method is great at dissociating conditionals for one or specific variable / enum.</p>
+<p>It&rsquo;s not always easy to work with multiple variables / enum classes changing and be DRY.</p>
+<p>Using decorators inside a factory class can solve this and is a strong pattern imo.</p>
+</blockquote>
+<h2 id="finite-state-machines">Finite State Machines</h2>
+<blockquote>
+<p>or workflows</p>
+</blockquote>
+<ul>
+<li>Finite possible states with a current state</li>
+<li>Each state defines events (or transitions) that change the current state and can trigger actions</li>
+<li>Simple to implement</li>
+<li>Centralizes the state transformation away from the core logic</li>
+<li>Use an enum for states</li>
+</ul>
+<h2 id="event-systems">Event systems</h2>
+<blockquote>
+<p>Event systems have all the same goal of decoupling the passage of information between a producer / emitter / subject / observable and a consumer / listener / subscriber / observer.</p>
+<p>They have very diverse implementations and differ in the way the information is called, passed, dispatched and transmitted to the consumer(s). Decoupling impact can vary as well.</p>
+<p>Semantically, the producer and consumer can be passive or active in the way they emit / subscribe or are notified.</p>
+</blockquote>
+<h1 id="behavioral-patternshttpsrefactoringgurudesign-patternsbehavioral-patterns"><a href="https://refactoring.guru/design-patterns/behavioral-patterns">Behavioral Patterns</a></h1>
+<h2 id="template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></h2>
+<blockquote>
+<p>defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure</p>
+<p>Implemented in offers synchronization at Basile.</p>
+</blockquote>
+<ul>
+<li>Mandatory steps are abstract methods in base class</li>
+<li>Default steps are normal methods in base class (with implementation)</li>
+<li>hooks are empty methods in base class</li>
+<li>Useful but not so clear code. Hard to find the balance with full configurability and too small steps. Can break lsp by removing base class behavior.</li>
+</ul>
+<h3 id="observerhttpsrefactoringgurufrdesign-patternsobserver"><a href="https://refactoring.guru/fr/design-patterns/observer">Observer</a></h3>
+<p><img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true" alt=""></p>
+<ul>
+<li>Behavioral design pattern, the Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. The observers are <em>dependent</em> (coupled) on the subject</li>
+<li>Many <strong>observers</strong> <strong>subscribe</strong> to one <strong>subject</strong>. They are <strong>notified</strong> of its changes.</li>
+<li>The observers usually have a pointer to the subject (e.g. for unsubscribing).</li>
+<li>Usually better to use observer <strong>pull</strong> than subject <strong>push</strong> (passing parameters in the update method) as it&rsquo;s less flexible.</li>
+<li>Follows open / closed and modifiable at runtime. Example of <strong>loose coupling</strong>.</li>
+<li>A good evolution is to use callables implementing the update signature instead of classes.</li>
+<li>Simple and strong but introduces coupling when the observers need to register directly on the observable. Makes sense when the coupling already exists and for small problematics.</li>
+</ul>
+<pre class="drop-down-menu"><input type="checkbox" class="activate" id="accordion" name="accordion"><label for="accordion" class="menu-title">Code example <i class="gg-chevron gg-chevron-down"></i><i class="gg-chevron gg-chevron-up"></i></label><pre class="drop-down"><code class="language-python">&#34;&#34;&#34; Originally copied from the simpler https://www.geeksforgeeks.org/observer-method-python-design-patterns/&#34;&#34;&#34;
+from dataclasses import dataclass
+from enum import Enum
+from typing import List, Optional, Any, Callable
+
+
+class EventTypeEnum(Enum):
+	UPDATE_DATA = &#34;UPDATE_DATA&#34;
+
+
+@dataclass()
+class Event:
+    &#34;&#34;&#34; The observer pattern can be even simpler without events just a notification &#34;&#34;&#34;
+    type: EventTypeEnum
+    data: Optional[Any]
+    source: &#34;Observable&#34; = None
+
+
+Observer = Callable[[Event], None]
+
+
+class Observable:
+    def __init__(self):
+        self._observers: List[Observer] = []
+
+    def notify(self, event: Optional[Event]):
+        &#34;&#34;&#34;Alert the observers&#34;&#34;&#34;
+        event.source = self
+        for observer in self._observers:
+            observer(event)
+
+    # noinspection PyUnusedLocal
+    def attach(self, observer: Observer, type: EventTypeEnum = None):
+        &#34;&#34;&#34;
+            If the observer is not in the list, append it into the list
+            we could also attach on a specific event
+        &#34;&#34;&#34;
+        if observer not in self._observers:
+            self._observers.append(observer)
+
+    def detach(self, observer: Observer):
+        &#34;&#34;&#34;Remove the observer from the observer list&#34;&#34;&#34;
+        try:
+            self._observers.remove(observer)
+        except ValueError:
+            pass
+
+
+class Data(Observable):
+    &#34;&#34;&#34;monitor the object&#34;&#34;&#34;
+
+    def __init__(self, name=&#39;&#39;):
+        Observable.__init__(self)
+        self.name = name
+        self._data = 0
+
+    @property
+    def data(self):
+        return self._data
+
+    @data.setter
+    def data(self, value: int):
+        self._data = value
+        self.notify(Event(type=EventTypeEnum.UPDATE_DATA, data=value))
+
+
+def receive_from_data(event: Event):
+    print(f&#34;Received {event}&#34;)
+
+
+if __name__ == &#34;__main__&#34;:
+    obj1 = Data(&#39;Data 1&#39;)
+
+    obj1.attach(receive_from_data)
+
+    obj1.data = 10
+    obj1.data = 15
+</code></pre></pre>
+<ul>
+<li>Close to the mediator pattern (which removes the coupling between oberserver and observable by introducing a third mediator object in between). Correspond to a central event bus.</li>
+</ul>
+<h3 id="mediator">Mediator</h3>
+<ul>
+<li>An evolution of the observer pattern removing the coupling between observable and observer</li>
+<li>The mediator object is an interface injectable in all subjects  with a single notification method</li>
+<li>Subjects can pass a context to the notification method but should try to not increase coupling by passing themselves in the context</li>
+<li>Concrete mediators can maintain state and include some logic about managing subjects</li>
+<li>Overlaps with the event bus pattern but some say that the mediator has a more complex role in controlling the objects interactions</li>
+</ul>
+<h3 id="event-bus">Event bus</h3>
+<blockquote>
+<p>Implemented at basile</p>
+</blockquote>
+<ul>
+<li>Event systems can be heavy, sometimes a simple event bus that acts as global state is simpler to handle</li>
+<li>Objects can emit event directly on the bus and subscribers can subscribe to events.</li>
+</ul>
+<h3 id="pub--sub">Pub / Sub</h3>
+<ul>
+<li>Evolution of the observer :  allows subscribers to express interest in different types of messages and further separates publishers from subscribers. It is often used in middleware systems.The observer is a <strong>subscriber</strong> and the subject is a <strong>publisher</strong> and does not know about its subscribers. Deals well with asynchronous code. Message passing is decoupled from the sender code.</li>
+<li>Scales well.</li>
+<li>Message queuing is a special case of pub/sub<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> with usually only one subscriber per message type, and asynchronous.</li>
+<li>More complex to grasp at first sight as the publish / subscribe are done in different places.</li>
+</ul>
+<h2 id="reactive-programming2">Reactive programming<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
+<ul>
+<li>Another way to handle asynchronous (or sync) events and queries is to reason with streams</li>
+<li>Reduces coupling and greatly reduces state</li>
+<li>Reduces boilerplate code to handle loops and logic on iterables</li>
+<li>Push based (more natural when reacting to events)</li>
+</ul>
+<h2 id="client---service-communication-via-schema">Client - Service communication via schema</h2>
+<p>There is one problem that arise when multiple components want to talk together in a system. It is especially visible when exposing software functionality over an API : <em>The client needs to know how to contact the service</em>. That can include : a protocol, paths or method names, parameter types etc.</p>
+<p>This means some information about the structure of the service is duplicated. In an http API that could be simply the http verb and the url. This problem is present also inside a single local codebase when a client piece of software calls a supplier but have subtler implications.</p>
+<p>The problems that arise include the following :</p>
+<ul>
+<li>Information and logic (parameters validation / marshalling) duplication</li>
+<li>The typing information is lost when e.g. the 2 components communicate over plain text or bytes. This weakens the system as a whole.</li>
+<li>The refactoring becomes less straightforward and bugs can creep in due to the 2 above reasons.</li>
+</ul>
+<p>A way to centralise the service interface definition is to have it available as text e.g. using json schemas, either doing code-first or schema-first development. These removes information duplication. Starting from a json schema we can simply generate sdks for any client. And use for example decorators to expose the service public interface. We get to :</p>
+<ul>
+<li>Completely hide the communication part of the code, be able to switch protocols, and remove any reference to the fact that we are not using local code.</li>
+<li>Have a typing experience approaching the one inside the rest of the codebase.</li>
+</ul>
+<p>Code generation has the additional benefit of reducing the number of moving parts in the code even if it can of course be modified. Increases system decoupling and reduce mental overhead</p>
+<h1 id="solidhttpsenwikipediaorgwikisolid"><a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a></h1>
+<h3 id="single-responsibility-principlehttpsenwikipediaorgwikisingle-responsibility_principle"><a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single-responsibility principle</a>:</h3>
+<ul>
+<li>&ldquo;There should never be more than one reason for a <a href="https://en.wikipedia.org/wiki/Class_(computer_programming)">class</a> to change.&rdquo;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-5">5]</a> In other words, every class should have only one responsibility.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-cleancode-6">6]</a></li>
+<li>Factory method, Abstract Factory</li>
+</ul>
+<h3 id="openclosed-principlehttpsenwikipediaorgwikiopenclosed_principle"><a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open–closed principle</a></h3>
+<ul>
+<li>&ldquo;Software entities &hellip; should be open for extension, but closed for modification.&rdquo;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-7">7]</a>
+Open for extension would mean association and interfaces (e.g. using dependency injection). Also present in e.g. factory patterns that create more implementations without modifying client code.</li>
+<li>Observer, Decorator, Factory method, Abstract Factory</li>
+</ul>
+<h3 id="liskov-substitution-principlehttpsenwikipediaorgwikiliskov_substitution_principle"><a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a></h3>
+<ul>
+<li>&ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&rdquo;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a> See also <a href="https://en.wikipedia.org/wiki/Design_by_contract">design by contract</a>.[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-:0-8">8]</a>. LSP violation can be detected by the usage of instance of as it expects different behavior from objects with the same interface. More specific version of open/closed.</li>
+</ul>
+<h3 id="interface-segregation-principlehttpsenwikipediaorgwikiinterface_segregation_principle"><a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a></h3>
+<ul>
+<li>&ldquo;Many client-specific interfaces are better than one general-purpose interface.&rdquo;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-9">9]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a>. Also meaning inheritance should be restricted and replaced by specific interface / traits. Note: as a result interfaces should ideally not extends other interfaces.</li>
+</ul>
+<h3 id="dependency-inversion-principlehttpsenwikipediaorgwikidependency_inversion_principle"><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion principle</a></h3>
+<ul>
+<li>&ldquo;Depend upon abstractions, [not] concretions.&rdquo;[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-10">10]</a>[<a href="https://en.wikipedia.org/wiki/SOLID#cite_note-martin-design-principles-4">4]</a></li>
+<li>Factory method, Abstract Factory</li>
+</ul>
+<h1 id="etc">ETC</h1>
+<h2 id="error-handling">Error handling</h2>
+<ul>
+<li>Use assertions for unexpected conditions : at the top of the methods and catch / log / report assertion bugs</li>
+<li>Use exceptions for normal error conditions : use inheritance to create an exceptions tree.</li>
+<li>Prefer throwing exceptions instead of returning null</li>
+</ul>
+<hr>
+**Bibliography**
+<ul>
+<li>
+<p><a href="https://refactoring.guru/design-patterns">https://refactoring.guru/design-patterns</a></p>
+</li>
+<li>
+<p><a href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/">The Pragmatic Programmer, 20th Anniversary Edition</a></p>
+</li>
+<li>
+<p><a href="https://www.oreilly.com/library/view/head-first-design/9781492077992/">Head First Design Patterns, 2nd Edition</a></p>
+</li>
+</ul>
+<hr>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://dzone.com/articles/comparing-publish-subscribe-messaging-and-message">Comparing Publish-Subscribe Messaging and Message Queuing</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="http://reactivex.io/">http://reactivex.io/</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
+        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+<script>
+    function isDevMode() {
+        new URLSearchParams(window.location.search).get("dev") !== null ||
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
+
+        
+        return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
+    }
+    const devMode = isDevMode()
+    localStorage.setItem("dev-mode",devMode ? "true": "")
+
+    if (devMode) {
+        
+        Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
+    }
+
+    if (document.querySelector("#search-bar")) {
+        if (window.location.pathname === "/" ||devMode) {
+            loadAlgolia();
+        }
+    }
+
+    function loadAlgolia() {
+        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3')
+        const search = instantsearch({
+            indexName: 'blog',
+            searchClient,
+            searchFunction: helper => {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
+                    $('#hits').hide()
+                } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
+                    helper.search();
+                }
+            }
+        });
+
+        function itemToHtml(item) {
+            title = item._highlightResult.title.value || item.title
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords && item._highlightResult.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            return `<a href="${item.url}">
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
+        }
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#search-bar',
+                placeholder: 'Search for posts',
+                autofocus: true,
+                showReset: false,
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: {
+                    item: itemToHtml
+                },
+            })
+
+        ]);
+
+        search.start();
+
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('.ais-InstantSearch').length) {
+                $('#hits').hide()
+            }
+        });
+
+        
+        $('.ais-InstantSearch').on('click keypress', function (event) {
+            $('#hits').show()
+        });
+
+
+        $('.ais-SearchBox-input').on('focus', function (event) {
+            $('#hits').show()
+        });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
+    }
+</script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>

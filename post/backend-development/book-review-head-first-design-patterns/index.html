@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Head first design patterns - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="and excerpts from https://refactoring." /><meta name="keywords" content="" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Head first design patterns" />
+<meta property="og:description" content="and excerpts from https://refactoring." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-03-03T02:16:56+01:00" />
+
+<meta itemprop="name" content="Head first design patterns">
+<meta itemprop="description" content="and excerpts from https://refactoring.">
+<meta itemprop="dateModified" content="2022-03-03T02:16:56+01:00" />
+<meta itemprop="wordCount" content="3542">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Head first design patterns"/>
+<meta name="twitter:description" content="and excerpts from https://refactoring."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title">Head first design patterns</h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 17 mins read </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-intro-to-design-patterns">1. Intro to design patterns</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#the-strategy-pattern">The Strategy pattern</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-the-observer-pattern">2. The observer pattern</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#is-publish--subscribe-an-observer-pattern-">Is publish / subscribe an observer pattern ?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-the-decorator-pattern">3. The decorator pattern</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#open-closed-principle">Open-closed principle</a></li>
+            <li><a href="#what-we-know-about-decorators">What we know about decorators</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-the-factory-pattern">4. The factory pattern</a>
+      <ul>
+        <li><a href="#the-simple-factory">The Simple Factory</a></li>
+        <li><a href="#the-factory-method">The Factory method</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#the-abstract-factory">The abstract factory</a></li>
+        <li><a href="#difference-between-factory-method-and-abstract-factory">Difference between factory method and abstract factory</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-the-singleton-pattern">5. The Singleton Pattern</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#be-careful-about-threads">Be careful about threads</a></li>
+            <li><a href="#use-an-enum--best-way-in-java">Use an enum ! best way (in java)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#6-the-command-pattern">6. The Command Pattern</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#the-order-example">The order example</a></li>
+          </ul>
+        </li>
+        <li><a href="#pattern">Pattern</a></li>
+        <li><a href="#undo">Undo</a></li>
+        <li><a href="#macro-commands">Macro commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-the-adapter-and-facade-patterns">7. The Adapter and Facade Patterns</a>
+      <ul>
+        <li><a href="#adapter">Adapter</a>
+          <ul>
+            <li><a href="#types-of-adapters">Types of adapters</a></li>
+            <li><a href="#adapter-vs-decorator">Adapter vs decorator</a></li>
+          </ul>
+        </li>
+        <li><a href="#facade">Facade</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-the-template-method-pattern">8. The Template Method Pattern</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hooks">Hooks</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#9-the-iterator-and-composite-patterns">9. The Iterator and Composite Patterns</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#composite">Composite</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#10-the-state-of-things">10. The state of things</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#state-machine">State machine</a></li>
+            <li><a href="#the-pattern">The pattern</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#other-patterns">Other patterns</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#bridge">Bridge</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <blockquote>
+<p>and excerpts from <a href="https://refactoring.guru/">https://refactoring.guru/</a></p>
+</blockquote>
+<h1 id="1-intro-to-design-patterns">1. Intro to design patterns</h1>
+<p>Example of ducks (quacking, flying)</p>
+<ul>
+<li>Example 1 : abstract duck class with display(), quack(), fly(): tight coupling to the superclass, behavior not modifiable at run time</li>
+<li>Example 2 : Using Flyable and Quackable interfaces: code duplication in all subclasses. No code reuse</li>
+</ul>
+<p>Advice:</p>
+<blockquote>
+<p>Identify the aspects of your application that vary and separate them from what stays the same.</p>
+<p>take the parts that vary and encapsulate them, so that later you can alter or extend the parts that vary without affecting those that don’t.</p>
+</blockquote>
+<ul>
+<li>Example 3 : isolate (encapsulate) behaviors in specific class implementing an interface.</li>
+</ul>
+<img src="C:\Users\thiba\Downloads\Capture.PNG" alt="Capture" style="zoom:50%;" />
+<h4 id="program-to-an-interface-really-means-program-to-a-supertype">“Program to an interface” really means “Program to a supertype.”</h4>
+<ul>
+<li>An abstract supertype (could be an abstract class OR interface). The important part is that we don&rsquo;t know the concrete type. That&rsquo;s what program to an interface really means.</li>
+<li>in design patterns, the phrase “implement an interface” does NOT always mean “write a class that implements a Java interface, by using the ‘implements&rsquo; keyword in the class declaration.” In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a abstract class OR interface) is still considered to be “implementing the interface” of that supertype</li>
+</ul>
+<p><strong>What we get</strong>:</p>
+<p>With this design, other types of objects can reuse our fly and quack behaviors because these behaviors are no longer hidden away in our Duck classes! And we can add new behaviors without modifying any of our existing behavior classes or touching any of the Duck classes that use flying behaviors.</p>
+<p>Also : we can add setters to modify behaviors at run time (e.g. start with default implementation and modify it in a factory method)</p>
+<p><em>comment: using association coupled with interface moves the complexity and change to another axis making it more manageable</em></p>
+<p>**Vocabulary: ** set of behavior == family of algorithm</p>
+<h4 id="design-principles">Design principles:</h4>
+<ul>
+<li>Identify the aspects of your application that vary and separate them from what stays the same.</li>
+<li>Program to an interface, not an implementation.</li>
+<li>Favor composition over inheritance.</li>
+</ul>
+<p>**Composition: ** Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behavior at runtime</p>
+<blockquote>
+<p>We spend more time in maintaining than developing. We should favor maintainability and extensibility over reuse. That is composition over inheritance.</p>
+</blockquote>
+<h2 id="the-strategy-pattern">The Strategy pattern</h2>
+<blockquote>
+<p>Favor composition over inheritance.</p>
+<p>The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+</blockquote>
+<ul>
+<li>
+<p>We used the <strong>strategy pattern</strong> : The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+</li>
+<li>
+<p>Strategy works by using composition and delegation</p>
+</li>
+<li>
+<p>Strategy allows runtime behavior change</p>
+</li>
+<li>
+<p>The strategy pattern really encapsulate a <strong>family of algorithms</strong></p>
+</li>
+<li>
+<p><em>Template Method</em> works at the class level, so it’s static. <em>Strategy</em> works on the object level, letting you switch behaviors at runtime.</p>
+</li>
+</ul>
+<h1 id="2-the-observer-pattern">2. The observer pattern</h1>
+<blockquote>
+<p>Publishers + Subscribers = Observer Pattern</p>
+</blockquote>
+<p>Observer never poll subject : <code>Don’t call me, I’ll call you!</code></p>
+<ul>
+<li>The Observer Pattern defines a one-to-many relationship between a set of objects.</li>
+<li>When the state of one object changes, all of its dependents are notified.</li>
+<li>Tight coupling between subject and observer classes</li>
+<li>Synchronous</li>
+</ul>
+<h3 id="is-publish--subscribe-an-observer-pattern-">Is publish / subscribe an observer pattern ?</h3>
+<blockquote>
+<ul>
+<li>No, although they are related. The Publish-Subscribe pattern is a more complex pattern that allows subscribers to express interest in different types of messages and further separates publishers from subscribers. It is often used in middleware systems.</li>
+<li>The publisher-subscriber pattern can be considered as an improved (asynchronous and loosely-coupled) version of the observer pattern</li>
+<li>It&rsquo;s many to many, asynchronous messaging system.</li>
+<li>They introduce the concept of &ldquo;topic&rdquo; between publishers and subscribers</li>
+<li>A pub/sub system is usually carried over the the network, whereas observer is local</li>
+<li>Loose coupling of publishers and subscribers via the insertion of a message broker / bus. Broker usually implemented using a message queue to provide asynchronous behavior.</li>
+<li><a href="https://towardsai.net/p/systems/observer-pattern-vs-pub-sub-pattern">Observer Pattern vs. Pub-Sub Pattern</a></li>
+<li><strong>Observer</strong> pattern needs to be implemented in a single application address space. On the other hand, the <strong>Publisher/Subscriber</strong> pattern is more of a cross-application pattern</li>
+</ul>
+</blockquote>
+<p>Thing to think about</p>
+<ul>
+<li>Passing the subject to the observer can make it unregister when necessary</li>
+<li>Passing data can be better <strong>pull</strong> than <strong>push</strong> to allow for evolving observers later on. And so that changing the enriching the data doesn&rsquo;t change existing observers (in the case of multiple arguments)</li>
+<li>Order of notifications to observers is not always garanteed.</li>
+</ul>
+<h1 id="3-the-decorator-pattern">3. The decorator pattern</h1>
+<p>One main advantage is <strong>run time modification</strong> of behavior of an object vs static behavior.</p>
+<p>But it also simplifies the businness code by extracting responsibility from either objects or client code.</p>
+<p>one of the flagship patterns of the <strong>open-closed principle</strong> and the <strong>composition (and delegation) over inheritance principle</strong></p>
+<h3 id="open-closed-principle">Open-closed principle</h3>
+<ul>
+<li>Classes should be open for extension, but closed for modification</li>
+<li>Be careful when choosing the areas of code that need to be extended; applying the Open-Closed Principle EVERYWHERE is wasteful and unnecessary, and can lead to complex, hard-to-understand code</li>
+<li>The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.</li>
+</ul>
+<h3 id="what-we-know-about-decorators">What we know about decorators</h3>
+<ul>
+<li>Decorators have the same supertype as the objects they decorate.</li>
+<li>You can use one or more decorators to wrap an object.</li>
+<li>Given that the decorator has the same supertype as the object it decorates, we can pass around a decorated object in place of the original (wrapped) object.</li>
+<li><strong>The decorator adds its own behavior before and/or after delegating to the object it decorates to do the rest of the job</strong>.</li>
+<li>Objects can be decorated at any time, so we can decorate objects dynamically at runtime with as many decorators as we like</li>
+</ul>
+<h4 id="composition-but-still-inheritance">Composition but still inheritance</h4>
+<ul>
+<li>The patterns uses inheritance to achieve the type matching, but not to get behavior</li>
+</ul>
+<h4 id="comparison-with-other-patterns">Comparison with other patterns</h4>
+<ul>
+<li>
+<p>The pattern starts getting stronger when used in conjunction with Factory or Builder to centralize the composition.</p>
+</li>
+<li>
+<p>Contrary to the Chain of Responsibility pattern, decorators aren’t allowed to break the flow of the request</p>
+</li>
+<li>
+<p>Contrary to the Adapter pattern decorators have the same interface as the objects they decorate.</p>
+</li>
+<li>
+<p>Decorator ressembles composite but has a single child and adds behavior.</p>
+</li>
+<li>
+<p>Decorator lets you change the skin of an object, while Strategy lets you change the guts</p>
+</li>
+</ul>
+<h4 id="potential-problems">Potential problems</h4>
+<ul>
+<li>Adds a lot of small classes, can lead to an unclear design</li>
+<li><strong>typing problems</strong>: you can usually insert decorators transparently and the client never has to know it’s dealing with a decorator</li>
+<li>introducing decorators can increase the complexity of the code needed to instantiate the component (then use <strong>Factory</strong> or <strong>Builder</strong>)</li>
+<li>It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack</li>
+</ul>
+<h1 id="4-the-factory-pattern">4. The factory pattern</h1>
+<blockquote>
+<p>Using the new is coding against an implementation and not an interface. New is “closed for modification.”</p>
+</blockquote>
+<h2 id="the-simple-factory">The Simple Factory</h2>
+<blockquote>
+<p>The Simple Factory isn’t actually a Design Pattern; it’s more of a programming idiom</p>
+</blockquote>
+<p><strong>Problem</strong> : After the pizza type we add the pizza region to the app (that&rsquo;s two parameters for creating pizza).</p>
+<p><strong>Solution 1</strong>  : Create a pizza factory per region</p>
+<p><strong>Problem</strong>: If we process the pizza object after creation (in <code>orderPizza(string $type)</code>, we want the process to be in the factory but then we want to always use the same steps and not leave it to the factory implementation  !</p>
+<h2 id="the-factory-method">The Factory method</h2>
+<ul>
+<li>We create an abstract factory class with method <code>orderPizza(string $type)</code> and abstract method <code>createPizza(string $type)</code> and change is insulated.</li>
+<li>It&rsquo;s static behavior.</li>
+<li>This decouples the client code in the superclass (steps) from the object creation code in the subclass</li>
+<li>The Pizza subclasses can override steps (bake(), cut(), box() ..)</li>
+<li>With this behavior we need to create pizza classes for each combination of the 2 parameters (type and region)</li>
+<li>It create parallel hierarchies (abstract factory =&gt; abstract object and factory =&gt; object subclasses)</li>
+<li>The Factory Method Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.</li>
+<li>The factory method (and abstract factory class) can be concrete to provide default values, in the absence of concrete factory subclasses</li>
+</ul>
+<h4 id="the-factory-method-parameters">The factory method parameter(s)</h4>
+<ul>
+<li>A factory method pattern using a parameter (here <code>string $type</code>) is called a <strong>parameterized factory method</strong>. But the pattern is still valid without parameters.</li>
+<li>NB : a string parameter is not type safe, better use constants or enums</li>
+</ul>
+<h4 id="usage-and-advantages">Usage and advantages</h4>
+<p>Respects</p>
+<ul>
+<li>&ldquo;encapsulate what varies&rdquo;</li>
+<li>&ldquo;Single responsibility principle&rdquo;</li>
+<li>&ldquo;Open / closed principle&rdquo;</li>
+<li>&ldquo;Dependency Inversion Principle&rdquo; : Depend upon abstractions. Do not depend upon concrete classes.</li>
+<li>Factory method is generally used when you have some generic processing in a class, but want to vary which kind of fruit you actually use</li>
+<li>that is usually implement code in the abstract creator that makes use of the concrete types the subclasses create.</li>
+</ul>
+<h4 id="dependency-inversion-principle--guidelines">Dependency inversion principle &amp; guidelines</h4>
+<ul>
+<li>
+<p>Close to &ldquo;Program to an interface, not an implementation&rdquo; but goes further : suggests that our high-level components should not depend on our low-level components; rather, they should both depend on abstractions (here Pizza)</p>
+</li>
+<li>
+<p>Low level components (concrete pizza) depend on pizza</p>
+</li>
+<li>
+<p>High level components (pizza store) also depend on pizza (instantiated via subclasses)</p>
+</li>
+<li>
+<p>No variable should hold a reference to a concrete class</p>
+</li>
+<li>
+<p>No class should derive from a concrete class (but should derive from an abstraction !)</p>
+</li>
+<li>
+<p>No method should override an implemented method of any of its base classes.</p>
+</li>
+<li>
+<p>These are guidelines and not rules. Sometimes it&rsquo;s easier to violate them. Especially when the concrete class is not likely to change.</p>
+</li>
+</ul>
+<p>best case scenario is when you’re introducing the pattern into an existing hierarchy of creator classes (like here with pizza stores)</p>
+<p><a href="https://refactoring.guru/design-patterns/factory-method">Factory Method</a> is a specialization of <a href="https://refactoring.guru/design-patterns/template-method">Template Method</a>. At the same time, a <em>Factory Method</em> may serve as a step in a large <em>Template Method</em>.</p>
+<h2 id="the-abstract-factory">The abstract factory</h2>
+<p>Let&rsquo;s imagine we also want to create ingredients with another family of objects (regions). We don&rsquo;t want specific shops to alter ingredients.</p>
+<p>So we can inject a PizzaIngredientFactory in the concrete pizza class.</p>
+<ul>
+<li>The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.</li>
+<li>family of products = multiple product hierarchy</li>
+</ul>
+<h2 id="difference-between-factory-method-and-abstract-factory">Difference between factory method and abstract factory</h2>
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/questions/13029261/design-patterns-factory-vs-factory-method-vs-abstract-factory">Difference between simple factory / factory method / abstract factory, simple example</a></p>
+</li>
+<li>
+<p><strong>often the methods of an Abstract Factory are implemented as factory methods</strong> -&gt; Like Factory method but with multiple factory methods in a same class (here creating multiple ingredients)</p>
+</li>
+<li>
+<p>more technical : factory method uses (only) inheritance to create objects via subclassing whereas abstract factory uses composition (and inheritance because it uses factory method) by passing / instantiating the factory to the outer factory code.</p>
+</li>
+<li>
+<p>In short</p>
+<ul>
+<li>the factory method is used to create one object but usually some processing is done in the abstract factory once the object is created</li>
+<li>the abstract factory is used to create a family of related objects but will not process them in the abstract factory class.</li>
+</ul>
+</li>
+</ul>
+<h1 id="5-the-singleton-pattern">5. The Singleton Pattern</h1>
+<ul>
+<li>There are many objects we only need one of: thread pools, caches, dialog boxes, objects that handle preferences and registry settings, objects used for logging, and objects that act as device drivers to devices like printers and graphics cards</li>
+<li>In many ways, the Singleton Pattern is a convention for ensuring one and only one object is instantiated for a given class</li>
+<li>Like a global variable but without the downside</li>
+<li>Lazy loading contrary to a global variable</li>
+</ul>
+<blockquote>
+<p>The Singleton Pattern ensures a class has only one instance, and provides a global point of access to it</p>
+</blockquote>
+<h3 id="be-careful-about-threads">Be careful about threads</h3>
+<ul>
+<li>Trivial fix : <code>public static synchronized Singleton getInstance()</code></li>
+<li>But synchronization is expensive and is not necessary when the object is singleton is already instantiated</li>
+</ul>
+<p><strong>Solution</strong></p>
+<ul>
+<li>Do nothing else if <code>getInstance()</code> is not critical to the application</li>
+<li>Move to an eagerly created instance rather than a lazily created one: create the singleton in a static initialized (thread safe)</li>
+<li>Use “double-checked locking” to reduce the use of synchronization in getInstance()</li>
+</ul>
+<p><strong>Also</strong></p>
+<ul>
+<li>It could be possible instead to use a class with only static variables / methods. But that can lead to subtle bugs, notably in java</li>
+<li>Be careful when using multiple class loaders and singleton</li>
+<li>reflection and serialization / deserialization can also present problems with Singletons</li>
+<li><strong>Singleton breaks the loose class coupling</strong>: Modifying the singleton will have potential side effects in every class owning it. Common criticism of the pattern.</li>
+<li><strong>Breaks the single responsibility principle</strong> (somehow): by handing its own code + the single instantiation. Still it&rsquo;s a limited problem. Possible to abstract the instantiation code elsewhere.</li>
+</ul>
+<p><strong>Should we subclass Singleton</strong></p>
+<ul>
+<li>Hard because the constructor is private and because a single variable holds the instance</li>
+<li>Possible by turning the constructor protected or public and use a registry of sorts in the base class</li>
+<li>But usually easier to duplicate the singleton instantiation code</li>
+<li>Having too many singletons is a code smell : singletons are meant to be used sparingly</li>
+</ul>
+<p><strong>Don&rsquo;t use global variables, use singleton</strong></p>
+<ul>
+<li>global variable provides global access but does not ensure only one instance of the class exists</li>
+<li>global variable cannot provide eager instantiation</li>
+<li>pollute the global namespace</li>
+</ul>
+<h4 id="fixing-possible-class-loading-reflection-serialization--deserialization-issueshttpsdzonecomarticlesjava-singletons-using-enum"><a href="https://dzone.com/articles/java-singletons-using-enum">Fixing possible class loading, reflection, serialization / deserialization issues</a></h4>
+<ul>
+<li>(de)Serialization will create a new object even if the constructor is private (java)</li>
+<li>The solution is that we have to implement the <a href="https://docs.oracle.com/javase/7/docs/platform/serialization/spec/input.html#5903">readResolve</a> method, which is called when preparing the deserialized object before returning it to the caller.</li>
+<li>Reflection can set the private constructor to public and create another singleton. No way to protect from that</li>
+</ul>
+<h3 id="use-an-enum--best-way-in-java">Use an enum ! best way (in java)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Singleton</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">INSTANCE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="6-the-command-pattern">6. The Command Pattern</h1>
+<blockquote>
+<p>In this chapter, we take encapsulation to a whole new level: we’re going to encapsulate method invocation. Being able to log and undo easily.</p>
+</blockquote>
+<ul>
+<li>The Command Pattern allows you to decouple the requester of an action from the object that actually performs the action.</li>
+<li>So, here the requester would be the remote
+control and the object that performs the action would be an instance of one of your
+vendor classes.</li>
+<li>introduce command objects into the design.</li>
+<li>The remote doesn’t have any idea what the work is, it just has a command object that knows how to talk to the right object to get the work done</li>
+</ul>
+<h3 id="the-order-example">The order example</h3>
+<ul>
+<li>Think of the Order Slip as an object that acts as a request to prepare a meal.</li>
+<li>Unique method orderUp + reference to the cook object</li>
+<li>The Short-Order Cook is the object that really knows how to prepare meals. Totally decoupled from the waitress</li>
+</ul>
+<h2 id="pattern">Pattern</h2>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222135349158.png" alt="image-20220222135349158"></p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222135838913.png" alt="image-20220222135838913"></p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222140325537.png" alt="image-20220222140325537" style="zoom:50%;" />
+<ul>
+<li>binding together a set of actions on a specific receiver : set of actions == command class. Specific receiver == class parameter.</li>
+<li>Back at the diner, the Waitress was parameterized with multiple orders (commands) throughout the day. <strong>Waitress is an invoker</strong></li>
+<li>The command may / should be immutable</li>
+<li>Most commands only handle the details of how a request is passed to the receiver, while the receiver itself does the actual work
+<ul>
+<li>In general, we strive for “dumb” command objects that just invoke an action on a receiver; however, there are many
+examples of “smart” command objects that implement most, if not all, of the logic needed to carry out a request. Certainly you can do this; just keep in mind you’ll no longer have the same level of decoupling between the invoker and receiver, nor will you be able to parameterize your commands with receivers.</li>
+</ul>
+</li>
+<li>As with any other object, a command can be serialized, which means converting it to a string that can be easily written to a file or a database. Later, the string can be restored as the initial command object. Thus, you can delay and schedule command execution. But there’s even more! In the same way, you can queue, log or send commands over the network</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222143043044.png" alt="image-20220222143043044" style="zoom:50%;" />
+<blockquote>
+<p>For commands with only one abstract method we can use lambda functions (e.g. for on and off)</p>
+</blockquote>
+<h2 id="undo">Undo</h2>
+<ul>
+<li>add undo to the abstract command class</li>
+<li>implement in subclasses, potentially keeping state</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220222143541765.png" alt="image-20220222143541765" style="zoom:50%;" />
+<h2 id="macro-commands">Macro commands</h2>
+<h1 id="7-the-adapter-and-facade-patterns">7. The Adapter and Facade Patterns</h1>
+<h2 id="adapter">Adapter</h2>
+<ul>
+<li>The client makes a request to the adapter by calling a method on it using the target interface.</li>
+<li>The adapter translates the request into one or more calls on the adaptee using the adaptee interface.</li>
+<li>The client receives the results of the call and never knows there is an adapter doing the translation.</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223105440918.png" alt="image-20220223105440918" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223105520370.png" alt="image-20220223105520370" style="zoom:50%;" />
+<h3 id="types-of-adapters">Types of adapters</h3>
+<ul>
+<li>object adapters : see above</li>
+<li>class adapters : using multiple inheritance. The adapter subclasses the target and adaptee class</li>
+</ul>
+<h3 id="adapter-vs-decorator">Adapter vs decorator</h3>
+<ul>
+<li>both use composition to wrap an object</li>
+<li>but the decorator adds <strong>new behavior</strong></li>
+<li>while the adapter <strong>implements an interface</strong></li>
+<li>adapter can also wrap multiple objects to implement an interface</li>
+</ul>
+<h2 id="facade">Facade</h2>
+<ul>
+<li>A facade not only simplifies an interface, it decouples a client from a subsystem of components.</li>
+<li>Facades and adapters may wrap multiple classes, but a facade’s intent is to simplify, while an adapter’s is to convert the interface to something different.</li>
+<li>Facades don’t “encapsulate” the subsystem classes; they merely provide a simplified interface to their functionality. The subsystem classes still remain available for direct use by clients that need to use more specific interface</li>
+<li>Each subsystem can have multiple facade</li>
+<li>The intent of the Adapter Pattern is to alter an interface so that it matches one a client is expecting. The intent of the Facade Pattern is to provide a simplified interface to a subsystem.</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223111731344.png" alt="image-20220223111731344" style="zoom:50%;" />
+<ul>
+<li>An adapter wraps an object to change its interface, a decorator wraps an object to add new behaviors and responsibilities, and a facade “wraps” a set of objects to simplify.</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223114852994.png" alt="image-20220223114852994" style="zoom:50%;" />
+<blockquote>
+<p>also called Law of Demeter</p>
+</blockquote>
+<p>when you are designing a system, for any object, be careful of the number of classes it interacts with and also how it comes to interact with those classes.</p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220223115111940.png" alt="image-20220223115111940" style="zoom: 33%;" />
+<h1 id="8-the-template-method-pattern">8. The Template Method Pattern</h1>
+<blockquote>
+<p>The Template Method defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.</p>
+</blockquote>
+<ul>
+<li>Allows a base class to control the algorithm, letting subclasses modify parts of it</li>
+<li>class concentrates knowledge about the algorithm and relies on subclasses to provide complete implementations</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224130432327.png" alt="image-20220224130432327" style="zoom:50%;" />
+<ul>
+<li>template  = method that define an algorithm as a set of steps</li>
+<li>One or more of these steps is defined to be abstract and implemented by a subclass</li>
+<li>important technique for code reuse</li>
+</ul>
+<h3 id="hooks">Hooks</h3>
+<ul>
+<li>
+<p>A hook is a method that is declared in the abstract class, but only given an empty or default implementation. This gives subclasses the ability to “hook into” the algorithm at various points, if they wish; a subclass is also free to ignore the hook</p>
+</li>
+<li>
+<p>A hook is a method the concrete class can implement but doesn’t have to (no body or simple body)</p>
+</li>
+<li>
+<p>abstract method : subclass must implement. Hook not</p>
+</li>
+<li>
+<p>a hook can also be used to notify the concrete class of a change</p>
+</li>
+<li>
+<p>Number of abstract methods : trade off between number of methods to implement and granularity / flexibility</p>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224131209482.png" alt="image-20220224131209482" style="zoom:50%;" />
+<ul>
+<li>The Hollywood Principle gives us a way to prevent “dependency rot.” Dependency rot happens when you have high-level components depending on low-level components etc ..</li>
+<li>With the Hollywood Principle, we allow low-level components to hook themselves into a system, but the high-level components determine when they are needed, and how</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220224131354907.png" alt="image-20220224131354907" style="zoom: 33%;" />
+<ul>
+<li>Subclass never call parent explicitly</li>
+<li>Parent control part of their API that can be hooked / implemented</li>
+<li>Related patterns Hollywood principle : factory method (specialization of template method with one method, can also be part of a template method), observer</li>
+<li>Strategy resemble template method but works at the object level using composition / runtime. Template method works at the class level using inheritance. It is static
+<ul>
+<li>Also strategy encapsulate the whole algorithm whereas template method concrete class implement only parts of it. And don’t touch the structure</li>
+<li>Template method better when few changes are expected. If implementations are quite different, strategy will be fine because we don’t need as much reuse.</li>
+</ul>
+</li>
+<li>Hollywood principle vs Dependency injection
+<ul>
+<li>They both limit the dependencies between classes, and decoupling</li>
+<li>the Dependency Inversion Principle makes a much stronger and more general statement about how to avoid dependencies in design</li>
+</ul>
+</li>
+</ul>
+<p>Real world examples :</p>
+<ul>
+<li>subclassing list</li>
+<li>creating frameworks</li>
+</ul>
+<h1 id="9-the-iterator-and-composite-patterns">9. The Iterator and Composite Patterns</h1>
+<h3 id="composite">Composite</h3>
+<blockquote>
+<p>In a tree mixed structure with leaf nodes and containers, be able to interface them to handle any case with the same interface</p>
+</blockquote>
+<h1 id="10-the-state-of-things">10. The state of things</h1>
+<blockquote>
+<p>Useful to structure multiple possible actions on an object having state</p>
+<p>Instead of checking the state of the object we isolate the actions in a class per state and kindof let the object do the work.</p>
+</blockquote>
+<h3 id="state-machine">State machine</h3>
+<ul>
+<li>A state machine is composed of states and transitions between those states</li>
+<li>Only certain transitions are allowed</li>
+</ul>
+<h3 id="the-pattern">The pattern</h3>
+<h1 id="other-patterns">Other patterns</h1>
+<h3 id="bridge">Bridge</h3>
+<p>Useful when the code can be organized around two class hierarchies:</p>
+<ul>
+<li>abstraction : ui code that will call methods of an implementation. <strong>ex: different remote controls</strong></li>
+<li>implementation : backend code that executes business logic. <strong>ex: different tvs</strong></li>
+</ul>
+<p>The relation between the 2 is called the bridge</p>
+<blockquote>
+<p>Useful in graphics and windowing systems that need to run over multiple platforms.</p>
+</blockquote>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
+        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+<script>
+    function isDevMode() {
+        new URLSearchParams(window.location.search).get("dev") !== null ||
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
+
+        
+        return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
+    }
+    const devMode = isDevMode()
+    localStorage.setItem("dev-mode",devMode ? "true": "")
+
+    if (devMode) {
+        
+        Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
+    }
+
+    if (document.querySelector("#search-bar")) {
+        if (window.location.pathname === "/" ||devMode) {
+            loadAlgolia();
+        }
+    }
+
+    function loadAlgolia() {
+        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3')
+        const search = instantsearch({
+            indexName: 'blog',
+            searchClient,
+            searchFunction: helper => {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
+                    $('#hits').hide()
+                } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
+                    helper.search();
+                }
+            }
+        });
+
+        function itemToHtml(item) {
+            title = item._highlightResult.title.value || item.title
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords && item._highlightResult.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            return `<a href="${item.url}">
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
+        }
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#search-bar',
+                placeholder: 'Search for posts',
+                autofocus: true,
+                showReset: false,
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: {
+                    item: itemToHtml
+                },
+            })
+
+        ]);
+
+        search.start();
+
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('.ais-InstantSearch').length) {
+                $('#hits').hide()
+            }
+        });
+
+        
+        $('.ais-InstantSearch').on('click keypress', function (event) {
+            $('#hits').show()
+        });
+
+
+        $('.ais-SearchBox-input').on('focus', function (event) {
+            $('#hits').show()
+        });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
+    }
+</script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>

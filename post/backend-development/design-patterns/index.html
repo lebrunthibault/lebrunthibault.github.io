@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Design Patterns - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Notes bout design patterns" /><meta name="keywords" content="Software development, Backend development, Design patterns" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/design-patterns/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Design Patterns" />
+<meta property="og:description" content="Notes bout design patterns" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/design-patterns/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-02-23T11:59:59+01:00" />
+
+<meta itemprop="name" content="Design Patterns">
+<meta itemprop="description" content="Notes bout design patterns">
+<meta itemprop="dateModified" content="2022-02-23T11:59:59+01:00" />
+<meta itemprop="wordCount" content="688">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Design Patterns"/>
+<meta name="twitter:description" content="Notes bout design patterns"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <div class="ais-InstantSearch">
+    <div id="search-bar"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+</div>
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title">Design Patterns</h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 4 mins read </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#design-patterns-currently-used-in-projects">Design patterns currently used in projects</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory Method</a></a></li>
+            <li><a href="#abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></a></li>
+            <li><a href="#singletonhttpsrefactoringgurudesign-patternssingleton"><a href="https://refactoring.guru/design-patterns/singleton">Singleton</a></a></li>
+            <li><a href="#facadehttpsrefactoringgurudesign-patternsfacade"><a href="https://refactoring.guru/design-patterns/facade">Facade</a></a></li>
+            <li><a href="#compositehttpsrefactoringgurudesign-patternscomposite"><a href="https://refactoring.guru/design-patterns/composite">Composite</a></a></li>
+            <li><a href="#decoratorhttpsrefactoringgurudesign-patternsdecorator"><a href="https://refactoring.guru/design-patterns/decorator">Decorator</a></a></li>
+            <li><a href="#template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></a></li>
+            <li><a href="#observerhttpsrefactoringgurudesign-patternsobserver"><a href="https://refactoring.guru/design-patterns/observer">Observer</a></a></li>
+            <li><a href="#pub--subhttpsenwikipediaorgwikipublishe28093subscribe_pattern"><a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Pub / sub</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#design-patterns-partially-used">Design patterns partially used</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#builderhttpsrefactoringgurudesign-patternsbuilder"><a href="https://refactoring.guru/design-patterns/builder">Builder</a></a></li>
+            <li><a href="#prototypehttpsrefactoringgurudesign-patternsprototype"><a href="https://refactoring.guru/design-patterns/prototype">Prototype</a></a></li>
+            <li><a href="#statehttpsrefactoringgurudesign-patternsstate"><a href="https://refactoring.guru/design-patterns/state">State</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#design-patterns-that-could-improve-existing-projects">Design patterns that could improve existing projects</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory-1"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></a></li>
+            <li><a href="#commandhttpsrefactoringgurudesign-patternscommand"><a href="https://refactoring.guru/design-patterns/command">Command</a></a></li>
+            <li><a href="#adapterhttpsrefactoringgurudesign-patternsadapter"><a href="https://refactoring.guru/design-patterns/adapter">Adapter</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <h1 id="design-patterns-currently-used-in-projects">Design patterns currently used in projects</h1>
+<h3 id="factory-methodhttpsrefactoringgurudesign-patternsfactory-method"><a href="https://refactoring.guru/design-patterns/factory-method">Factory Method</a></h3>
+<ul>
+<li>Used in Protocol0 backend to generate notification / prompt / select windows</li>
+</ul>
+<h3 id="abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></h3>
+<ul>
+<li>Used textbook in Protocol0 to generate a track recorder</li>
+<li>The abstract factory generates for a track and record type :
+<ul>
+<li>A track recorder</li>
+<li>A scene index for the recording</li>
+<li>A bar length for the recording</li>
+</ul>
+</li>
+</ul>
+<h3 id="singletonhttpsrefactoringgurudesign-patternssingleton"><a href="https://refactoring.guru/design-patterns/singleton">Singleton</a></h3>
+<ul>
+<li>Used in basile ats client generation tests</li>
+<li>The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)</li>
+</ul>
+<h3 id="facadehttpsrefactoringgurudesign-patternsfacade"><a href="https://refactoring.guru/design-patterns/facade">Facade</a></h3>
+<ul>
+<li>Used in protocol0 SongFacade to expose readonly access to song objects</li>
+<li>Also in Scheduler to expose simplified facade to scheduling methods from 2 scheduler classes</li>
+</ul>
+<h3 id="compositehttpsrefactoringgurudesign-patternscomposite"><a href="https://refactoring.guru/design-patterns/composite">Composite</a></h3>
+<ul>
+<li>Used to abstract composite tracks in protocol0 e.g. in arming tracks or soloing them.</li>
+<li>Implemented using classical inheritance with AbstractTrack</li>
+<li>Leaves are SimpleTracks, containers are AbstractGroupTracks</li>
+<li>We could remove the AbstractTrack.base_track as it breaks the encapsulation principle.</li>
+</ul>
+<h3 id="decoratorhttpsrefactoringgurudesign-patternsdecorator"><a href="https://refactoring.guru/design-patterns/decorator">Decorator</a></h3>
+<blockquote>
+<p>Used in its simple form but could be improved to implements the real pattern semantics.</p>
+</blockquote>
+<ul>
+<li>Used in protocol0, to augment behavior of notification classes.</li>
+<li>Used somewhat in basile to catch exceptions. Respects the pattern semantics but replaces the interface step by just using callables.</li>
+<li>Could improve the generation of missing ATS responses in basile. The ATSServiceFactory could return a ATSServiceResponseGeneratorDecorator implementing the interface without handling these kind of cases explicitly.</li>
+<li>Could also work for the ErrorHandlerService instead of catching the exceptions in the client code.</li>
+<li>Could also be used for offer synchronization by applying decorators at service instantiation time for company custom code instead of using inheritance. Might be overkill though.</li>
+</ul>
+<h3 id="template-methodhttpsrefactoringgurudesign-patternstemplate-method"><a href="https://refactoring.guru/design-patterns/template-method">Template method</a></h3>
+<ul>
+<li>Used in basile ats synchonize offers</li>
+<li>Used in protocol0 recording system ()</li>
+</ul>
+<h3 id="observerhttpsrefactoringgurudesign-patternsobserver"><a href="https://refactoring.guru/design-patterns/observer">Observer</a></h3>
+<ul>
+<li>Used in protocol0 system notification system</li>
+<li>The inner notification window notifies values when buttons are clicked</li>
+<li>A decorator applied at instantiation (in the notification factory) observes the inner window and sends values to the script over midi.</li>
+</ul>
+<h3 id="pub--subhttpsenwikipediaorgwikipublishe28093subscribe_pattern"><a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Pub / sub</a></h3>
+<blockquote>
+<p>in a simple, synchronous way</p>
+</blockquote>
+<ul>
+<li>Used in Basile status synchronization</li>
+<li>The status code emits events on a event bus</li>
+<li>The event bus dispatches to observers subscribed to specific events</li>
+</ul>
+<h1 id="design-patterns-partially-used">Design patterns partially used</h1>
+<h3 id="builderhttpsrefactoringgurudesign-patternsbuilder"><a href="https://refactoring.guru/design-patterns/builder">Builder</a></h3>
+<ul>
+<li>Used in basile admin crud. ressemble because we don&rsquo;t use a bloated constructor.</li>
+<li>Not using a specific builder class but by passing directly an instantiated object</li>
+<li>Could be improved by creating an AdminCrudConfigBuilderInterface subclassed by AdminCrudConfigBuilder and AdminFormConfigBuilder. Not really the builder pattern because we would pass a specific builder class and not interface but close.</li>
+</ul>
+<h3 id="prototypehttpsrefactoringgurudesign-patternsprototype"><a href="https://refactoring.guru/design-patterns/prototype">Prototype</a></h3>
+<ul>
+<li>Used in basile to clone newsletters</li>
+<li>Not respecting the prototype pattern semantics but using __clone magic method</li>
+</ul>
+<h3 id="statehttpsrefactoringgurudesign-patternsstate"><a href="https://refactoring.guru/design-patterns/state">State</a></h3>
+<ul>
+<li>Used in Protocol0 Sequence code</li>
+<li>A Sequence can be in different states (unstarted, started, paused, cancelled, errored)</li>
+<li>Transitions are defined accordingly</li>
+<li>Implemented using the transitions package</li>
+<li>NB : states are not defined in specific classes which doesn&rsquo;t respect the pattern</li>
+</ul>
+<h1 id="design-patterns-that-could-improve-existing-projects">Design patterns that could improve existing projects</h1>
+<h3 id="abstract-factoryhttpsrefactoringgurudesign-patternsabstract-factory-1"><a href="https://refactoring.guru/design-patterns/abstract-factory">Abstract Factory</a></h3>
+<ul>
+<li>In basile ATSServiceFactory</li>
+<li>Instead of using a single class per ATS we could instead create one feature class per abstract ATS feature</li>
+<li>The current ats class could be replaced by a factory returning a feature class instance respecting the single responsibility principle.</li>
+<li>That would be beneficial for the status synchronization as we could have a single synchronizeStatusesInteface (with method synchronizeStatuses) instead of using a match in ATSSynchronizeStatusesService.</li>
+<li>Downside : would need a lot more classes and would complicate the subclassing of the ats code by a specific company&rsquo;s ats implementations.</li>
+</ul>
+<h3 id="commandhttpsrefactoringgurudesign-patternscommand"><a href="https://refactoring.guru/design-patterns/command">Command</a></h3>
+<ul>
+<li>Replace the encoder action code with commands</li>
+<li>create a command class per feature</li>
+<li>logging by command (using command class name)</li>
+<li>add an undo button doing multiple undo.</li>
+<li>undo can be used for undoing recordings as well</li>
+<li>define macro commands using commands arm track, show plugins ..</li>
+</ul>
+<p>In basile</p>
+<ul>
+<li>NB : in basile we use messages as commands but it’s messsage handlers that connect to a specific receiver and not client code</li>
+<li>We could use commands to wire up some frontend and backoffice features but how do we serialize the command in the front ?</li>
+</ul>
+<h3 id="adapterhttpsrefactoringgurudesign-patternsadapter"><a href="https://refactoring.guru/design-patterns/adapter">Adapter</a></h3>
+<ul>
+<li>Maybe on ATS system to abstract the different protocols used (if one day we use more that are not rest ..?)</li>
+<li>For ATS V1</li>
+</ul>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
+        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+<script>
+    function isDevMode() {
+        new URLSearchParams(window.location.search).get("dev") !== null ||
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
+
+        
+        return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
+    }
+    const devMode = isDevMode()
+    localStorage.setItem("dev-mode",devMode ? "true": "")
+
+    if (devMode) {
+        
+        Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
+    }
+
+    if (document.querySelector("#search-bar")) {
+        if (window.location.pathname === "/" ||devMode) {
+            loadAlgolia();
+        }
+    }
+
+    function loadAlgolia() {
+        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3')
+        const search = instantsearch({
+            indexName: 'blog',
+            searchClient,
+            searchFunction: helper => {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
+                    $('#hits').hide()
+                } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
+                    helper.search();
+                }
+            }
+        });
+
+        function itemToHtml(item) {
+            title = item._highlightResult.title.value || item.title
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords && item._highlightResult.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            return `<a href="${item.url}">
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
+        }
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#search-bar',
+                placeholder: 'Search for posts',
+                autofocus: true,
+                showReset: false,
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: {
+                    item: itemToHtml
+                },
+            })
+
+        ]);
+
+        search.start();
+
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('.ais-InstantSearch').length) {
+                $('#hits').hide()
+            }
+        });
+
+        
+        $('.ais-InstantSearch').on('click keypress', function (event) {
+            $('#hits').show()
+        });
+
+
+        $('.ais-SearchBox-input').on('focus', function (event) {
+            $('#hits').show()
+        });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
+    }
+</script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>
