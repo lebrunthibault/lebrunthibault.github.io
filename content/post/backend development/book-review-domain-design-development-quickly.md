@@ -87,10 +87,6 @@ Book [here](https://matfrs2.github.io/RS2/predavanja/literatura/Avram%20A,%20Mar
 
 ## Layered architecture
 
-
-
-![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/layered_architecture.PNG?raw=true)
-
 > When we create a software application, a large part of the application is not directly related to the domain, but it is part of the infrastructure or serves the software itself.
 
 - Partition a complex program into LAYERS. Develop a design within each LAYER that is cohesive and that depends only on the layers below
