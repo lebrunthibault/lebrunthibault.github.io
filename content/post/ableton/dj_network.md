@@ -1,3 +1,8 @@
+---
+title: "DJ Network"
+description: "DJ Network interview summary"
+---
+
 - [Descriptif formation](https://dj-network.com/cours/formation-mixage-et-mastering/#1559047272703-38d0ce30-46e6)
 - [Fiche mon compte formation](https://www.moncompteformation.gouv.fr/espace-prive/html/#/formation/recherche/39474487400063_MIXMASTERININTENSIF/39474487400063_MIXMASTERINGINTENSIFPARIS?contexteFormation=ACTIVITE_PROFESSIONNELLE)
 
