@@ -10,6 +10,7 @@
     {{- range $paginator.Pages -}}
       {{ if isset .Params "prod" }}
         <h3><a href="{{ .Permalink }}">{{ cond (eq (.Title) "") .File.Path .Title }}</a></h3>
+        <span class="date-info italic">Edited on {{ .Lastmod.Format "02.01.2006" }}</span>
       {{ end }}
     {{ end -}}
   </section>

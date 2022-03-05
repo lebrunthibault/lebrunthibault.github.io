@@ -18,7 +18,8 @@
             </div>
             {{- end }}
             {{- if .Site.Params.moreMeta }}
-            <span class="more-meta"> {{ T "readingTime" .ReadingTime }} </span>
+            <span class="more-meta"> {{ T "readingTime" .ReadingTime }} </span> <br>
+            <span class="date-info italic">Edited on {{ .Lastmod.Format "02.01.2006" }}</span>
             {{- end }}
         </div>
     </header>
