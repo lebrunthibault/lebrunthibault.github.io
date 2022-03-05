@@ -489,3 +489,4 @@ Useful when the code can be organized around two class hierarchies:
 The relation between the 2 is called the bridge
 
 > Useful in graphics and windowing systems that need to run over multiple platforms.
+
