@@ -176,7 +176,7 @@ If you don't want this behavior to happen, wrap your lookup calls in a method as
 The code can declare asynchronous behavior in 3 ways:
 
 
-* via  `seq.add(wait=<ticks>)` which leverages `Live.Base.Timer` fast tick for tasks where we have a rough idea of the delay and guess without too much hassle (see [below](#using-timers))
+* via  `seq.add(wait=<ticks>)` which leverages `Live.Base.Timer` fast tick for tasks where we have a rough idea of the delay and guess without too much hassle (see [below](#using-timers-using-timers))
 * via `seq.add(wait_beats=<beats)` (or `wait_bars`) that leverages the `current_song_time` Live event (see `SyncedScheduler` which notifies when beats change)
 * via the `seq.add(on_complete=<listener>)` that defers the completion of the step until a listener is called.
 
@@ -204,7 +204,7 @@ def duplicate_track(self, index):
 * A sequence step should always define its completion step and not expect the next step to handle any timeout or checks. Like this any step can always be assured that it executes after the previous one has succeeded or failed (thus ending the sequence).
 
 
-## Using timers{#using-timers}
+## Using timers {#using-timers}
 
 _They are (to my knowledge) 2 ways of scheduling asynchronous tasks via timers using the Live API. Both leverage a timer that runs every n millisecond so that a task (a callable) can not be called faster than this interval_
 

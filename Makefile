@@ -5,7 +5,7 @@ export $(shell sed 's/=.*//' .env)
 PYTHON=./venv/Scripts/python.exe
 
 dev:
-	${PYTHON} start_dev_server.py --dev --no-watch
+	${PYTHON} start_dev_server.py --dev
 
 build:
 	${PYTHON} start_dev_server.py --build
