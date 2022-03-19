@@ -58,6 +58,48 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/asgi-wsgi/</loc>
+    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/fastapi/</loc>
+    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/pydantic/</loc>
+    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/starlette/</loc>
+    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/types/</loc>
+    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/windows/</loc>
+    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/symfony/</loc>
     <lastmod>2022-02-05T02:29:29+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -254,7 +296,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-03-13T01:44:06+01:00</lastmod>
+    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -296,7 +338,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-03-13T01:44:06+01:00</lastmod>
+    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
