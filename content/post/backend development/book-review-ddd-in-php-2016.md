@@ -74,8 +74,6 @@ NB CQRS / ES frameworks :
 
 - An essential rule of the Layered architecture is that each layer may be tightly coupled with the layers beneath it
 
-<img src="https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/layered_architecture.png?raw=true" style="zoom:50%;" />
-
 ## Model view controller MVC
 
 >  Model-View-Controller is an architectural pattern and paradigm that divides the application into three main layers: • The Model: Captures and centralizes all the domain model behaviour. This layer manages all the data, logic and business rules independently of the data representation. 

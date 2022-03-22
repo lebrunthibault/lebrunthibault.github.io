@@ -58,7 +58,7 @@ def push_settings(index):
 
 def index_documents_in_algolia():
     documents_info = []
-    for filename in glob.glob(f"{project_root}/content/post/*.md"):
+    for filename in glob.glob(f"{project_root}/content/post/**/*.md"):
         post = frontmatter.load(filename)
         document_info = get_document_info(post=post, filename=filename)
         if document_info:
