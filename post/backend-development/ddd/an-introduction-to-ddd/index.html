@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Afghanistan notes - Home</title>
+  <title> - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="An introduction to Domain-Driven Design  Domain-Driven Design is an approach to software development based on making your software deeply reflect a real-world system or process" /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.93.2 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/societe/afghanistan/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/ddd/an-introduction-to-ddd/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Afghanistan notes" />
-<meta property="og:description" content="Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="An introduction to Domain-Driven Design  Domain-Driven Design is an approach to software development based on making your software deeply reflect a real-world system or process" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/societe/afghanistan/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/ddd/an-introduction-to-ddd/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-02-13T18:31:23+01:00" />
+<meta property="article:modified_time" content="2022-03-25T13:32:50+01:00" />
 
-<meta itemprop="name" content="Afghanistan notes">
-<meta itemprop="description" content="Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE">
-<meta itemprop="dateModified" content="2022-02-13T18:31:23+01:00" />
-<meta itemprop="wordCount" content="332">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="An introduction to Domain-Driven Design  Domain-Driven Design is an approach to software development based on making your software deeply reflect a real-world system or process">
+<meta itemprop="dateModified" content="2022-03-25T13:32:50+01:00" />
+<meta itemprop="wordCount" content="575">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Afghanistan notes"/>
-<meta name="twitter:description" content="Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="An introduction to Domain-Driven Design  Domain-Driven Design is an approach to software development based on making your software deeply reflect a real-world system or process"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,12 +114,12 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">Afghanistan notes</h1>
+        <h1 class="post-title"></h1>
 
         <div class="post-meta">
             
-            <span class="more-meta"> 2 mins read </span> <br>
-            <span class="date-info italic">Edited on 13.02.2022</span>
+            <span class="more-meta"> 3 mins read </span> <br>
+            <span class="date-info italic">Edited on 25.03.2022</span>
         </div>
     </header>
 
@@ -128,14 +128,19 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#afghanistanhttpsfrwikipediaorgwikiafghanistan"><a href="https://fr.wikipedia.org/wiki/Afghanistan">Afghanistan</a></a></li>
-    <li><a href="#période-comuniste">Période Comuniste</a>
+    <li><a href="#an-introduction-to-domain-driven-designhttpsmediumcominatoan-introduction-to-domain-driven-design-386754392465"><a href="https://medium.com/inato/an-introduction-to-domain-driven-design-386754392465">An introduction to Domain-Driven Design</a></a>
       <ul>
-        <li>
+        <li><a href="#the-basics-of-domain-driven-design">The basics of Domain-Driven Design</a></li>
+        <li><a href="#i-isolating-the-domain-the-layered-architecture">I. Isolating the domain: the layered architecture</a></li>
+        <li><a href="#-ii-domain-modeling">🌐 II. Domain modeling</a>
           <ul>
-            <li><a href="#départ-des-communistes">Départ des communistes</a></li>
-            <li><a href="#les-talibans">Les talibans</a></li>
-            <li><a href="#2001">2001</a></li>
+            <li><a href="#expressing-the-model-building-blocks">Expressing the model: Building Blocks</a></li>
+          </ul>
+        </li>
+        <li><a href="#iii-managing-the-life-cycle-of-domain-objects">III. Managing the life cycle of domain objects</a>
+          <ul>
+            <li><a href="#aggregates">Aggregates</a></li>
+            <li><a href="#repositories">Repositories</a></li>
           </ul>
         </li>
       </ul>
@@ -145,53 +150,88 @@
   </div>
 </div>
     <div class="post-content">
-        <p>Vidéo : <a href="https://www.youtube.com/watch?v=HQq3lAqYaC0&amp;t=346s">AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE</a></p>
+        <h1 id="an-introduction-to-domain-driven-designhttpsmediumcominatoan-introduction-to-domain-driven-design-386754392465"><a href="https://medium.com/inato/an-introduction-to-domain-driven-design-386754392465">An introduction to Domain-Driven Design</a></h1>
 <blockquote>
-<p>0.4% of the world population are international refugees (gapminder.org)</p>
+<p>Domain-Driven Design is an approach to software development based on <strong>making your software deeply reflect a real-world system</strong> or process</p>
 </blockquote>
-<h1 id="afghanistanhttpsfrwikipediaorgwikiafghanistan"><a href="https://fr.wikipedia.org/wiki/Afghanistan">Afghanistan</a></h1>
 <ul>
-<li>37 millions d&rsquo;habitants</li>
-<li>3 fois moins dense que la France (env 30 habitants / km2)</li>
-<li>Pays très montagneux</li>
-<li>Entouré par le pakistan, l&rsquo;Iran, le Turkménistan, Le Tadjikistan</li>
-<li>Tribal (Tadjiks, Turkmènes etc ..)</li>
-<li>Av. 1970 : Emirats puis Royaume</li>
+<li>“Domain” is what is commonly referred to as “business logic”</li>
+<li>Good match for complex projects with experienced teams</li>
 </ul>
-<h1 id="période-comuniste">Période Comuniste</h1>
-<blockquote>
-<p>En 1978, coup d&rsquo;état pendant la <strong>Révolution de Saur</strong> instigé par le parti communiste afghan</p>
-<p>Début de l&rsquo;instabilité chronique en Aghanistan</p>
-</blockquote>
-<p>Les Russes interviennent militairement et craignent :</p>
+<h2 id="the-basics-of-domain-driven-design">The basics of Domain-Driven Design</h2>
 <ul>
-<li>Les  <a href="https://fr.wikipedia.org/wiki/Moudjahid">moudjahidines</a> : rebelles afghans armés et soutenus par le Pakistan mais aussi les USA.</li>
-<li>Le président, finalement assassiné</li>
+<li>Separating the concerns into layers</li>
+<li>Modeling the Domain</li>
+<li>Managing the life-cycle of Domain objects</li>
 </ul>
-<p>Le moudjahidines sont aussi soutenus par les état du golfe persique (dont Arabie Saoudite, pour aider au djihad), dont Oussama Ben Laden, aide financière.</p>
-<p>Les russes tiennent les grandes villes et principales routes mais pas les zones montagneuses.</p>
-<blockquote>
-<p>les insurgés sont soutenus par une grande part de la population</p>
-</blockquote>
-<h3 id="départ-des-communistes">Départ des communistes</h3>
-<p>En 1989, laisse les afghans seuls face aux groupes armés et tombent en 1992.</p>
-<blockquote>
-<p>1992: Afghanistan devient l&rsquo;etat islamique d&rsquo;afghanistan.</p>
-<p>Kaboul est bombardé durant le conflit entre les différents chefs de guerre</p>
-</blockquote>
-<h3 id="les-talibans">Les talibans</h3>
+<h2 id="i-isolating-the-domain-the-layered-architecture">I. Isolating the domain: the layered architecture</h2>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220324121846610.png" alt="image-20220324121846610" style="zoom:33%;" />
 <ul>
-<li>Apparaissent en 1994 en réaction au chaos créée par la guerre civile entre les différentes tribus</li>
-<li>Rassurent la population car obéissent à une loi (la charia), ce qui tranche avec le chaos</li>
-<li>Période talibane : 1996 - 2001 (<strong>Émirat islamique d&rsquo;Afghanistan</strong>)</li>
-<li>Un seul territoire résiste dans le Nord avec ce qui reste des forces militaires tribales: <strong>l&rsquo;Alliance du Nord</strong>, dirigé par le commandant <strong>Massoud</strong></li>
-<li>Les talibans sont soutenus par le Pakistan qui voient en eux un avenir stabilisé avec développement commercial et consensus idéologique (plus proche que Massoud).</li>
+<li><strong>User Interface (or Presentation Layer)</strong> : Responsible for showing information to the user and interpreting the user’s commands</li>
+<li><strong>Application Layer</strong>:
+<ul>
+<li>Defines the jobs (use cases) the software is supposed to do and coordinates the domain objects to work out problems</li>
+<li>This layer is kept thin. It does not contain business rules or knowledge, but only coordinates tasks and delegates work to collaborations of domain objects in the next layer down</li>
+<li>It does not have state reflecting the business situation, but it can have state that reflects the progress of a task for the user or the program</li>
 </ul>
-<h3 id="2001">2001</h3>
+</li>
+<li><strong>Domain Layer (or Model Layer)</strong> : State that reflects the business situation is controlled and used here, even though the technical details of storing it are delegated to the infrastructure</li>
+<li><strong>Infrastructure Layer</strong>
 <ul>
-<li>Après le World Trade Center, intervention militaire américaine et britannique (bombardements + au sol) contre les positions talibanes, accusés d&rsquo;avoir aidé à développer le terrorisme.</li>
-<li>L&rsquo;alliance du Nord lance une offensive victorieuse sur Kaboul, le régime taliban tombe.</li>
-<li>Le nouveau gouvernement a très peu de pouvoirs sur le territoire</li>
+<li>Provides generic technical capabilities that support the higher layers: message sending for the application, persistence for the domain, drawing widgets for the UI, and so on</li>
+<li>The infrastructure layer may also support the pattern of interactions between the four layers through an architectural framework</li>
+</ul>
+</li>
+</ul>
+<h2 id="-ii-domain-modeling">🌐 II. Domain modeling</h2>
+<ul>
+<li>The basic constraint is that the model must both help the implementation of features and represent real-life knowledge</li>
+<li>Ubiquitous language based on model</li>
+<li>Used in speech, writing, diagrams</li>
+</ul>
+<h3 id="expressing-the-model-building-blocks">Expressing the model: Building Blocks</h3>
+<p>There are 3 tools to express the model in Domain-Driven Design, which can be grouped in Modules:</p>
+<ul>
+<li>Value Objects</li>
+<li>Entities</li>
+<li>Services</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220324122810875.png" alt="image-20220324122810875" style="zoom:33%;" />
+<h4 id="value-objects">Value Objects</h4>
+<ul>
+<li>immutable</li>
+<li>Ensure that the attributes that make up a Value Object form a conceptual whole.</li>
+</ul>
+<h4 id="entities">Entities</h4>
+<ul>
+<li>An Entity is an object defined primarily by its identity, rather than specific attributes.</li>
+<li>The identity of an Entity runs through time, and possibly different representations. Entities are also called “reference objects”</li>
+</ul>
+<h4 id="services">Services</h4>
+<ul>
+<li>In some cases, the clearest and most pragmatic design includes operations that do not conceptually belong to any object</li>
+<li>Rather than force the issue, we can follow the natural contours of the problem space and include Services explicitly in the model.</li>
+</ul>
+<h4 id="modules">Modules</h4>
+<ul>
+<li>The Modules in the domain layer should emerge as a meaningful part of the model, telling the story of the domain on a larger scale</li>
+<li>low couping / high cohesion</li>
+<li>Give the Modules names that become part of the Ubiquitous Language. Modules and their names should reflect insight into the domain</li>
+<li>favor conceptual clarity over technical convenience</li>
+</ul>
+<h2 id="iii-managing-the-life-cycle-of-domain-objects">III. Managing the life cycle of domain objects</h2>
+<blockquote>
+<p>The goal is to prevent the model from getting swamped by the complexity of managing the life cycle. To do this, we separate the management of the life cycle (i.e. persisting objects) from the business logic</p>
+</blockquote>
+<h3 id="aggregates">Aggregates</h3>
+<ul>
+<li>Aggregates are a cluster of Entities and Value Objects that make sense domain-wise and are retrieved and persisted together</li>
+<li>Aggregates add structure to the model by setting boundaries and providing a clear ownership for the objects they contain</li>
+<li>Choose one Entity to be the root of each Aggregate, and control all access to the objects inside the boundary through the root</li>
+</ul>
+<h3 id="repositories">Repositories</h3>
+<ul>
+<li>Repository interfaces are <strong>declared in the Domain Layer</strong>, but the repositories themselves are <strong>implemented in the Infrastructure Layer</strong>.</li>
 </ul>
 
     </div>

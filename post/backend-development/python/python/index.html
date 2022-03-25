@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Asyncio notes - Home</title>
+  <title>Python 3 notes - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="single thread cooperative multitasking" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Modules &amp;amp; packages  __init__." /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.93.2 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/dev/asyncio/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/python/python/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Asyncio notes" />
-<meta property="og:description" content="single thread cooperative multitasking" />
+<meta property="og:title" content="Python 3 notes" />
+<meta property="og:description" content="Modules &amp; packages  __init__." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/dev/asyncio/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/python/python/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-03-25T13:32:50+01:00" />
 
-<meta itemprop="name" content="Asyncio notes">
-<meta itemprop="description" content="single thread cooperative multitasking">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="152">
+<meta itemprop="name" content="Python 3 notes">
+<meta itemprop="description" content="Modules &amp; packages  __init__.">
+<meta itemprop="dateModified" content="2022-03-25T13:32:50+01:00" />
+<meta itemprop="wordCount" content="335">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Asyncio notes"/>
-<meta name="twitter:description" content="single thread cooperative multitasking"/>
+<meta name="twitter:title" content="Python 3 notes"/>
+<meta name="twitter:description" content="Modules &amp; packages  __init__."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,12 +114,12 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">Asyncio notes</h1>
+        <h1 class="post-title">Python 3 notes</h1>
 
         <div class="post-meta">
             
-            <span class="more-meta"> 1 min read </span> <br>
-            <span class="date-info italic">Edited on 21.01.2022</span>
+            <span class="more-meta"> 2 mins read </span> <br>
+            <span class="date-info italic">Edited on 25.03.2022</span>
         </div>
     </header>
 
@@ -128,81 +128,79 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></a>
+    <li><a href="#modules--packages">Modules &amp; packages</a></li>
+    <li><a href="#unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></a>
       <ul>
-        <li><a href="#coroutine"><a href="">Coroutine</a></a></li>
-        <li><a href="#task">Task</a></li>
-        <li><a href="#future">Future</a></li>
+        <li><a href="#encodings">Encodings</a>
+          <ul>
+            <li><a href="#utf-8-encoding">UTF-8 encoding</a></li>
+          </ul>
+        </li>
+        <li><a href="#the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></a></li>
       </ul>
     </li>
-    <li><a href="#running-an-asyncio-program">Running an asyncio program</a></li>
+    <li><a href="#debugging">Debugging</a></li>
+    <li><a href="#pip">PIP</a>
+      <ul>
+        <li><a href="#windows">Windows</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-        <blockquote>
-<p>single thread cooperative multitasking</p>
-</blockquote>
-<p><strong>test 2</strong></p>
-<h1 id="awaitablehttpsdocspythonorg3libraryasyncio-taskhtmlawaitables"><a href="https://docs.python.org/3/library/asyncio-task.html#awaitables">Awaitable</a></h1>
-<h2 id="coroutine"><a href="">Coroutine</a></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">async</span> <span class="n">def</span><span class="p">:</span> <span class="k">pass</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>A coroutine execution returns a coroutine object. Simply calling a coroutine will not schedule it to be executed</p>
-<p>Coroutine can be awaited and it makes the execution synchronous from the caller perspective</p>
-</blockquote>
-<p>Can be run with :</p>
+        <h1 id="modules--packages">Modules &amp; packages</h1>
 <ul>
-<li><code>await</code></li>
-<li><code>asyncio.run()</code></li>
-<li><code>asyncio.create_task()</code> to run coroutines concurrently as asyncio tasks</li>
+<li><code>__init__.py</code> turn folder into package</li>
+<li>can be used to provide initialisation code (e.g. set  <code>__all__</code>)</li>
+<li><code>__all__</code> defined to <code>from package import *</code> (if not defined, * is nothing)</li>
 </ul>
-<h2 id="task">Task</h2>
+<h1 id="unicodehttpsdocspythonorg3howtounicodehtmlunicode-howto"><a href="https://docs.python.org/3/howto/unicode.html#unicode-howto">Unicode</a></h1>
+<ul>
+<li>The <a href="https://www.unicode.org/">Unicode</a> standard describes how characters are represented by <strong>code points</strong>.  A code point value is an integer in the range 0 to 0x10FFFF. A code point is written using the notation <code>U+265E</code> to mean the character with value <code>0x265e</code> (9,822 in decimal).</li>
+<li>A unicode code point is not a character but represents a character</li>
+<li>A character is represented on a screen or on paper by a set of graphical elements that’s called a <strong>glyph</strong> (not important to python)</li>
+</ul>
+<h2 id="encodings">Encodings</h2>
 <blockquote>
-<p>Tasks are used to schedule coroutines <em>concurrently</em></p>
+<p>a Unicode string is a sequence of code points, which are numbers from 0 through <code>0x10FFFF</code> (1,114,111 decimal). This sequence of code points needs to be represented in memory as a set of <strong>code units</strong>, and <strong>code units</strong> are then mapped to 8-bit bytes. The rules for translating a Unicode string into a sequence of bytes are called a <strong>character encoding</strong>, or just an <strong>encoding</strong></p>
 </blockquote>
+<h3 id="utf-8-encoding">UTF-8 encoding</h3>
+<blockquote>
+<p>UTF stands for “Unicode Transformation Format”, and the ‘8’ means that 8-bit values are used in the encoding.</p>
+</blockquote>
+<ul>
+<li>Plays well with C functions.</li>
+<li>A string of ASCII text is also valid UTF-8 text. UTF-8 is a byte oriented encoding.</li>
+<li>The encoding specifies that each character is represented by a specific sequence of one or more bytes</li>
+</ul>
+<h2 id="the-string-typehttpsdocspythonorg3howtounicodehtmlthe-string-type"><a href="https://docs.python.org/3/howto/unicode.html#the-string-type">The string type</a></h2>
+<blockquote>
+<p>the language’s <a href="https://docs.python.org/3/library/stdtypes.html#str"><code>str</code></a> type contains Unicode characters, meaning any string created using <code>&quot;unicode rocks!&quot;</code>, <code>'unicode rocks!'</code>, or the triple-quoted string syntax is stored as Unicode</p>
+</blockquote>
+<ul>
+<li><code>&quot;\N{GREEK CAPITAL LETTER DELTA}&quot; == &quot;\u0394&quot;  == &quot;\U00000394&quot;</code></li>
+<li><strong>bytes</strong> can be decoded to string : <code>b'\x41'.decode(&quot;utf-8&quot;)</code> outputs &lsquo;A&rsquo;</li>
+<li><code>bytes.decode</code> as options for dealing with bytes unknown to the encoding.</li>
+<li>The opposite method of <a href="https://docs.python.org/3/library/stdtypes.html#bytes.decode">bytes.decode()</a> is <a href="https://docs.python.org/3/library/stdtypes.html#str.encode">str.encode()</a>, which returns a <a href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a> representation of the Unicode string, encoded in the requested <em>encoding</em></li>
+</ul>
+<h1 id="debugging">Debugging</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">coroutine</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">42</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># Schedule nested() to run soon concurrently with &#34;main()&#34;.</span>
-</span></span><span class="line"><span class="cl">    <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">coroutine</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># or task = asyncio.ensure_future(coroutine())</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="future">Future</h2>
-<blockquote>
-<p>A <a href="https://docs.python.org/3/library/asyncio-future.html#asyncio.Future"><code>Future</code></a> is a special <strong>low-level</strong> awaitable</p>
-<p>Future objects in asyncio are needed to allow callback-based code to be used with async/await.</p>
-</blockquote>
-<h1 id="running-an-asyncio-program">Running an asyncio program</h1>
+</div><h1 id="pip">PIP</h1>
 <ul>
-<li>Using <code>asyncio.run(coroutine())</code></li>
-<li>Creates an event loop and manages awaiting and closing the pool</li>
-<li>Only one pool allowed at the same time by thread</li>
+<li>pip install package &amp;&amp; pip freeze &gt; requirements.txt</li>
+</ul>
+<h2 id="windows">Windows</h2>
+<ul>
+<li>Install precompiled binaries using pipwin (see <a href="https://stackoverflow.com/questions/53866104/pyaudio-failed-to-install-windows-10/53866322">stack</a>)</li>
 </ul>
 
     </div>

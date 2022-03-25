@@ -44,15 +44,36 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/article-review-ddd/</loc>
-    <lastmod>2022-01-25T02:02:38+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/an-introduction-to-ddd/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/</loc>
-    <lastmod>2022-01-21T13:57:26+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/article-review-ddd/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/conference-protecting-the-domain/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/doctrine-orm-and-ddd-aggregates/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/internationalization/</loc>
+    <lastmod>2022-03-11T20:37:47+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -170,6 +191,13 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/societe/presidentielle-2022/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/societe/sdf/</loc>
     <lastmod>2022-02-17T17:04:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -184,8 +212,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/societe/afghanistan/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/histoire/afghanistan/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -198,8 +226,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/dev/asyncio/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/asyncio/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -212,8 +240,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/</loc>
-    <lastmod>2022-03-05T16:49:39+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-in-php-2016/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -232,15 +260,15 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-reference-eric-evans/</loc>
-    <lastmod>2022-02-09T12:56:51+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-reference-eric-evans/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/design-patterns/</loc>
-    <lastmod>2022-02-23T11:59:59+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/patterns/design-patterns/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -253,15 +281,15 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/dev/django/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/django/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/</loc>
-    <lastmod>2022-03-05T16:49:39+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-domain-design-development-quickly/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -288,15 +316,15 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/</loc>
-    <lastmod>2022-03-03T02:16:56+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-head-first-design-patterns/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -338,7 +366,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -351,22 +379,22 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/dev/python/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/python/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/book-review-refactoring-to-patterns/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-refactoring-to-patterns/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/societe/rome/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/histoire/rome/</loc>
+    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Django contribution - Home</title>
+  <title> - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="description" content="links" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Internationalization links:" /><meta name="keywords" content="" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.93.2 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/post/dev/django/" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/internationalization/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Django contribution" />
-<meta property="og:description" content="links" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="Internationalization links:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebrunthibault.github.io/post/dev/django/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/internationalization/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-03-11T20:37:47+01:00" />
 
-<meta itemprop="name" content="Django contribution">
-<meta itemprop="description" content="links">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="297">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Internationalization links:">
+<meta itemprop="dateModified" content="2022-03-11T20:37:47+01:00" />
+<meta itemprop="wordCount" content="324">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Django contribution"/>
-<meta name="twitter:description" content="links"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Internationalization links:"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,12 +114,12 @@
 <article class="post">
     
     <header class="post-header">
-        <h1 class="post-title">Django contribution</h1>
+        <h1 class="post-title"></h1>
 
         <div class="post-meta">
             
             <span class="more-meta"> 2 mins read </span> <br>
-            <span class="date-info italic">Edited on 21.01.2022</span>
+            <span class="date-info italic">Edited on 11.03.2022</span>
         </div>
     </header>
 
@@ -128,31 +128,28 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#basics">Basics</a>
+    <li><a href="#internationalization">Internationalization</a>
       <ul>
-        <li><a href="#install">Install</a></li>
-        <li><a href="#structure">Structure</a></li>
-        <li><a href="#routing">Routing</a></li>
-        <li><a href="#django-orm">Django ORM</a></li>
-        <li><a href="#testing">Testing</a>
+        <li><a href="#symfony-steps">Symfony steps</a>
           <ul>
-            <li></li>
+            <li><a href="#keyword-approach">Keyword approach</a></li>
+            <li><a href="#icu-message-formatinghttpsunicode-orggithubioicuuserguideformat_parsemessages"><a href="https://unicode-org.github.io/icu/userguide/format_parse/messages/">ICU message formating</a></a></li>
+            <li><a href="#translatable-objects">Translatable objects</a></li>
+            <li><a href="#extracting-translation-contents-and-updating-catalogs-automaticallyhttpssymfonycomdoccurrenttranslationhtmlextracting-translation-contents-and-updating-catalogs-automatically"><a href="https://symfony.com/doc/current/translation.html#extracting-translation-contents-and-updating-catalogs-automatically">Extracting Translation Contents and Updating Catalogs Automatically</a></a></li>
+            <li><a href="#database-translation-with-doctrinehttpsgithubcomdoctrine-extensionsdoctrineextensionsblobmaindoctranslatablemdentity-domain-object"><a href="https://github.com/doctrine-extensions/DoctrineExtensions/blob/main/doc/translatable.md#entity-domain-object">Database translation with doctrine</a></a></li>
           </ul>
         </li>
+        <li><a href="#httpsborntobeglobalcom20200526web-application-localization-best-practices"><a href="https://borntobeglobal.com/2020/05/26/web-application-localization-best-practices/">https://borntobeglobal.com/2020/05/26/web-application-localization-best-practices/</a></a></li>
       </ul>
     </li>
-    <li><a href="#difference-django--symfony">Difference django / symfony</a>
+    <li><a href="#possible">Possible</a>
       <ul>
         <li>
           <ul>
-            <li></li>
+            <li><a href="#stockage-">Stockage :</a></li>
           </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href="#contributing">Contributing</a>
-      <ul>
-        <li><a href="#git-flow">Git flow</a></li>
+        <li><a href="#avec-lokalize">Avec Lokalize</a></li>
       </ul>
     </li>
   </ul>
@@ -160,108 +157,85 @@
   </div>
 </div>
     <div class="post-content">
-        <p><strong>links</strong></p>
+        <h1 id="internationalization">Internationalization</h1>
+<p><strong>links</strong>:</p>
+<pre><code>- https://symfony.com/doc/current/translation.html#translation-providers
+- https://borntobeglobal.com/2020/05/26/web-application-localization-best-practices/
+- https://lokalise.com/
+</code></pre>
+<h2 id="symfony-steps">Symfony steps</h2>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=rHux0gMZ3Eg">django tutorials for beginners 2021 youtube</a></li>
+<li><a href="https://symfony.com/doc/current/translation.html#translation-configuration">Enable and configure</a> Symfony&rsquo;s translation service;</li>
+<li>Abstract strings (i.e. &ldquo;messages&rdquo;) by wrapping them in calls to the <code>Translator</code> (&quot;<a href="https://symfony.com/doc/current/translation.html#translation-basic">Translations</a>&quot;);</li>
+<li><a href="https://symfony.com/doc/current/translation.html#translation-resources">Create translation resources/files</a> for each supported locale that translate each message in the application;</li>
+<li>Determine, <a href="https://symfony.com/doc/current/translation/locale.html">set and manage the user&rsquo;s locale</a> for the request and optionally <a href="https://symfony.com/doc/current/session/locale_sticky_session.html">on the user&rsquo;s entire session</a>.</li>
 </ul>
-<h1 id="basics">Basics</h1>
-<h2 id="install">Install</h2>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220311142156491.png" alt="image-20220311142156491" style="zoom:50%;" />
+<h3 id="keyword-approach">Keyword approach</h3>
 <ul>
-<li>Use pipenv</li>
-<li>Nesting can be removed</li>
-<li>Use .env with <a href="https://github.com/joke2k/django-environ">django-environ</a></li>
-<li><a href="https://django-debug-toolbar.readthedocs.io/en/latest/installation.html">django debug toolbar</a> like in symfony</li>
+<li>The choice of which method to use is entirely up to you, but the &ldquo;keyword&rdquo; format is often recommended for multi-language applications</li>
+<li>Keywords can be nested in yaml or php</li>
 </ul>
-<h2 id="structure">Structure</h2>
+<h3 id="icu-message-formatinghttpsunicode-orggithubioicuuserguideformat_parsemessages"><a href="https://unicode-org.github.io/icu/userguide/format_parse/messages/">ICU message formating</a></h3>
 <ul>
-<li>Project == site: app == service. project many to many app</li>
-<li>apps can live anywhere in the python path</li>
+<li>Rearrange messages according to grammar</li>
+<li>complex</li>
 </ul>
-<h2 id="routing">Routing</h2>
+<h3 id="translatable-objects">Translatable objects</h3>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220311155800256.png" alt="image-20220311155800256" style="zoom:50%;" />
+<h3 id="extracting-translation-contents-and-updating-catalogs-automaticallyhttpssymfonycomdoccurrenttranslationhtmlextracting-translation-contents-and-updating-catalogs-automatically"><a href="https://symfony.com/doc/current/translation.html#extracting-translation-contents-and-updating-catalogs-automatically">Extracting Translation Contents and Updating Catalogs Automatically</a></h3>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220311155918361.png" alt="image-20220311155918361" style="zoom: 33%;" />
+<h3 id="database-translation-with-doctrinehttpsgithubcomdoctrine-extensionsdoctrineextensionsblobmaindoctranslatablemdentity-domain-object"><a href="https://github.com/doctrine-extensions/DoctrineExtensions/blob/main/doc/translatable.md#entity-domain-object">Database translation with doctrine</a></h3>
+<h2 id="httpsborntobeglobalcom20200526web-application-localization-best-practices"><a href="https://borntobeglobal.com/2020/05/26/web-application-localization-best-practices/">https://borntobeglobal.com/2020/05/26/web-application-localization-best-practices/</a></h2>
 <ul>
-<li>Each app can define routes in a URLconf file</li>
-<li>The routing file is included in the main site routing URLconf</li>
-<li><code>include</code> chops off matched url part and sends to included for further processing</li>
-<li>Patterns don’t search GET and POST parameters, or the domain name</li>
-<li>Route has url, route name, view (HttpRequest handler) + kwargs. Like in Symfony</li>
+<li>Size of words</li>
+<li>No text in images</li>
+<li>Pseudo localization to test</li>
+<li>Don’t use too little strings and concatenation. Hard to translate for different grammars</li>
+<li>Punctuation in strings</li>
+<li>add a button to switch language (don’t rely on browser)</li>
+<li>don’t use flags, use language names</li>
+<li>sort on server</li>
+<li>give context to translators</li>
 </ul>
-<h2 id="django-orm">Django ORM</h2>
+<h1 id="possible">Possible</h1>
 <ul>
-<li>Model classes</li>
+<li>définir plusieurs domaines (security, application ..). Le domaine peut etre défini en haut d’un fichier twig : <code>% trans_default_domain 'app' %}</code></li>
+<li>pour chaque domaine : un fichier par langue</li>
+<li>Config translation.yaml avec default lang et définit où sont les fichiers</li>
+<li>en index on peut utiliser :
+<ul>
+<li>messages</li>
+<li>code (nestable)</li>
 </ul>
-<h2 id="testing">Testing</h2>
-<h4 id="debugger">Debugger</h4>
+</li>
+<li>Les messages peuvent etre traduits :
 <ul>
-<li>Straightforward when running python scripts</li>
-<li>Using django server run configuration (see <a href="https://www.youtube.com/watch?v=zFuaU3Sl4-c">this video</a>)</li>
+<li>dans les templates (avec filtre trans)</li>
+<li>ou dans les services avec <code>new TranslatableMessage</code> pour ne pas avoir a passer les arguments</li>
 </ul>
-<h1 id="difference-django--symfony">Difference django / symfony</h1>
+</li>
+<li>Avoir des parametres en twig grace au tag trans auquel on peut passer un contexte : variable au format %<var>%</li>
+<li>Commandes utiles:
 <ul>
-<li>django lighter and more options for views</li>
-<li>system of apps</li>
-</ul>
-<h4 id="orm">Orm</h4>
-<ul>
-<li>saving directly on the entitiy</li>
-<li>not great: magical methods in django (e.g. backward one to many, always use default args)</li>
-<li>app should be added to the installed apps</li>
-<li>better handling of choices / enum  in django (integrated to the model field definition)</li>
-<li>relations
-<ul>
-<li>one to many : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.ForeignKey"><code>ForeignKey</code></a> on the owning side</li>
-<li>many to many : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.ManyToManyField"><code>ManyToManyField</code></a></li>
-<li>one to one : <a href="https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.OneToOneField"><code>OneToOneField</code></a></li>
+<li>dump tous les messages a traduire pour une langue</li>
+<li>remplir par défaut les messages a traduire pour une langue</li>
 </ul>
 </li>
 </ul>
-<h1 id="contributing">Contributing</h1>
+<h3 id="stockage-">Stockage :</h3>
 <ul>
-<li><a href="https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/">Writing code</a></li>
+<li>en fichiers</li>
+<li>en bdd : <a href="https://symfony.com/doc/current/reference/dic_tags.html#dic-tags-translation-loader">https://symfony.com/doc/current/reference/dic_tags.html#dic-tags-translation-loader</a></li>
 </ul>
-<blockquote>
-<p>Django 4.0 will be a time-based release. Any features completed and committed to main by the alpha feature freeze deadline noted below will be included</p>
-</blockquote>
-<p>Schedule</p>
-<table>
-<thead>
-<tr>
-<th>September 20, 2021</th>
-<th>Django 4.0 alpha; feature freeze. (we will fork <code>stable/4.0.x</code> from <code>main</code>.)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>October 25</td>
-<td>Django 4.0 beta; non-release blocking bug fix freeze (all bug fixes except blocking ones)</td>
-</tr>
-<tr>
-<td>November 22</td>
-<td>Django 4.0 RC 1; translation string freeze.</td>
-</tr>
-<tr>
-<td>December 6</td>
-<td>Django 4.0 final</td>
-</tr>
-</tbody>
-</table>
-<h2 id="git-flow">Git flow</h2>
+<h2 id="avec-lokalize">Avec Lokalize</h2>
 <ul>
-<li>
-<p>Rebase to one commit before and after review (e.g. <code>git rebase -i HEAD~2</code>)</p>
-</li>
-<li>
-<p>On upstream change:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git fetch upstream
-</span></span><span class="line"><span class="cl">git rebase
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<li>on connect le repo github</li>
+<li>on donne le dossiers translation</li>
+<li>on pull</li>
+<li>tout s’affiche et est editable dans le saas</li>
+<li>on push : ca fait une pull request</li>
+<li>pas de dépendance</li>
 </ul>
 
     </div>

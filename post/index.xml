@@ -62,20 +62,47 @@
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/backend-development/article-review-ddd/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/an-introduction-to-ddd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/article-review-ddd/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/an-introduction-to-ddd/</guid>
+      <description>An introduction to Domain-Driven Design  Domain-Driven Design is an approach to software development based on making your software deeply reflect a real-world system or process</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/article-review-ddd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/article-review-ddd/</guid>
       <description>See https://www.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/conference-protecting-the-domain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/conference-protecting-the-domain/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/conference-protecting-the-domain/</guid>
       <description>Protecting the domain by Victor Rentea talk on youtube</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/doctrine-orm-and-ddd-aggregates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/doctrine-orm-and-ddd-aggregates/</guid>
+      <description>Doctrine ORM and DDD aggregates  the aggregate design rules is: Reference Other Aggregates By Identity  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/internationalization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/internationalization/</guid>
+      <description>Internationalization links:</description>
     </item>
     
     <item>
@@ -224,6 +251,15 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/societe/presidentielle-2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/societe/presidentielle-2022/</guid>
+      <description>Ecologie ZFE  Mises en place par Macron en 2017 les ZFE visent à interdire progressivement les voitures les plus anciennes des agglomérations sur la base des vignettes Crit’Air Remises en cause partout sauf par Jadot (soutien aux automobilistes, aux gilets jaunes, libertarisme .</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/societe/sdf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -242,10 +278,10 @@
     
     <item>
       <title>Afghanistan notes</title>
-      <link>https://lebrunthibault.github.io/post/societe/afghanistan/</link>
+      <link>https://lebrunthibault.github.io/post/histoire/afghanistan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/afghanistan/</guid>
+      <guid>https://lebrunthibault.github.io/post/histoire/afghanistan/</guid>
       <description>Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE</description>
     </item>
     
@@ -260,10 +296,10 @@
     
     <item>
       <title>Asyncio notes</title>
-      <link>https://lebrunthibault.github.io/post/dev/asyncio/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/asyncio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/dev/asyncio/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/asyncio/</guid>
       <description>single thread cooperative multitasking</description>
     </item>
     
@@ -278,10 +314,10 @@
     
     <item>
       <title>Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-in-php-2016/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-in-php-2016/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-in-php-2016/</guid>
       <description>book here</description>
     </item>
     
@@ -296,19 +332,19 @@
     
     <item>
       <title>DDD reference</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-reference-eric-evans/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-reference-eric-evans/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/book-review-ddd-reference-eric-evans/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-reference-eric-evans/</guid>
       <description>book here</description>
     </item>
     
     <item>
       <title>Design Patterns</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/design-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/patterns/design-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/design-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/patterns/design-patterns/</guid>
       <description>Design patterns currently used in projects Factory Method  Used in Protocol0 backend to generate notification / prompt / select windows  Abstract Factory  Used textbook in Protocol0 to generate a track recorder The abstract factory generates for a track and record type :  A track recorder A scene index for the recording A bar length for the recording    Singleton  Used in basile ats client generation tests The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)  Facade  Used in protocol0 SongFacade to expose readonly access to song objects Also in Scheduler to expose simplified facade to scheduling methods from 2 scheduler classes  Composite  Used to abstract composite tracks in protocol0 e.</description>
     </item>
     
@@ -323,19 +359,19 @@
     
     <item>
       <title>Django contribution</title>
-      <link>https://lebrunthibault.github.io/post/dev/django/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/django/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/dev/django/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/django/</guid>
       <description>links</description>
     </item>
     
     <item>
       <title>Domain Driven Development Quickly</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-domain-design-development-quickly/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/book-review-domain-design-development-quickly/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-domain-design-development-quickly/</guid>
       <description>Book here</description>
     </item>
     
@@ -368,10 +404,10 @@
     
     <item>
       <title>Head first design patterns</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-head-first-design-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/book-review-head-first-design-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-head-first-design-patterns/</guid>
       <description>and excerpts from https://refactoring.</description>
     </item>
     
@@ -431,28 +467,28 @@
     
     <item>
       <title>Python 3 notes</title>
-      <link>https://lebrunthibault.github.io/post/dev/python/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/dev/python/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/python/</guid>
       <description>Modules &amp;amp; packages  __init__.</description>
     </item>
     
     <item>
       <title>Refactoring to patterns</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/book-review-refactoring-to-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-refactoring-to-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/book-review-refactoring-to-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-refactoring-to-patterns/</guid>
       <description>Test-driven development and continuous refactoring, two of the many excellent XP practices</description>
     </item>
     
     <item>
       <title>Rome notes</title>
-      <link>https://lebrunthibault.github.io/post/societe/rome/</link>
+      <link>https://lebrunthibault.github.io/post/histoire/rome/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/rome/</guid>
+      <guid>https://lebrunthibault.github.io/post/histoire/rome/</guid>
       <description>Les institutions romaines Chronologie  Début : Petit état terittorial de quelques dizaine de milliers d&amp;rsquo;individus Rome Royale République (-200) Période augustéenne, Haut-Empire (0-200)  passage de la république à l&amp;rsquo;empire Etat administratif et bureaucratique Pax romana   Période de troubles et d&amp;rsquo;anarchie (200-375) : invasions, décomposition des institutions et de l&amp;rsquo;économie Bas-Empire: des empereurs de valeur essaient de faire face aux problèmes  Système tétrachique de Dioclétien Constantin: Empire chrétien    </description>
     </item>
     
