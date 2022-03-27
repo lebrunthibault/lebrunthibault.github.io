@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Linux workflow
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+   body,table tr{background-color:#fff}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}pre code,table,table tr{padding:0}hr,pre code{background:0 0}body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;padding:10px 15px}strong,table tr th{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table tr{border-top:1px solid #ccc;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}blockquote{padding:0 15px;border-left:4px solid #ccc}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;white-space:pre;border:none}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+  </style>
+ </head>
+ <body>
+  <h1 id="linux-worflow">
+   Linux Worflow
+  </h1>
+  <blockquote>
+   <p>
+    Différentes techniques pour gagner du temps sur un terminal linux.
+   </p>
+  </blockquote>
+  <ul>
+   <li>
+    <a href="#fichier-rc">
+     Fichier rc
+    </a>
+   </li>
+   <li>
+    <a href="#alias-et-fonctions-utilisateurs">
+     Alias et fonctions utilisateurs
+    </a>
+   </li>
+   <li>
+    <a href="#tmux">
+     tmux
+    </a>
+   </li>
+   <li>
+    <a href="#accelerer-le-deploiement-dun-environement-shell">
+     Accélérer le déploiement d’un environement shell
+    </a>
+    <ul>
+     <li>
+      <a href="#frameworks-shell">
+       Frameworks shell
+      </a>
+     </li>
+     <li>
+      <a href="#shell-package-management">
+       Shell package management
+      </a>
+     </li>
+     <li>
+      <a href="#en-une-commande">
+       En une commande
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <p>
+   <br/>
+  </p>
+  <h2 id="fichier-rc">
+   Fichier rc
+  </h2>
+  <p>
+   Le fichier
+   <strong>
+    rc
+   </strong>
+   (pour run commands) est un fichier qui est situé dans le home directory (correspondand à la variable
+   <code>
+    $HOME
+   </code>
+   du shell) et est exécuté systématiquement à l’ouverture du shell de l’utilisateur.  Il permet de customiser différentes fonctionnalités du terminal (couleurs, invite de commandes, titre de la fenêtre) ainsi que de sourcer (charger) d’autres fichiers de configuration.
+  </p>
+  <pre><code class="shell"># on source un fichier avec source
+source /home/user/.aliases.sh
+</code></pre>
+  <p>
+   Dans le fichier rc, on peut aussi modifier la variable
+   <code>
+    $PATH
+   </code>
+   ce qui permet de rendre des exécutables accessibles par leur nom à l’utilisateur (sans avoir à donner le chemin absolu du fichier).
+   <br/>
+   Le fichier rc est différent selon chaque shell : ainsi pour bash, il s’agit de
+   <em>
+    ~/.bashrc
+   </em>
+   et pour zsh de
+   <em>
+    ~/.zshrc
+   </em>
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h2 id="alias-et-fonctions-utilisateurs">
+   Alias et fonctions utilisateurs
+  </h2>
+  <p>
+   Le fichier rc est souvent utilisé pour sourcer un ou plusieurs fichiers d’alias et de fonctions utilisateurs.
+   <br/>
+   Sous linux il est possible de définir des alias de commandes avec cette syntaxe :
+  </p>
+  <pre><code class="shell">alias commande="&lt;une commande très longue et compliquée à mémoriser&gt;"
+</code></pre>
+  <p>
+   Le shell étant avant tout un langage de programmation, il est aussi possible de définir des fonctions pour opérer des tâches plus complexes
+  </p>
+  <p>
+   par exemple une fonction qui push des modifications sur un repository git:
+  </p>
+  <pre><code class="shell">function dotupdate() {
+    if [ -z "$1" ]
+    then
+        folder="dotfiles"
+    else
+        folder=$1
+    fi
+
+    homeshick cd $folder
+    git add .
+    git commit -m "added new dotfiles things"
+    git push
+    cd -
+}
+</code></pre>
+  <p>
+   A noter les arguments de la fonction sont accessibles avec les variables
+   <code>
+    $1
+   </code>
+   ,
+   <code>
+    $2
+   </code>
+   etc .. . La variable spéciale
+   <code>
+    $@
+   </code>
+   permet de forwarder tous les arguments à une autre fonction
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h2 id="tmux">
+   tmux
+  </h2>
+  <p>
+   Un autre moyen d’accélerer les choses sous linux est de sauvegarder plusieurs fenêtres de terminal et d’y revenir plus tard. C’est à cela que sert un multiplexeur de terminal comme
+   <a href="https://github.com/tmux/tmux">
+    tmux
+   </a>
+   .
+   <br/>
+   Tmux est un serveur auquels plusieurs clients (utilisateurs) peuvent se rattacher. Tmux permet d’ouvrir des
+   <strong>
+    sessions
+   </strong>
+   qui sont en fait un ensemble de
+   <strong>
+    windows
+   </strong>
+   un peu comme un navigateur est un ensemble d’onglets.
+   <br/>
+   En plus de cela tmux permet de définir des
+   <strong>
+    panes
+   </strong>
+   qui permettent de diviser une fenêtre en plusieurs sections de différentes tailles ce qui donne la possibilité de taper des commands tout en voyant simultanément un
+   <code>
+    tail -F
+   </code>
+   d’un fichier de log.
+   <br/>
+   Le véritable intérêt de tmux est qu’il garde en mémoire les sessions ouvertes et permet de s’y rattacher à n’importe quel moment. On peut ainsi retrouver une session sur un serveur plusieurs mois après l’avoir quittée.
+   <br/>
+   Tmux peut être scripté pour créer une session au démarrage de l’ordinateur, comme ceci :
+  </p>
+  <pre><code class="shell">#!/bin/bash                                                                                                
+
+SESSIONNAME="projet"
+tmux has-session -t $SESSIONNAME &amp;&gt; /dev/null
+
+if [ $? != 0 ] 
+ then
+    # general window
+    tmux new-session -s $SESSIONNAME -n "general" -c "$HOME/dev/projet" -d
+
+    # mysql window
+    tmux new-window -t $SESSIONNAME -n "mysql"
+    tmux send-keys -t $SESSIONNAME "mysql -u homestead -psecret projet" C-m
+
+    # logs window
+    tmux new-window -t $SESSIONNAME -n "logs"
+    tmux split-window -h -p 50
+    tmux send-keys -t $SESSIONNAME "tail -F /var/log/nginx/projet.dev-ssl-error.log error" C-m
+    tmux split-window -t %2 -v -p 50
+    tmux send-keys -t $SESSIONNAME "sudo vim /etc/nginx/sites-available/projet.dev" C-m
+
+fi
+
+tmux attach -t $SESSIONNAME
+</code></pre>
+  <p>
+   Pour plus d’informations
+   <a href="https://leanpub.com/the-tao-of-tmux/read">
+    Voici un guide sympathique
+   </a>
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h2 id="accelerer-le-deploiement-dun-environement-shell">
+   Accélérer le déploiement d’un environement shell
+  </h2>
+  <h4 id="frameworks-shell">
+   Frameworks shell
+  </h4>
+  <p>
+   De nombreux projets collaboratifs existent centrés sur les manières de cutomiser un shell. Un exemple est
+   <a href="https://github.com/robbyrussell/oh-my-zsh">
+    oh-my-zsh
+   </a>
+   qui une fois installé permet de charger divers plugins qui ajoutent de nombreuses commandes utiles au shell ou des fonctionnalités comme l’autocomplétion ou la colorisation.
+  </p>
+  <h4 id="shell-package-management">
+   Shell package management
+  </h4>
+  <p>
+   Afin de pouvoir exporter sa configuration facilement, on peut utiliser un système de synchronisation de fichiers. Une possibilité est d’utiliser git manuellement en créant un repository dans son
+   <mathjax>
+    $HOME. Une autre est d'utiliser un système comme [homeshick](https://github.com/andsens/homeshick) qui utilise aussi git ainsi que des liens symboliques pour installer rapidement une configuration shell dans son $
+   </mathjax>
+   HOME.
+  </p>
+  <h4 id="en-une-commande">
+   En une commande
+  </h4>
+  <p>
+   Pour aller encore plus vite, il peut être utile de créer un fichier de code hosté (comme un gist), de le télécharger et de l’exécuter  en arrivant sur un serveur.
+   <br/>
+   Cette commande va installer zsh, tmux, vim, git puis oh-my-zsh. Elle va ensuite télécharger des fichiers de configuration (.zshrc, fichiers d’aliases) et les linker dans le $HOME :
+  </p>
+  <pre><code class="shell">sh -c "$(curl -fsSL https://gist.githubusercontent.com/baxson/b145bbdbe44afa297515737521e88c7c/raw/44b0aa6ee93ddcb1e45900e1d7da09b370de6603/install%2520shell)"
+</code></pre>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>
