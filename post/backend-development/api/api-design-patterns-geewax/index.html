@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Preface  In the real world, I learned how perfectly-optimized code is not nearly as valuable as well-designed code  Part 1." /><meta name="keywords" content="" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/api/api-design-patterns-geewax/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Preface  In the real world, I learned how perfectly-optimized code is not nearly as valuable as well-designed code  Part 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/api/api-design-patterns-geewax/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-03-28T18:55:46+02:00" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Preface  In the real world, I learned how perfectly-optimized code is not nearly as valuable as well-designed code  Part 1.">
+<meta itemprop="dateModified" content="2022-03-28T18:55:46+02:00" />
+<meta itemprop="wordCount" content="857">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Preface  In the real world, I learned how perfectly-optimized code is not nearly as valuable as well-designed code  Part 1."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          
+
+
+
+
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title"></h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 5 mins read </span> <br>
+            <span class="date-info italic">Edited on 28.03.2022</span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#preface">Preface</a></li>
+    <li><a href="#part-1-introduction">Part 1. Introduction</a>
+      <ul>
+        <li><a href="#1-introduction-to-apis">1. Introduction to APIs</a>
+          <ul>
+            <li><a href="#what-are-resource-oriented-apis">What are resource-oriented APIs?</a></li>
+            <li><a href="#what-makes-an-api-good">What makes an API “good”?</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-introduction-to-api-design-patterns">2. Introduction to API design patterns</a>
+          <ul>
+            <li><a href="#what-are-api-design-patterns">What are API design patterns?</a></li>
+            <li><a href="#why-are-api-design-patterns-important">Why are API design patterns important?</a></li>
+            <li><a href="#anatomy-of-an-api-design-pattern">Anatomy of an API design pattern</a></li>
+            <li><a href="#case-study-twapi-a-twitter-like-api">Case study: Twapi, a Twitter-like API</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#part-2-design-principles">Part 2. Design principles</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <h1 id="preface">Preface</h1>
+<ul>
+<li>In the real world, I learned how perfectly-optimized code is not nearly as valuable as well-designed code</li>
+</ul>
+<h1 id="part-1-introduction">Part 1. Introduction</h1>
+<h2 id="1-introduction-to-apis">1. Introduction to APIs</h2>
+<ul>
+<li>API vs web API : much more control using local API vs web API (because it&rsquo;s a local copy). Web API can change or shutdown without notice. For creators, the web</li>
+<li>api offers more control as they can change things for all users and protect their algorithms</li>
+<li>APIs provide a way to speak the language computers need to interact in a safe and stable way</li>
+<li>how can we make sure the APIs we build fit together like Lego bricks? Let’s start by looking at one strategy for this, called resource orientation</li>
+</ul>
+<h3 id="what-are-resource-oriented-apis">What are resource-oriented APIs?</h3>
+<ul>
+<li>“remote procedure call” (RPC) because we’re effectively calling a library function (or procedure) to be executed on another computer that is somewhere potentially far away (or remote)</li>
+<li>It turns out that RPC-style APIs are great for stateless functionality, but they tend to be a much poorer fit when we introduce stateful API methods</li>
+<li>resource-oriented APIs rely on the idea of “resources,” which are the key concepts we store and interact with, standardizing the “things” that the API manages</li>
+<li><strong>Resource-oriented APIs are a way of designing APIs to reduce complexity by relying on a standard set of actions, called methods, across a limited set of things, called resources</strong></li>
+<li>Second, rather than using arbitrary RPC names for any action we can think of, resource-oriented APIs limit actions to a small standard set</li>
+<li>Thinking of this a bit differently, resource-oriented APIs are really just a special type of RPC-style APIs where each RPC follows a clear and standardized pattern: ().</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220328140925132.png" alt="image-20220328140925132" style="zoom: 67%;" />
+<ul>
+<li>For some scenarios RPC oriented APIs will be a better fit (<strong>particularly in the case where the API method is stateless</strong>)</li>
+<li>REST APIs use standardization and make learning them easier and their actions clearer</li>
+</ul>
+<h3 id="what-makes-an-api-good">What makes an API “good”?</h3>
+<ul>
+<li>Operational : + non operational (latency, precision ..)</li>
+<li>Expressive : system allows users to express the thing they want to do clearly and simply. All features should be accessible in the API (no workarounds necessary for users)</li>
+<li>Simple :
+<ul>
+<li>design this API to be as simple as possible, but no simpler</li>
+<li>“make the common case awesome and the advanced case possible</li>
+</ul>
+</li>
+<li>Predictable (consistent) :
+<ul>
+<li>“If it’s exciting, you’re doing it wrong.”</li>
+<li>Consistent field names</li>
+<li>purpose of the book :  APIs built using well-known, well-defined, clear, and (hopefully) simple patterns will lead to APIs that are predictable and easy to learn</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-introduction-to-api-design-patterns">2. Introduction to API design patterns</h2>
+<h3 id="what-are-api-design-patterns">What are API design patterns?</h3>
+<ul>
+<li>Building from scratch is difficult but flexible. Using an existing tool is simple but not flexible</li>
+<li>It turns out that choosing one of the in-between options (customizing existing software or building from a design document) is much less common but could probably be used more often with great results. And this is where design patterns fit in.</li>
+<li>example : logger -&gt; Singleton</li>
+</ul>
+<h3 id="why-are-api-design-patterns-important">Why are API design patterns important?</h3>
+<ul>
+<li>the iterative approach, advocated in particular by the agile development process, is difficult to apply when designing APIs.  To see why, we have to look at two aspects of software systems. First, we have to explore the flexibility (or rigidity) of the various interfaces generally, and then we must understand what <strong>effect the audience of the interface has on our ability to make changes</strong> and iterate on the overall design.</li>
+<li>Flexibility :
+<ul>
+<li>graphical user-interfaces (GUIs), which are used primarily by humans rather than computers and as a result are much more resilient to change</li>
+<li>interfaces where users can easily accommodate changes are <strong>flexible</strong> and those where even small changes (like renaming fields) cause complete failures are <strong>rigid</strong></li>
+</ul>
+</li>
+<li>Visibility :
+<ul>
+<li>Generally, we can put most interfaces into two different categories: those that your users can see and interact with (in software usually called the <strong>frontend</strong>) and those that they can’t (usually called the <strong>backend</strong>).</li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220328143844483.png" alt="image-20220328143844483" style="zoom: 67%;" />
+<h3 id="anatomy-of-an-api-design-pattern">Anatomy of an API design pattern</h3>
+<ul>
+<li>Name and synopsis:
+<ul>
+<li>unique name in the catalog, clear and not too long + description. quickly identify whether any particular pattern is worth further investigation</li>
+</ul>
+</li>
+<li>Motivation :
+<ul>
+<li>definition of the problem space (use case), with details</li>
+<li>We also must explore how the system should react in failure scenarios or incorrect data</li>
+<li>The pattern can propose solutions or leave problem resolution to the implementation</li>
+</ul>
+</li>
+<li>Overview :
+<ul>
+<li>a high-level description of the solution, with details (parameters format ..)</li>
+<li>for complex problems with multiple solutions (e.g. many to many in API) : the overview will discuss each of the different options and the strategy employed by the recommended pattern</li>
+<li>trade-offs section at the end of the pattern description</li>
+</ul>
+</li>
+<li>Implementation :
+<ul>
+<li>interface definitions defined as code</li>
+<li>The API definitions will focus on the structure of resources and the various specific ways to interact with those resources (including hierarchical relationships</li>
+<li>default values</li>
+<li>error values</li>
+<li>additional discussion if necessary</li>
+<li>Finally, this section will include an example API definition, with comments</li>
+</ul>
+</li>
+<li>Trade-offs :
+<ul>
+<li>Not possible things</li>
+<li>Things that get complicated</li>
+</ul>
+</li>
+</ul>
+<h3 id="case-study-twapi-a-twitter-like-api">Case study: Twapi, a Twitter-like API</h3>
+<h4 id="listing-messages">Listing messages</h4>
+<ul>
+<li>Pagination pattern</li>
+</ul>
+<h4 id="exporting-data">Exporting data</h4>
+<blockquote>
+<p>Asynchronous because big. Configurable destination / compression / encryption</p>
+</blockquote>
+<ul>
+<li>Import / Export pattern. Introduces</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220328150559418.png" alt="image-20220328150559418" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220328150402943.png" alt="image-20220328150402943" style="zoom:67%;" />
+<h1 id="part-2-design-principles">Part 2. Design principles</h1>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"
+        integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js"
+        integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+      integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+<script>
+    function isDevMode() {
+        new URLSearchParams(window.location.search).get("dev") !== null ||
+        new URLSearchParams(window.location.search).get("d") !== null ||
+        Boolean(localStorage.getItem("dev-mode"));
+
+        
+        return isDevMode && new URLSearchParams(window.location.search).get("prod") === null
+    }
+    const devMode = isDevMode()
+    localStorage.setItem("dev-mode",devMode ? "true": "")
+
+    if (devMode) {
+        
+        Array.from(document.querySelectorAll(".post")).map(el => el.style.display = "block")
+        if (window.location.pathname === "/") {
+            document.querySelector(".posts").classList.add("dev")
+        }
+    }
+
+    if (document.querySelector("#search-bar")) {
+        if (window.location.pathname === "/" ||devMode) {
+            loadAlgolia();
+        }
+    }
+
+    function loadAlgolia() {
+        const searchClient = algoliasearch('F3KLJN3L59', '85cd499b6fcbe9010c77a66bbee801b3')
+        const search = instantsearch({
+            indexName: 'blog',
+            searchClient,
+            searchFunction: helper => {
+                const query_length = helper.state.query.length
+                if (query_length === 0) {
+                    $('#hits').hide()
+                } else if (query_length >= 3) {
+                    if (!devMode) {
+                        const draft = "draft"
+                        if (!helper.state.isConjunctiveFacet(draft)) {
+                            helper.state.facets.push(draft)
+                        }
+                        helper.addFacetRefinement(draft, false)
+                    }
+
+                    helper.search();
+                }
+            }
+        });
+
+        function itemToHtml(item) {
+            title = item._highlightResult.title.value || item.title
+            description = item.description && item._highlightResult.description.value
+            description = description ? description : ""
+
+            keywords_matched = []
+            if (item.keywords && item._highlightResult.keywords) {
+                keywords_matched = item._highlightResult.keywords.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            keywords_html = keywords_matched.length ? keywords_matched.map(k => `<span class="badge">${k}</span>`).join(" ") : ""
+
+            headers_matched = []
+            if (item.headers && item._highlightResult.headers) {
+                headers_matched = item._highlightResult.headers.filter(h => h.matchLevel === "full").map(h => h.value).slice(0, 2)
+            }
+            headers_html = headers_matched.length ? headers_matched.map(h => `<li>${h}</li>`).join("") : ""
+            return `<a href="${item.url}">
+                        <div class="title">${title}</div>
+                        <div class="description">${description}</div>
+                        ${keywords_html}
+                        <ul class="headers">${headers_html}</ul>
+                    </a>`
+        }
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#search-bar',
+                placeholder: 'Search for posts',
+                autofocus: true,
+                showReset: false,
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: {
+                    item: itemToHtml
+                },
+            })
+
+        ]);
+
+        search.start();
+
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('.ais-InstantSearch').length) {
+                $('#hits').hide()
+            }
+        });
+
+        
+        $('.ais-InstantSearch').on('click keypress', function (event) {
+            $('#hits').show()
+        });
+
+
+        $('.ais-SearchBox-input').on('focus', function (event) {
+            $('#hits').show()
+        });
+
+
+        
+        $('.ais-InstantSearch').on(' keypress', function (event) {
+            if (event.key === "Enter" && $('#hits a').length) {
+                $('#hits a')[0].click()
+            }
+        });
+
+    }
+</script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>

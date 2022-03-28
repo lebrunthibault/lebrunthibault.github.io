@@ -62,6 +62,33 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/api/api-design-patterns-geewax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/api/api-design-patterns-geewax/</guid>
+      <description>Preface  In the real world, I learned how perfectly-optimized code is not nearly as valuable as well-designed code  Part 1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/api/continuous-api-management-oreilly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/api/continuous-api-management-oreilly/</guid>
+      <description>NB : Book focused on big scale API management, landscape and governance.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/api/grpc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/api/grpc/</guid>
+      <description>links:</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/ddd/an-introduction-to-ddd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -166,6 +193,15 @@
       
       <guid>https://lebrunthibault.github.io/post/backend-development/symfony/</guid>
       <description>Messenger Symfony Event Dispatcher vs Domain events   Events are mutable in symfony</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/user-interface/10-usability-heuristics-for-user-interface-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/user-interface/10-usability-heuristics-for-user-interface-design/</guid>
+      <description>from this</description>
     </item>
     
     <item>
@@ -283,15 +319,6 @@
       
       <guid>https://lebrunthibault.github.io/post/histoire/afghanistan/</guid>
       <description>Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE</description>
-    </item>
-    
-    <item>
-      <title>API management</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/api-management/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/backend-development/api-management/</guid>
-      <description>Api management   API landscape : ensemble of API</description>
     </item>
     
     <item>
