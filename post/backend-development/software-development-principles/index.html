@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/software-development-principles/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-03-05T21:31:40+01:00" />
+<meta property="article:modified_time" content="2022-03-29T20:12:40+02:00" />
 
 <meta itemprop="name" content="Software development techniques">
 <meta itemprop="description" content="My software development techniques notes">
-<meta itemprop="dateModified" content="2022-03-05T21:31:40+01:00" />
-<meta itemprop="wordCount" content="2677">
+<meta itemprop="dateModified" content="2022-03-29T20:12:40+02:00" />
+<meta itemprop="wordCount" content="3045">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software development techniques"/>
 <meta name="twitter:description" content="My software development techniques notes"/>
@@ -118,8 +118,8 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 13 mins read </span> <br>
-            <span class="date-info italic">Edited on 05.03.2022</span>
+            <span class="more-meta"> 15 mins read </span> <br>
+            <span class="date-info italic">Edited on 29.03.2022</span>
         </div>
     </header>
 
@@ -128,11 +128,11 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#types">Types</a>
+    <li><a href="#type-layers">Type layers</a>
       <ul>
-        <li><a href="#literal-types-and-type-hints">Literal types and type-hints</a></li>
-        <li><a href="#logical-types-entities-value-objects-dtos-events">Logical types: Entities, Value objects, DTOs, events</a></li>
-        <li><a href="#structural-types--interfaces--mixins">Structural types : interfaces &amp; mixins</a></li>
+        <li><a href="#type-checker-layer">Type checker layer</a></li>
+        <li><a href="#object-level-layer-entities-value-objects-dtos-events">Object level layer: Entities, Value objects, DTOs, events</a></li>
+        <li><a href="#module-level-layer--interfaces--mixins">Module level layer : interfaces &amp; mixins</a></li>
       </ul>
     </li>
     <li><a href="#dry"><a href="http://wiki.c2.com/?DontRepeatYourself">DRY</a></a>
@@ -140,10 +140,10 @@
         <li><a href="#literals">Literals</a>
           <ul>
             <li><a href="#exceptions-to-this-rule">Exceptions to this rule</a></li>
-            <li><a href="#where-are-configuration-literals-allowed">Where are configuration literals allowed</a></li>
+            <li><a href="#in-service-code-in-service-code-where-are-configuration-literals-allowed">In service code In service code Where are configuration literals allowed</a></li>
           </ul>
         </li>
-        <li><a href="#logic-and-knowledge">Logic and knowledge</a></li>
+        <li><a href="#logic-knowledge-and-intent">Logic, knowledge and intent</a></li>
       </ul>
     </li>
     <li><a href="#decoupling">Decoupling</a>
@@ -215,54 +215,84 @@
 <p>I&rsquo;m focusing on the languages I&rsquo;ve used most : Python and PHP.</p>
 <p>I&rsquo;ve structured this document as going from lower level development techniques to higher level concepts like design patterns.</p>
 </blockquote>
-<h1 id="types">Types</h1>
+<h1 id="type-layers">Type layers</h1>
 <blockquote>
-<p>Even though the definition of types encompasses all the following points, I chose to differentiate how
-we see them as a programmer and at which level they operate. Here are my categories :</p>
+<p>The definition of a type depends on the point of view of the observer. At a basic level, types can be seen as elements exposing a specific API to other types.This allows type checker to do their work. At a higher level though, types express business concepts, something a type checker will not understand but a developer will.</p>
+<p>As a consequence I chose not to describe what a type is but rather what a type layer.</p>
+<p>A type layer consists of types, how they are seen and what meaning they express, alone or in conjunction with other types</p>
+<p>I think we can split type layers in 3 categories :</p>
 <ul>
-<li><u>type checker types</u>: types as seen by a type checker,</li>
-<li><u>logical types</u>: types as how they encapsulate logic and state (entities, value objects, events, commands).</li>
-<li><u>structural types</u>: how components are structured at the higher level of the module (interfaces)
-Represent the &lsquo;Code against an abstraction not an implementation&rsquo; and allow the greatest flexibility in designing the system.</li>
+<li><u>type checker level types</u>: types as seen by a type checker and the IDE</li>
+<li><u>object level types</u>: types as how they encapsulate logic and state (entities, value objects, events, commands).</li>
+<li><u>module level types</u>: types as how they structure / architecture the module (interfaces)</li>
 </ul>
-<p>The two latter way of seeing types makes it possible to express business intent / model.</p>
+<p>The two latter way of seeing types makes it possible to express business intent.</p>
 </blockquote>
-<h2 id="literal-types-and-type-hints">Literal types and type-hints</h2>
+<h2 id="type-checker-layer">Type checker layer</h2>
 <blockquote>
-<p>Using extensively language types / type-hinting possibilities makes dynamically typed languages feel more like
-statically typed ones and as such automatically detect a whole range of bugs that would have otherwise arisen at runtime.
-Compilation is replaced by type checkers static analysis.</p>
+<p>In dynamically typed languages, compilation is replaced by type checking static analysis. We’ll have the best of both worlds : strongly typed feel and liberty of dynamism.</p>
 </blockquote>
 <ul>
-<li>The editor should be configured to error about wrong parameter types.</li>
-<li>Setup static analysis tools (like mypy) with strict settings. They should be integrated in the IDE, run as pre-commit and in the test / deploy pipeline.</li>
+<li>This is the “dummy” level of types, how the type checker / editor sees them and how it (or the developer) can check the API of any variable.</li>
+<li>The editor as well as the type checker should be configured with strict settings.</li>
+<li>Tools  should be integrated in the IDE, run as pre-commit and in the test / deploy pipeline.</li>
+<li>Exploiting the full range of type generation will enforce a first layer of comprehension for the type checker / compiler and for the developers. (Optional / Enums / Lists / Unions /  Custom Types / Generics / Classes)</li>
 </ul>
-<h2 id="logical-types-entities-value-objects-dtos-events">Logical types: Entities, Value objects, DTOs, events</h2>
+<h2 id="object-level-layer-entities-value-objects-dtos-events">Object level layer: Entities, Value objects, DTOs, events</h2>
 <ul>
 <li>As soon as the type hint system does not go deep enough (php) or that we need to encapsulate logic or state we will start to define types that represent business logic or intent</li>
-<li>These types can carry identity (entities) or only encapsulate some program logic (Value Objects)</li>
+<li>These types usually represent a class and express the logic relationship between objects</li>
+<li>They can carry identity (Entities) or only encapsulate some program logic (Value Objects)</li>
 <li>They can also carry intent of how the program operate during time (events)</li>
-<li>These types cannot be interchanged and should always be named according to the business model / vocabulary</li>
-</ul>
-<h2 id="structural-types--interfaces--mixins">Structural types : interfaces &amp; mixins</h2>
+<li>Naming : by using  the business model concepts / ubiquitous language, these types will become expressive and carry intent and meaning</li>
+<li>Point of view additions from the type checker types
 <ul>
-<li>&ldquo;Code against interfaces&rdquo;. At a high level the program should look like interfaces interacting with each other</li>
-<li>It enforces the typing experience and insight at this level also.</li>
-<li>More in-depth explanation <a href="#design-patterns-design-patterns">below</a></li>
+<li>A type now also means state and behavior</li>
+<li>It expresses a real business concept</li>
+<li>Relationships to other types start expressing meaning, not just API compatibility</li>
+</ul>
+</li>
+</ul>
+<h2 id="module-level-layer--interfaces--mixins">Module level layer : interfaces &amp; mixins</h2>
+<ul>
+<li>
+<p>The most abstract type layer in that it doesn’t require the type to correspond to a specific class</p>
+</li>
+<li>
+<p>Respects the &ldquo;Code against interfaces&rdquo;. At a high level the program should look like interfaces interacting with each other</p>
+</li>
+<li>
+<p>The fact that interfaces can be implemented by multiple classes and express only public APIs make them appropriate for structuring the logic outline</p>
+<p>making them a great fit for structuring the logic at the module level.</p>
+</li>
+<li>
+<p>As interfaces define a type layer of its own, they could normally be tested independently</p>
+</li>
+<li>
+<p>Some of the typing consistency with the former layer can be checked with principles like Liskov Substitution.</p>
+</li>
+<li>
+<p>More in-depth explanation <a href="#design-patterns-design-patterns">below</a></p>
+</li>
 </ul>
 <h1 id="dry"><a href="http://wiki.c2.com/?DontRepeatYourself">DRY</a></h1>
 <blockquote>
-<p>Maybe the single most important rule is to reduce (code / information / logic) duplication
-in the codebase at the bar minimum.
-It has architectural as well as technical implications.
-Sometimes this rule must be bent when other principles are at play,
-especially when the duplicated code cannot be factored in a way that&rsquo;s in accordance with business intent.</p>
-<p>Here again I&rsquo;ll go from lower level (technical) techniques to higher level thinking.</p>
+<p>Maybe the single most important rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum.
+It has architectural as well as technical implications.</p>
+<p>Code Duplication brings a lot of troubles notably :</p>
+<ul>
+<li>The drift between 2 code parts that should be united (bringing bugs, sometimes subtle)</li>
+<li>A drop in the architectural quality of the codebase</li>
+<li>A loss of meaning overall, because duplicate fragments usually mean a business concept is not expressed clearly</li>
+</ul>
+<p>It must be pointed out that by duplication we usually mean intent duplication, and that’s what should be tracked down.</p>
+<p>Sometimes this rule must be bent when other principles are at play, especially when the duplicated code cannot be factored in a way that&rsquo;s in accordance with business intent.</p>
+<p>Here again I&rsquo;ll go from lower level (tactical) techniques to higher level thinking.</p>
 </blockquote>
 <h2 id="literals">Literals</h2>
 <blockquote>
 <p>Literal values are the simplest dry violation to spot, especially string ones. They should almost never happen
-In service code they can usually be replaced by enums.</p>
+They can usually be replaced by enums and constants.</p>
 </blockquote>
 <h3 id="exceptions-to-this-rule">Exceptions to this rule</h3>
 <ul>
@@ -271,18 +301,11 @@ In service code they can usually be replaced by enums.</p>
 <li>String arguments for external library calls (use enums or class constants if possible)</li>
 <li>Coding conventions (e.g., the env file is called .env)</li>
 </ul>
-<h3 id="where-are-configuration-literals-allowed">Where are configuration literals allowed</h3>
+<h3 id="in-service-code-in-service-code-where-are-configuration-literals-allowed">In service code In service code Where are configuration literals allowed</h3>
 <ul>
 <li>Environment (.env) for environment dependent variables and sensitive data</li>
 <li>Configuration files (json, yaml ..) for global configuration variable as to centralize them and change them easily</li>
-<li>Enumerations
-<ul>
-<li>They are great and should be used extensively whenever multiple literals can be grouped together.</li>
-<li>They can also be stored to store more complex data than an object and in this case
-getters should be added to the enum class.</li>
-<li>They can be used with database columns.</li>
-</ul>
-</li>
+<li>Enumerations: They are great and should be used extensively whenever multiple literals can be grouped together.</li>
 <li>Class constants :
 <ul>
 <li>Private constants only accessed by the class can be useful.</li>
@@ -291,19 +314,20 @@ getters should be added to the enum class.</li>
 <li>Public class constants break encapsulation and expose internals of a class</li>
 <li>Using them with inheritance can be confusing</li>
 <li>Don&rsquo;t necessarily play well with interfaces</li>
-<li>Configuration data is spread over many files, and it&rsquo;s better to keep configuration away from logic</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>Config objects : they are very useful as soon as we pay attention to not break module cohesion by tearing away config values belonging to a module / class.</li>
 </ul>
-<h2 id="logic-and-knowledge">Logic and knowledge</h2>
+<h2 id="logic-knowledge-and-intent">Logic, knowledge and intent</h2>
 <ul>
-<li>duplication is present when different part of a system know about the internal of other parts.
-It&rsquo;s called implicit knowledge and is closely related to <a href="#decoupling">Decoupling</a></li>
-<li>Design patterns help greatly to reduce coupling between components.</li>
-<li>Composition over inheritance is another way to reduce it.</li>
-<li>Setting up a layered architecture like Domain Driven Design helps too.</li>
+<li>pure knowledge duplication is terrible and should be avoided at all costs.</li>
+<li>Duplication is subtly present when different part of a system know about the internal of other parts.
+It&rsquo;s called implicit knowledge and is closely related to <a href="#decoupling">Decoupling</a>.</li>
+<li>Ideally modules and classes should be self contained and not little to nothing about other system parts or the system as a whole.</li>
+<li>Design patterns and composition help greatly reduce coupling between components.</li>
+<li>At the codebase level, setting up a layered architecture like Domain Driven Design will efficiently reduce components coupling at the global level.</li>
 </ul>
 <h1 id="decoupling">Decoupling</h1>
 <blockquote>
@@ -329,13 +353,15 @@ It&rsquo;s called implicit knowledge and is closely related to <a href="#decoupl
 </ul>
 <h2 id="inheritance">Inheritance</h2>
 <p>The canonical way to use inheritance is when we have different kind of classes related
-to a parent class with only minimal changes necessary, and usually not core logic changes.
-Most other kind of usages can usually be replaced by a better pattern.</p>
+to a parent class with only minimal changes necessary, and usually not core logic changes.</p>
+<p>Inheritance can in this case supply some logic to a range of class while also marking them as child of an abstract class allowing polymorphism.</p>
+<p>NB : polymorphism is also possible by implementing interfaces and it is the best way to do it.</p>
+<p>Most other kind of usages (especially inheriting behaviour) can usually be replaced by a better pattern.</p>
 <h3 id="the-problems-with-inheritance">The problems with inheritance</h3>
 <ul>
-<li>Coupling between child and parent class : any change in the parent will affect all child classes.</li>
+<li>Coupling between child and parent class : any change in the parent will affect all child classes as soon as they start using their parent class internals.</li>
 <li>Semantically the parent class can lose its (semantic) meaning especially when the child class partially uses the parent class.</li>
-<li>Not so easy to swap logic in the parent class if the class internals are used by the child classes. Harder to test.</li>
+<li>Inheritance is much harder to test (over composition)</li>
 <li>Code gets confusing as soon as multiple levels are involved, even without considering multiple inheritance</li>
 </ul>
 <h3 id="solutions">Solutions</h3>
@@ -346,12 +372,19 @@ Most other kind of usages can usually be replaced by a better pattern.</p>
 </ul>
 <h2 id="how-can-we-abstract-multiple-similar-classes-">How can we abstract multiple similar classes ?</h2>
 <ul>
-<li>Create an interface</li>
-<li>The Interface default implementation can be in a mixin</li>
-<li>Using the interface + mixin is the most modular as any client class can declare implementing different interfaces</li>
-<li>We can still have client classes extending an abstract class for common stuff to all classes.
-This abstract class should probably not implement an interface (except in specific patterns like Factory Method / Abstract Factory)</li>
-<li>Using this technique we are open to modification by simply implementing another interface + adding an optional mixin</li>
+<li>
+<p>Create an interface and its default implementation in a mixin</p>
+</li>
+<li>
+<p>Using the interface + mixin is the most modular as any client class can declare implementing different interfaces</p>
+</li>
+<li>
+<p>We can still have client classes extending an abstract class for common stuff to all classes.
+This abstract class should probably not implement an interface (except in specific patterns like Factory Method / Abstract Factory)</p>
+</li>
+<li>
+<p>Using this technique we are open to modification by simply implementing another interface + adding an optional mixin</p>
+</li>
 </ul>
 <h2 id="encapsulation-and-state">Encapsulation and state</h2>
 <ul>
