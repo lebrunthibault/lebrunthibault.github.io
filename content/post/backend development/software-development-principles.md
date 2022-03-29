@@ -13,53 +13,91 @@ keywords:
 >
 > I've structured this document as going from lower level development techniques to higher level concepts like design patterns.
 
-# Types
 
-> Even though the definition of types encompasses all the following points, I chose to differentiate how
-> we see them as a programmer and at which level they operate. Here are my categories :
+
+# Type layers
+
+> The definition of a type depends on the point of view of the observer. At a basic level, types can be seen as elements exposing a specific API to other types.This allows type checker to do their work. At a higher level though, types express business concepts, something a type checker will not understand but a developer will.
 >
-> - <u>type checker types</u>: types as seen by a type checker, 
->- <u>logical types</u>: types as how they encapsulate logic and state (entities, value objects, events, commands).
-> - <u>structural types</u>: how components are structured at the higher level of the module (interfaces)
-> Represent the 'Code against an abstraction not an implementation' and allow the greatest flexibility in designing the system.
-> 
-> The two latter way of seeing types makes it possible to express business intent / model.
-
-## Literal types and type-hints
-
-> Using extensively language types / type-hinting possibilities makes dynamically typed languages feel more like
-> statically typed ones and as such automatically detect a whole range of bugs that would have otherwise arisen at runtime. 
-> Compilation is replaced by type checkers static analysis.
+> As a consequence I chose not to describe what a type is but rather what a type layer.
 >
-- The editor should be configured to error about wrong parameter types.
-- Setup static analysis tools (like mypy) with strict settings. They should be integrated in the IDE, run as pre-commit and in the test / deploy pipeline.
+> A type layer consists of types, how they are seen and what meaning they express, alone or in conjunction with other types
+>
+> I think we can split type layers in 3 categories : 
+>
+> - <u>type checker level types</u>: types as seen by a type checker and the IDE
+> - <u>object level types</u>: types as how they encapsulate logic and state (entities, value objects, events, commands).
+> - <u>module level types</u>: types as how they structure / architecture the module (interfaces)
+>
+> The two latter way of seeing types makes it possible to express business intent.
 
-## Logical types: Entities, Value objects, DTOs, events
+
+
+## Type checker layer
+
+> In dynamically typed languages, compilation is replaced by type checking static analysis. We’ll have the best of both worlds : strongly typed feel and liberty of dynamism.
+
+- This is the “dummy” level of types, how the type checker / editor sees them and how it (or the developer) can check the API of any variable.
+- The editor as well as the type checker should be configured with strict settings.
+- Tools  should be integrated in the IDE, run as pre-commit and in the test / deploy pipeline.
+- Exploiting the full range of type generation will enforce a first layer of comprehension for the type checker / compiler and for the developers. (Optional / Enums / Lists / Unions /  Custom Types / Generics / Classes)
+
+
+
+## Object level layer: Entities, Value objects, DTOs, events
 - As soon as the type hint system does not go deep enough (php) or that we need to encapsulate logic or state we will start to define types that represent business logic or intent
-- These types can carry identity (entities) or only encapsulate some program logic (Value Objects)
+- These types usually represent a class and express the logic relationship between objects
+- They can carry identity (Entities) or only encapsulate some program logic (Value Objects)
 - They can also carry intent of how the program operate during time (events)
-- These types cannot be interchanged and should always be named according to the business model / vocabulary
+- Naming : by using  the business model concepts / ubiquitous language, these types will become expressive and carry intent and meaning
+- Point of view additions from the type checker types
+  - A type now also means state and behavior
+  - It expresses a real business concept
+  - Relationships to other types start expressing meaning, not just API compatibility
 
-## Structural types : interfaces & mixins
 
-- "Code against interfaces". At a high level the program should look like interfaces interacting with each other 
-- It enforces the typing experience and insight at this level also.
-- More in-depth explanation [below](#design-patterns-design-patterns) 
+
+## Module level layer : interfaces & mixins
+
+- The most abstract type layer in that it doesn’t require the type to correspond to a specific class
+
+-  Respects the "Code against interfaces". At a high level the program should look like interfaces interacting with each other
+
+- The fact that interfaces can be implemented by multiple classes and express only public APIs make them appropriate for structuring the logic outline
+
+  making them a great fit for structuring the logic at the module level.
+
+- As interfaces define a type layer of its own, they could normally be tested independently
+
+- Some of the typing consistency with the former layer can be checked with principles like Liskov Substitution.  
+
+- More in-depth explanation [below](#design-patterns-design-patterns)
+
+
 
 # [DRY](http://wiki.c2.com/?DontRepeatYourself) {#dry}
 
-> Maybe the single most important rule is to reduce (code / information / logic) duplication
-> in the codebase at the bar minimum. 
+> Maybe the single most important rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum.
 > It has architectural as well as technical implications.
-> Sometimes this rule must be bent when other principles are at play, 
-> especially when the duplicated code cannot be factored in a way that's in accordance with business intent. 
 >
-> Here again I'll go from lower level (technical) techniques to higher level thinking.
+> Code Duplication brings a lot of troubles notably :
+>
+> - The drift between 2 code parts that should be united (bringing bugs, sometimes subtle)
+> - A drop in the architectural quality of the codebase
+> - A loss of meaning overall, because duplicate fragments usually mean a business concept is not expressed clearly
+>
+> It must be pointed out that by duplication we usually mean intent duplication, and that’s what should be tracked down.
+>
+> Sometimes this rule must be bent when other principles are at play, especially when the duplicated code cannot be factored in a way that's in accordance with business intent. 
+>
+> Here again I'll go from lower level (tactical) techniques to higher level thinking.
+
+
 
 ## Literals
 
 > Literal values are the simplest dry violation to spot, especially string ones. They should almost never happen
-> In service code they can usually be replaced by enums.
+> They can usually be replaced by enums and constants.
 
 ### Exceptions to this rule
 
@@ -68,30 +106,29 @@ keywords:
 - String arguments for external library calls (use enums or class constants if possible)
 - Coding conventions (e.g., the env file is called .env)
 
-### Where are configuration literals allowed
+### In service code In service code Where are configuration literals allowed
 
 - Environment (.env) for environment dependent variables and sensitive data 
 - Configuration files (json, yaml ..) for global configuration variable as to centralize them and change them easily
-- Enumerations
-  - They are great and should be used extensively whenever multiple literals can be grouped together.
-  - They can also be stored to store more complex data than an object and in this case
-    getters should be added to the enum class.
-  - They can be used with database columns.
+- Enumerations: They are great and should be used extensively whenever multiple literals can be grouped together.
 - Class constants :
   - Private constants only accessed by the class can be useful.
   - Downsides :
     - Public class constants break encapsulation and expose internals of a class
     - Using them with inheritance can be confusing
-    - Don't necessarily play well with interfaces 
-    - Configuration data is spread over many files, and it's better to keep configuration away from logic
+    - Don't necessarily play well with interfaces
+- Config objects : they are very useful as soon as we pay attention to not break module cohesion by tearing away config values belonging to a module / class.
 
-## Logic and knowledge
+## Logic, knowledge and intent
 
-- duplication is present when different part of a system know about the internal of other parts.
-  It's called implicit knowledge and is closely related to [Decoupling](#decoupling)
-- Design patterns help greatly to reduce coupling between components.
-- Composition over inheritance is another way to reduce it.
-- Setting up a layered architecture like Domain Driven Design helps too.
+- pure knowledge duplication is terrible and should be avoided at all costs.
+- Duplication is subtly present when different part of a system know about the internal of other parts.
+  It's called implicit knowledge and is closely related to [Decoupling](#decoupling).
+- Ideally modules and classes should be self contained and not little to nothing about other system parts or the system as a whole.
+- Design patterns and composition help greatly reduce coupling between components.
+- At the codebase level, setting up a layered architecture like Domain Driven Design will efficiently reduce components coupling at the global level.
+
+
 
 # Decoupling
 
@@ -115,17 +152,24 @@ keywords:
 - See also Law of Demeter
 - The severity of the encapsulation is a pragmatic decision 
 
+
+
 ## Inheritance
 
 The canonical way to use inheritance is when we have different kind of classes related 
 to a parent class with only minimal changes necessary, and usually not core logic changes.
-Most other kind of usages can usually be replaced by a better pattern. 
+
+Inheritance can in this case supply some logic to a range of class while also marking them as child of an abstract class allowing polymorphism.
+
+NB : polymorphism is also possible by implementing interfaces and it is the best way to do it.
+
+Most other kind of usages (especially inheriting behaviour) can usually be replaced by a better pattern.
 
 ### The problems with inheritance
 
-- Coupling between child and parent class : any change in the parent will affect all child classes. 
+- Coupling between child and parent class : any change in the parent will affect all child classes as soon as they start using their parent class internals.
 - Semantically the parent class can lose its (semantic) meaning especially when the child class partially uses the parent class. 
-- Not so easy to swap logic in the parent class if the class internals are used by the child classes. Harder to test.
+- Inheritance is much harder to test (over composition)
 - Code gets confusing as soon as multiple levels are involved, even without considering multiple inheritance
 
 ### Solutions
@@ -136,12 +180,16 @@ Most other kind of usages can usually be replaced by a better pattern.
 
 ## How can we abstract multiple similar classes ?
 
-- Create an interface
-- The Interface default implementation can be in a mixin
+- Create an interface and its default implementation in a mixin
+
 - Using the interface + mixin is the most modular as any client class can declare implementing different interfaces
+
 - We can still have client classes extending an abstract class for common stuff to all classes. 
   This abstract class should probably not implement an interface (except in specific patterns like Factory Method / Abstract Factory)
+  
 - Using this technique we are open to modification by simply implementing another interface + adding an optional mixin
+
+  
 
 ## Encapsulation and state
 
@@ -149,6 +197,8 @@ Most other kind of usages can usually be replaced by a better pattern.
 - An object should be responsible for managing its own logic, expose only the necessary getters
 - Object containing state should manage it themselves and expose few to no setters
 - Value objects should be immutable
+
+
 
 ## [Liskov substitution principle](https://stitcher.io/blog/liskov-and-type-safety)
 
@@ -172,6 +222,8 @@ It also follows the LSP since version 7.4 by allowing :
 
 - Covariance: allows a child's method to return a more specific type than the return type of its parent's method
 - Contravariance: allows a parameter type to be less specific in a child method, than that of its parent
+
+
 
 
 # Design Patterns {#design-patterns}

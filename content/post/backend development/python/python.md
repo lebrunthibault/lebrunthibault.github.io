@@ -5,6 +5,12 @@ draft: true
 
 
 
+# Tutorials
+
+- [hypermodern python](https://medium.com/@cjolowicz/hypermodern-python-3-linting-e2f15708da80)
+
+
+
 # Modules & packages
 
 - `__init__.py` turn folder into package
