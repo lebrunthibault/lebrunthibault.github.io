@@ -172,6 +172,7 @@ one of the flagship patterns of the **open-closed principle** and the **composit
 - It create parallel hierarchies (abstract factory => abstract object and factory => object subclasses)
 - The Factory Method Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 - The factory method (and abstract factory class) can be concrete to provide default values, in the absence of concrete factory subclasses
+- The factory method is protected
 
 #### The factory method parameter(s)
 
@@ -223,7 +224,7 @@ So we can inject a PizzaIngredientFactory in the concrete pizza class.
 - more technical : factory method uses (only) inheritance to create objects via subclassing whereas abstract factory uses composition (and inheritance because it uses factory method) by passing / instantiating the factory to the outer factory code. 
 - In short
   - the factory method is used to create one object but usually some processing is done in the abstract factory once the object is created
-  - the abstract factory is used to create a family of related objects but will not process them in the abstract factory class.
+  - the abstract factory is used to create a family of related objects but will not necessarily process them in the abstract factory class.
 
 
 
@@ -445,7 +446,7 @@ when you are designing a system, for any object, be careful of the number of cla
   - Template method better when few changes are expected. If implementations are quite different, strategy will be fine because we don’t need as much reuse.
 - Hollywood principle vs Dependency injection
   - They both limit the dependencies between classes, and decoupling
-  - the Dependency Inversion Principle makes a much stronger and more general statement about how to avoid dependencies in design
+  - the Dependency Inversion Principle makes a much stronger and general statement about how to avoid dependencies in design
 
 Real world examples :
 
@@ -456,7 +457,59 @@ Real world examples :
 
 # 9. The Iterator and Composite Patterns
 
-### Composite
+
+
+## Iterator
+
+- if implemented, allows to traverse different types of collections / aggregates with the same interface 
+
+![image-20220331120424901](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220331120424901.png)
+
+- we have no method corresponding to first(). That’s because in Java we tend to just get a new iterator whenever we need to start the traversal ove
+
+- Just add a createIterator method to the collection returning an instance of the Iterator interface
+- ![image-20220331120740244](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220331120740244.png)
+
+- Some collections class already implement a .iterator() method (e.g. Java ArrayList)
+- NB once the iterator pattern is implemented we can create a common interface for the container class (Like HasIteratorInterface, or Menu in the book example having :  `Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();`)
+- Here Menu and MenuItem are interfaces
+
+![image-20220331122615508](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220331122615508.png)
+
+- It also places the task of traversal on the iterator object, not on the aggregate, which simplifies the aggregate interface and implementation, and places the responsibility where it should be
+
+![image-20220331122745737](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220331122745737.png)
+
+- Iterator ressembles factory method in that it delegates to a subclass (ConcreteAggregate) the creation of the iterator concreate class
+
+### The single responsibility principle
+
+- Should we have the iterator code in the collection class ? No, they are 2 different responsibilities and areas of change
+
+![image-20220331123040027](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220331123040027.png)
+
+![image-20220331123155850](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220331123155850.png)
+
+
+
+### Iterator types
+
+- Internal iterator : just pass an operation to the iterator. The iterator handles the iterating code by itself (it's not the client that does it). (simple but less flexible. NB : array_walk ..?)
+- In general, you should make no assumptions about ordering unless the Collection documentation indicates otherwise
+
+### Iterable
+
+- If a class implements Iterable, we know that the class implements an iterator() method
+- e.g. in python : “Under the hood”, an iterable is any Python object with an `__iter__()` method or with a `__getitem__()` method that implements `Sequence` semantics
+- Iterable can have additional methods to loop the collection (java foreach) and be compatible with looping constructs (java enhanced for loop)
+
+
+
+
+
+
+
+## Composite
 
 > In a tree mixed structure with leaf nodes and containers, be able to interface them to handle any case with the same interface 
 

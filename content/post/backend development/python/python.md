@@ -5,11 +5,30 @@ draft: true
 
 
 
+
+
+# [Google Style guide](https://google.github.io/styleguide/pyguide.html)
+
+- A lire !
+
+# Type hints
+
+- See [PEP 484](https://peps.python.org/pep-0484/)
+
 # Modules & packages
 
 - `__init__.py` turn folder into package
 - can be used to provide initialisation code (e.g. set  `__all__`)
 - `__all__` defined to `from package import *` (if not defined, * is nothing)
+
+
+
+# Tools
+
+- pylint : linting
+- flake8 : linting
+- formatting : black vs yapf (more configurable)
+- banding : security checking
 
 
 
