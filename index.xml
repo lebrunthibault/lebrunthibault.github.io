@@ -134,6 +134,15 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/naming-conventions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/naming-conventions/</guid>
+      <description>Interfaces naming conventions  Never use prefix / suffix for interfaces / abstract classes :  interfaces are first class citizen having suffix can confuse what should be type hinted calling code should not differentiate interfaces vs concrete classes &amp;ldquo;default&amp;rdquo; implementation should have a long name (e.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/python/asgi-wsgi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -368,10 +377,10 @@
     
     <item>
       <title>Design Patterns</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/patterns/design-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/design-patterns/design-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/patterns/design-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/design-patterns/design-patterns/</guid>
       <description>Design patterns currently used in projects Factory Method  Used in Protocol0 backend to generate notification / prompt / select windows  Abstract Factory  Used textbook in Protocol0 to generate a track recorder The abstract factory generates for a track and record type :  A track recorder A scene index for the recording A bar length for the recording    Singleton  Used in basile ats client generation tests The test ats client returned is always the same to be able to push fake http responses into the tests (pattern not used anymore)  Facade  Used in protocol0 SongFacade to expose readonly access to song objects Also in Scheduler to expose simplified facade to scheduling methods from 2 scheduler classes  Composite  Used to abstract composite tracks in protocol0 e.</description>
     </item>
     
@@ -431,10 +440,10 @@
     
     <item>
       <title>Head first design patterns</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-head-first-design-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/design-patterns/book-review-head-first-design-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-head-first-design-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/design-patterns/book-review-head-first-design-patterns/</guid>
       <description>and excerpts from https://refactoring.</description>
     </item>
     
@@ -498,15 +507,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/backend-development/python/python/</guid>
-      <description>Tutorials  hypermodern python  Modules &amp;amp; packages  __init__.</description>
+      <description>Google Style guide  A lire !</description>
     </item>
     
     <item>
       <title>Refactoring to patterns</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-refactoring-to-patterns/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/design-patterns/book-review-refactoring-to-patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/patterns/book-review-refactoring-to-patterns/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/design-patterns/book-review-refactoring-to-patterns/</guid>
       <description>Test-driven development and continuous refactoring, two of the many excellent XP practices</description>
     </item>
     
