@@ -5,8 +5,6 @@ draft: true
 
 
 
-
-
 # [Google Style guide](https://google.github.io/styleguide/pyguide.html)
 
 - A lire !
@@ -14,6 +12,12 @@ draft: true
 # Type hints
 
 - See [PEP 484](https://peps.python.org/pep-0484/)
+
+
+# Tutorials
+
+- [hypermodern python](https://medium.com/@cjolowicz/hypermodern-python-3-linting-e2f15708da80)
+
 
 # Modules & packages
 
