@@ -511,9 +511,28 @@ Real world examples :
 
 ## Composite
 
-> In a tree mixed structure with leaf nodes and containers, be able to interface them to handle any case with the same interface 
+![image-20220401142102147](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220401142102147.png)
 
+- treat “individual objects and compositions uniformly.”
+- The Composite Pattern allows us to build structures of objects in the form of trees that contain both compositions of objects and individual objects as nodes
+- Using a composite structure, we can apply the same operations over both composites and individual objects. In other words, in most cases we can **ignore** the differences between compositions of objects and individual objects.
 
+![image-20220401144715086](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220401144715086.png)
+
+- because leaves and nodes have different roles we can’t always define a default implementation for each method that makes sense. Sometimes the best you can do is throw a runtime exception.
+
+### Tradeoff
+
+- The composite somehow break single responsibility by handling both iteration over child nodes and actions on the nodes
+- It's also not type safe because some actions cannot be implemented in node or leaves
+- It's a design tradeoff, because we favor **transparency**
+- We can take the tradeoff the other way and favor type safety by creating 2 interfaces. That's the type safe composite pattern and it forces the client to check the type of the object (with instanceof). Stronger but not as elegant
+
+A few things more :
+
+- Leaves can have a reference to their parents for deletion.
+- We can make leaves ordered by implementing logic when creating or deleting them
+- Caching : cache the results of an operation done often 
 
 # 10. The state of things
 

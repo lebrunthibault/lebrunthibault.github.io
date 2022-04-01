@@ -75,6 +75,15 @@ keywords:
 
 
 
+## Know when a type construct is strong
+
+- It should be compatible with the IDE (autocompletion, warnings)
+- It should be caught by the type checker
+- It should emit runtime warnings
+- it should be standard : well known, easily understandable by anyone (no black magic, and better not "complicated" language constructs like Python metaclasses etc ..)
+- It should be elegant, focused and easily configurable
+- It should prevent from going over the type system by using casts / runtime type checks etc ..
+
 # [DRY](http://wiki.c2.com/?DontRepeatYourself) {#dry}
 
 > Maybe the single most important rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum.
