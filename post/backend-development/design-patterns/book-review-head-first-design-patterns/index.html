@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/design-patterns/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-03-31T19:08:32+02:00" />
+<meta property="article:modified_time" content="2022-04-01T20:53:25+02:00" />
 
 <meta itemprop="name" content="Head first design patterns">
 <meta itemprop="description" content="and excerpts from https://refactoring.">
-<meta itemprop="dateModified" content="2022-03-31T19:08:32+02:00" />
-<meta itemprop="wordCount" content="3839">
+<meta itemprop="dateModified" content="2022-04-01T20:53:25+02:00" />
+<meta itemprop="wordCount" content="4034">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Head first design patterns"/>
 <meta name="twitter:description" content="and excerpts from https://refactoring."/>
@@ -119,7 +119,7 @@
         <div class="post-meta">
             
             <span class="more-meta"> 19 mins read </span> <br>
-            <span class="date-info italic">Edited on 31.03.2022</span>
+            <span class="date-info italic">Edited on 01.04.2022</span>
         </div>
     </header>
 
@@ -220,7 +220,11 @@
             <li><a href="#iterable">Iterable</a></li>
           </ul>
         </li>
-        <li><a href="#composite">Composite</a></li>
+        <li><a href="#composite">Composite</a>
+          <ul>
+            <li><a href="#tradeoff">Tradeoff</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#10-the-state-of-things">10. The state of things</a>
@@ -731,9 +735,29 @@ examples of “smart” command objects that implement most, if not all, of the 
 <li>Iterable can have additional methods to loop the collection (java foreach) and be compatible with looping constructs (java enhanced for loop)</li>
 </ul>
 <h2 id="composite">Composite</h2>
-<blockquote>
-<p>In a tree mixed structure with leaf nodes and containers, be able to interface them to handle any case with the same interface</p>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220401142102147.png" alt="image-20220401142102147"></p>
+<ul>
+<li>treat “individual objects and compositions uniformly.”</li>
+<li>The Composite Pattern allows us to build structures of objects in the form of trees that contain both compositions of objects and individual objects as nodes</li>
+<li>Using a composite structure, we can apply the same operations over both composites and individual objects. In other words, in most cases we can <strong>ignore</strong> the differences between compositions of objects and individual objects.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220401144715086.png" alt="image-20220401144715086"></p>
+<ul>
+<li>because leaves and nodes have different roles we can’t always define a default implementation for each method that makes sense. Sometimes the best you can do is throw a runtime exception.</li>
+</ul>
+<h3 id="tradeoff">Tradeoff</h3>
+<ul>
+<li>The composite somehow break single responsibility by handling both iteration over child nodes and actions on the nodes</li>
+<li>It&rsquo;s also not type safe because some actions cannot be implemented in node or leaves</li>
+<li>It&rsquo;s a design tradeoff, because we favor <strong>transparency</strong></li>
+<li>We can take the tradeoff the other way and favor type safety by creating 2 interfaces. That&rsquo;s the type safe composite pattern and it forces the client to check the type of the object (with instanceof). Stronger but not as elegant</li>
+</ul>
+<p>A few things more :</p>
+<ul>
+<li>Leaves can have a reference to their parents for deletion.</li>
+<li>We can make leaves ordered by implementing logic when creating or deleting them</li>
+<li>Caching : cache the results of an operation done often</li>
+</ul>
 <h1 id="10-the-state-of-things">10. The state of things</h1>
 <blockquote>
 <p>Useful to structure multiple possible actions on an object having state</p>

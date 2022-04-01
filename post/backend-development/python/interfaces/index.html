@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Home</title>
+  <title> - Home</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Thibault Lebrun" /><meta name="keywords" content="" />
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Python interfaces See Real Python" /><meta name="keywords" content="" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.93.2 with theme even" />
 
 
-<link rel="canonical" href="https://lebrunthibault.github.io/" />
-  <link href="https://lebrunthibault.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Home" />
-  <link href="https://lebrunthibault.github.io/index.xml" rel="feed" type="application/rss+xml" title="Home" />
+<link rel="canonical" href="https://lebrunthibault.github.io/post/backend-development/python/interfaces/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,15 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Home" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://lebrunthibault.github.io/" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="Python interfaces See Real Python" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/python/interfaces/" /><meta property="article:section" content="post" />
 
-<meta itemprop="name" content="Home">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Home"/>
-<meta name="twitter:description" content=""/>
+<meta property="article:modified_time" content="2022-04-01T20:53:25+02:00" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Python interfaces See Real Python">
+<meta itemprop="dateModified" content="2022-04-01T20:53:25+02:00" />
+<meta itemprop="wordCount" content="436">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Python interfaces See Real Python"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -108,36 +111,151 @@
 
 
 
-  <section id="posts" class="posts">
+<article class="post">
     
+    <header class="post-header">
+        <h1 class="post-title"></h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 3 mins read </span> <br>
+            <span class="date-info italic">Edited on 01.04.2022</span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#python-interfaces">Python interfaces</a>
+      <ul>
+        <li><a href="#informal-interfaces">Informal interfaces</a></li>
+        <li><a href="#using-metaclasses">Using Metaclasses</a></li>
+        <li><a href="#virtual-base-classes">Virtual base classes</a></li>
+        <li><a href="#metaclasses-usage">Metaclasses usage</a></li>
+        <li><a href="#formal-interfaces">Formal Interfaces</a>
+          <ul>
+            <li><a href="#using-abcabcmeta">Using <code>abc.ABCMeta</code></a></li>
+            <li><a href="#using-abc-to-register-a-virtual-subclass">Using <code>abc</code> to Register a Virtual Subclass</a></li>
+            <li><a href="#using-abstract-method-declaration">Using Abstract Method Declaration</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#mypy-protocolshttpsmypyreadthedocsioenstableprotocolshtml"><a href="https://mypy.readthedocs.io/en/stable/protocols.html">Mypy Protocols</a></a>
+      <ul>
+        <li><a href="#existing-protocols">Existing protocols</a></li>
+        <li><a href="#user-defined-protocols">User defined protocols</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <h1 id="python-interfaces">Python interfaces</h1>
+<p>See <a href="https://realpython.com/python-interface/#python-interface-overview">Real Python</a></p>
+<h2 id="informal-interfaces">Informal interfaces</h2>
+<ul>
+<li>define a base class with &lsquo;abstract&quot; methods (e.g. throwing NotImplementedError)</li>
+<li>Subclass by implementations</li>
+<li>Pb : <code>issubclass(&lt;subclass&gt;, &lt;baseclass&gt;)</code> is always true even when the subclass doesn&rsquo;t fully implement the interface</li>
+<li><code>&lt;subclass&gt;.__mro__</code> shows the interface even when its not implemented</li>
+<li>NB : when raising NotImplementedError, pycharm warns in the subclass but mypy doesn&rsquo;t</li>
+</ul>
+<h2 id="using-metaclasses">Using Metaclasses</h2>
+<blockquote>
+<p>Check <a href="https://levelup.gitconnected.com/metaphysics-2036b38fa711">this great article</a></p>
+</blockquote>
+<ul>
+<li>Implementing 2 dunder methods : <code>__instancecheck__()</code> and <code>__subclasscheck__()</code></li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220401152803914.png" alt="image-20220401152803914" style="zoom:67%;" />
+<ul>
+<li>By using a metaclass, you don’t need to explicitly define the subclasses. Instead, the subclass must <strong>define the required methods</strong>. If it doesn’t, then <code>issubclass(EmlParserNew, UpdatedInformalParserInterface)</code> will return <code>False</code></li>
+<li>As you can see, <code>UpdatedInformalParserInterface</code> is a superclass of <code>PdfParserNew</code>, but it doesn’t appear in the MRO. This unusual behavior is caused by the fact that <code>UpdatedInformalParserInterface</code> is a <strong>virtual base class</strong> of <code>PdfParserNew</code>.</li>
+</ul>
+<h2 id="virtual-base-classes">Virtual base classes</h2>
+<ul>
+<li>
+<p>When a class builds from a metaclass it will be a virtual base class of any class implementing the metaclass</p>
+</li>
+<li>
+<p>A class building from a metaclass can be called an interface</p>
+</li>
+<li>
+<p>We have</p>
+<ul>
+<li>
+<p><code>isinstance(Interface, Metaclass) == True</code> if interface builds from the metaclass</p>
+</li>
+<li>
+<p><code>issubclass(ConcreteClass, Interface) == True</code> if ConcreteClass implements Interface</p>
+</li>
+<li>
+<p><code>isinstance(ConcreteClass(), Interface) == True</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220401175101399.png" alt="image-20220401175101399" style="zoom:67%;" />
+<h2 id="metaclasses-usage">Metaclasses usage</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/392160/what-are-some-concrete-use-cases-for-metaclasses#:~:text=Having%20considered%20the%20most%20common,or%20function%20can%20unbake%20them.">See stack</a></li>
+<li>Registering each subclass in a data structure</li>
+<li>Allow changing the evaluation of class body</li>
+<li>Allow creating overloaded methods</li>
+</ul>
+<h2 id="formal-interfaces">Formal Interfaces</h2>
+<h3 id="using-abcabcmeta">Using <code>abc.ABCMeta</code></h3>
+<ul>
+<li>like creating a custom metaclass but more standard</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220401180949945.png" alt="image-20220401180949945" style="zoom:67%;" />
+<h3 id="using-abc-to-register-a-virtual-subclass">Using <code>abc</code> to Register a Virtual Subclass</h3>
+<ul>
+<li>Once you’ve imported the <code>abc</code> module, you can directly <strong>register a virtual subclass</strong> by using the <code>.register()</code> metamethod</li>
+<li>NB : allows creating metaclass of literal types for example</li>
+<li>Once you’ve registered <code>Double</code>, you can use it as class <a href="https://realpython.com/courses/python-decorators-101/">decorator</a> to set the decorated class as a virtual subclass. NB : can be dangerous</li>
+<li><code>__subclasshook__</code> takes precedence over register</li>
+</ul>
+<h3 id="using-abstract-method-declaration">Using Abstract Method Declaration</h3>
+<h1 id="mypy-protocolshttpsmypyreadthedocsioenstableprotocolshtml"><a href="https://mypy.readthedocs.io/en/stable/protocols.html">Mypy Protocols</a></h1>
+<ul>
+<li>Mypy supports two ways of deciding whether two classes are compatible as types: nominal subtyping and structural subtyping</li>
+<li>Nominal subtyping = normal inheritance, compatible with instance of</li>
+<li>Structural subtyping :
+<ul>
+<li>Class <code>D</code> is a structural subtype of class <code>C</code> if the former has all attributes and methods of the latter, and with compatible types</li>
+<li>Structural subtyping can be seen as a static equivalent of duck typing</li>
+</ul>
+</li>
+</ul>
+<h2 id="existing-protocols">Existing protocols</h2>
+<ul>
+<li>Iteration protocols: Iterable[T] and Iterator[T]</li>
+<li>Collection protocols: Sized, Container[T], Collection[T]</li>
+<li>etc.. (One-off protocols, Async Protocols, Context manager protocols ..)</li>
+</ul>
+<h2 id="user-defined-protocols">User defined protocols</h2>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220401155546245.png" alt="image-20220401155546245"></p>
+<ul>
+<li>Note that inheriting from an existing protocol does not automatically turn the subclass into a protocol – it just creates a regular (non-protocol) class or ABC that implements the given protocol (or protocols). The <code>Protocol</code> base class must always be explicitly present if you are defining a protocol</li>
+</ul>
+
+    </div>
+
     
-    
-    
-    
-    
-    
-    
-        <h3><a href="https://lebrunthibault.github.io/post/ableton/p0-technical-overview/">Protocol0 technical overview</a></h3>
-        <span class="date-info italic">Edited on 05.03.2022</span>
-      
-    
-    
-    
-    
-    
-    
-        <h3><a href="https://lebrunthibault.github.io/post/backend-development/software-development-principles/">Software development techniques</a></h3>
-        <span class="date-info italic">Edited on 01.04.2022</span>
-      
-    
-    
-    
-    
-    
-    
-    </section>
+<footer class="post-footer">
+        </footer>
+</article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

@@ -121,6 +121,13 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/interfaces/</loc>
+    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/python/pydantic/</loc>
     <lastmod>2022-03-19T18:23:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -157,6 +164,13 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/user-interface/10-usability-heuristics-for-user-interface-design/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/ecology/analyse-presidentielle-2022-shift/</loc>
+    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -206,6 +220,13 @@
   <url>
     <loc>https://lebrunthibault.github.io/post/ecology/politique/</loc>
     <lastmod>2022-02-18T13:43:24+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/ecology/snbc/</loc>
+    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -344,14 +365,14 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/design-patterns/book-review-head-first-design-patterns/</loc>
-    <lastmod>2022-03-31T19:08:32+02:00</lastmod>
+    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-03-31T19:08:32+02:00</lastmod>
+    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -393,7 +414,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-03-31T19:08:32+02:00</lastmod>
+    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -442,7 +463,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</loc>
-    <lastmod>2022-03-29T20:12:40+02:00</lastmod>
+    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
