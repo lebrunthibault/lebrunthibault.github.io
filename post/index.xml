@@ -224,6 +224,42 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/typescript/jest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/typescript/jest/</guid>
+      <description>Config  use .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/typescript/modules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/typescript/modules/</guid>
+      <description>Types of modules Node.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/typescript/tsconfig.json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/typescript/tsconfig.json/</guid>
+      <description>Options target: target version of ecmascript for compiling.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/typescript/vite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/typescript/vite/</guid>
+      <description>Why is Vite fast  Because it uses native ESM instead of bundling</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/user-interface/10-usability-heuristics-for-user-interface-design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

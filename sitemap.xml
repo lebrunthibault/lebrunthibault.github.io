@@ -170,6 +170,34 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/typescript/jest/</loc>
+    <lastmod>2022-04-04T00:53:27+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/typescript/modules/</loc>
+    <lastmod>2022-04-04T00:53:27+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/typescript/tsconfig.json/</loc>
+    <lastmod>2022-04-04T00:53:27+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/typescript/vite/</loc>
+    <lastmod>2022-04-04T00:53:27+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/user-interface/10-usability-heuristics-for-user-interface-design/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -379,7 +407,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-04-03T16:58:03+02:00</lastmod>
+    <lastmod>2022-04-04T00:53:27+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -421,7 +449,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-04-03T16:58:03+02:00</lastmod>
+    <lastmod>2022-04-04T00:53:27+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
