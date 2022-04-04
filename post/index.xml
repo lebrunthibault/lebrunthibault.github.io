@@ -359,6 +359,15 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/frontend-development/hugo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/frontend-development/hugo/</guid>
+      <description>Bugs  The post does not appear in the page list : -&amp;gt; check title has a space as first character (.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/jobs/jobs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
