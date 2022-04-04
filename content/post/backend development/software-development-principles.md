@@ -1,7 +1,8 @@
 ---
-title: "Software development techniques"
-description: "My software development techniques notes"
+title: " Software development principles"
+description: "My software development principles notes"
 prod: true
+draft: true
 keywords:
   - Software development
   - Backend development
