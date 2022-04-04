@@ -385,6 +385,24 @@
     </item>
     
     <item>
+      <title> Protocol0 technical overview</title>
+      <link>https://lebrunthibault.github.io/post/ableton/p0-technical-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ableton/p0-technical-overview/</guid>
+      <description>This is technical documentation for my Protocol0 Ableton control surface script.</description>
+    </item>
+    
+    <item>
+      <title> Software development principles</title>
+      <link>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</guid>
+      <description>I&amp;rsquo;m focusing on the languages I&amp;rsquo;ve used most : Python and PHP.</description>
+    </item>
+    
+    <item>
       <title>Ableton notes</title>
       <link>https://lebrunthibault.github.io/post/ableton/ableton-tips/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -565,15 +583,6 @@
     </item>
     
     <item>
-      <title>Protocol0 technical overview</title>
-      <link>https://lebrunthibault.github.io/post/ableton/p0-technical-overview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/ableton/p0-technical-overview/</guid>
-      <description>This is technical documentation for my Protocol0 Ableton control surface script.</description>
-    </item>
-    
-    <item>
       <title>Python 3 notes</title>
       <link>https://lebrunthibault.github.io/post/backend-development/python/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -616,15 +625,6 @@
       
       <guid>https://lebrunthibault.github.io/post/societe/societe/</guid>
       <description>Immigration Source INSEE :</description>
-    </item>
-    
-    <item>
-      <title>Software development techniques</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</guid>
-      <description>I&amp;rsquo;m focusing on the languages I&amp;rsquo;ve used most : Python and PHP.</description>
     </item>
     
     <item>
