@@ -48,3 +48,22 @@ Test with :
 
 `sudo systemctl restart backup-repos.service && sudo systemctl stop backup-repos.service && sudo systemctl status backup-repos.service`
 
+
+
+# Keyboard
+
+use setxkbmap
+
+invert alt and win : setxkbmap -option altwin:swap_alt_win
+
+### Fn Keys
+
+see https://askubuntu.com/questions/818413/how-can-i-toggle-the-fn-function-key
+
+reconfigure with 
+
+```
+sudo apt-get install keyboard-configuration
+sudo dpkg-reconfigure keyboard-configuration
+```
+
