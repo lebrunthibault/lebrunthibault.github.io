@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/dev/ubuntu/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-04-06T17:29:34+02:00" />
 
 <meta itemprop="name" content="Ubuntu tricks">
 <meta itemprop="description" content="Install Jetbrains editor  Use toolbox app">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="122">
+<meta itemprop="dateModified" content="2022-04-06T17:29:34+02:00" />
+<meta itemprop="wordCount" content="148">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ubuntu tricks"/>
 <meta name="twitter:description" content="Install Jetbrains editor  Use toolbox app"/>
@@ -119,7 +119,7 @@
         <div class="post-meta">
             
             <span class="more-meta"> 1 min read </span> <br>
-            <span class="date-info italic">Edited on 21.01.2022</span>
+            <span class="date-info italic">Edited on 06.04.2022</span>
         </div>
     </header>
 
@@ -133,6 +133,15 @@
         <li>
           <ul>
             <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#keyboard">Keyboard</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#fn-keys">Fn Keys</a></li>
           </ul>
         </li>
       </ul>
@@ -206,7 +215,23 @@
 </div><p><code>sudo systemctl daemon-reload</code></p>
 <p>Test with :</p>
 <p><code>sudo systemctl restart backup-repos.service &amp;&amp; sudo systemctl stop backup-repos.service &amp;&amp; sudo systemctl status backup-repos.service</code></p>
-
+<h1 id="keyboard">Keyboard</h1>
+<p>use setxkbmap</p>
+<p>invert alt and win : setxkbmap -option altwin:swap_alt_win</p>
+<h3 id="fn-keys">Fn Keys</h3>
+<p>see <a href="https://askubuntu.com/questions/818413/how-can-i-toggle-the-fn-function-key">https://askubuntu.com/questions/818413/how-can-i-toggle-the-fn-function-key</a></p>
+<p>reconfigure with</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt-get install keyboard-configuration
+</span></span><span class="line"><span class="cl">sudo dpkg-reconfigure keyboard-configuration
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
