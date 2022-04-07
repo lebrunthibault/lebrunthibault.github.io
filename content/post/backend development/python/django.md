@@ -45,6 +45,14 @@ draft: true
 
 
 
+## Logging
+
+- [django and python logging](https://djangodeconstructed.com/2018/12/18/django-and-python-logging-in-plain-english/)
+- [django-logging-right-way/](https://lincolnloop.com/blog/django-logging-right-way/) : hands on django logging config includes sentry
+- Override django default logging : **Best** 
+
+
+
 ## Testing
 
 

@@ -67,3 +67,24 @@ sudo apt-get install keyboard-configuration
 sudo dpkg-reconfigure keyboard-configuration
 ```
 
+
+
+# Network
+
+- port scan : nmap -p <port> <ip>
+- who's pinging me : `sudo tcpdump -i ethX icmp` and `icmp[icmptype]=icmp-echo`
+- who's listening on local : sudo netstat -plnt
+
+
+
+
+
+# Storage
+
+- Clean trash
+- rm -rf ~/.local/share/Trash/*
+- sudo apt-get clean
+- sudo apt autoremove --purge
+- sudo journalctl --vacuum-time=2d
+- sudo purge-old-kernels;
+  (nécessite package byobu)
