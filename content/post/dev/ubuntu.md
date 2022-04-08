@@ -48,3 +48,43 @@ Test with :
 
 `sudo systemctl restart backup-repos.service && sudo systemctl stop backup-repos.service && sudo systemctl status backup-repos.service`
 
+
+
+# Keyboard
+
+use setxkbmap
+
+invert alt and win : setxkbmap -option altwin:swap_alt_win
+
+### Fn Keys
+
+see https://askubuntu.com/questions/818413/how-can-i-toggle-the-fn-function-key
+
+reconfigure with 
+
+```
+sudo apt-get install keyboard-configuration
+sudo dpkg-reconfigure keyboard-configuration
+```
+
+
+
+# Network
+
+- port scan : nmap -p <port> <ip>
+- who's pinging me : `sudo tcpdump -i ethX icmp` and `icmp[icmptype]=icmp-echo`
+- who's listening on local : sudo netstat -plnt
+
+
+
+
+
+# Storage
+
+- Clean trash
+- rm -rf ~/.local/share/Trash/*
+- sudo apt-get clean
+- sudo apt autoremove --purge
+- sudo journalctl --vacuum-time=2d
+- sudo purge-old-kernels;
+  (nécessite package byobu)
