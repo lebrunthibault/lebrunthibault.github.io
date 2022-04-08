@@ -71,6 +71,8 @@ Observer never poll subject : `Don’t call me, I’ll call you!`
 - Tight coupling between subject and observer classes
 - Synchronous
 
+![image-20220408172023833](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220408172023833.png?token=AEHIPTIAUVR6FQGXP6TNF73CKBJP4)
+
 ### Is publish / subscribe an observer pattern ?
 
 > - No, although they are related. The Publish-Subscribe pattern is a more complex pattern that allows subscribers to express interest in different types of messages and further separates publishers from subscribers. It is often used in middleware systems. 
