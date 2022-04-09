@@ -538,18 +538,56 @@ A few things more :
 
 # 10. The state of things
 
+PB :
+
+- we have multiple states
+- and multiple actions
+- we try to move from an imperative if else checking each state in each action to an OO pattern that is open / closed and encapsulate what varies
+
 > Useful to structure multiple possible actions on an object having state
 >
-> Instead of checking the state of the object we isolate the actions in a class per state and kindof let the object do the work.
+> Instead of checking the state of the object we isolate the actions in a class per state and let the object do the work.
 
-### State machine
-
-- A state machine is composed of states and transitions between those states
-- Only certain transitions are allowed 
-
-### The pattern
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409121407763.png?token=AEHIPTO3HC5RM4QELD3WSNLCKFOLM" alt="image-20220409121407763" style="zoom:80%;" />
 
 
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409121509532.png?token=AEHIPTOO4UPBFU3T5OZJ3Z3CKFOPE" alt="image-20220409121509532" style="zoom:67%;" />
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409121857858.png?token=AEHIPTPP5ZMCD2ZJW4I54PTCKFO5M" alt="image-20220409121857858" style="zoom:67%;" />
+
+NB : 
+
+- when an action is called on the Context class it delegates to the current state
+- we pass the instance of the context object to each state so that a state action can modify the state of the context
+
+![image-20220409122553259](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409122553259.png?token=AEHIPTIYQAOBA67FEVDSNKDCKFPXM)
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409122731304.png?token=AEHIPTMOVJXZA3VQ4OROZOLCKFP5S" alt="image-20220409122731304" style="zoom:67%;" />
+
+
+
+## State vs Strategy
+
+- same class diagram but different intents
+- with State 
+  - we have a set of behaviors encapsulated in state objects; at any time the context is delegating to one of those states.
+  - the context’s behavior changes over time as well
+  - The client usually knows very little, if anything, about the state objects
+- With Strategy
+  - the client usually specifies the strategy object that the context is composed with
+  - Now, while the pattern provides the flexibility to change the strategy object at runtime, often there is a strategy object that is most appropriate for a context object
+- Strategy == flexible alternative to subclassing
+- State ==  alternative to putting lots of conditionals in your context
+
+## Questions
+
+- It's up to the developer to decide if the context or state classes change the state. When the transitions are more dynamic it makes sense to put them in the State class.
+- Disadvantage of putting transitions between state classes is coupling (minimized by using getters on context instead of concrete state classes)
+- Notice that by making this decision, you are making a decision as to which classes are closed for modification— the Context or the state classes—as the system evolves
+- Clients should never interact with the state
+- Possible to share state objects between contexts if they are stateless
+- State can be an interface or an abstract class
 
 # Other patterns
 
