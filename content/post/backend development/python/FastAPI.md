@@ -24,7 +24,7 @@
 
   - which is then used by the automatic interactive documentation user interfaces.
 
-## ROuting
+## Routing
 
 - *path operation function*
 - async def but for sqlalchemy it should be def

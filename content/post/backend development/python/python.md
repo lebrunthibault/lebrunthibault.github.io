@@ -32,7 +32,7 @@ draft: true
 - pylint : linting
 - flake8 : linting
 - formatting : black vs yapf (more configurable)
-- banding : security checking
+- bandint : security checking
 
 
 
