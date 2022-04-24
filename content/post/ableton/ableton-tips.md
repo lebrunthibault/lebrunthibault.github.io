@@ -5,7 +5,7 @@ draft: true
 
 - [download ableton exe archives](https://www.ableton.com/en/download/archive/)
 
-Recording CC automation with Rev2 editor
+# Recording CC automation with Rev2 editor
 
 ## Problems
 
