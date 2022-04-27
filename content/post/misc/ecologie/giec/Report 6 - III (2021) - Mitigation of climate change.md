@@ -1,4 +1,4 @@
-> This is the 6th Report of GIEC, part 3 released in 2022
+> [This is the 6th Report of GIEC, part 3](file:///C:/Users/thiba/OneDrive/Bureau/books/IPCCGIEC_AR6_WGIII_SummaryForPolicymakers.pdf) released in 2022
 >
 > Mitigation of Climate Change - Summary for Policymakers
 
@@ -14,8 +14,8 @@
   - it is the highest increase in average decadal emissions on record
 -  but the rate of growth between 2010 and 2019 was lower than that between 2000 and 2009
   - The average annual rate of growth slowed from 2.1% yr-1 between 2000 and 2009 to 1.3% yr-1 between 2010 and 2019
-- net anthropogenic GHG : in 2010 12% higher than 2019 and 54% higher than 1990
-- 42% of Historical cumulative net CO2 emissions happened between 1990 and 2019
+- net anthropogenic GHG : in 2019 12% higher than 2010 and 54% higher than 1990
+- 42% of historical cumulative net CO2 emissions happened between 1990 and 2019
 - All gases have increased. The highest relative growth occurred in **fluorinated gases**,
 
 ### Carbon budget
