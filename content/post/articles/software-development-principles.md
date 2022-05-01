@@ -329,17 +329,14 @@ It also follows the LSP since version 7.4 by allowing :
 - Evolution of the observer :  allows subscribers to express interest in different types of messages and further separates publishers from subscribers. 
   It is often used in middleware systems.The observer is a **subscriber**, and the subject is a **publisher** and does not know about its subscribers. 
   Deals well with asynchronous code. Message passing is decoupled from the sender code.
+  
 - Scales well.
+
 - Message queuing is a special case of pub/sub with usually only one subscriber per message type, and asynchronous.
+
 - More complex to grasp at first sight as the publish / subscribe are done in different places.
 
-
-## Reactive programming
-
-- Another way to handle asynchronous (or sync) events and queries is to reason with streams
-- Reduces coupling and greatly reduces state
-- Reduces boilerplate code to handle loops and logic on iterables
-- Push based (more natural when reacting to events)
+  
 
 ## Client - Service communication via schema
 
