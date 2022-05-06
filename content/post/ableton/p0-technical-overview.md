@@ -109,7 +109,7 @@ Details :
 
     Sub tracks of an `AbstractGroupTrack` can access their `SimpleTrack` group_track by `self.group_track` (as any grouped track) and abstract_group_track (`AbstractGroupTrack`) by `self.abstract_group_track`.
     Subclassed by
-    
+  
     * `SimpleGroupTrack` : A group track with no specific behavior.
     * `ExternalSynthTrack`. Allows recording an external synth easily: abstraction track wrapping :
         * A midi `SimpleMidiTrack`
@@ -177,27 +177,45 @@ while reusing existing ones. Like this my state is preserved while the set is op
 When the code cannot be executed synchronously 
 (some LOM changes are asynchronous, dispatching keystrokes and clicks is also asynchronous etc ..)
 we need to defer methods to be run later.
-There are 2 ways to handle this : either by listening on LOM properties (when possible) or by
-delaying callbacks using a timer.
+There are 2 ways to handle this : either by listening on LOM properties (if possible, preferred way) or by
+delaying callbacks using a (static) timer.
 
 Here are the 2 ways of scheduling asynchronous tasks in the code :
 
 * The clean one is to listen to changes on the LOM by setting up listeners.
   * It should be used wherever it is possible (See explanations [in this doc](https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing)). Obviously this technique works only when the changes can be observed by listening to observable properties.
-  * NB : I've also set up my own event system, so I can more easily react to changes
 * The other way is to wait for a constant duration instead of having a reactive workflow.
   This usually happens in the following cases :
     * We cannot set up listeners on objects (some properties are not listenable)
     * Maybe the change will not be reflected in the LOM (e.g. showing a VST doesn't trigger a LOM event).
     * It just seems easier to define a duration in ms than to set up some complicated listener pattern
   
+
 This second way works by leveraging a timer loop given by the Live API.
 It seems to be the only way possible as using `threading.timer` does not work and is detailed in the 
 timer scheduling following section.
 
-## Using listeners {#using-listeners}
+## Events
 
-* Using listeners directly : [see this doc](https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing).
+Using events is mandatory for any asynchronous stuff and usually useful for sync stuff as well. I'm using them quite often.
+
+ I'm using them in two ways :
+
+- Low level LOM events are handled via the Live event system :
+  - Use them by subclassing `SlotManager`and using the `subject_slot` decorator
+  - This approach is here as the low level event interface to the LOM and it works perfectly
+  - But Live events have several issues
+    - They are more notifications than events, there is no payload
+    - They use monkey patching which is dirty and cannot be checked by mypy
+    - The code seems very complicated for what it does
+    - As a consequence its not so easy to integrate into it. Thats why I've dropped a past integration and now use my own event system.
+- High level Domain events are handled by myself
+  - I've setup a simple event bus
+  - Every time I feel the need to decouple stuff or emit events I create a simple object event and dispatch it
+  - Any component can listen to any event and optionally check its payload (it's global state really but fine for this not so big codebase).
+  - These events are integrated to the Sequence pattern (see below) allowing simple composition of events and actions
+  - I really like events more and more and I've used them quite a lot to decouple objects together, in a way not so far from js frameworks like vue.
+- NB : For closer scope low level events I'm also using the Observer pattern. 
 
 ## The Sequence class {#the-sequence-class}
 
@@ -237,31 +255,20 @@ The code can declare asynchronous behavior in different ways:
   for tasks where we have a rough idea of the delay we want (see [below](#using-timers-using-timers))
 * via `seq.wait_beats(<beats)` (or `wait_bars`) that leverages the `current_song_time` Live event (see `BeatScheduler`)
 * via the `seq.wait_for_event(<event>)` that will continue sequence execution when one of my own events is fired
-* via the `seq.wait_for_listener(<listener>)` that  will continue sequence execution after a live listener is called.
-
-This listener should be :
-
-a function decorated by `@p0_subject_slot` (which returns a `CallbackDescriptor` decorated function) : 
-the step executes when the function is called next (usually by Live listener system). 
-Just replace `@subject_slot` by `@p0_subject_slot` and the listener will integrate in the Sequence pattern.
-
-This is handy because it allows us to react to the execution of Live listeners or even our own listeners.
-
-The integration of the live subject_slot decorator in the Sequence class is probably the most obscure code in there.
-I will most probably dump this and use only my own events later on, but it' working well.
 
 
-##### Example usage
+
+
+#### Example usage
 
 ```python
-def duplicate_track(self, index):
-    # type: (Song, int) -> Sequence
-    seq = Sequence()  # instantiate the Sequence class
-    # add the callable to the sequence
-    seq.add(partial(self._song.duplicate_track, index))
-    seq.wait_for_listener(self._tracks_service.tracks_listener)
-    seq.defer()  # or seq.wait(1) waits one tick (often needed to let live process changes)
-    return seq.done()  # call seq.done to trigger the sequence
+class TrackCrudComponent(object):
+    def duplicate_track(self, index):
+        # type: (int) -> Sequence
+        seq = Sequence()
+        self._duplicate_track(index)
+        seq.wait_for_event(TracksMappedEvent)
+        return seq.done()
 ```
 
 * A sequence step should always wait for its completion 
@@ -295,6 +302,8 @@ As the 2nd method is the fastest that’s what I used.
 The numbers associated to wait parameters always refer to this tick interval.
 
 
+
+
 ## Changes cannot be triggered by notification error {#changes-cannot-be-triggered-by-notification-error}
 
 This infamous error appears when we want to apply modifications to the LOM in the same tick
@@ -302,7 +311,7 @@ we received a notification (that is a listener was triggered somewhere).
 Not all changes to the LOM trigger this error, only certain property changes.
 
 It is quite boring and there might be a clean solution to handling this.
-I didn't find it and so there are a lot of places where I defer changes by using `Scheduler.defer` or `Sequence.defer`.
+I didn't find it and so there are a lot of places where I defer changes by using `Scheduler.defer` or `Sequence.defer` or `@defer`.
 This just delays the callable execution to the next tick. It is inconvenient for 2 reasons :
 
 * It makes the following method code asynchronous, and we need to transform it using lambda and partial
@@ -344,7 +353,7 @@ Any of these moves will trigger “actions” (that is : execute a callable)
 ## Documentation
 Here is all the doc I have found and used for building the script (plus a lot of articles and googling about python ofc)
 - The [max for live documentation](https://docs.cycling74.com/max5/refpages/m4l-ref/m4l_live_object_model.html):
-  It doesnt show the full Live API but it has a nice diagram and is quite readable
+  It doesn't show the full Live API but it has a nice diagram and is quite readable
 - The [Structure void documentation](https://structure-void.com/PythonLiveAPI_documentation/):
   It's simply a dump of the Live API. Not so readable but thorough
 - The [Structure void remote scripts decompiled](https://github.com/gluon/AbletonLive10.1_MIDIRemoteScripts)

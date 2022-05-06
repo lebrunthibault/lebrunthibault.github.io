@@ -42,6 +42,20 @@ Objectif: 2T max
 
 
 
+
+
+# Respiration
+
+- On exhale un peu plus d'un 1kg de co2 par jour
+- [Respirer ne provoque pas d'augmentation du co2 dans l'air](https://www.youtube.com/watch?time_continue=86&v=Ah09gPZDymg&feature=emb_logo)
+- Car le co2 que l'on rejette est ingéré par la consommation de plantes (légumes ..)
+- Il y a un cycle: 
+  - on fait pousser des plantes qui capturent du co2 (photo synthèse)
+  - on consomme ces plantes en on ingère le co2
+  - on rejette le co2 en respirant
+- Au final l'impact est meme négatif car on stocke quelques kilos de co2 dans notre corps qui sera conservé sous terre après l'enterrement
+- les humais causent le réchauffement en libérant du carbone deja séquestré sous terre (énergies fossiles)
+
 # Actions individuelles pour le climat
 
 [POUVOIR ET RESPONSABILITÉ DES INDIVIDUS, DES ENTREPRISES ET DE L'ÉTAT FACE À L’URGENCE CLIMATIQUE](https://www.carbone4.com/wp-content/uploads/2019/06/Publication-Carbone-4-Faire-sa-part-pouvoir-responsabilite-climat.pdf) de carbone4

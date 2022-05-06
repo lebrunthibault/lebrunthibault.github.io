@@ -62,6 +62,8 @@ keywords:
 
 - The most abstract type layer in that it doesn’t require the type to correspond to a specific class
 
+- It exposes directly and clearly the domain model
+
 -  Respects the "Code against interfaces". At a high level the program should look like interfaces interacting with each other
 
 - The fact that interfaces can be implemented by multiple classes and express only public APIs make them appropriate for structuring the logic outline

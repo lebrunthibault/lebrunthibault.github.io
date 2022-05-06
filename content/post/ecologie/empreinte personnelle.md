@@ -5,6 +5,7 @@
 # Musique
 
 - pc
+  - production : 324 kg selon [DELL](https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-15-9570.pdf)
   - en utilisation : 40 watt
   - consommation : 365 * 7 * 40 / 1000 : 102,2 kwH / an
   - émissions : 10 kg / co2
