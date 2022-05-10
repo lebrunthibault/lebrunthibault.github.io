@@ -47,6 +47,7 @@ Points négatifs
 - De nombreuses associations ont reproché au président de la République sa proximité avec les chasseurs
 - Division par 2 du permis de chasse
 - plus longue liste d'espèce chassable d'europe : 60 espèces d'oiseaux dont 20 espèces vulnérables ou menacées
+- extension de la liste des oiseaux éligibles à la chasse alors que l’effondrement du nombre d’oiseaux en Europe est l’une des marques de la destruction de la biodiversité
 - points positifs : plusieurs espèces ont été protégées (pour la première fois depuis longtemps). Chasse a glue interdite
 - actions pour la protection des forêts
 

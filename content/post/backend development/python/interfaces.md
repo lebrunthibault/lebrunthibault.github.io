@@ -86,3 +86,11 @@ See [Real Python](https://realpython.com/python-interface/#python-interface-over
 
 - Note that inheriting from an existing protocol does not automatically turn the subclass into a protocol – it just creates a regular (non-protocol) class or ABC that implements the given protocol (or protocols). The `Protocol` base class must always be explicitly present if you are defining a protocol
 
+
+
+# Interface libraries
+
+- `zope.interface` [[zope-interfaces\]](https://peps.python.org/pep-0544/#zope-interfaces) was one of the first widely used approaches to structural subtyping in Python
+- Design by contract, supports invariants
+
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220408172725336.png?token=AEHIPTIG5GFXQPQRXC3Y5KDCKBKKK" alt="image-20220408172725336" style="zoom:67%;" />

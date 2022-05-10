@@ -1,0 +1,1 @@
+- [pluralsight DDD in practice](https://www.pluralsight.com/courses/domain-driven-design-in-practice?clickid=Sus30TTFQxyIWwLVadSZQyw8UkGVBDR9XQkZ1s0&irgwc=1&mpid=1970485&aid=7010a000001xAKZAA2&utm_medium=digital_affiliate&utm_campaign=1970485&utm_source=impactradius)
