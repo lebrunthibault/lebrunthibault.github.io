@@ -17,7 +17,7 @@
   - the first one will get the reward
   - thought to reduce the energy consumption by 99%
 
-## Carbon Footprint
+## Bitcoin Carbon Footprint
 
 > See [this report](https://www.dnb.nl/media/1ftd2xjl/the-carbon-footprint-of-bitcoin.pdf)
 
@@ -40,6 +40,14 @@ The bitcoin mining can be more "responsible" due to the electricity price fluctu
 - Scalable off-chain instant payments with [Lightning Network](https://lightning.network/lightning-network-paper.pdf)
 
 ![image-20220430114619298](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220430114619298.png?token=AEHIPTLIMCJ6Z7GNLEQZI6LCNUCZ6)
+
+
+
+# ‘Green’ POS Blockchains
+
+- [Bloomberg article]() comparing cryptos (solana, polkadot & Cardano)
+
+![image-20220512134119123](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220512134119123.png?token=AEHIPTLO7DBVVGNC34NEVMDCPTZJY)
 
 
 
