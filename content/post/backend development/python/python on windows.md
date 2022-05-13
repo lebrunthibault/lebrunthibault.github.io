@@ -31,4 +31,4 @@
 
 ## Poetry
 
-- Buggy on windows, cannot do poetry add (EnvironmentError cannot find the python interpreter)
+- Buggy on windows, cannot do poetry add (EnvironmentError cannot find the python interpreter)S
