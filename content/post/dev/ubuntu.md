@@ -88,3 +88,5 @@ sudo dpkg-reconfigure keyboard-configuration
 - sudo journalctl --vacuum-time=2d
 - sudo purge-old-kernels;
   (nécessite package byobu)
+- trash-empty
+- bleach bit
