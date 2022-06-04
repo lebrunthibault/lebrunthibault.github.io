@@ -25,6 +25,12 @@
 
 
 
+# [Subtree](https://www.atlassian.com/git/tutorials/git-subtree)
+
+- alternative to git submodule
+- transparent for deploy and other devs
+- slightly harder to contribute upstream
+
 ## Forking
 
 - can contribute back just by doing a regular pull request to the upstream repo

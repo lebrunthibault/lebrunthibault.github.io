@@ -25,3 +25,9 @@ if there is garbage midi received
 - Power down & up soundcard
 
 NB : the midi thru is normally never in cause, no need to check the cables
+
+
+
+# Audio export not offline
+
+- at least one external instrument is enabled
