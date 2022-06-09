@@ -4,6 +4,12 @@
 
 
 
+## Restart
+
+- [How to do a clean restart of a docker instance](https://docs.tibco.com/pub/mash-local/4.3.0/doc/html/docker/GUID-BD850566-5B79-4915-987E-430FC38DAAE4.html)
+
+
+
 ## Debug
 
 - see [this article](https://medium.com/@betz.mark/ten-tips-for-debugging-docker-containers-cde4da841a1d)
@@ -21,4 +27,6 @@
 ## Connecting to the database
 
 - [Use the container name](https://stackoverflow.com/questions/49325745/how-do-i-access-postgresql-within-docker-with-sqlalchemy) and not localhost in the container
+
+
 
