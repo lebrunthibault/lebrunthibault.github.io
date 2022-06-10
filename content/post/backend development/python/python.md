@@ -36,6 +36,15 @@ draft: true
 
 
 
+# Publishing a package to pypy
+
+- See [this tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+- pypy (and test pypy) is public only
+- for private we can:
+  - run our own pypy server
+    - use [packagr](https://www.packagr.app/pricing.html): 120 pound / user / year
+    - [gemfury](https://gemfury.com/): simpler than packagr, a bit cheaper (9$ / month)
+
 # [Unicode](https://docs.python.org/3/howto/unicode.html#unicode-howto)
 
 - The [Unicode](https://www.unicode.org/) standard describes how characters are represented by **code points**.  A code point value is an integer in the range 0 to 0x10FFFF. A code point is written using the notation `U+265E` to mean the character with value `0x265e` (9,822 in decimal).

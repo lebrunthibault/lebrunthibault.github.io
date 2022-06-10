@@ -1,3 +1,6 @@
+# Profiles
+
+- 
 - See [this reddit](https://www.reddit.com/r/StreamDeckSDK/comments/ofrmgv/creating_profiles_in_streamdeck_with_sdk/)
 - And [this one](https://www.reddit.com/r/StreamDeckSDK/comments/odx9od/using_sdk_to_automate_canvas_configuration/)
 
@@ -8,3 +11,9 @@ Should I create profile as a manifest.json in the code base and reference it ?
 `$SD.api.switchToProfile($SD.uuid, $SD.deviceId, "Protocol 0")` not working
 
 See barraider repo (in _playground)
+
+# Icon pack
+
+- [create your icon pack](https://developer.elgato.com/documentation/stream-deck/icon-packs/create-your-icon-pack/)
+
+- [iconpackman](https://iconpackman.elgato.com/#)

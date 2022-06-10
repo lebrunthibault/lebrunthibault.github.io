@@ -47,7 +47,14 @@
 
 
 
-# Forking
+
+# [Subtree](https://www.atlassian.com/git/tutorials/git-subtree)
+
+- alternative to git submodule
+- transparent for deploy and other devs
+- slightly harder to contribute upstream
+
+## Forking
 
 - can contribute back just by doing a regular pull request to the upstream repo
 - forked repo should be configured to pull changes from the original upstream repo  **by adding a remote** (see [this](https://www.youtube.com/watch?v=a_FLqX3vGR4)) : `git remote add upstream <upstream_repo>`
