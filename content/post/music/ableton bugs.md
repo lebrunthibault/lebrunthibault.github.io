@@ -31,3 +31,13 @@ NB : the midi thru is normally never in cause, no need to check the cables
 # Audio export not offline
 
 - at least one external instrument is enabled
+
+
+
+# Prophet white noise
+
+> There is electrical interference between some components
+
+- Check if volume is boosted in the device chain
+- Power cycle sound card
+- Reboot pc
