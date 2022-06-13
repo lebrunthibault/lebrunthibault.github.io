@@ -32,8 +32,6 @@ NB : the midi thru is normally never in cause, no need to check the cables
 
 - at least one external instrument is enabled
 
-
-
 # Prophet white noise
 
 > There is electrical interference between some components
@@ -41,3 +39,11 @@ NB : the midi thru is normally never in cause, no need to check the cables
 - Check if volume is boosted in the device chain
 - Power cycle sound card
 - Reboot pc
+
+
+
+# Ctrl-C Ctrl-V / Ctrl-D bug
+
+> not copying clips on expected scene
+
+- Clear - restore the in between scene. It should work
