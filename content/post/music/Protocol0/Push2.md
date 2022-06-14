@@ -55,3 +55,11 @@
 > React when navigation buttons are pressed
 
 - Sync the selected scene in live when using push2 navigation buttons
+
+
+
+# Push2 performance
+
+Push2 adds 1.5 to 2s (even only the script)
+
+`caps.TYPE_KEY: u'push2',  # this takes some time` in `__init__.py`

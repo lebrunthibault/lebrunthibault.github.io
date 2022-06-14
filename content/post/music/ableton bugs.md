@@ -47,3 +47,12 @@ NB : the midi thru is normally never in cause, no need to check the cables
 > not copying clips on expected scene
 
 - Clear - restore the in between scene. It should work
+
+
+
+# Latency is not zero when recording
+
+- test usamo
+- launch test usamo command
+- re boot computer
+- play with sample rate (?)
