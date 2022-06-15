@@ -81,4 +81,5 @@
 - [tuto officiel](https://packaging.python.org/en/latest/guides/using-testpypi/)
 - Generate the source distribution : `python setup.py sdist`
 - Push to pypi : `twine upload --repository testpypi dist/* --verbose` 
+- twine will read credentials from `~/.pypirc`: [see doc](https://packaging.python.org/en/latest/specifications/pypirc/)
 - package name can be different than import names (like I did with sqladmin). Can happen [in the following cases](https://stackoverflow.com/questions/54886143/why-are-some-python-package-names-different-than-their-import-name) : 
