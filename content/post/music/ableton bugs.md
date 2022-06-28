@@ -68,3 +68,10 @@ NB : the midi thru is normally never in cause, no need to check the cables
 
 - [How to record synths with no background noise reddit](https://www.reddit.com/r/synthesizers/comments/93pat4/how_to_record_synths_with_no_background_noise/): end of story : **gain staging** (but it cannot be done on scarlett back inputs imo)
 - Le volume du prophet doit toujours etre au max
+
+
+
+# Clips are duplicated on the wrong scene
+
+- See https://trello.com/c/kMrRJEBn/646-try-to-reproduce-ctrl-c-ctrl-v-not-copying-clips-on-right-scene
+- remove some tracks and ctrl-z 
