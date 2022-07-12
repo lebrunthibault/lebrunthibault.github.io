@@ -1,25 +1,3 @@
----
-wtitle: "Food notes"
-draft: true
-keywords:
-  - Food
-  - Poisson / Fish
-  - Thon / Tuna
-  - Carbon footprint / Empreinte CO2
----
-
-
-- https://solutionslocales.fr/arreter-manger-poisson/
-- [L'empreinte carbone des produits alimentaires](https://blog.lafourche.fr/empreinte-carbone-des-aliments)
-- [How Bad Are Bananas?: The carbon footprint of everything](https://books.google.fr/books?id=zs13m5JquBwC&pg=PA100&lpg=PA100&dq=frozen+vs+canned+fish+carbon+footprint&source=bl&ots=ESsZhStyv0&sig=ACfU3U2jsbwSPT3D2TqGXnnpwsU0-tl64w&hl=fr&sa=X&ved=2ahUKEwjsmLr_nb7yAhXozoUKHSNvCi8Q6AF6BAgjEAM#v=onepage&q=frozen%20vs%20canned%20fish%20carbon%20footprint&f=false)
-
-
-
-- [transport part of co2 footprint](https://ourworldindata.org/food-choice-vs-eating-local)
-
-- https://ourworldindata.org/environmental-impacts-of-food?country=#carbon-footprint-of-food-products
-- https://ourworldindata.org/food-choice-vs-eating-local
-
 # Vocabulaire
 
 - [Péche à la senne](https://fr.wikipedia.org/wiki/P%C3%AAche_%C3%A0_la_senne) (purse seiner): technique de pêche très ancienne qui consiste à capturer les poissons à la surface en pleine eau en les encerclant à l'aide d'un filet de pêche appelé senne
@@ -65,7 +43,7 @@ From [frozen over fresh fish](https://www.oregonlive.com/environment/2009/11/fro
 
 [The top 10 foods with the biggest environmental footprint](https://www.businessinsider.com/the-top-10-foods-with-the-biggest-environmental-footprint-2015-9?IR=T)
 
-![](https://i.insider.com/56000d139dd7cc24008bbbc7?width=1300&format=jpeg&auto=webp)
+![](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/56000d139dd7cc24008bbbc7?token=AEHIPTLAHBT6SP7UIJTB4PDCZVT4S)
 
 
 
@@ -77,7 +55,7 @@ From [frozen over fresh fish](https://www.oregonlive.com/environment/2009/11/fro
 
 
 
-![](https://solutionslocales.fr/wp-content/uploads/2021/04/Screenshot_2021-04-09-Bilan-2019.png)
+![](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/Screenshot_2021-04-09-Bilan-2019.png?token=AEHIPTOQOVRZT3TWDS3I533CZVT4U)
 
 - Sardine
 - Maquereau
