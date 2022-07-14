@@ -6,7 +6,11 @@
 
 And [diagram here](https://app.diagrams.net/#G1O35YGEMWm0MctmqZmRg2sVx-kob9ZtqC)
 
+# Recording now working
 
+- check prophet rev2 editor activated
+- check prophet master volume
+- check usamo
 
 # Detailed configuration:
 
