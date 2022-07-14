@@ -56,7 +56,9 @@
 
 - Sync the selected scene in live when using push2 navigation buttons
 
+**TransportComponent**
 
+- Hack the stop button
 
 # Push2 performance
 
