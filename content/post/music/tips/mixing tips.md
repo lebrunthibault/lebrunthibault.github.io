@@ -5,3 +5,4 @@
   - Make your own uplifters
   - Use reference tracks
   - use [SUBPAC](https://www.timmpi.com/fr/shop/subpac-fr/subpac-x1-l-votre-connexion-la-plus-profonde-a-la-musique-et-au-son/) to feel the bass when mixing
+
