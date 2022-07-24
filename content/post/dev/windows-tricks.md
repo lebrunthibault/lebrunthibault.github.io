@@ -10,6 +10,7 @@ draft: true
 - [Execute task at restart](https://superuser.com/questions/773651/run-a-script-just-before-shutdown-or-reboot-on-windows-home-edition): Group policy editor (gpedit.msc) > User configuration > Windows Settings > Startup / Shutdown
 - [Run program as administrator](https://www.digitalcitizen.life/run-as-admin/)
   - See Point 12 for having a program always execute as admin
+- [Edit the context menu "New" options](https://www.youtube.com/watch?v=dJes3l_VW70)
 
 
 
@@ -45,3 +46,11 @@ Move Pagefile.sys or delete it : https://www.ionos.fr/digitalguide/serveur/confi
 
 Remove hiberfile.sys ? https://www.commentcamarche.net/informatique/windows/227-supprimer-le-fichier-hiberfil-sys-de-windows/
 
+
+
+# Windows is slow, GPU spikes
+
+- https://www.windowsphoneinfo.com/threads/desktop-window-manager-random-gpu-spikes.460412/
+- https://windowsreport.com/desktop-window-manager-high-gpu/#:~:text=On%20Windows%2010%2C%20type%20in,Select%20Search%20automatically%20for%20drivers.
+- Use nvidia control panel to change the gpu
+- Edit System Configuration > Services

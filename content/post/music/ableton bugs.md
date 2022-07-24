@@ -76,3 +76,7 @@ NB : the midi thru is normally never in cause, no need to check the cables
 - See https://trello.com/c/kMrRJEBn/646-try-to-reproduce-ctrl-c-ctrl-v-not-copying-clips-on-right-scene
 - remove some tracks and ctrl-z
 - or reload set
+
+# Ableton freezes and cannot be killed
+
+- restart the computer
