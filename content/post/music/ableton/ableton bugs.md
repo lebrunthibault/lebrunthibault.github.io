@@ -80,3 +80,7 @@ NB : the midi thru is normally never in cause, no need to check the cables
 # Ableton freezes and cannot be killed
 
 - restart the computer
+
+# Vsts disabled
+
+- [Vst rescan button + Alt](https://forum.ableton.com/viewtopic.php?t=171579)

@@ -1,0 +1,5 @@
+- Sugar bytes : Effectrix
+- Sugar bytes : [Looperator](https://sugar-bytes.de/looperator)
+- Cableguys : Shaperbox
+- Polyverse : Gatekeeper
+- Polyverse

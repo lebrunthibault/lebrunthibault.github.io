@@ -54,3 +54,13 @@ Remove hiberfile.sys ? https://www.commentcamarche.net/informatique/windows/227-
 - https://windowsreport.com/desktop-window-manager-high-gpu/#:~:text=On%20Windows%2010%2C%20type%20in,Select%20Search%20automatically%20for%20drivers.
 - Use nvidia control panel to change the gpu
 - Edit System Configuration > Services
+
+
+
+# Windows reinstall / refresh
+
+### Microsoft Visual C++ 14.0 missing (when install pyton -rtmidi)
+
+- Install [Visual studio installer](https://visualstudio.microsoft.com/fr/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)
+- Workload : Desktop Development with C++
+- MSVC v142 - VS 2019 + Windows 10 SDK
