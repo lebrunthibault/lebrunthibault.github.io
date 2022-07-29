@@ -64,3 +64,9 @@ Remove hiberfile.sys ? https://www.commentcamarche.net/informatique/windows/227-
 - Install [Visual studio installer](https://visualstudio.microsoft.com/fr/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)
 - Workload : Desktop Development with C++
 - MSVC v142 - VS 2019 + Windows 10 SDK
+
+# Stress tests
+
+- See [this](https://appuals.com/how-to-run-a-computer-performance-benchmark-test-on-windows/)
+- Win-R : `perfmon /report` : general testing. Supposed to take 1 min but takes much longer (20 min ..?)
+- or [Prime95](https://www.mersenne.org/download/#download) : cpu tests
