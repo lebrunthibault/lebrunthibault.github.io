@@ -35,10 +35,11 @@
 
 - pycharm content roots. Readd : 
   - C:\Users\thiba\dev\ableton\Midi Remote Scripts Uncompyled 10
-  - C:\Users\thiba\dev\ableton\AbletonLive-API-Stub\Live
+  - C:\Users\thiba\dev\ableton\AbletonLive-API-Stub\
 - pycharm external tools
 - pycharm settings (please export to file before refresh). Or enable sync and then disable it because it slows down the os
 - French dictionnary : download [here](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206844865-Spelling-Use-a-French-dictionary)
+- Custom dictionnary (typos) : export
 
 
 
