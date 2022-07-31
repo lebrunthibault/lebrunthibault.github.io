@@ -8,56 +8,11 @@
     <language>en</language><atom:link href="https://lebrunthibault.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ableton/bugs-and-fixes/</link>
+      <link>https://lebrunthibault.github.io/post/articles/events/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ableton/bugs-and-fixes/</guid>
-      <description>Minitaur editor disconnected  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor  Minitaur no sound  change preset  Usamo setup not working  See the recording setup diagram</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://lebrunthibault.github.io/post/ableton/latency/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/ableton/latency/</guid>
-      <description>Reducing latency when monitoring  See focusrite article</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://lebrunthibault.github.io/post/ableton/midi-jitter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/ableton/midi-jitter/</guid>
-      <description>MIDI Jitter http://www.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://lebrunthibault.github.io/post/ableton/recording-setup/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/ableton/recording-setup/</guid>
-      <description>Prophet recording setup And diagram here</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://lebrunthibault.github.io/post/ableton/script-feature-requests/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/ableton/script-feature-requests/</guid>
-      <description>Feature requests remote script  Live.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://lebrunthibault.github.io/post/ableton/set-performance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/ableton/set-performance/</guid>
-      <description>Speed up sets load time  See ableton profiling info sheet</description>
+      <guid>https://lebrunthibault.github.io/post/articles/events/</guid>
+      <description>Introduction Working with events is probably the most popular and efficient way of decoupling a system.</description>
     </item>
     
     <item>
@@ -89,6 +44,15 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/database/commands/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/database/commands/</guid>
+      <description>MySql  import : mysql -u username -p dbname &amp;lt; file.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/ddd/an-introduction-to-ddd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -116,11 +80,56 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-tackling-complexity-in-the-heart-of-software/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-tackling-complexity-in-the-heart-of-software/</guid>
+      <description>The Challenge of Complexity  When complexity gets out of hand, developers can no longer understand the software well enough to change or extend it easily and safely.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-in-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-in-python/</guid>
+      <description>DDD in Python  structure for DDD components 4 ways of mapping a value object in sql alchemy  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-links/</guid>
+      <description>Links  pluralsight DDD in practice  </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/ddd/doctrine-orm-and-ddd-aggregates/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/backend-development/ddd/doctrine-orm-and-ddd-aggregates/</guid>
       <description>Doctrine ORM and DDD aggregates  the aggregate design rules is: Reference Other Aggregates By Identity  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/docker/</guid>
+      <description>building  use Docker build instead of docker-compose build (or up &amp;ndash;build) to take advantage of layer cashing (not so sure)  Restart  How to do a clean restart of a docker instance  Debug   see this article</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/git/</guid>
+      <description>Submodules  Voir doc git See this  Problèmes rencontrés  Ne jamais mettre le dossier du submodule dans le gitignore  Installation  git submodule add https://github.</description>
     </item>
     
     <item>
@@ -134,11 +143,38 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/jetbrains-editors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/jetbrains-editors/</guid>
+      <description>Plugins sync  See this  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/library-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/library-integration/</guid>
+      <description>From least integrated / flexible to most integrated  SAAS Rest API Library install (via pip) Forked library install Library install in local Code copy paste     Method Setup Updates from upstream Modification     SAAS Rest API A bit slow Automatic and reliable Not possible   Library install Fast Semi automatic and reliable Possible only locally   Forked library install Slow (need to setup a package in pip) Semi automatic and in both repos (slower) Full   Library install local Fast : git submodule Automatic, quite fast Full   Library install local Fast: git subtree Like git submodule but automatic deploy Full   Code copy paste Very fast No updates Full    </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/naming-conventions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/backend-development/naming-conventions/</guid>
       <description>Interfaces naming conventions  Never use prefix / suffix for interfaces / abstract classes :  interfaces are first class citizen having suffix can confuse what should be type hinted calling code should not differentiate interfaces vs concrete classes &amp;ldquo;default&amp;rdquo; implementation should have a long name (e.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/alembic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/alembic/</guid>
+      <description>Doc  Alembic tutorial  Commands  pipenv run alembic &amp;ndash;version pipenv run alembic init : creates the migration envirronment (meaning alembic/ package) alembic revision -m &amp;quot;create account table&amp;quot; : pour créer une migration alembic upgrade head (ou  +1, +2 .</description>
     </item>
     
     <item>
@@ -161,6 +197,15 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/imports/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/imports/</guid>
+      <description>Imports   see this article</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/python/interfaces/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -170,11 +215,65 @@
     
     <item>
       <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/new-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/new-project/</guid>
+      <description>General doc  Hypermodern python  Pipenv   basic usage of pipenv</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/package-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/package-management/</guid>
+      <description>Setup.py   See stack, the hitchhiker’s guide to python and this description of seutp.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/packaging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/packaging/</guid>
+      <description>Python packaging and distribution  how to package and distribute python code ?</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://lebrunthibault.github.io/post/backend-development/python/pydantic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/backend-development/python/pydantic/</guid>
       <description>Pydantic  Pydantic is a Python library to perform data validation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/python-on-windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/python-on-windows/</guid>
+      <description>Windows tricks  to add to path : create a .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/python-patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/python-patterns/</guid>
+      <description>The sentinel object pattern  never return None but a sentinel value (like -1 for string.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/backend-development/python/sqlalchemy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/backend-development/python/sqlalchemy/</guid>
+      <description>Tutos  Advanced SQLAlchemy Features You Need To Start Using  Libs  Sql alchemy mixins  Core vs ORM  SQLAlchemy core uses SQL Expression Language that provides a schema-centric usage paradigm whereas SQLAlchemy ORM is a domain-centric mode of usage.</description>
     </item>
     
     <item>
@@ -193,15 +292,6 @@
       
       <guid>https://lebrunthibault.github.io/post/backend-development/python/types/</guid>
       <description>Types Generics Upper bounds   See stack</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://lebrunthibault.github.io/post/backend-development/python/windows/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/backend-development/python/windows/</guid>
-      <description>Windows tricks  to add to path : create a .</description>
     </item>
     
     <item>
@@ -269,163 +359,415 @@
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/analyse-presidentielle-2022-shift/</link>
+      <link>https://lebrunthibault.github.io/post/dev/achat-pc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/analyse-presidentielle-2022-shift/</guid>
+      <guid>https://lebrunthibault.github.io/post/dev/achat-pc/</guid>
+      <description>Mon système  Intel Core i9-9980HK @ 2.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/dev/job/social-declick-mini-seminaire/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/dev/job/social-declick-mini-seminaire/</guid>
+      <description>Types d&amp;rsquo;entreprises engagées Impact ?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/dev/windows-refresh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/dev/windows-refresh/</guid>
+      <description>Windows   PATH : sauver et remettre (au moins C:\bin et C:\Users\thiba\dev\scripts\scripts)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/analyse-presidentielle-2022-shift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/analyse-presidentielle-2022-shift/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/banks/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/banks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/banks/</guid>
-      <description>Banques Analyses des emissions https://www.</description>
+      <guid>https://lebrunthibault.github.io/post/ecologie/banks/</guid>
+      <description>Banques</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/digital/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/digital/analyse-cloud-computing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/digital/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/digital/analyse-cloud-computing/</guid>
+      <description>Links  See Evaluating the carbon footprint of a software platform hosted in the cloud Developers Can Save The Planet, Part I: The Problem Developers Can Save The Planet, Part II: The Solution Green IT : conception numérique responsable Comment réduire l’empreinte écologique d’un service numérique ?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/digital/digital/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/digital/digital/</guid>
       <description>Phone  90% of carbon footprint : manufacturing and transport 10% : usage (battery and charge) browsing internet : 80% more  series youtube social network porno    in 2025 : could be 7% of ghg</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/energie/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/digital/pollution-num%C3%A9rique-la-face-cach%C3%A9e-du-clic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/energie/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/digital/pollution-num%C3%A9rique-la-face-cach%C3%A9e-du-clic/</guid>
+      <description>Podcast France culture La méthode scientifique</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/empreinte-personnelle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/empreinte-personnelle/</guid>
+      <description>watt -&amp;gt; kwh / an = heures utilisées par an * puissance / 1000</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/energie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/energie/</guid>
       <description>Energie  Voir site de jancovici  Définitions  un watt: Le watt est la puissance d&amp;rsquo;un système dans lequel une énergie d&amp;rsquo;un joule est transférée uniformément pendant une seconde1.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/food/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/food/carbon-footprint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/food/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/food/carbon-footprint/</guid>
       <description>https://solutionslocales.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/giec/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/food/oeufs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/giec/</guid>
-      <description>GIEC  Le Groupe d&amp;rsquo;experts intergouvernemental sur l&amp;rsquo;évolution du climat (GIEC ; en anglais : Intergovernmental Panel on Climate Change, IPCC) est un organisme intergouvernemental ouvert à tous les pays membres de l&amp;rsquo;Organisation des Nations unies (ONU)</description>
+      <guid>https://lebrunthibault.github.io/post/ecologie/food/oeufs/</guid>
+      <description>Chiffres France  Statistiques oeufs France en 2020 + 5% de production 15,7 milliards d&amp;rsquo;oeuf produits (1ere place en UE) / 116 milliards d&amp;rsquo;oeuf de consommation niveau monde 64% des poules pondeuses en élevage alternatifs (hors cage)  12% ont leur propre poule</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/janco/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/food/poisson/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/janco/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/food/poisson/</guid>
+      <description>Vocabulaire  Péche à la senne (purse seiner): technique de pêche très ancienne qui consiste à capturer les poissons à la surface en pleine eau en les encerclant à l&amp;rsquo;aide d&amp;rsquo;un filet de pêche appelé senne Pêche à la palangre (long line): La palangre est un engin de pêche dormant composé d&amp;rsquo;une ligne mère sur laquelle sont fixés des avançons, portions de fil de nylon se terminant par un hameçon Canne à pêche (fishing rod) hareng (herring)  460 grammes de CO2 pour 1 kg de poisson En effet, lorsqu’ils meurent de mort naturelle, les poissons coulent rapidement à de grandes profondeurs.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/giec/giec/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/giec/giec/</guid>
+      <description>Accords  Protocole de Kyoto  ratifié 1997, mis en application 2005 Ce protocole visait à réduire, entre 2008 et 2012, d&amp;rsquo;au moins 5 % par rapport au niveau de 1990 les émissions de six gaz à effet de serre premier gros accord de réglementation   Accords de Paris  ratifié en 2015, mis en application 2016 limiter le réchauffement climatique à un niveau bien inférieur à 2, de préférence à 1,5 degré Celsius, par rapport au niveau préindustriel    GIEC == IPCC  Le Groupe d&amp;rsquo;experts intergouvernemental sur l&amp;rsquo;évolution du climat (GIEC ; en anglais : Intergovernmental Panel on Climate Change, IPCC) est un organisme intergouvernemental ouvert à tous les pays membres de l&amp;rsquo;Organisation des Nations unies (ONU)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/giec/report-6-iii-2021-mitigation-of-climate-change/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/giec/report-6-iii-2021-mitigation-of-climate-change/</guid>
+      <description>This is the 6th Report of GIEC, part 3 released in 2022</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/janco/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/janco/</guid>
       <description>Janco  https://www.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/politique/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/politique/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/politique/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/politique/</guid>
       <description>Macron  bilan macron figaro  En 2 mots</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/snbc/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/shift-project/rapports/d%C3%A9ployer-la-sobri%C3%A9t%C3%A9-num%C3%A9rique/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/snbc/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/shift-project/rapports/d%C3%A9ployer-la-sobri%C3%A9t%C3%A9-num%C3%A9rique/</guid>
+      <description>Disponible ici</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/shift-project/rapports/linsoutenable-usage-de-la-vid%C3%A9o-en-ligne/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/shift-project/rapports/linsoutenable-usage-de-la-vid%C3%A9o-en-ligne/</guid>
+      <description>2019</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/shift-project/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/shift-project/untitled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/ecologie/snbc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/ecologie/snbc/</guid>
       <description>Stratégie nationale bas carbonne  Synthèse ici  Résumé  Stratégie de réduction des émissions sur les prochaines décennies.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/ecology/transport/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/transport/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/transport/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/transport/</guid>
       <description>Transport  sea vs plane</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/frontend-development/hugo/</link>
+      <link>https://lebrunthibault.github.io/post/misc/art/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/frontend-development/hugo/</guid>
-      <description>Bugs  The post does not appear in the page list : -&amp;gt; check title has a space as first character (.</description>
+      <guid>https://lebrunthibault.github.io/post/misc/art/books/</guid>
+      <description>La recherche  Le monde artistique dans la recherche  Principaux ecrivains cités (sur 170)  Francais : Racine (58), Hugo (39 mais court), Balzac (37, important), Mme de Sévigné (36), Saint-Simon (28), Molière (25), Chateaubriand (18), Baudelaire (18), Zola (10, affaire Dreyfus), Flaubert (8), Georges Sand (8), Stendhal (7, mais long), Lamartine (6), et les Goncourt (6)  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/jobs/jobs/</link>
+      <link>https://lebrunthibault.github.io/post/misc/cryptos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/jobs/jobs/</guid>
-      <description>Jobs  Developpeur python mobilité  Salaries  talent.</description>
+      <guid>https://lebrunthibault.github.io/post/misc/cryptos/</guid>
+      <description>Bitcoin  number of transactions per day (2022) : 240 000 per year : 87 000 000 going slightly down for the last 3 years With the number of new bitcoins issued per block decreasing by half approximately every four years, the final bitcoin is not expected to be generated until the year 2140 a new block (6.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/societe/presidentielle-2022/</link>
+      <link>https://lebrunthibault.github.io/post/misc/politique/extreme-droite/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/presidentielle-2022/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/politique/extreme-droite/</guid>
+      <description>En Europe Elections européennes 2019 :</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/misc/presidentielle-2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/misc/presidentielle-2022/</guid>
       <description>Ecologie ZFE  Mises en place par Macron en 2017 les ZFE visent à interdire progressivement les voitures les plus anciennes des agglomérations sur la base des vignettes Crit’Air Remises en cause partout sauf par Jadot (soutien aux automobilistes, aux gilets jaunes, libertarisme .</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://lebrunthibault.github.io/post/societe/sdf/</link>
+      <link>https://lebrunthibault.github.io/post/misc/sant%C3%A9/nutrition/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/sdf/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/sant%C3%A9/nutrition/</guid>
+      <description>Sucres rapides, sucres lents : un concept erroné Glucides Types de glucides Sucre rapide / sucre lents : Catégorisation erronée basée sur l&amp;rsquo;idée que les glucides complexes, plus difficiles à casser en en briques élémentaires pénètrent plus lentement dans le sang.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/misc/sdf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/misc/sdf/</guid>
       <description>SDF  Une personne est considérée comme sans domicile si elle a passé la nuit précédant l’enquête dans un service d’hébergement (centre d’hébergement collectif, chambre d’hôtel ou logement payé par une association…) ou dans un lieu qui n’est pas prévu pour l’habitation</description>
     </item>
     
     <item>
-      <title> Protocol0 technical overview</title>
-      <link>https://lebrunthibault.github.io/post/ableton/p0-technical-overview/</link>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/ableton/ableton-bugs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ableton/p0-technical-overview/</guid>
+      <guid>https://lebrunthibault.github.io/post/music/ableton/ableton-bugs/</guid>
+      <description>Minitaur editor disconnected  only minitaur out / track is necessary simply reload the minitaur editor If not working unplug / plug the usb cable and reload editor  Minitaur no sound  change preset  Usamo setup not working  See the recording setup diagram</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/ableton/ableton-ideas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/ableton/ableton-ideas/</guid>
+      <description>Reaktor  ideas here  Maschine jam sequencer </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/ableton/ableton-tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/ableton/ableton-tips/</guid>
+      <description>Changing tempo from a midi clip in session view  See this video</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/ableton/fx-plugins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/ableton/fx-plugins/</guid>
+      <description>Vsts  Sugar bytes : Effectrix Sugar bytes : Looperator Sugar bytes : Turnado Cableguys : Shaperbox Polyverse : Gatekeeper Polyverse  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/production-mixing/mixing-tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/production-mixing/mixing-tips/</guid>
+      <description>Tips  https://www.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/production-mixing/production-tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/production-mixing/production-tips/</guid>
+      <description>Clean sidechain compression  See this video</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/protocol0/protocol0-tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/protocol0/protocol0-tips/</guid>
+      <description>Reinstall  Install removes all the *C:\ProgramData\Ableton\Live 10 Suite* directory.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/protocol0/push2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/protocol0/push2/</guid>
+      <description>Push2 Session system Responsibilities  Exposing objects (track / scenes / clips) to higher layer and buttons Dependent layers are the bottom part of the push2 specifically the pad matrix, the scenes launcher buttons, the navigation (top) / bank (bottom) buttons + context buttons (add / new / duplicate .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/protocol0/remote-script-tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/protocol0/remote-script-tips/</guid>
+      <description>Environement  all script execute in a single process (same pid)  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/protocol0/script-feature-requests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/protocol0/script-feature-requests/</guid>
+      <description>Feature requests remote script  Live.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/recording/latency/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/recording/latency/</guid>
+      <description>Reducing latency when monitoring  See focusrite article</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/recording/midi-jitter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/recording/midi-jitter/</guid>
+      <description>MIDI Jitter http://www.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/recording/recording-tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/recording/recording-tips/</guid>
+      <description>The ideal audio setup https://gearspace.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/recording/recording-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/recording/recording-setup/</guid>
+      <description>Prophet recording setup And diagram here</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lebrunthibault.github.io/post/music/workshops/mike-monday/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/workshops/mike-monday/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> Protocol0 technical overview</title>
+      <link>https://lebrunthibault.github.io/post/music/protocol0/p0-technical-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lebrunthibault.github.io/post/music/protocol0/p0-technical-overview/</guid>
       <description>This is technical documentation for my Protocol0 Ableton control surface script.</description>
     </item>
     
     <item>
       <title> Software development principles</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</link>
+      <link>https://lebrunthibault.github.io/post/articles/software-development-principles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</guid>
+      <guid>https://lebrunthibault.github.io/post/articles/software-development-principles/</guid>
       <description>I&amp;rsquo;m focusing on the languages I&amp;rsquo;ve used most : Python and PHP.</description>
     </item>
     
     <item>
-      <title>Ableton notes</title>
-      <link>https://lebrunthibault.github.io/post/ableton/ableton-tips/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lebrunthibault.github.io/post/ableton/ableton-tips/</guid>
-      <description>download ableton exe archives  Recording CC automation with Rev2 editor</description>
-    </item>
-    
-    <item>
       <title>Afghanistan notes</title>
-      <link>https://lebrunthibault.github.io/post/histoire/afghanistan/</link>
+      <link>https://lebrunthibault.github.io/post/misc/histoire/afghanistan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/histoire/afghanistan/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/histoire/afghanistan/</guid>
       <description>Vidéo : AFGHANISTAN : 40 ANS DE CONFLIT RÉSUMÉS SUR CARTE</description>
     </item>
     
@@ -440,19 +782,19 @@
     
     <item>
       <title>carbon footprint</title>
-      <link>https://lebrunthibault.github.io/post/ecology/carbon-footprint/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/carbon-footprint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/carbon-footprint/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/carbon-footprint/</guid>
       <description>France 9.</description>
     </item>
     
     <item>
       <title>Carlos Buenosvinos - Domain-Driven Design in PHP-Leanpub (2016)</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-in-php-2016/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-in-php-2016/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-in-php-2016/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-in-php-2016/</guid>
       <description>book here</description>
     </item>
     
@@ -467,10 +809,10 @@
     
     <item>
       <title>DDD reference</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-reference-eric-evans/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-reference-eric-evans/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-reference-eric-evans/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-reference-eric-evans/</guid>
       <description>book here</description>
     </item>
     
@@ -485,10 +827,10 @@
     
     <item>
       <title>DJ Network</title>
-      <link>https://lebrunthibault.github.io/post/ableton/dj_network/</link>
+      <link>https://lebrunthibault.github.io/post/music/workshops/dj-network/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ableton/dj_network/</guid>
+      <guid>https://lebrunthibault.github.io/post/music/workshops/dj-network/</guid>
       <description>Descriptif formation Fiche mon compte formation   Admission valable 1 an</description>
     </item>
     
@@ -503,28 +845,28 @@
     
     <item>
       <title>Domain Driven Development Quickly</title>
-      <link>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-domain-design-development-quickly/</link>
+      <link>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-quickly/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-domain-design-development-quickly/</guid>
+      <guid>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-quickly/</guid>
       <description>Book here</description>
     </item>
     
     <item>
       <title>Economy</title>
-      <link>https://lebrunthibault.github.io/post/societe/economy/</link>
+      <link>https://lebrunthibault.github.io/post/misc/economy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/economy/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/economy/</guid>
       <description>Décroissance  croissance = augmentation du niveau de vie moyen</description>
     </item>
     
     <item>
       <title>Germany ecology</title>
-      <link>https://lebrunthibault.github.io/post/ecology/germany/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/germany/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/germany/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/germany/</guid>
       <description>germany owid energy stats  energy per capita peaking in 1980, down by 20% electricity consumption per capita stable (small drop since 2015)   Share of electricity production from renewables in 2020 : 45% germany : 23% France Electricity intensity (per unit of GDP): same in France and Germany Carbon intensity of energy production : 0.</description>
     </item>
     
@@ -561,7 +903,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lebrunthibault.github.io/post/dev/job/</guid>
-      <description>Différence freelance vs cdi  Calculateur cout emauche (CDI) Freelance ou salarié en CDI : qui est le plus cher Calculateur Shine developpeur  Pour un TJM de 450 € : cout en CDI de 55 €k</description>
+      <description>Emploi green sites principaux ou index:</description>
     </item>
     
     <item>
@@ -584,10 +926,10 @@
     
     <item>
       <title>Politique</title>
-      <link>https://lebrunthibault.github.io/post/societe/politique/</link>
+      <link>https://lebrunthibault.github.io/post/misc/politique/politique/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/politique/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/politique/politique/</guid>
       <description>Anne Hidalgo  Ps Maire de paris depuis 2014 (deuxième mandat 2020, coalition PS-PCF-EÉLV-G·s-PRG) Soutenue par Jean Jouzel pour son deuxième mandat (paléoclimatologue vice président du GIEC de 2002 à 2015, toujours soutenu des candidats du PS)  Salles de shoot  Défendue depuis le 14 décembre 2009 par le député Jean-Marie Le Guen, le gouvernement Jean-Marc Ayrault valide en 2013 l&amp;rsquo;ouverture d&amp;rsquo;une salle Finalement ouverte en 2016 a paris garde du nord  Politique fiscale et budgétaire Paris  La hausse de la taxe de séjour acquittée par les touristes apporte 55 millions d&amp;rsquo;euros à la ville en 201545.</description>
     </item>
     
@@ -611,46 +953,46 @@
     
     <item>
       <title>Rome notes</title>
-      <link>https://lebrunthibault.github.io/post/histoire/rome/</link>
+      <link>https://lebrunthibault.github.io/post/misc/histoire/rome/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/histoire/rome/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/histoire/rome/</guid>
       <description>Les institutions romaines Chronologie  Début : Petit état terittorial de quelques dizaine de milliers d&amp;rsquo;individus Rome Royale République (-200) Période augustéenne, Haut-Empire (0-200)  passage de la république à l&amp;rsquo;empire Etat administratif et bureaucratique Pax romana   Période de troubles et d&amp;rsquo;anarchie (200-375) : invasions, décomposition des institutions et de l&amp;rsquo;économie Bas-Empire: des empereurs de valeur essaient de faire face aux problèmes  Système tétrachique de Dioclétien Constantin: Empire chrétien    </description>
     </item>
     
     <item>
       <title>Shift Project</title>
-      <link>https://lebrunthibault.github.io/post/ecology/shift-project/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/shift-project/shift-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/shift-project/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/shift-project/shift-project/</guid>
       <description>Missions Décarbonnons la culture !</description>
     </item>
     
     <item>
       <title>Societe</title>
-      <link>https://lebrunthibault.github.io/post/societe/societe/</link>
+      <link>https://lebrunthibault.github.io/post/misc/societe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/societe/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/societe/</guid>
       <description>Immigration Source INSEE :</description>
     </item>
     
     <item>
       <title>Sécurité</title>
-      <link>https://lebrunthibault.github.io/post/societe/s%C3%A9curit%C3%A9/</link>
+      <link>https://lebrunthibault.github.io/post/misc/s%C3%A9curit%C3%A9/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/societe/s%C3%A9curit%C3%A9/</guid>
+      <guid>https://lebrunthibault.github.io/post/misc/s%C3%A9curit%C3%A9/</guid>
       <description>Sécurité Définitions  Les violences volontaires  Les 3 types d&amp;rsquo;infractions pénales (cf site service-public):</description>
     </item>
     
     <item>
       <title>The Shifters</title>
-      <link>https://lebrunthibault.github.io/post/ecology/the-shifters/</link>
+      <link>https://lebrunthibault.github.io/post/ecologie/shift-project/the-shifters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lebrunthibault.github.io/post/ecology/the-shifters/</guid>
+      <guid>https://lebrunthibault.github.io/post/ecologie/shift-project/the-shifters/</guid>
       <description>The Shifters Différence Shift Project et The Shifters  Shift Project :  pour entreprises Son ambition est d’être LE think tank de la transition carbone de l’économie   The Shifters  pour particuliers Les Shifters partagent sans réserve la vision du Shift Project sur la réalité du changement climatique et l&amp;rsquo;épuisement à court ou moyen terme des ressources en énergies fossiles    Définition  Charte des Shifters Si tu t&amp;rsquo;interroges sur l&amp;rsquo;orientation prise par le Shift Project ou les Shifters, notamment vis à vis des grands enjeux et débats qui animent notre société, la Foire aux Questions sur les positions et méthodes du Shift et des Shifters est faite pour toi !</description>
     </item>
     

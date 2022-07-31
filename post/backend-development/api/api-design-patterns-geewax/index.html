@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/api/api-design-patterns-geewax/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-03-28T18:55:46+02:00" />
+<meta property="article:modified_time" content="2022-06-04T18:17:31+01:00" />
 
 <meta itemprop="name" content="">
 <meta itemprop="description" content="Preface  In the real world, I learned how perfectly-optimized code is not nearly as valuable as well-designed code  Part 1.">
-<meta itemprop="dateModified" content="2022-03-28T18:55:46+02:00" />
-<meta itemprop="wordCount" content="857">
+<meta itemprop="dateModified" content="2022-06-04T18:17:31+01:00" />
+<meta itemprop="wordCount" content="1823">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="Preface  In the real world, I learned how perfectly-optimized code is not nearly as valuable as well-designed code  Part 1."/>
@@ -118,8 +118,8 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 5 mins read </span> <br>
-            <span class="date-info italic">Edited on 28.03.2022</span>
+            <span class="more-meta"> 9 mins read </span> <br>
+            <span class="date-info italic">Edited on 04.06.2022</span>
         </div>
     </header>
 
@@ -143,11 +143,48 @@
             <li><a href="#why-are-api-design-patterns-important">Why are API design patterns important?</a></li>
             <li><a href="#anatomy-of-an-api-design-pattern">Anatomy of an API design pattern</a></li>
             <li><a href="#case-study-twapi-a-twitter-like-api">Case study: Twapi, a Twitter-like API</a></li>
+            <li><a href="#nb--versionning-with-fastapi">NB : versionning with fastapi</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#part-2-design-principles">Part 2. Design principles</a></li>
+    <li><a href="#part-2-design-principles">Part 2. Design principles</a>
+      <ul>
+        <li><a href="#naming">Naming</a>
+          <ul>
+            <li><a href="#what-makes-a-name-good-">What makes a name good ?</a></li>
+            <li><a href="#language-grammar-and-syntax">Language, grammar, and syntax</a></li>
+            <li><a href="#context">Context</a></li>
+            <li><a href="#data-types-and-units">Data types and units</a></li>
+            <li><a href="#case-study-what-happens-when-you-choose-bad-names">Case study: What happens when you choose bad names?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-resource-scope-and-hierarchy">4 Resource scope and hierarchy</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#data-types-and-defaults">Data types and defaults</a>
+      <ul>
+        <li><a href="#introduction-to-data-types">Introduction to data types</a>
+          <ul>
+            <li><a href="#missing-vs-null">Missing vs. null</a></li>
+            <li><a href="#booleans">Booleans</a></li>
+            <li><a href="#numbers">Numbers</a></li>
+            <li><a href="#strings">Strings</a></li>
+            <li><a href="#enumerations">Enumerations</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#maps">Maps</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -186,7 +223,7 @@
 <li>Simple :
 <ul>
 <li>design this API to be as simple as possible, but no simpler</li>
-<li>“make the common case awesome and the advanced case possible</li>
+<li><strong>make the common case awesome and the advanced case possible</strong></li>
 </ul>
 </li>
 <li>Predictable (consistent) :
@@ -272,7 +309,191 @@
 </ul>
 <img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220328150559418.png" alt="image-20220328150559418" style="zoom:67%;" />
 <img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220328150402943.png" alt="image-20220328150402943" style="zoom:67%;" />
+<h3 id="nb--versionning-with-fastapi">NB : versionning with fastapi</h3>
+<ul>
+<li>See <a href="https://medium.com/geoblinktech/fastapi-with-api-versioning-for-data-applications-2b178b0f843f">this</a></li>
+<li><a href="https://www.xmatters.com/blog/blog-four-rest-api-versioning-strategies/">Four rest api versioning strategies</a></li>
+</ul>
 <h1 id="part-2-design-principles">Part 2. Design principles</h1>
+<h2 id="naming">Naming</h2>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220604100212150.png?token=AEHIPTNH44Z7MWP3OJTOBM3CTMW6G" alt="image-20220604100212150" style="zoom:80%;" />
+<ul>
+<li>changing names in an API can be quite challenging</li>
+<li>choose it good from the start</li>
+</ul>
+<h3 id="what-makes-a-name-good-">What makes a name good ?</h3>
+<ul>
+<li>
+<p>expressive : clear and unambigous (prefer slightly longer names)</p>
+</li>
+<li>
+<p>simple : when the context is sufficiently clear prefer simple</p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220604100654411.png?token=AEHIPTKJUTLETCX7A3S4LB3CTMXPU" alt="image-20220604100654411" style="zoom:80%;" />
+</li>
+<li>
+<p>Predictable : consistent</p>
+</li>
+</ul>
+<h3 id="language-grammar-and-syntax">Language, grammar, and syntax</h3>
+<ul>
+<li>language : use english (consistent with other APIs)</li>
+<li>Grammar :
+<ul>
+<li>Imperative actions :
+<ul>
+<li>like in REST</li>
+<li>don&rsquo;t use indicative</li>
+<li>e.g. GetValidationErrors is better than isValid</li>
+</ul>
+</li>
+<li>Prepositions :
+<ul>
+<li>&ldquo;with&rdquo;, &ldquo;to&rdquo;, &ldquo;for&rdquo;</li>
+<li>Code smell, shows duplication in the name</li>
+<li>e.g. ListBookWithAuthors, ListBookWithPublishers</li>
+</ul>
+</li>
+<li>Pluralization
+<ul>
+<li>Most often, we’ll choose the names for things in our APIs to be the singular form, such as Book, Publisher, and Author</li>
+<li>if an API uses RESTful URLs, the collection name of a bunch of resources is almost always plural. Ex : /books/1234</li>
+<li>plural should be valid english</li>
+</ul>
+</li>
+<li>Syntax
+<ul>
+<li>Most technical aspect of naming</li>
+<li>CASE
+<ul>
+<li>consistency</li>
+</ul>
+</li>
+<li>Reserved keywords
+<ul>
+<li>ex don&rsquo;t use string, to, from ..</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="context">Context</h3>
+<blockquote>
+<p>we should be cognizant of that context and the meaning it might impart (for better or worse) when choosing names</p>
+</blockquote>
+<h3 id="data-types-and-units">Data types and units</h3>
+<ul>
+<li>
+<p>specify the type for ambiguous cases</p>
+<ul>
+<li>eg. sizeBytes : float is better than size: float</li>
+</ul>
+</li>
+<li>
+<p>sometimes names become more clear and usable when a unit is included in the name, other times a name can become more clear when using a richer data type</p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220604104735652.png?token=AEHIPTPNAOXQSYP5RG5IKH3CTM4IM" alt="image-20220604104735652" style="zoom:80%;" />
+</li>
+</ul>
+<h3 id="case-study-what-happens-when-you-choose-bad-names">Case study: What happens when you choose bad names?</h3>
+<ul>
+<li>ex: Google pageSize vs maxPageSize. Like getting 8 donuts when you asked for 10</li>
+</ul>
+<h1 id="4-resource-scope-and-hierarchy">4 Resource scope and hierarchy</h1>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220604105411173.png?token=AEHIPTIE4AIIHSWHJEZRBDTCTM5A6" alt="image-20220604105411173" style="zoom:80%;" />
+<ul>
+<li>resource layout is the entity (resource) relationship model for a particular design of an API</li>
+<li>like in design, type of relation ships: multiple bidirectional, optional ..</li>
+<li>Reference relationships == many to one</li>
+<li>Many to many</li>
+<li>self reference (often in a graph)</li>
+<li>hierarchical relationships (owning an entity)</li>
+<li>entity diagram</li>
+</ul>
+<h4 id="42-choosing-the-right-relationship">4.2 Choosing the right relationship</h4>
+<ul>
+<li>Do you need a relationship at all? Put differently, reference relationships should be purposeful and fundamental to the desired behavior. In other words, these relationships should never be accidental, nice to have, or something you might need later on. Instead, any reference relationship should be something important for the API to accomplish its primary goal: <strong>meaningful</strong></li>
+<li>References or in-line data : use reference id (reference, double API calls, expensive if the info is not needed often) or inline object (in-line data, single API call). judgment call</li>
+<li>Hierarchy
+<ul>
+<li>biggest effect: deletion cascade</li>
+<li>depends on the modeling</li>
+<li>many to one but not one to many</li>
+</ul>
+</li>
+</ul>
+<h4 id="anti-patterns">Anti patterns</h4>
+<ul>
+<li>Resources for everything :
+<ul>
+<li>if you don’t need to interact with one of your proposed resources independent of a resource it’s associated with, then you might be fine with it being just a data type -&gt; <strong>cf aggregate root</strong> (don&rsquo;t make accessing inner data possible)</li>
+<li>inline if applicable</li>
+</ul>
+</li>
+</ul>
+<h4 id="deep-hierarchies">Deep hierarchies</h4>
+<ul>
+<li>cf inheritance, make a more flexible design / model</li>
+</ul>
+<h4 id="in-line-everything">In-line everything</h4>
+<ul>
+<li>cf no sql etc.. inlined data is not easy to update</li>
+</ul>
+<h1 id="data-types-and-defaults">Data types and defaults</h1>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220604111346190.png?token=AEHIPTIA7SEECIPOZKSAI3LCTM7KQ" alt="image-20220604111346190" style="zoom:80%;" />
+<p>NB : datatypes in the signature are not always precise enough (str / bytes, float / second / microsecond &hellip;)</p>
+<h2 id="introduction-to-data-types">Introduction to data types</h2>
+<ul>
+<li>, when designing APIs, we have to break out of the mode of thinking of a single programming language primarily because a major goal of our API is to let anyone, programming in any language, interact with the service (any source language, using text)</li>
+<li>Using serialization : structured data to serialized bytes
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220604111726133.png?token=AEHIPTO74BYBD6CIFZ6QDW3CTM7YI" alt="image-20220604111726133"></li>
+<li>down size: some type information will be lost in translation</li>
+<li>how we might extend our serialization format (JSON) in cases where it doesn’t stack up with our needs</li>
+</ul>
+<h3 id="missing-vs-null">Missing vs. null</h3>
+<ul>
+<li>
+<p>3 cases : explicit null (JSON), empty value (&quot;&quot;, 0), value absent (normally caught or cast to null by data validation)</p>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220604112131770.png?token=AEHIPTMZMVIX3S7QPPI3AB3CTNAHS" alt="image-20220604112131770"></p>
+</li>
+</ul>
+<h3 id="booleans">Booleans</h3>
+<ul>
+<li>when they become limited and we need to use multiple flags : use a string / enum type</li>
+<li>rather don&rsquo;t use double negatives</li>
+</ul>
+<h3 id="numbers">Numbers</h3>
+<ul>
+<li>In general, values that only happen to look like numbers but behave more like tokens or symbols should probably be string values instead (e.g. string for ids)</li>
+<li>use bounds (min, max)</li>
+<li>use default values if possible</li>
+<li>pay attention : big numbers serialization</li>
+</ul>
+<h3 id="strings">Strings</h3>
+<ul>
+<li>bounds, defaults</li>
+<li>serialization : it’s a good idea for APIs to reject incoming strings that aren’t UTF-8 encoded using Normalization Form C, but an absolute necessity for strings that happen to represent resource identifiers</li>
+</ul>
+<h3 id="enumerations">Enumerations</h3>
+<ul>
+<li>In short, enumerations should generally be avoided when another type (such as a string) can work instead</li>
+<li>This is particularly true when new values are expected to be added, and even more so when there’s some sort of standard out there for the value in question (e.g. mime types)</li>
+</ul>
+<h3 id="lists">Lists</h3>
+<ul>
+<li>atomicity : : list fields, despite containing multiple items, are best used when the items are considered an atomic piece of data to be modified and replaced entirely rather than piecemeal. Problems with ordering, race / loop conditions (add)</li>
+<li>Never allow a value in a list to be updated independently, update the list in bulk.</li>
+<li>Also never 2 ways to update a value</li>
+<li>bounds on list size and item size. Or switch to relations instead of inline</li>
+<li>Lists are similar to strings in that in some serialization formats and libraries there is no easy way to distinguish between the zero value (for lists, []) and a null value</li>
+</ul>
+<h3 id="maps">Maps</h3>
+<ul>
+<li>In other words, custom data types are simply a way of rearranging fields we know of and want to organize a bit better, while maps are better suited for dynamic key-value pairs with keys that are unknown at the time we define the API</li>
+<li>This kind of arbitrary structure of key-value pairs (maps) is a great fit for things like dynamic settings or configuration</li>
+<li>bounds : the schema defines its own boundary conditions. For maps bounds can be set</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220604115334846.png?token=AEHIPTPP3GEHBRJWKR6526LCTND7W" alt="image-20220604115334846" style="zoom:80%;" />
 
     </div>
 

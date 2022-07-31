@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/python/interfaces/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-04-01T20:53:25+02:00" />
+<meta property="article:modified_time" content="2022-04-08T19:17:50+01:00" />
 
 <meta itemprop="name" content="">
 <meta itemprop="description" content="Python interfaces See Real Python">
-<meta itemprop="dateModified" content="2022-04-01T20:53:25+02:00" />
-<meta itemprop="wordCount" content="436">
+<meta itemprop="dateModified" content="2022-04-08T19:17:50+01:00" />
+<meta itemprop="wordCount" content="458">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="Python interfaces See Real Python"/>
@@ -119,7 +119,7 @@
         <div class="post-meta">
             
             <span class="more-meta"> 3 mins read </span> <br>
-            <span class="date-info italic">Edited on 01.04.2022</span>
+            <span class="date-info italic">Edited on 08.04.2022</span>
         </div>
     </header>
 
@@ -149,6 +149,7 @@
         <li><a href="#user-defined-protocols">User defined protocols</a></li>
       </ul>
     </li>
+    <li><a href="#interface-libraries">Interface libraries</a></li>
   </ul>
 </nav>
   </div>
@@ -243,6 +244,12 @@
 <ul>
 <li>Note that inheriting from an existing protocol does not automatically turn the subclass into a protocol – it just creates a regular (non-protocol) class or ABC that implements the given protocol (or protocols). The <code>Protocol</code> base class must always be explicitly present if you are defining a protocol</li>
 </ul>
+<h1 id="interface-libraries">Interface libraries</h1>
+<ul>
+<li><code>zope.interface</code> [<a href="https://peps.python.org/pep-0544/#zope-interfaces">zope-interfaces]</a> was one of the first widely used approaches to structural subtyping in Python</li>
+<li>Design by contract, supports invariants</li>
+</ul>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220408172725336.png?token=AEHIPTIG5GFXQPQRXC3Y5KDCKBKKK" alt="image-20220408172725336" style="zoom:67%;" />
 
     </div>
 

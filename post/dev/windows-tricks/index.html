@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/dev/windows-tricks/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-01-21T11:07:19+01:00" />
+<meta property="article:modified_time" content="2022-07-29T19:57:18+02:00" />
 
 <meta itemprop="name" content="Windows tricks">
 <meta itemprop="description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor (gpedit.">
-<meta itemprop="dateModified" content="2022-01-21T11:07:19+01:00" />
-<meta itemprop="wordCount" content="232">
+<meta itemprop="dateModified" content="2022-07-29T19:57:18+02:00" />
+<meta itemprop="wordCount" content="333">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Windows tricks"/>
 <meta name="twitter:description" content="Windows tricks  Pin to start any file Execute task at logon: using task scheduler Execute task at restart: Group policy editor (gpedit."/>
@@ -119,7 +119,7 @@
         <div class="post-meta">
             
             <span class="more-meta"> 2 mins read </span> <br>
-            <span class="date-info italic">Edited on 21.01.2022</span>
+            <span class="date-info italic">Edited on 29.07.2022</span>
         </div>
     </header>
 
@@ -131,6 +131,17 @@
     <li><a href="#windows-tricks">Windows tricks</a></li>
     <li><a href="#audio">Audio</a></li>
     <li><a href="#free-space-on-c">Free space on C:</a></li>
+    <li><a href="#windows-is-slow-gpu-spikes">Windows is slow, GPU spikes</a></li>
+    <li><a href="#windows-reinstall--refresh">Windows reinstall / refresh</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#microsoft-visual-c-140-missing-when-install-pyton--rtmidi">Microsoft Visual C++ 14.0 missing (when install pyton -rtmidi)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#stress-tests">Stress tests</a></li>
   </ul>
 </nav>
   </div>
@@ -141,6 +152,12 @@
 <li><a href="https://answers.microsoft.com/en-us/windows/forum/all/pin-to-start-any-file-windows-10-pro/acb769bc-e5d9-4be9-8a76-0aff7cdab6c8">Pin to start any file</a></li>
 <li><a href="https://www.tenforums.com/tutorials/173596-how-create-task-run-app-script-logon-windows-10-a.html">Execute task at logon</a>: using task scheduler</li>
 <li><a href="https://superuser.com/questions/773651/run-a-script-just-before-shutdown-or-reboot-on-windows-home-edition">Execute task at restart</a>: Group policy editor (gpedit.msc) &gt; User configuration &gt; Windows Settings &gt; Startup / Shutdown</li>
+<li><a href="https://www.digitalcitizen.life/run-as-admin/">Run program as administrator</a>
+<ul>
+<li>See Point 12 for having a program always execute as admin</li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=dJes3l_VW70">Edit the context menu &ldquo;New&rdquo; options</a></li>
 </ul>
 <h1 id="audio">Audio</h1>
 <p><strong>Links :</strong></p>
@@ -162,6 +179,26 @@
 <p>Install ubuntu on D: see <a href="https://kontext.tech/column/tools/308/how-to-install-windows-subsystem-for-linux-on-a-non-c-drive">https://kontext.tech/column/tools/308/how-to-install-windows-subsystem-for-linux-on-a-non-c-drive</a></p>
 <p>Move Pagefile.sys or delete it : <a href="https://www.ionos.fr/digitalguide/serveur/configuration/pagefilesys/">https://www.ionos.fr/digitalguide/serveur/configuration/pagefilesys/</a></p>
 <p>Remove hiberfile.sys ? <a href="https://www.commentcamarche.net/informatique/windows/227-supprimer-le-fichier-hiberfil-sys-de-windows/">https://www.commentcamarche.net/informatique/windows/227-supprimer-le-fichier-hiberfil-sys-de-windows/</a></p>
+<h1 id="windows-is-slow-gpu-spikes">Windows is slow, GPU spikes</h1>
+<ul>
+<li><a href="https://www.windowsphoneinfo.com/threads/desktop-window-manager-random-gpu-spikes.460412/">https://www.windowsphoneinfo.com/threads/desktop-window-manager-random-gpu-spikes.460412/</a></li>
+<li><a href="https://windowsreport.com/desktop-window-manager-high-gpu/#:~:text=On%20Windows%2010%2C%20type%20in,Select%20Search%20automatically%20for%20drivers">https://windowsreport.com/desktop-window-manager-high-gpu/#:~:text=On%20Windows%2010%2C%20type%20in,Select%20Search%20automatically%20for%20drivers</a>.</li>
+<li>Use nvidia control panel to change the gpu</li>
+<li>Edit System Configuration &gt; Services</li>
+</ul>
+<h1 id="windows-reinstall--refresh">Windows reinstall / refresh</h1>
+<h3 id="microsoft-visual-c-140-missing-when-install-pyton--rtmidi">Microsoft Visual C++ 14.0 missing (when install pyton -rtmidi)</h3>
+<ul>
+<li>Install <a href="https://visualstudio.microsoft.com/fr/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=16">Visual studio installer</a></li>
+<li>Workload : Desktop Development with C++</li>
+<li>MSVC v142 - VS 2019 + Windows 10 SDK</li>
+</ul>
+<h1 id="stress-tests">Stress tests</h1>
+<ul>
+<li>See <a href="https://appuals.com/how-to-run-a-computer-performance-benchmark-test-on-windows/">this</a></li>
+<li>Win-R : <code>perfmon /report</code> : general testing. Supposed to take 1 min but takes much longer (20 min ..?)</li>
+<li>or <a href="https://www.mersenne.org/download/#download">Prime95</a> : cpu tests</li>
+</ul>
 
     </div>
 

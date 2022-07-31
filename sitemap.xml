@@ -2,50 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/bugs-and-fixes/</loc>
-    <lastmod>2022-02-21T18:44:12+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/latency/</loc>
-    <lastmod>2022-02-11T21:19:42+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/midi-jitter/</loc>
-    <lastmod>2022-02-11T21:19:42+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/recording-setup/</loc>
-    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/script-feature-requests/</loc>
-    <lastmod>2022-03-13T01:44:06+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/set-performance/</loc>
-    <lastmod>2022-02-11T21:19:42+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/articles/events/</loc>
+    <lastmod>2022-04-12T00:31:50+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/api/api-design-patterns-geewax/</loc>
-    <lastmod>2022-03-28T18:55:46+02:00</lastmod>
+    <lastmod>2022-06-04T18:17:31+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -60,6 +25,13 @@
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/api/grpc/</loc>
     <lastmod>2022-03-28T18:55:46+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/database/commands/</loc>
+    <lastmod>2022-04-07T16:20:37+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -86,8 +58,43 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-tackling-complexity-in-the-heart-of-software/</loc>
+    <lastmod>2022-05-13T12:24:53+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-in-python/</loc>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-links/</loc>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/ddd/doctrine-orm-and-ddd-aggregates/</loc>
     <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/docker/</loc>
+    <lastmod>2022-06-10T00:21:13+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/git/</loc>
+    <lastmod>2022-06-15T17:06:53+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -100,8 +107,29 @@
   </url>
   
   <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/jetbrains-editors/</loc>
+    <lastmod>2022-06-04T18:17:31+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/library-integration/</loc>
+    <lastmod>2022-06-04T18:17:31+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/naming-conventions/</loc>
     <lastmod>2022-03-31T19:08:32+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/alembic/</loc>
+    <lastmod>2022-05-10T00:26:05+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -115,14 +143,42 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/python/fastapi/</loc>
-    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <lastmod>2022-04-10T19:04:23+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/imports/</loc>
+    <lastmod>2022-04-09T19:13:14+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/python/interfaces/</loc>
-    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
+    <lastmod>2022-04-08T19:17:50+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/new-project/</loc>
+    <lastmod>2022-06-11T00:23:59+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/package-management/</loc>
+    <lastmod>2022-05-10T00:26:05+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/packaging/</loc>
+    <lastmod>2022-05-16T14:58:10+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -130,6 +186,27 @@
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/python/pydantic/</loc>
     <lastmod>2022-03-19T18:23:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/python-on-windows/</loc>
+    <lastmod>2022-05-13T12:30:13+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/python-patterns/</loc>
+    <lastmod>2022-04-10T19:04:23+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/python/sqlalchemy/</loc>
+    <lastmod>2022-06-30T19:13:38+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -143,13 +220,6 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/python/types/</loc>
-    <lastmod>2022-03-19T18:23:00+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/python/windows/</loc>
     <lastmod>2022-03-19T18:23:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -204,127 +274,319 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/analyse-presidentielle-2022-shift/</loc>
-    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/dev/achat-pc/</loc>
+    <lastmod>2022-07-24T14:12:44+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/banks/</loc>
-    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/dev/job/social-declick-mini-seminaire/</loc>
+    <lastmod>2022-05-16T14:58:10+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/digital/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/dev/windows-refresh/</loc>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/energie/</loc>
-    <lastmod>2022-02-17T17:04:44+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/analyse-presidentielle-2022-shift/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/food/</loc>
-    <lastmod>2022-02-17T17:04:44+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/banks/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/giec/</loc>
-    <lastmod>2022-02-17T17:04:44+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/digital/analyse-cloud-computing/</loc>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/janco/</loc>
-    <lastmod>2022-02-17T17:04:44+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/digital/digital/</loc>
+    <lastmod>2022-05-16T14:58:10+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/politique/</loc>
-    <lastmod>2022-02-18T13:43:24+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/digital/pollution-num%C3%A9rique-la-face-cach%C3%A9e-du-clic/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/snbc/</loc>
-    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/empreinte-personnelle/</loc>
+    <lastmod>2022-05-06T12:31:47+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/transport/</loc>
-    <lastmod>2022-02-17T17:04:44+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/energie/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/frontend-development/hugo/</loc>
-    <lastmod>2022-04-05T01:50:14+02:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/food/carbon-footprint/</loc>
+    <lastmod>2022-07-12T18:17:30+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/jobs/jobs/</loc>
-    <lastmod>2022-02-14T22:33:19+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/food/oeufs/</loc>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/societe/presidentielle-2022/</loc>
-    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/food/poisson/</loc>
+    <lastmod>2022-07-12T18:17:30+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/societe/sdf/</loc>
-    <lastmod>2022-02-17T17:04:44+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/giec/giec/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/p0-technical-overview/</loc>
-    <lastmod>2022-04-04T19:56:59+02:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/giec/report-6-iii-2021-mitigation-of-climate-change/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/software-development-principles/</loc>
-    <lastmod>2022-04-04T19:56:59+02:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/janco/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/ableton-tips/</loc>
-    <lastmod>2022-02-11T21:19:42+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/politique/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/histoire/afghanistan/</loc>
-    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/shift-project/rapports/d%C3%A9ployer-la-sobri%C3%A9t%C3%A9-num%C3%A9rique/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/ecologie/shift-project/rapports/linsoutenable-usage-de-la-vid%C3%A9o-en-ligne/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/ecologie/shift-project/untitled/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/ecologie/snbc/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/ecologie/transport/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/misc/art/books/</loc>
+    <lastmod>2022-06-11T18:06:14+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/misc/cryptos/</loc>
+    <lastmod>2022-05-12T18:03:32+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/misc/politique/extreme-droite/</loc>
+    <lastmod>2022-04-25T23:57:12+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/misc/presidentielle-2022/</loc>
+    <lastmod>2022-04-24T18:17:33+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/misc/sant%C3%A9/nutrition/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/misc/sdf/</loc>
+    <lastmod>2022-04-24T18:17:33+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/ableton/ableton-bugs/</loc>
+    <lastmod>2022-07-28T20:01:47+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/ableton/ableton-ideas/</loc>
+    <lastmod>2022-07-28T20:01:47+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/ableton/ableton-tips/</loc>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/ableton/fx-plugins/</loc>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/production-mixing/mixing-tips/</loc>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/production-mixing/production-tips/</loc>
+    <lastmod>2022-07-28T20:01:47+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/protocol0/protocol0-tips/</loc>
+    <lastmod>2022-07-16T01:01:42+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/protocol0/push2/</loc>
+    <lastmod>2022-07-14T12:44:01+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/protocol0/remote-script-tips/</loc>
+    <lastmod>2022-06-14T00:09:40+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/protocol0/script-feature-requests/</loc>
+    <lastmod>2022-06-14T00:09:40+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/recording/latency/</loc>
+    <lastmod>2022-07-16T01:01:42+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/recording/midi-jitter/</loc>
+    <lastmod>2022-07-16T01:01:42+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/recording/recording-tips/</loc>
+    <lastmod>2022-07-16T01:01:42+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/recording/recording-setup/</loc>
+    <lastmod>2022-07-16T01:01:42+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/workshops/mike-monday/</loc>
+    <lastmod>2022-07-16T01:01:42+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/music/protocol0/p0-technical-overview/</loc>
+    <lastmod>2022-06-14T00:09:40+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/articles/software-development-principles/</loc>
+    <lastmod>2022-05-06T12:31:47+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/misc/histoire/afghanistan/</loc>
+    <lastmod>2022-04-24T18:17:33+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -337,15 +599,15 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/carbon-footprint/</loc>
-    <lastmod>2022-02-17T17:04:44+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/carbon-footprint/</loc>
+    <lastmod>2022-05-06T12:31:47+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-in-php-2016/</loc>
-    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-in-php-2016/</loc>
+    <lastmod>2022-05-06T12:31:47+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -364,8 +626,8 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-ddd-reference-eric-evans/</loc>
-    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-reference-eric-evans/</loc>
+    <lastmod>2022-05-06T12:31:47+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -378,36 +640,36 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ableton/dj_network/</loc>
-    <lastmod>2022-03-05T16:30:12+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/music/workshops/dj-network/</loc>
+    <lastmod>2022-07-16T01:01:42+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/python/django/</loc>
-    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <lastmod>2022-04-07T16:20:37+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/book-review-domain-design-development-quickly/</loc>
-    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/backend-development/ddd/ddd-quickly/</loc>
+    <lastmod>2022-05-06T12:31:47+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/societe/economy/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/misc/economy/</loc>
+    <lastmod>2022-04-24T18:17:33+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/germany/</loc>
-    <lastmod>2022-02-05T02:29:29+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/germany/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -421,14 +683,14 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/design-patterns/book-review-head-first-design-patterns/</loc>
-    <lastmod>2022-04-01T20:53:25+02:00</lastmod>
+    <lastmod>2022-04-09T17:22:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-04-06T17:29:34+02:00</lastmod>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -442,7 +704,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/dev/job/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <lastmod>2022-05-06T12:31:47+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -462,22 +724,22 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/societe/politique/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/misc/politique/politique/</loc>
+    <lastmod>2022-04-25T23:57:12+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-04-06T17:29:34+02:00</lastmod>
+    <lastmod>2022-07-31T19:06:52+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/python/python/</loc>
-    <lastmod>2022-03-31T19:08:32+02:00</lastmod>
+    <lastmod>2022-06-04T18:17:31+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -490,28 +752,28 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/histoire/rome/</loc>
-    <lastmod>2022-03-25T13:32:50+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/misc/histoire/rome/</loc>
+    <lastmod>2022-04-24T18:17:33+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/shift-project/</loc>
-    <lastmod>2022-01-29T16:35:10+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/shift-project/shift-project/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/societe/societe/</loc>
-    <lastmod>2022-02-13T18:31:23+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/misc/societe/</loc>
+    <lastmod>2022-04-24T18:17:33+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/societe/s%C3%A9curit%C3%A9/</loc>
+    <loc>https://lebrunthibault.github.io/post/misc/s%C3%A9curit%C3%A9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -523,15 +785,15 @@
   </url>
   
   <url>
-    <loc>https://lebrunthibault.github.io/post/ecology/the-shifters/</loc>
-    <lastmod>2022-01-29T16:35:10+01:00</lastmod>
+    <loc>https://lebrunthibault.github.io/post/ecologie/shift-project/the-shifters/</loc>
+    <lastmod>2022-05-01T15:06:53+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/dev/ubuntu/</loc>
-    <lastmod>2022-04-06T17:29:34+02:00</lastmod>
+    <lastmod>2022-06-02T18:49:10+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -552,7 +814,7 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/post/dev/windows-tricks/</loc>
-    <lastmod>2022-01-21T11:07:19+01:00</lastmod>
+    <lastmod>2022-07-29T19:57:18+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

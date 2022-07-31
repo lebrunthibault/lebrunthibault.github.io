@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/design-patterns/book-review-head-first-design-patterns/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-04-01T20:53:25+02:00" />
+<meta property="article:modified_time" content="2022-04-09T17:22:00+01:00" />
 
 <meta itemprop="name" content="Head first design patterns">
 <meta itemprop="description" content="and excerpts from https://refactoring.">
-<meta itemprop="dateModified" content="2022-04-01T20:53:25+02:00" />
-<meta itemprop="wordCount" content="4034">
+<meta itemprop="dateModified" content="2022-04-09T17:22:00+01:00" />
+<meta itemprop="wordCount" content="4310">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Head first design patterns"/>
 <meta name="twitter:description" content="and excerpts from https://refactoring."/>
@@ -118,8 +118,8 @@
 
         <div class="post-meta">
             
-            <span class="more-meta"> 19 mins read </span> <br>
-            <span class="date-info italic">Edited on 01.04.2022</span>
+            <span class="more-meta"> 21 mins read </span> <br>
+            <span class="date-info italic">Edited on 09.04.2022</span>
         </div>
     </header>
 
@@ -229,12 +229,8 @@
     </li>
     <li><a href="#10-the-state-of-things">10. The state of things</a>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#state-machine">State machine</a></li>
-            <li><a href="#the-pattern">The pattern</a></li>
-          </ul>
-        </li>
+        <li><a href="#state-vs-strategy">State vs Strategy</a></li>
+        <li><a href="#questions">Questions</a></li>
       </ul>
     </li>
     <li><a href="#other-patterns">Other patterns</a>
@@ -322,6 +318,7 @@
 <li>Tight coupling between subject and observer classes</li>
 <li>Synchronous</li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220408172023833.png?token=AEHIPTIAUVR6FQGXP6TNF73CKBJP4" alt="image-20220408172023833"></p>
 <h3 id="is-publish--subscribe-an-observer-pattern-">Is publish / subscribe an observer pattern ?</h3>
 <blockquote>
 <ul>
@@ -759,16 +756,54 @@ examples of “smart” command objects that implement most, if not all, of the 
 <li>Caching : cache the results of an operation done often</li>
 </ul>
 <h1 id="10-the-state-of-things">10. The state of things</h1>
+<p>PB :</p>
+<ul>
+<li>we have multiple states</li>
+<li>and multiple actions</li>
+<li>we try to move from an imperative if else checking each state in each action to an OO pattern that is open / closed and encapsulate what varies</li>
+</ul>
 <blockquote>
 <p>Useful to structure multiple possible actions on an object having state</p>
-<p>Instead of checking the state of the object we isolate the actions in a class per state and kindof let the object do the work.</p>
+<p>Instead of checking the state of the object we isolate the actions in a class per state and let the object do the work.</p>
 </blockquote>
-<h3 id="state-machine">State machine</h3>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409121407763.png?token=AEHIPTO3HC5RM4QELD3WSNLCKFOLM" alt="image-20220409121407763" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409121509532.png?token=AEHIPTOO4UPBFU3T5OZJ3Z3CKFOPE" alt="image-20220409121509532" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409121857858.png?token=AEHIPTPP5ZMCD2ZJW4I54PTCKFO5M" alt="image-20220409121857858" style="zoom:67%;" />
+<p>NB :</p>
 <ul>
-<li>A state machine is composed of states and transitions between those states</li>
-<li>Only certain transitions are allowed</li>
+<li>when an action is called on the Context class it delegates to the current state</li>
+<li>we pass the instance of the context object to each state so that a state action can modify the state of the context</li>
 </ul>
-<h3 id="the-pattern">The pattern</h3>
+<p><img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409122553259.png?token=AEHIPTIYQAOBA67FEVDSNKDCKFPXM" alt="image-20220409122553259"></p>
+<img src="https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220409122731304.png?token=AEHIPTMOVJXZA3VQ4OROZOLCKFP5S" alt="image-20220409122731304" style="zoom:67%;" />
+<h2 id="state-vs-strategy">State vs Strategy</h2>
+<ul>
+<li>same class diagram but different intents</li>
+<li>with State
+<ul>
+<li>we have a set of behaviors encapsulated in state objects; at any time the context is delegating to one of those states.</li>
+<li>the context’s behavior changes over time as well</li>
+<li>The client usually knows very little, if anything, about the state objects</li>
+</ul>
+</li>
+<li>With Strategy
+<ul>
+<li>the client usually specifies the strategy object that the context is composed with</li>
+<li>Now, while the pattern provides the flexibility to change the strategy object at runtime, often there is a strategy object that is most appropriate for a context object</li>
+</ul>
+</li>
+<li>Strategy == flexible alternative to subclassing</li>
+<li>State ==  alternative to putting lots of conditionals in your context</li>
+</ul>
+<h2 id="questions">Questions</h2>
+<ul>
+<li>It&rsquo;s up to the developer to decide if the context or state classes change the state. When the transitions are more dynamic it makes sense to put them in the State class.</li>
+<li>Disadvantage of putting transitions between state classes is coupling (minimized by using getters on context instead of concrete state classes)</li>
+<li>Notice that by making this decision, you are making a decision as to which classes are closed for modification— the Context or the state classes—as the system evolves</li>
+<li>Clients should never interact with the state</li>
+<li>Possible to share state objects between contexts if they are stateless</li>
+<li>State can be an interface or an abstract class</li>
+</ul>
 <h1 id="other-patterns">Other patterns</h1>
 <h3 id="bridge">Bridge</h3>
 <p>Useful when the code can be organized around two class hierarchies:</p>
