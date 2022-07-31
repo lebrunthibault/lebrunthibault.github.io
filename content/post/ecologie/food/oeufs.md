@@ -1,9 +1,6 @@
-- [Statistiques oeufs France](https://www.oeuf-info.fr/infos-filiere/les-chiffres-cles/#:~:text=La%20France%20confirme%20ainsi%20sa,l'Espagne%20(13%20%25).)
-
-
-
 # Chiffres France
 
+- [Statistiques oeufs France](https://www.oeuf-info.fr/infos-filiere/les-chiffres-cles/#:~:text=La%20France%20confirme%20ainsi%20sa,l'Espagne%20(13%20%25).)
 - en 2020 + 5% de production
 - 15,7 milliards d'oeuf produits (1ere place en UE) / 116 milliards d'oeuf de consommation niveau monde
 - 64% des poules pondeuses en élevage alternatifs (hors cage)

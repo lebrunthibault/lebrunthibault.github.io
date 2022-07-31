@@ -1,9 +1,6 @@
-
-
-- PATH : sauver et remettre (au moins C:\bin et C:\Users\thiba\dev\scripts\scripts)
-
 ### Windows
 
+- PATH : sauver et remettre (au moins C:\bin et C:\Users\thiba\dev\scripts\scripts)
 - [Geek uninstaller](https://geekuninstaller.com/download) (apps & windows apps - fast)
 - ubuntu
 - windows terminal profiles
@@ -31,6 +28,10 @@
 
 ### Python
 
+- env file of all projects
+- Sentry, environment can only contain strings : need to set SENTRY_RELEASE env var : get it [here](https://sentry.io/organizations/thibaultlebrun/releases/?project=6573865)
+- Are venv outdated ? Restore them including blog
+
 #### Pycharm
 
 - pycharm content roots. Readd : 
@@ -38,8 +39,9 @@
   - C:\Users\thiba\dev\ableton\AbletonLive-API-Stub\
 - pycharm external tools
 - pycharm settings (please export to file before refresh). Or enable sync and then disable it because it slows down the os
-- French dictionnary : download [here](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206844865-Spelling-Use-a-French-dictionary)
+- French dictionnary : download [here](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206844865-Spelling-Use-a-French-dictionary). Or better use editor > natural languages from Settings
 - Custom dictionnary (typos) : export
+- external tools config : [don't forget quotes](https://github.com/psf/black/issues/1299)
 
 
 
