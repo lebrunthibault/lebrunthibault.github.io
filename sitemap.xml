@@ -10,14 +10,14 @@
   
   <url>
     <loc>https://lebrunthibault.github.io/</loc>
-    <lastmod>2022-07-31T20:00:34+02:00</lastmod>
+    <lastmod>2022-08-01T12:36:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lebrunthibault.github.io/post/</loc>
-    <lastmod>2022-07-31T20:00:34+02:00</lastmod>
+    <lastmod>2022-08-01T12:36:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -123,6 +123,13 @@
   <url>
     <loc>https://lebrunthibault.github.io/post/backend-development/git/</loc>
     <lastmod>2022-06-15T17:06:53+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lebrunthibault.github.io/post/backend-development/hugo/</loc>
+    <lastmod>2022-08-01T12:36:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
