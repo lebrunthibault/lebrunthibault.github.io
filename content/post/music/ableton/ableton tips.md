@@ -75,3 +75,14 @@ It could be that it sends binary data to the synth that does not work with the l
 
 
 
+# Performance
+
+- [See my device / set performance measurements](https://docs.google.com/spreadsheets/d/1m4vL2dqWhx6PyerJknqP2iwtY84NHFEjbPKmC1VfdUE/edit#gid=1201393626)
+- See [this interesting reddit](https://www.reddit.com/r/ableton/comments/w8w2mg/a_quest_for_optimal_ableton_performance/)
+- Display in 1080p instead of 4k ?
+- disable windows security real time protection ?
+
+# Options.txt
+
+- [See this reddit for all options](https://www.reddit.com/r/ableton/comments/g377ms/full_list_of_optionstxt_commands_for_ableton_live/)
+- [List of options available in Live 11](https://github.com/ibekso/medium/blob/main/article_ressources/options_txt/lists/options_available_live_11.txt)

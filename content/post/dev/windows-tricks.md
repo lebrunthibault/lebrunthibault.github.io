@@ -70,3 +70,9 @@ Remove hiberfile.sys ? https://www.commentcamarche.net/informatique/windows/227-
 - See [this](https://appuals.com/how-to-run-a-computer-performance-benchmark-test-on-windows/)
 - Win-R : `perfmon /report` : general testing. Supposed to take 1 min but takes much longer (20 min ..?)
 - or [Prime95](https://www.mersenne.org/download/#download) : cpu tests
+
+
+
+# Cleaning steps
+
+- Defrag ssd with smart defrag 8 by IO bits

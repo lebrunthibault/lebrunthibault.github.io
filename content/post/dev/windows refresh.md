@@ -25,6 +25,7 @@
 - ProphetRev2 Editor : keep a copy : DO NOT REINSTALL on refresh
 - live user library : change location
 - See plugins reinstall links [here](https://docs.google.com/spreadsheets/d/14L4IwBuCZ3-GR_l-DN0vsgq_xhOSW_4kcWa5046AUW8/edit?usp=sharing)
+- Options.txt is wiped
 
 ### Python
 
