@@ -21,11 +21,15 @@
   - routing : ![image-20220727153821330](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20220727153821330.png?token=AEHIPTMBOA7HBZ7RAPB3GL3C4FAA4)
 - Loop Midi ports (names: see P0 backend Config) : P0_IN_MIDI, P0_IN_HTTP, P0_OUT, P0_BACKEND_LOOPBACK, REV2_AUX
 - midi remote scripts
-- stream deck profiles : -> saved here : C:\Users\thiba\google_drive\music\software presets\StreamDeck Elgato
 - ProphetRev2 Editor : keep a copy : DO NOT REINSTALL on refresh
 - live user library : change location
 - See plugins reinstall links [here](https://docs.google.com/spreadsheets/d/14L4IwBuCZ3-GR_l-DN0vsgq_xhOSW_4kcWa5046AUW8/edit?usp=sharing)
 - Options.txt is wiped
+
+### Stream deck
+
+- stream deck profiles : -> saved here : C:\Users\thiba\google_drive\music\software presets\StreamDeck Elgato
+- Activate debug mode with registry : [see doc](https://developer.elgato.com/documentation/stream-deck/sdk/create-your-own-plugin/#debugging-your-javascript-plugin)
 
 ### Python
 
