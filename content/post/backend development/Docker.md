@@ -30,3 +30,13 @@
 
 
 
+# Editing docker files / library files
+
+> Usually no editor is present in the container
+
+- See [this](https://stackoverflow.com/questions/30853247/how-do-i-edit-a-file-after-i-shell-to-a-docker-container)
+- Install vim
+
+  - Connect as root : `docker exec -u 0 -it mycontainer bash`
+- install vim
+- Use `docker cp`
