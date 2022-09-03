@@ -10,7 +10,7 @@ keywords:
   - Python
 ---
 
-> This is technical documentation for my [Protocol0 Ableton control surface script](https://github.com/lebrunthibault/Protocol-0-Surface-Script). Context and goals on the [GitHub readme](https://github.com/lebrunthibault/Protocol-0-Surface-Script). Some global remote scripting tips in [this google doc](https://docs.google.com/document/d/1-r0w2E3IJiEtCIoQ9j-vnXadDUHAbiswE_HJ5iOh0Yk/edit?usp=sharing)
+> This is technical documentation for my [Protocol0 Ableton control surface script](https://github.com/lebrunthibault/Protocol-0-Surface-Script). Context and goals on the [GitHub readme](https://github.com/lebrunthibault/Protocol-0-Surface-Script).
 
 This doc is here to shed some light on the script’s object model, 
 a few techniques I’ve set up, and the tools I’m using for development. 
