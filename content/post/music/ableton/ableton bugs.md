@@ -18,6 +18,7 @@
 if there is no Midi recevied
 
 - Check the headphones 2 out is full volume on the soundcard
+- Check the routing in Scarlett Mix Control. Daw 3 to output 5 & 6
 
 if there is garbage midi received
 
