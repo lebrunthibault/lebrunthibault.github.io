@@ -15,10 +15,14 @@
 
 ### Launch the test mode using focusrite midi (in any set)
 
-if there is no Midi recevied
+if there is no Midi received
 
 - Check the headphones 2 out is full volume on the soundcard
 - Check the routing in Scarlett Mix Control. Daw 3 to output 5 & 6
+
+if midi is received from other tracks:
+
+- Check the soundcard config. Usamo input should be from DAW 3
 
 if there is garbage midi received
 
