@@ -5,4 +5,3 @@
 - Sugar bytes : Turnado
 - Cableguys : Shaperbox
 - Polyverse : Gatekeeper
-- Polyverse
