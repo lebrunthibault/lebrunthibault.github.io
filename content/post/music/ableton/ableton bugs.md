@@ -19,6 +19,7 @@ if there is no Midi received
 
 - Check the headphones 2 out is full volume on the soundcard
 - Check the routing in Scarlett Mix Control. Daw 3 to output 5 & 6
+- Power cycle the whole plug
 
 if midi is received from other tracks:
 
