@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebrunthibault.github.io/post/backend-development/git/" /><meta property="article:section" content="post" />
 
-<meta property="article:modified_time" content="2022-06-15T17:06:53+02:00" />
+<meta property="article:modified_time" content="2022-09-15T19:33:32+02:00" />
 
 <meta itemprop="name" content="">
 <meta itemprop="description" content="Submodules  Voir doc git See this  Problèmes rencontrés  Ne jamais mettre le dossier du submodule dans le gitignore  Installation  git submodule add https://github.">
-<meta itemprop="dateModified" content="2022-06-15T17:06:53+02:00" />
-<meta itemprop="wordCount" content="244">
+<meta itemprop="dateModified" content="2022-09-15T19:33:32+02:00" />
+<meta itemprop="wordCount" content="420">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="Submodules  Voir doc git See this  Problèmes rencontrés  Ne jamais mettre le dossier du submodule dans le gitignore  Installation  git submodule add https://github."/>
@@ -119,7 +119,7 @@
         <div class="post-meta">
             
             <span class="more-meta"> 2 mins read </span> <br>
-            <span class="date-info italic">Edited on 15.06.2022</span>
+            <span class="date-info italic">Edited on 15.09.2022</span>
         </div>
     </header>
 
@@ -143,12 +143,21 @@
         </li>
       </ul>
     </li>
-    <li><a href="#subtreehttpswwwatlassiancomgittutorialsgit-subtree"><a href="https://www.atlassian.com/git/tutorials/git-subtree">Subtree</a></a>
+    <li><a href="#subtreehttpswwwatlassiancomgittutorialsgit-subtree"><a href="https://www.atlassian.com/git/tutorials/git-subtree">Subtree</a></a></li>
+    <li><a href="#forking">Forking</a></li>
+    <li><a href="#heading"></a>
       <ul>
-        <li><a href="#forking">Forking</a></li>
+        <li><a href="#setup">Setup</a></li>
+        <li><a href="#local-work-on-the-fork">Local work on the fork</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#deploying-a-new-version-of-the-sqladmin-package">Deploying a new version of the sqladmin package</a></li>
       </ul>
     </li>
     <li><a href="#pypi">Pypi</a></li>
+    <li><a href="#working-with-a-fork">Working with a fork</a></li>
   </ul>
 </nav>
   </div>
@@ -201,7 +210,7 @@
 <li>transparent for deploy and other devs</li>
 <li>slightly harder to contribute upstream</li>
 </ul>
-<h2 id="forking">Forking</h2>
+<h1 id="forking">Forking</h1>
 <ul>
 <li>can contribute back just by doing a regular pull request to the upstream repo</li>
 <li>forked repo should be configured to pull changes from the original upstream repo  <strong>by adding a remote</strong> (see <a href="https://www.youtube.com/watch?v=a_FLqX3vGR4">this</a>) : <code>git remote add upstream &lt;upstream_repo&gt;</code></li>
@@ -214,47 +223,67 @@
 <li>on dev sur main sur le fork</li>
 <li>on sync l’upstream dans main</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<h1 id="heading"></h1>
+<h2 id="setup">Setup</h2>
+<ul>
+<li>Create your ~/.pypirc with creds</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[distutils]
+</span></span><span class="line"><span class="cl">index-servers =
+</span></span><span class="line"><span class="cl">    pypi
+</span></span><span class="line"><span class="cl">    testpypi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[pypi]
+</span></span><span class="line"><span class="cl">repository = https://upload.pypi.org/legacy/
+</span></span><span class="line"><span class="cl">username = thibaultlebrun
+</span></span><span class="line"><span class="cl">password = &lt;pass&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[testpypi]
+</span></span><span class="line"><span class="cl">repository = https://test.pypi.org/legacy/
+</span></span><span class="line"><span class="cl">username = thibaultlebrun
+</span></span><span class="line"><span class="cl">password = &lt;pass&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="local-work-on-the-fork">Local work on the fork</h2>
+<ul>
+<li><code>git clone git@github.com:Kessel-Media/sqladmin.git sqladmin</code></li>
+<li><code>pipenv install -e sqladmin --skip-lock</code> : <a href="https://pipenv-fork.readthedocs.io/en/latest/basics.html">pipenv editable dependency</a></li>
+</ul>
+<blockquote>
+<p>The &ndash;skip-lock is there to don&rsquo;t mess with the Pipfile.lock and make things faster as locking is slow</p>
+</blockquote>
+<h4 id="syncing-upstream-changes-to-our-fork">Syncing upstream changes to our fork</h4>
+<ul>
+<li><code>cd sqladmin</code></li>
+<li><code>git remote add upstream git@github.com:aminalaee/sqladmin.git</code> (if not done)</li>
+<li>Pulling upstream changes <code>git pull upstream main</code></li>
+<li>pushing to our repo : <code>git push origin main</code></li>
+</ul>
+<h2 id="deploying-a-new-version-of-the-sqladmin-package">Deploying a new version of the sqladmin package</h2>
+<ul>
+<li>update the version number manually (<strong>setup.cfg</strong> and <strong><strong>init</strong>.py</strong>)</li>
+<li>the project uses <a href="https://hatch.pypa.io/latest/build/">hatch</a> project manager: install with <code>pip install hatch</code></li>
+<li>publish package with : <code>make sqladmin_publish</code></li>
+<li><code>pipenv update kessel.sqladmin</code> (this needs to be improved, does not work well with pipenv -e, right now we need rm -rf sqladmin and uninstall then reinstall)</li>
+</ul>
 <h1 id="pypi">Pypi</h1>
 <ul>
 <li><a href="https://towardsdatascience.com/create-your-own-python-package-and-publish-it-into-pypi-9306a29bc116">Create your own python package and publish it to pypi</a></li>
@@ -264,6 +293,7 @@
 <li>twine will read credentials from <code>~/.pypirc</code>: <a href="https://packaging.python.org/en/latest/specifications/pypirc/">see doc</a></li>
 <li>package name can be different than import names (like I did with sqladmin). Can happen <a href="https://stackoverflow.com/questions/54886143/why-are-some-python-package-names-different-than-their-import-name">in the following cases</a> :</li>
 </ul>
+<h1 id="working-with-a-fork">Working with a fork</h1>
 
     </div>
 

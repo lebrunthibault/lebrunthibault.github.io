@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> Sqlalchemy&#39;s session - Home</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Thibault Lebrun" /><meta name="description" content="Overview of how the sqlalchemy&#39;s session" /><meta name="keywords" content="Software development, Backend development, Database, Sqlalchemy, Python" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.2 with theme even" />
+
+
+<link rel="canonical" href="https://lebrunthibault.github.io/post/articles/sqlalchemys-session/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.1289be4fc6296c288db4a9b805f568bb0a4e955787fe892dff9e3aba3afd6403.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content=" Sqlalchemy&#39;s session" />
+<meta property="og:description" content="Overview of how the sqlalchemy&#39;s session" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebrunthibault.github.io/post/articles/sqlalchemys-session/" /><meta property="article:section" content="post" />
+
+<meta property="article:modified_time" content="2022-12-17T15:19:46+01:00" />
+
+<meta itemprop="name" content=" Sqlalchemy&#39;s session">
+<meta itemprop="description" content="Overview of how the sqlalchemy&#39;s session">
+<meta itemprop="dateModified" content="2022-12-17T15:19:46+01:00" />
+<meta itemprop="wordCount" content="307">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=" Sqlalchemy&#39;s session"/>
+<meta name="twitter:description" content="Overview of how the sqlalchemy&#39;s session"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Home</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          
+
+
+
+
+<article class="post">
+    
+    <header class="post-header">
+        <h1 class="post-title"> Sqlalchemy&#39;s session</h1>
+
+        <div class="post-meta">
+            
+            <span class="more-meta"> 2 mins read </span> <br>
+            <span class="date-info italic">Edited on 17.12.2022</span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#foreword">Foreword</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#general-database-connection-concepts">General database connection concepts</a>
+      <ul>
+        <li><a href="#internal-structure">Internal structure</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+        <h1 id="foreword">Foreword</h1>
+<p>As a backend developer, having a good grasp of database management is important.</p>
+<p>In python the standard orm is sqlalchemy and it introduces a number of technical concept, that can be sometimes obscure and somewhat not so clearly documented.</p>
+<p>The central sqlalchemy object we manipulate in userland backend code is the session object.</p>
+<p>Let’s introduce what a sqlalchemy session is, and some simple and advanced use cases</p>
+<p>I’ll quote the documentation regularly and reformulate some parts.</p>
+<h1 id="introduction">Introduction</h1>
+<blockquote>
+<p>the primary usage interface for persistence operations is the <a href="https://docs.sqlalchemy.org/en/14/orm/session_api.html#sqlalchemy.orm.Session"><code>Session</code></a>.</p>
+</blockquote>
+<ul>
+<li>A session is a “holding zone” for all the objects which you’ve loaded (e.g. via <code>session.query()</code>)or associated (e.g. via <code>session.add()</code>) with it during its lifespan</li>
+<li>sessions are lightweight objects that cannot be shared between processes / threads. A process can also create multiple sessions.</li>
+</ul>
+<h1 id="general-database-connection-concepts">General database connection concepts</h1>
+<p>See <a href="https://stackoverflow.com/questions/34322471/sqlalchemy-engine-connection-and-session-difference">stack</a></p>
+<p>Sqlalchemy uses different objects to handle connection and maps orm objects changes.</p>
+<p><strong>Engine</strong> and <strong>Connection</strong> objects are low level and allows raw sql execution <strong>and are therefore almost never used in a classic orm usage</strong></p>
+<blockquote>
+<p>When using the SQLAlchemy ORM, the public API for transaction control is via the <a href="https://docs.sqlalchemy.org/en/14/orm/session_api.html#sqlalchemy.orm.Session"><code>Session</code></a> object</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Engine</strong> : low level, It <a href="http://docs.sqlalchemy.org/en/latest/core/pooling.html">maintains a pool of connections</a>. Can be used to execute raw sql</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM tablename;&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>Connection</strong>: does the work of executing a SQL query. You should do this whenever you want greater control over attributes of the connection, when it gets closed. Useful for handling e.g. a <a href="http://docs.sqlalchemy.org/en/rel_1_0/core/connections.html#using-transactions">Transaction</a> when using raw sql</p>
+</li>
+<li>
+<p><strong>Session</strong>: higher level objects using connections and transactions under the hood to run their automatically-generated SQL statements.</p>
+<p><code>session.execute</code> forwards the raw sql to it’s engine / connection</p>
+</li>
+</ul>
+<h2 id="internal-structure">Internal structure</h2>
+<ul>
+<li>The <a href="https://docs.sqlalchemy.org/en/14/orm/session_api.html#sqlalchemy.orm.Session"><code>Session</code></a> may be constructed on its own or by using the <a href="https://docs.sqlalchemy.org/en/14/orm/session_api.html#sqlalchemy.orm.sessionmaker"><code>sessionmaker</code></a> class. It typically is passed a single <a href="https://docs.sqlalchemy.org/en/14/core/connections.html#sqlalchemy.engine.Engine"><code>Engine</code></a> as a source of connectivity up front.</li>
+</ul>
+
+    </div>
+
+    
+<footer class="post-footer">
+        </footer>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+    <a href="https://github.com/lebrunthibault" class="iconfont icon-github" title="github"></a>
+    <a href="https://www.linkedin.com/in/thibault-lebrun/" class="iconfont icon-linkedin" title="linkedin"></a>
+    <a href="mailto:thibaultlebrun@live.fr" class="iconfont icon-email" title="email"></a>
+    <a href="https://lebrunthibault.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
+
+
+
+</body>
+</html>
