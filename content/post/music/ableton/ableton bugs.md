@@ -15,9 +15,15 @@
 
 ### Launch the test mode using focusrite midi (in any set)
 
-if there is no Midi recevied
+if there is no Midi received
 
 - Check the headphones 2 out is full volume on the soundcard
+- Check the routing in Scarlett Mix Control. Daw 3 to output 5 & 6
+- Power cycle the whole plug
+
+if midi is received from other tracks:
+
+- Check the soundcard config. Usamo input should be from DAW 3
 
 if there is garbage midi received
 
@@ -74,4 +80,13 @@ NB : the midi thru is normally never in cause, no need to check the cables
 # Clips are duplicated on the wrong scene
 
 - See https://trello.com/c/kMrRJEBn/646-try-to-reproduce-ctrl-c-ctrl-v-not-copying-clips-on-right-scene
-- remove some tracks and ctrl-z 
+- remove some tracks and ctrl-z
+- or reload set
+
+# Ableton freezes and cannot be killed
+
+- restart the computer
+
+# Vsts disabled
+
+- [Vst rescan button + Alt](https://forum.ableton.com/viewtopic.php?t=171579)

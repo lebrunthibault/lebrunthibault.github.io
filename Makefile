@@ -1,4 +1,4 @@
-.PHONY: dev build algolia upgrade push
+.PHONY: dev build upgrade push
 
 include .env
 export $(shell sed 's/=.*//' .env)
@@ -9,9 +9,6 @@ dev:
 
 build:
 	${PYTHON} start_dev_server.py --build
-
-algolia:
-	${PYTHON} algolia/index_documents.py
 
 upgrade:
 	choco upgrade hugo-extended -confirm

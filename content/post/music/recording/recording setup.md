@@ -4,9 +4,17 @@
 
 
 
-And [diagram here](https://app.diagrams.net/#G1O35YGEMWm0MctmqZmRg2sVx-kob9ZtqC)
+And [diagram here](https://drive.google.com/file/d/1jtHC-VHDElpSy9Xa5egbTuwwFAkC_uYb/view?usp=sharing)
 
+# Ableton midi setup
 
+![image-20221015194314958](https://raw.githubusercontent.com/lebrunthibault/images_bucket/master/img/image-20221015194314958.png?token=AEHIPTNDPOFO44GXB2NIIXTDJMGZC)
+
+# Recording not working
+
+- check prophet rev2 editor activated
+- check prophet master volume
+- check usamo
 
 # Detailed configuration:
 

@@ -1,3 +1,5 @@
+# Links
+
 - See [Evaluating the carbon footprint of a software platform hosted in the cloud](https://medium.com/teads-engineering/evaluating-the-carbon-footprint-of-a-software-platform-hosted-in-the-cloud-e716e14e060c)
 - [Developers Can Save The Planet, Part I: The Problem](https://marmelab.com/blog/2020/09/21/web-developer-climate-change.html)
 - [Developers Can Save The Planet, Part II: The Solution](https://marmelab.com/blog/2020/09/22/developers-save-the-planet-the-solution.html)

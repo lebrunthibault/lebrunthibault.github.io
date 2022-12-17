@@ -1,19 +1,19 @@
 ---
-title: " Software development principles"
-description: "My software development principles notes"
-prod: true
-draft: true
+date: "2022-01-01"
+description: My software development principles notes
 keywords:
   - Software development
   - Backend development
   - Design patterns
+title: Software development principles
+prod: true
+draft: true
 ---
 
 
 > I'm focusing on the languages I've used most : Python and PHP.
 >
 > I've structured this document as going from lower level development techniques to higher level concepts like design patterns.
-
 
 
 # Type layers
