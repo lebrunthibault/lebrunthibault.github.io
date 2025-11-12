@@ -3,11 +3,7 @@ title: "The Shifters"
 draft: true
 ---
 
-
-
 # The Shifters
-
-
 
 ### Différence Shift Project et The Shifters
 

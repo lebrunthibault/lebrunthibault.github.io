@@ -125,7 +125,8 @@ copyright = ""            # default: author.name
   [params.social]
     a-github = "https://github.com/lebrunthibault"
     b-linkedin = "https://www.linkedin.com/in/thibault-lebrun/"
-    c-email = "mailto:thibaultlebrun@live.fr"
+    c-link = "https://www.malt.fr/profile/thibaultlebrun"
+    d-email = "mailto:thibaultlebrun@live.fr"
 
 # See https://gohugo.io/about/hugo-and-gdpr/
 [privacy]
