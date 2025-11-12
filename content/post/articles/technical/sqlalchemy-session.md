@@ -1,17 +1,17 @@
 ---
-title: "Sqlalchemy's session"
-description: "Overview of the inner workings of an sqlalchemy session"
 prod: true
 draft: false
+title: Sqlalchemy's session
+category: Backend development
+description: Overview of the inner workings of an sqlalchemy session
 keywords:
   - Software development
   - Backend development
   - Database
   - Sqlalchemy
   - Python
+date: "2022-01-01"
 ---
-
-
 
 # Foreword
 

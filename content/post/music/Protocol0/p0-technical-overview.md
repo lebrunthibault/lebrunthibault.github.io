@@ -1,13 +1,14 @@
 ---
-date: "2022-01-01"
+prod: true
+category: Projects
 title: " Protocol0 technical overview"
 description: "Protocol0 Ableton Surface Script technical overview and discussion"
-prod: true
 keywords:
   - Ableton 
   - Ableton Remote Script
   - Ableton Control Surface Script
   - Python
+date: "2022-01-01"
 ---
 
 > This is technical documentation for my [Protocol0 Ableton control surface script](https://github.com/lebrunthibault/Protocol-0-Surface-Script). Context and goals on the [GitHub readme](https://github.com/lebrunthibault/Protocol-0-Surface-Script).

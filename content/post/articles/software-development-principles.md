@@ -1,13 +1,14 @@
 ---
-date: "2022-01-01"
+prod: true
+draft: false
+title: Software development principles
+category: Backend development
 description: My software development principles notes
 keywords:
   - Software development
   - Backend development
   - Design patterns
-title: Software development principles
-prod: true
-draft: true
+date: "2022-01-01"
 ---
 
 
