@@ -1,8 +1,8 @@
 ---
-title: " Sqlalchemy's session"
-description: "Overview of how the sqlalchemy's session"
+title: "Sqlalchemy's session"
+description: "Overview of the inner workings of an sqlalchemy session"
 prod: true
-draft: true
+draft: false
 keywords:
   - Software development
   - Backend development
@@ -58,7 +58,7 @@ Sqlalchemy uses different objects to handle connection and maps orm objects chan
 
 - **Session**: higher level objects using connections and transactions under the hood to run their automatically-generated SQL statements.
 
-  `session.execute` forwards the raw sql to it’s engine / connection
+  `session.execute` forwards the raw sql to its engine / connection
 
 ## Internal structure
 

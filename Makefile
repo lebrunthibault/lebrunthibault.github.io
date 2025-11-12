@@ -1,19 +1,10 @@
-.PHONY: dev build upgrade push
-
-include .env
-export $(shell sed 's/=.*//' .env)
-PYTHON=./venv/Scripts/python.exe
+.PHONY: dev build update-theme
 
 dev:
-	${PYTHON} start_dev_server.py --dev
+	hugo server -D
 
 build:
-	${PYTHON} start_dev_server.py --build
+	hugo -D
 
-upgrade:
-	choco upgrade hugo-extended -confirm
-
-push:
-	git add .
-	git commit -a -m "change"
-	git push
+update-theme:
+	cd themes/even && git pull origin master
