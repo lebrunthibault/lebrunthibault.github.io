@@ -1,13 +1,16 @@
 ---
-title: "Design Patterns"
+prod: true
+draft: false
+title: "Design Patterns Portfolio"
 description: "Notes bout design patterns"
 keywords:
   - Software development
   - Backend development
   - Design patterns
+date: "2022-01-01"
 ---
 
-# Design patterns currently used in projects
+# Design patterns currently used in projects I've worked on
 
 
 
@@ -111,7 +114,7 @@ keywords:
 
 In basile
 
-- NB : in basile we use messages as commands but it’s messsage handlers that connect to a specific receiver and not client code
+- NB : in basile we use messages as commands but it’s message handlers that connect to a specific receiver and not client code
 - We could use commands to wire up some frontend and backoffice features but how do we serialize the command in the front ? 
 
 

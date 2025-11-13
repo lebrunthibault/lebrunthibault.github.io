@@ -2,7 +2,6 @@
 prod: true
 draft: false
 title: Software development principles
-category: Backend development
 description: My software development principles notes
 keywords:
   - Software development

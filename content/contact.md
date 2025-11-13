@@ -2,17 +2,17 @@
 title: "Contact"
 date: 2025-01-01
 menu: "main"
-weight: 10
+weight: 20
 ---
 
-# Get in Touch
+# Me contacter
 
-Feel free to reach out to me through any of the following channels:
+N'hésitez pas à me contacter via l'un des canaux suivants :
 
 ## Email
 [thibaultlebrun@live.fr](mailto:thibaultlebrun@live.fr)
 
-## Professional Networks
+## Réseaux pro
 
 - **LinkedIn**: [linkedin.com/in/thibault-lebrun](https://www.linkedin.com/in/thibault-lebrun/)
 - **Malt**: [malt.fr/profile/thibaultlebrun](https://www.malt.fr/profile/thibaultlebrun)
@@ -20,4 +20,6 @@ Feel free to reach out to me through any of the following channels:
 
 ---
 
-I'm available for freelance projects, consulting, and collaborations.
+Je suis disponible pour des projets freelance de toute taille, en autonomie ou intégré à une équipe.
+
+N'hésitez pas à me contacter et nous pourrons discuter de votre besoin.

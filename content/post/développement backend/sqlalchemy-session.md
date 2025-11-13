@@ -2,7 +2,6 @@
 prod: true
 draft: false
 title: Sqlalchemy's session
-category: Backend development
 description: Overview of the inner workings of an sqlalchemy session
 keywords:
   - Software development

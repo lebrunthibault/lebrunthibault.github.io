@@ -1,0 +1,44 @@
+{{- define "title" -}}
+Blog
+{{- end -}}
+
+{{- define "content" -}}
+  <section id="posts" class="posts">
+    {{- $posts := where .Site.RegularPages "Type" "post" }}
+    {{- $posts = where $posts ".Params.prod" true }}
+    {{- $posts = where $posts ".Params.draft" "!=" true }}
+    {{- $posts = where $posts ".Params.hOiddenfromhomepage" "!=" true }}
+
+    {{/* Group posts by category inferred from directory structure */}}
+    {{- $.Scratch.Set "categories" slice }}
+    {{- range $posts }}
+      {{- $path := .File.Dir }}
+      {{- $parts := split $path "/" }}
+      {{- $cat := "Uncategorized" }}
+      {{- if gt (len $parts) 1 }}
+        {{- $cat = index $parts 1 }}
+      {{- end }}
+      {{- if not (in ($.Scratch.Get "categories") $cat) }}
+        {{- $.Scratch.Add "categories" $cat }}
+      {{- end }}
+    {{- end }}
+
+    {{/* Display posts grouped by category */}}
+    {{- range $category := $.Scratch.Get "categories" }}
+      <div class="category-section">
+        <h2 class="category-title">{{ $category | title }}</h2>
+        {{- range $posts }}
+          {{- $path := .File.Dir }}
+          {{- $parts := split $path "/" }}
+          {{- $postCat := "Uncategorized" }}
+          {{- if gt (len $parts) 1 }}
+            {{- $postCat = index $parts 1 }}
+          {{- end }}
+          {{- if eq $postCat $category }}
+            <h3><a href="{{ .Permalink }}">{{ cond (eq (.Title) "") .File.Path .Title }}</a></h3>
+          {{- end }}
+        {{- end }}
+      </div>
+    {{- end }}
+  </section>
+{{- end -}}

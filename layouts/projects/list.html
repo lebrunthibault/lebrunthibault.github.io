@@ -1,0 +1,32 @@
+{{ define "content" }}
+<article class="page">
+  <header class="page-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+  </header>
+
+  <div class="page-content">
+    {{ .Content }}
+  </div>
+
+  <section id="projects" class="projects-list">
+    {{- $projects := where .Site.RegularPages "Section" "projects" }}
+    {{- range $projects }}
+      <article class="project-item">
+        <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+        {{- if .Description }}
+          <p class="project-description">{{ .Description }}</p>
+        {{- else if .Summary }}
+          <p class="project-description">{{ .Summary }}</p>
+        {{- end }}
+        {{- if .Params.keywords }}
+          <div class="project-tags">
+            {{- range .Params.keywords }}
+              <span class="tag">{{ . }}</span>
+            {{- end }}
+          </div>
+        {{- end }}
+      </article>
+    {{- end }}
+  </section>
+</article>
+{{ end }}

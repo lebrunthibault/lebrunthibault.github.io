@@ -1,28 +1,22 @@
+{{- define "title" -}}
+Thibault Lebrun
+{{- end -}}
+
 {{- define "content" -}}
-  <section id="posts" class="posts">
-    {{- $posts := where (where .Site.RegularPages "Type" "post") ".Params.prod" true }}
-    {{- $posts = where $posts ".Params.hOiddenfromhomepage" "!=" true }}
+  <section class="homepage">
+    <img src="/img/profile.jpg" alt="Thibault Lebrun" style="width: 300px; margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;">
 
-    {{/* Group posts by category using Scratch */}}
-    {{- $.Scratch.Set "categories" slice }}
-    {{- range $posts }}
-      {{- $cat := .Params.category | default "Uncategorized" }}
-      {{- if not (in ($.Scratch.Get "categories") $cat) }}
-        {{- $.Scratch.Add "categories" $cat }}
-      {{- end }}
-    {{- end }}
-
-    {{/* Display posts grouped by category */}}
-    {{- range $category := $.Scratch.Get "categories" }}
-      <div class="category-section">
-        <h2 class="category-title">{{ $category }}</h2>
-        {{- range $posts }}
-          {{- $postCat := .Params.category | default "Uncategorized" }}
-          {{- if eq $postCat $category }}
-            <h3><a href="{{ .Permalink }}">{{ cond (eq (.Title) "") .File.Path .Title }}</a></h3>
-          {{- end }}
-        {{- end }}
-      </div>
-    {{- end }}
+    <h3>
+      Développement de plateformes web modernes et responsables
+    </h3>
+    <p>
+      Développeur web fullstack / backend senior (9 ans d'expérience), je conçois et développe des plateformes web et des backends robustes et performants en Python, Node.js ou PHP.
+    </p>
+    <p>
+      Vous pouvez consulter mes projets principaux sur la rubrique <a href="/projects">projets</a>.
+    </p>
+    <p>
+      Consultez mon <a href="/post">blog</a> pour en savoir plus sur ma manière de travailler.
+    </p>
   </section>
 {{- end -}}

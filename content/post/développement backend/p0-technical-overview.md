@@ -1,13 +1,13 @@
 ---
 prod: true
-category: Projects
 title: " Protocol0 technical overview"
 description: "Protocol0 Ableton Surface Script technical overview and discussion"
 keywords:
   - Ableton 
   - Ableton Remote Script
-  - Ableton Control Surface Script
   - Python
+  - REST API
+  - Open API
 date: "2022-01-01"
 ---
 
