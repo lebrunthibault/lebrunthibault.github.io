@@ -1056,14 +1056,14 @@ blockquote {
   color: rgb(52 73 94 / var(--tw-text-opacity));
 }
 
+.text-\[\#444\] {
+  --tw-text-opacity: 1;
+  color: rgb(68 68 68 / var(--tw-text-opacity));
+}
+
 .text-\[\#555\] {
   --tw-text-opacity: 1;
   color: rgb(85 85 85 / var(--tw-text-opacity));
-}
-
-.text-\[\#666\] {
-  --tw-text-opacity: 1;
-  color: rgb(102 102 102 / var(--tw-text-opacity));
 }
 
 .text-gray-700 {
@@ -1129,7 +1129,7 @@ blockquote {
 
   font-display: swap;
 
-  size-adjust: 105%;
+  size-adjust: 107%;
 
   src: url('/fonts/montserrat-300.woff2') format('woff2');
 }
@@ -1143,7 +1143,7 @@ blockquote {
 
   font-display: swap;
 
-  size-adjust: 105%;
+  size-adjust: 107%;
 
   src: url('/fonts/montserrat-400.woff2') format('woff2');
 }
@@ -1157,7 +1157,7 @@ blockquote {
 
   font-display: swap;
 
-  size-adjust: 105%;
+  size-adjust: 107%;
 
   src: url('/fonts/montserrat-500.woff2') format('woff2');
 }
@@ -1171,7 +1171,7 @@ blockquote {
 
   font-display: swap;
 
-  size-adjust: 105%;
+  size-adjust: 107%;
 
   src: url('/fonts/montserrat-600.woff2') format('woff2');
 }
@@ -1185,7 +1185,7 @@ blockquote {
 
   font-display: swap;
 
-  size-adjust: 105%;
+  size-adjust: 107%;
 
   src: url('/fonts/montserrat-700.woff2') format('woff2');
 }

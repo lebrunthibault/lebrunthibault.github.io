@@ -8,24 +8,27 @@
 
   <section class="mt-6 sm:mt-8 md:mt-10">
     {{- $projects := where .Site.RegularPages "Section" "projects" }}
-    {{- range $projects }}
-    <a href="{{ .Permalink }}">
-      <div class="card px-4 sm:px-6 md:px-8 py-3 sm:py-4 mb-4 sm:mb-6 border-primary shadow-md bg-neutral-primary{{ if .Params.background }} relative overflow-hidden{{ end }}">
-        {{- if .Params.background }}
-        <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('/img/{{ .Params.background }}');"></div>
+    {{- range $index, $project := $projects }}
+    <a href="{{ $project.Permalink }}">
+      <div class="card px-4 sm:px-6 md:px-8 py-3 sm:py-4 mb-4 sm:mb-6 border-primary shadow-md bg-neutral-primary{{ if $project.Params.background }} relative overflow-hidden{{ end }}">
+        {{- if $project.Params.background }}
+        <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('/img/{{ $project.Params.background }}');"></div>
+        {{- if eq $index 0 }}
+        <link rel="preload" as="image" href="/img/{{ $project.Params.background }}" fetchpriority="high">
+        {{- end }}
         {{- end }}
         <div class="relative z-10">
           <h3 class="mt-0 text-[#2e4170]">
-              {{ .Title }}
+              {{ $project.Title }}
           </h3>
-          {{- if .Description }}
-            <p class="text-[#333] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ .Description }}</p>
-          {{- else if .Summary }}
-            <p class="text-[#333] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ .Summary }}</p>
+          {{- if $project.Description }}
+            <p class="text-[#333] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ $project.Description }}</p>
+          {{- else if $project.Summary }}
+            <p class="text-[#333] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ $project.Summary }}</p>
           {{- end }}
-          {{- if .Params.keywords }}
+          {{- if $project.Params.keywords }}
             <div class="flex gap-2 flex-wrap">
-              {{- range .Params.keywords }}
+              {{- range $project.Params.keywords }}
                 {{ partial "components/tag.html" (dict "text" .) }}
               {{- end }}
             </div>
