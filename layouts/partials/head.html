@@ -56,10 +56,9 @@
 <!--{{- end -}}-->
 
 <!-- Styles -->
-<!--{{ $tailwind := resources.Get "css/main.css" | postCSS | minify | fingerprint }}-->
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-{{ $tailwind := resources.Get "css/output.css" | minify | fingerprint }}
-<link href="{{ $tailwind.RelPermalink }}" rel="stylesheet">
+{{ $styles := resources.Get "css/output.css" | minify | fingerprint }}
+<link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
 <!--{{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}-->
 <!--<link href="{{ $style.RelPermalink }}" rel="stylesheet">-->
 {{ if .Site.Params.publicCDN.enable -}}

@@ -132,11 +132,6 @@ Main Hugo configuration with key settings:
 - Prism.js syntax highlighting library
 - Client-side code highlighting for `<pre><code>` blocks
 
-**Included via CDN** (in `/layouts/partials/scripts.html`):
-- jQuery 3.2.1
-- Slideout (mobile menu)
-- FancyBox 3.1.20 (image lightbox)
-
 ## Special Features & Customizations
 
 ### Dev Mode

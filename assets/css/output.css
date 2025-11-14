@@ -873,10 +873,6 @@ blockquote {
   height: 48px;
 }
 
-.h-4 {
-  height: 24px;
-}
-
 .w-5 {
   width: 32px;
 }
@@ -891,10 +887,6 @@ blockquote {
 
 .w-full {
   width: 100%;
-}
-
-.w-4 {
-  width: 24px;
 }
 
 .max-w-full {
@@ -1126,7 +1118,67 @@ blockquote {
   transition-duration: 150ms;
 }
 
-/* Google Fonts - Montserrat */
+/* Self-hosted Montserrat font */
+
+@font-face {
+  font-family: 'Montserrat';
+
+  font-style: normal;
+
+  font-weight: 300;
+
+  font-display: swap;
+
+  src: url('/fonts/montserrat-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+
+  font-style: normal;
+
+  font-weight: 400;
+
+  font-display: swap;
+
+  src: url('/fonts/montserrat-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  font-display: swap;
+
+  src: url('/fonts/montserrat-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+
+  font-style: normal;
+
+  font-weight: 600;
+
+  font-display: swap;
+
+  src: url('/fonts/montserrat-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+
+  font-style: normal;
+
+  font-weight: 700;
+
+  font-display: swap;
+
+  src: url('/fonts/montserrat-700.woff2') format('woff2');
+}
 
 /* Force Montserrat everywhere */
 
@@ -1160,14 +1212,6 @@ blockquote {
 
   .sm\:mt-8 {
     margin-top: 2rem;
-  }
-
-  .sm\:h-6 {
-    height: 48px;
-  }
-
-  .sm\:w-6 {
-    width: 48px;
   }
 
   .sm\:max-w-xl {
