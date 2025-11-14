@@ -7,11 +7,12 @@
   <div class="page-content">
     {{ .Content }}
   </div>
+  <div class="badge badge-primary">Badge</div>
 
   <section id="projects" class="mt-10">
     {{- $projects := where .Site.RegularPages "Section" "projects" }}
     {{- range $projects }}
-      <article class="mb-10 pb-8 border-b border-[#e0e0e0] last:border-b-0">
+      <div class="card mb-10 pb-8 border-b border-[#e0e0e0] last:border-b-0">
         <h2 class="text-2xl font-semibold mb-4">
           <a href="{{ .Permalink }}" class="text-[#0066cc] no-underline transition-all duration-200 hover:text-[#0052a3] hover:underline">
             {{ .Title }}
@@ -29,7 +30,7 @@
             {{- end }}
           </div>
         {{- end }}
-      </article>
+      </div>
     {{- end }}
   </section>
 </article>
