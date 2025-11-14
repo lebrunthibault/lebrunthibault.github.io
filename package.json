@@ -9,7 +9,13 @@
   "dependencies": {
     "atomic-algolia": "^0.3.19"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.17"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "algolia": "atomic-algolia"

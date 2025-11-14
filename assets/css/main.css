@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Google Fonts - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Fix mobile navbar icon - Tailwind resets can break hamburger menu */
+.mobile-navbar-icon {
+  cursor: pointer !important;
+  display: block !important;
+}
+
+.mobile-navbar-icon span {
+  position: absolute !important;
+  left: calc((100% - 20px) / 2) !important;
+  top: calc((100% - 1px) / 2) !important;
+  width: 20px !important;
+  height: 1px !important;
+  background-color: #c05b4d !important;
+  display: block !important;
+}
+
+.mobile-navbar-icon span:nth-child(1) {
+  transform: translateY(6px) rotate(0deg) !important;
+}
+
+.mobile-navbar-icon span:nth-child(3) {
+  transform: translateY(-6px) rotate(0deg) !important;
+}
