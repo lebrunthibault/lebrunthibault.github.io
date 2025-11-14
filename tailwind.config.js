@@ -5,8 +5,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Montserrat', 'sans-serif']
+      },
+      maxWidth: {
+        'content': '800px'
       }
     }
   },
-  plugins: [require('daisyui')]
 };

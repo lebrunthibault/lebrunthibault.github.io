@@ -15,14 +15,14 @@
 </head>
 <body class="min-h-screen">
   {{ partial "slideout.html" . }}
-  <div class="container min-h-screen" id="mobile-panel">
+  <div class="max-w-content mx-auto px-4">
     {{ if not .Params.hideHeaderAndFooter -}}
     <header id="header" class="header">
         {{ partial "header.html" . }}
     </header>
     {{- end }}
 
-    <main id="main" class="main flex-1">
+    <main id="main">
       <div class="content-wrapper">
         <div id="content" class="content">
           {{ block "content" . }}{{ end }}
