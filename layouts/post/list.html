@@ -26,7 +26,7 @@ Blog
     {{/* Display posts grouped by category */}}
     {{- range $category := $.Scratch.Get "categories" }}
       <div class="mb-12">
-        <h2 class="text-3xl font-semibold mb-6 text-[#333] border-b-2 border-[#e0e0e0] pb-2">{{ $category | title }}</h2>
+        <h1>{{ $category | title }}</h1>
         {{- range $posts }}
           {{- $path := .File.Dir }}
           {{- $parts := split $path "/" }}
@@ -35,11 +35,25 @@ Blog
             {{- $postCat = index $parts 1 }}
           {{- end }}
           {{- if eq $postCat $category }}
-            <h3 class="my-3 text-lg font-normal leading-relaxed">
-              <a href="{{ .Permalink }}" class="text-[#0066cc] no-underline transition-all duration-200 hover:text-[#0052a3] hover:underline">
-                {{ cond (eq (.Title) "") .File.Path .Title }}
-              </a>
+        <a href="{{ .Permalink }}">
+          <div class="card px-8 py-4 mb-6 border-primary shadow-md bg-neutral-primary">
+            <h3 class="mt-0">
+              {{ .Title }}
             </h3>
+            {{- if .Description }}
+            <p class="text-[#666] text-base leading-relaxed mb-4">{{ .Description }}</p>
+            {{- else if .Summary }}
+            <p class="text-[#666] text-base leading-relaxed mb-4">{{ .Summary }}</p>
+            {{- end }}
+            {{- if .Params.keywords }}
+            <div class="flex gap-2 flex-wrap">
+              {{- range .Params.keywords }}
+              {{ partial "components/tag.html" (dict "text" .) }}
+              {{- end }}
+            </div>
+            {{- end }}
+          </div>
+        </a>
           {{- end }}
         {{- end }}
       </div>

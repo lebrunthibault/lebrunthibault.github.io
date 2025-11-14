@@ -1,11 +1,11 @@
 ---
 prod: true
 draft: false
-title: "Design Patterns Portfolio"
-description: "Notes bout design patterns"
+title: ⚙️ Design Patterns Portfolio
+description: Mes notes de l'époque où je trouvais que l'orienté objet c'était vraiment génial
 keywords:
   - Software development
-  - Backend development
+  - Object oriented programming
   - Design patterns
 date: "2022-01-01"
 ---

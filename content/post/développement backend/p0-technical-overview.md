@@ -3,8 +3,8 @@ prod: true
 title: " Protocol0 technical overview"
 description: "Protocol0 Ableton Surface Script technical overview and discussion"
 keywords:
+  - Electronic music
   - Ableton 
-  - Ableton Remote Script
   - Python
   - REST API
   - Open API

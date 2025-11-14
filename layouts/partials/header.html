@@ -1,19 +1,51 @@
-<nav class="site-navbar" style="float: left">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
+<nav class="py-3 mb-3">
+  <ul id="menu" class="flex items-center gap-6 text-lg">
+    <li>
       <a class="menu-item-link" href="{{ "/" | relLangURL }}">
-        {{- if .Site.Params.logoTitle -}}
-          {{ .Site.Params.logoTitle }}
-        {{- else -}}
-          {{ .Site.Title }}
-        {{- end -}}
+      {{- if .Site.Params.logoTitle -}}
+      {{ .Site.Params.logoTitle }}
+      {{- else -}}
+      {{ .Site.Title }}
+      {{- end -}}
       </a>
-
     </li>
     {{ range .Site.Menus.main -}}
-      <li class="menu-item">
-        <a class="menu-item-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
-      </li>
+    <li>
+      <a class="menu-item-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
+    </li>
     {{- end }}
   </ul>
 </nav>
+
+<style>
+.menu-item-link {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: #374151; /* gray-700 */
+  transition: color 0.2s ease-out;
+}
+
+.menu-item-link::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  height: 2px;
+  bottom: 0;
+  left: 51%;
+  right: 51%;
+  background: #C05B4D;
+  transition-duration: 0.2s;
+  transition-property: right, left;
+  transition-timing-function: ease-out;
+}
+
+.menu-item-link:hover::before,
+.menu-item-link:focus::before,
+.menu-item-link:active::before {
+  right: 0;
+  left: 0;
+}
+
+</style>

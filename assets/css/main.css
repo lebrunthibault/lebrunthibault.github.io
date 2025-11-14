@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Google Fonts - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Force Montserrat everywhere */
+@layer base {
+    * {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    h1 {
+        @apply text-2xl mt-4 mb-4;
+    }
+    h2 {
+        @apply text-xl mt-3 mb-3;
+        font-weight: 500;
+    }
+    h3 {
+        @apply text-lg mt-2 mb-2;
+    }
+    h4 {
+        @apply text-base mt-3 mb-2;
+    }
+    h5 {
+        @apply text-sm mt-2 mb-1;
+    }
+    h6 {
+        @apply text-sm mt-2 mb-1;
+    }
+
+    main section {
+        a {
+            @apply transition-all duration-200 border-b-2 border-primary hover:border-secondary
+        }
+
+    }
+
+    article {
+        .post-content a {
+            @apply transition-all duration-200 border-b-2 border-primary hover:border-secondary
+        }
+        ul {
+            list-style-type: "- ";
+            @apply pl-6;
+        }
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        @apply mb-1;
+    }
+
+    blockquote {
+        @apply p-2 my-2 border-s-4 border-primary;
+    }
+
+    #TableOfContents {
+        > ul > li {
+            @apply mb-2;
+        }
+        ul {
+            a {
+                @apply inline-block hover:bg-gray-200 px-2 rounded
+            }
+            ul {
+                @apply pl-6;
+                a {
+                    @apply text-sm;
+                }
+            }
+        }
+
+    }
+}

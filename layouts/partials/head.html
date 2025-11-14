@@ -33,7 +33,7 @@
 {{ with .Site.Params.googleVerification }}<meta name="google-site-verification" content="{{.}}" />{{ end }}
 
 <!-- Site Generator -->
-<meta name="generator" content="Hugo {{ .Site.Hugo.Version }} with theme even" />
+<meta name="generator" content="Hugo {{ .Site.Hugo.Version }}" />
 
 <!-- Permalink & RSSlink -->
 <link rel="canonical" href="{{ .Permalink }}" />
@@ -50,16 +50,18 @@
 <link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | relURL }}" color="#5bbad5">
 
 <!-- debug -->
-{{- if .Site.Params.debug -}}
-<script src="https://cdn.jsdelivr.net/npm/eruda@1.2.6/eruda.min.js" integrity="sha256-Jmz4bc3kp+rRrXX2tGadNBKFLwtzMapr8kHABxSAAP8=" crossorigin="anonymous"></script>
-<script>eruda.init();</script>
-{{- end -}}
+<!--{{- if .Site.Params.debug -}}-->
+<!--<script src="https://cdn.jsdelivr.net/npm/eruda@1.2.6/eruda.min.js" integrity="sha256-Jmz4bc3kp+rRrXX2tGadNBKFLwtzMapr8kHABxSAAP8=" crossorigin="anonymous"></script>-->
+<!--<script>eruda.init();</script>-->
+<!--{{- end -}}-->
 
 <!-- Styles -->
-{{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
-<link href="{{ $style.RelPermalink }}" rel="stylesheet">
-{{ $tailwind := resources.Get "css/main.css" | postCSS | minify | fingerprint }}
+<!--{{ $tailwind := resources.Get "css/main.css" | postCSS | minify | fingerprint }}-->
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+{{ $tailwind := resources.Get "css/output.css" | minify | fingerprint }}
 <link href="{{ $tailwind.RelPermalink }}" rel="stylesheet">
+<!--{{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}-->
+<!--<link href="{{ $style.RelPermalink }}" rel="stylesheet">-->
 {{ if .Site.Params.publicCDN.enable -}}
   {{ if .Site.Params.fancybox }}{{ .Site.Params.publicCDN.fancyboxCSS | safeHTML }}{{ end }}
 {{- else -}}
@@ -71,17 +73,14 @@
 <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
 {{ end }}
 
-{{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/spf13/hugo/blob/master/tpl/tplimpl/template_embedded.go#L158 */}}
-{{- template "_internal/opengraph.html" . -}}
-{{- template "_internal/schema.html" . -}}
-{{- template "_internal/twitter_cards.html" . -}}
 
-<!-- Polyfill for old browsers -->
-{{ `<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->` | safeHTML }}
 
-{{ `<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->` | safeHTML }}
+<!--&lt;!&ndash; Polyfill for old browsers &ndash;&gt;-->
+<!--{{ `&lt;!&ndash;[if lte IE 9]>-->
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>-->
+<!--<![endif]&ndash;&gt;` | safeHTML }}-->
+
+<!--{{ `&lt;!&ndash;[if lt IE 9]>-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>-->
+<!--<![endif]&ndash;&gt;` | safeHTML }}-->

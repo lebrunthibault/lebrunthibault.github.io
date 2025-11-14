@@ -1,10 +1,10 @@
-.PHONY: dev build update-theme
+.PHONY: dev build css
 
 dev:
 	hugo server -D
 
+css:
+	npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --watch
+
 build:
 	hugo -D
-
-update-theme:
-	cd themes/even && git pull origin master

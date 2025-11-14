@@ -2,11 +2,11 @@
 prod: true
 draft: false
 title: Software development principles
-description: My software development principles notes
+description: Mes grandes réflexions sur la beauté insondable d'une simple ligne de code
 keywords:
-  - Software development
   - Backend development
   - Design patterns
+  - Bible ✝️
 date: "2022-01-01"
 ---
 
