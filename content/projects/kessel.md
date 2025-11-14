@@ -8,6 +8,7 @@ keywords:
   - React.js
   - Algolia
   - AWS
+background: journal.jpeg
 ---
 
 # kessel.media, dev backend lead

@@ -1,13 +1,14 @@
 ---
 title: "Protocol 0, script pour Ableton Live"
 date: 2024-01-01
-description: "Script de customisation avancé pour controller Ableton Live"
+description: Script de customisation avancé pour Ableton Live
 keywords:
   - Ableton
   - Ableton Remote Script
   - Python
   - REST API
   - Open API
+background: mixer.jpg
 ---
 
 # Protocol 0

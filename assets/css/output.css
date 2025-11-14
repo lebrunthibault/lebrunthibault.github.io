@@ -715,8 +715,16 @@ blockquote {
   position: relative;
 }
 
+.inset-0 {
+  inset: 0px;
+}
+
 .isolate {
   isolation: isolate;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .mx-auto {
@@ -825,6 +833,10 @@ blockquote {
   gap: 48px;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -851,6 +863,14 @@ blockquote {
 .bg-\[\#f0f0f0\] {
   --tw-bg-opacity: 1;
   background-color: rgb(240 240 240 / var(--tw-bg-opacity));
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .px-3 {
@@ -927,6 +947,43 @@ blockquote {
 .text-\[\#666\] {
   --tw-text-opacity: 1;
   color: rgb(102 102 102 / var(--tw-text-opacity));
+}
+
+.text-\[\#333\] {
+  --tw-text-opacity: 1;
+  color: rgb(51 51 51 / var(--tw-text-opacity));
+}
+
+.text-\[\#222\] {
+  --tw-text-opacity: 1;
+  color: rgb(34 34 34 / var(--tw-text-opacity));
+}
+
+.text-\[\#414D6A\] {
+  --tw-text-opacity: 1;
+  color: rgb(65 77 106 / var(--tw-text-opacity));
+}
+
+.text-\[\#292c35\] {
+  --tw-text-opacity: 1;
+  color: rgb(41 44 53 / var(--tw-text-opacity));
+}
+
+.text-\[\#2e4170\] {
+  --tw-text-opacity: 1;
+  color: rgb(46 65 112 / var(--tw-text-opacity));
+}
+
+.opacity-20 {
+  opacity: 0.2;
+}
+
+.opacity-10 {
+  opacity: 0.1;
+}
+
+.opacity-25 {
+  opacity: 0.25;
 }
 
 .shadow-md {

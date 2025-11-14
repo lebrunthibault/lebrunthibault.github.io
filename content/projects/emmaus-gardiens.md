@@ -7,6 +7,7 @@ keywords:
   - Vue.js
   - Projet solo
   - Management d'équipe
+background: buildings.jpg
 draft: true
 ---
 

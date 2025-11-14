@@ -1,7 +1,7 @@
 ---
 prod: true
-title: " Protocol0 technical overview"
-description: "Protocol0 Ableton Surface Script technical overview and discussion"
+title: 🎵 Protocol0 - deep dive
+description: Une plongée dans les détails techniques de ma botte secrète pour produire des hits house
 keywords:
   - Electronic music
   - Ableton 

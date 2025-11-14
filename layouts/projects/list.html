@@ -10,22 +10,27 @@
     {{- $projects := where .Site.RegularPages "Section" "projects" }}
     {{- range $projects }}
     <a href="{{ .Permalink }}">
-      <div class="card px-8 py-4 mb-6 border-primary shadow-md bg-neutral-primary">
-        <h3 class="mt-0">
-            {{ .Title }}
-        </h3>
-        {{- if .Description }}
-          <p class="text-[#666] text-base leading-relaxed mb-4">{{ .Description }}</p>
-        {{- else if .Summary }}
-          <p class="text-[#666] text-base leading-relaxed mb-4">{{ .Summary }}</p>
+      <div class="card px-8 py-4 mb-6 border-primary shadow-md bg-neutral-primary{{ if .Params.background }} relative overflow-hidden{{ end }}">
+        {{- if .Params.background }}
+        <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('/img/{{ .Params.background }}');"></div>
         {{- end }}
-        {{- if .Params.keywords }}
-          <div class="flex gap-2 flex-wrap">
-            {{- range .Params.keywords }}
-              {{ partial "components/tag.html" (dict "text" .) }}
-            {{- end }}
-          </div>
-        {{- end }}
+        <div class="relative z-10">
+          <h3 class="mt-0 text-[#2e4170]">
+              {{ .Title }}
+          </h3>
+          {{- if .Description }}
+            <p class="text-[#333] text-base leading-relaxed mb-4">{{ .Description }}</p>
+          {{- else if .Summary }}
+            <p class="text-[#333] text-base leading-relaxed mb-4">{{ .Summary }}</p>
+          {{- end }}
+          {{- if .Params.keywords }}
+            <div class="flex gap-2 flex-wrap">
+              {{- range .Params.keywords }}
+                {{ partial "components/tag.html" (dict "text" .) }}
+              {{- end }}
+            </div>
+          {{- end }}
+        </div>
       </div>
     </a>
     {{- end }}
@@ -33,3 +38,5 @@
   </section>
 </article>
 {{ end }}
+
+
