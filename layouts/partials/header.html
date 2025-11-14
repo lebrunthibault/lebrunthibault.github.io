@@ -1,17 +1,36 @@
 <nav class="py-3 mb-3">
-  <ul id="menu" class="flex items-center gap-6 text-lg">
-    <li>
-      <a class="menu-item-link" href="{{ "/" | relLangURL }}">
+  <div class="flex justify-between items-center">
+    <!-- Logo/Title -->
+    <a class="menu-item-link text-base sm:text-lg font-semibold" href="{{ "/" | relLangURL }}">
       {{- if .Site.Params.logoTitle -}}
       {{ .Site.Params.logoTitle }}
       {{- else -}}
       {{ .Site.Title }}
       {{- end -}}
-      </a>
-    </li>
+    </a>
+
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 hover:text-primary transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <!-- Desktop menu -->
+    <ul class="hidden md:flex items-center gap-4 lg:gap-6 text-base lg:text-lg">
+      {{ range .Site.Menus.main -}}
+      <li>
+        <a class="menu-item-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+
+  <!-- Mobile menu (hidden by default) -->
+  <ul id="mobile-menu" class="hidden md:hidden flex-col gap-4 mt-4 text-base">
     {{ range .Site.Menus.main -}}
     <li>
-      <a class="menu-item-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
+      <a class="menu-item-link block py-2" href="{{ .URL | safeURL }}">{{ .Name }}</a>
     </li>
     {{- end }}
   </ul>
@@ -47,5 +66,18 @@
   right: 0;
   left: 0;
 }
-
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+      });
+    }
+  });
+</script>

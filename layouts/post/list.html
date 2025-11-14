@@ -3,7 +3,7 @@ Blog
 {{- end -}}
 
 {{- define "content" -}}
-  <section id="posts" class="mt-10">
+  <section id="posts" class="mt-6 sm:mt-8 md:mt-10">
     {{- $posts := where .Site.RegularPages "Type" "post" }}
     {{- $posts = where $posts ".Params.prod" true }}
     {{- $posts = where $posts ".Params.draft" "!=" true }}
@@ -25,7 +25,7 @@ Blog
 
     {{/* Display posts grouped by category */}}
     {{- range $category := $.Scratch.Get "categories" }}
-      <div class="mb-12">
+      <div class="mb-8 sm:mb-10 md:mb-12">
         <h1>{{ $category | title }}</h1>
         {{- range $posts }}
           {{- $path := .File.Dir }}
@@ -36,14 +36,14 @@ Blog
           {{- end }}
           {{- if eq $postCat $category }}
         <a href="{{ .Permalink }}">
-          <div class="card px-8 py-4 mb-6 border-primary shadow-md bg-neutral-primary">
+          <div class="card px-4 sm:px-6 md:px-8 py-3 sm:py-4 mb-4 sm:mb-6 border-primary shadow-md bg-neutral-primary">
             <h3 class="mt-0">
               {{ .Title }}
             </h3>
             {{- if .Description }}
-            <p class="text-[#666] text-base leading-relaxed mb-4">{{ .Description }}</p>
+            <p class="text-[#666] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ .Description }}</p>
             {{- else if .Summary }}
-            <p class="text-[#666] text-base leading-relaxed mb-4">{{ .Summary }}</p>
+            <p class="text-[#666] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ .Summary }}</p>
             {{- end }}
             {{- if .Params.keywords }}
             <div class="flex gap-2 flex-wrap">
