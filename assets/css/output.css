@@ -423,7 +423,7 @@ video {
 }
 
 * {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
   font-weight: 400;
 }
 
@@ -1129,6 +1129,8 @@ blockquote {
 
   font-display: swap;
 
+  size-adjust: 105%;
+
   src: url('/fonts/montserrat-300.woff2') format('woff2');
 }
 
@@ -1140,6 +1142,8 @@ blockquote {
   font-weight: 400;
 
   font-display: swap;
+
+  size-adjust: 105%;
 
   src: url('/fonts/montserrat-400.woff2') format('woff2');
 }
@@ -1153,6 +1157,8 @@ blockquote {
 
   font-display: swap;
 
+  size-adjust: 105%;
+
   src: url('/fonts/montserrat-500.woff2') format('woff2');
 }
 
@@ -1165,6 +1171,8 @@ blockquote {
 
   font-display: swap;
 
+  size-adjust: 105%;
+
   src: url('/fonts/montserrat-600.woff2') format('woff2');
 }
 
@@ -1176,6 +1184,8 @@ blockquote {
   font-weight: 700;
 
   font-display: swap;
+
+  size-adjust: 105%;
 
   src: url('/fonts/montserrat-700.woff2') format('woff2');
 }

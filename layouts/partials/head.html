@@ -55,6 +55,10 @@
 <!--<script>eruda.init();</script>-->
 <!--{{- end -}}-->
 
+<!-- Preload critical fonts -->
+<link rel="preload" href="/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat-500.woff2" as="font" type="font/woff2" crossorigin>
+
 <!-- Styles -->
 {{ $styles := resources.Get "css/output.css" | minify | fingerprint }}
 <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
