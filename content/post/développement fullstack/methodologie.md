@@ -10,6 +10,7 @@ keywords:
   - Méthodo
   - Stack web
 date: "2025-11-04"
+color: "#ba8b92"
 ---
 
 <br>

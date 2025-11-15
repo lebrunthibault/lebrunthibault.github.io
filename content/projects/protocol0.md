@@ -9,6 +9,7 @@ keywords:
   - REST API
   - Open API
 background: mixer.jpg
+logo: logo_ableton.jpeg
 ---
 
 # Protocol 0

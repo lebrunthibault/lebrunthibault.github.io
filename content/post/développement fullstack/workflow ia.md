@@ -9,6 +9,7 @@ keywords:
   - Agent IA
   - LLM
 date: "2025-09-01"
+color: "#8ba5ba"
 ---
 
 # Les agents IA, un pouvoir qui implique des responsabilités

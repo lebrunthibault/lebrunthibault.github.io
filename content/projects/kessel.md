@@ -9,6 +9,7 @@ keywords:
   - Algolia
   - AWS
 background: journal.jpeg
+logo: logo_kessel.jpeg
 ---
 
 # kessel.media, dev backend lead

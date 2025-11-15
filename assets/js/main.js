@@ -1,18 +1,15 @@
-$(document).ready(function () {
-  Even.backToTop();
-  Even.mobileNavbar();
-  Even.toc();
-  Even.fancybox();
+// gestion du menu navbar mobile
+document.addEventListener('DOMContentLoaded', function() {
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', function() {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', !isExpanded);
+      menuButton.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu de navigation' : 'Fermer le menu de navigation');
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+  }
 });
-
-Even.responsiveTable();
-Even.flowchart();
-Even.sequence();
-
-if (window.hljs) {
-  hljs.initHighlighting();
-  Even.highlight();
-} else {
-  Even.chroma();
-}
-

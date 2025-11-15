@@ -8,6 +8,7 @@ keywords:
   - Projet solo
   - Management d'équipe
 background: buildings.jpg
+logo: logo_emmaus_habitat.jpeg
 ---
 
 # Ressource Seine, dev lead

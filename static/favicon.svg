@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- T minimaliste avec lignes géométriques -->
+  <g transform="translate(100, 100)">
+    <!-- Barre horizontale du T -->
+    <rect x="-60" y="-70" width="120" height="12" fill="#2563eb" rx="2"/>
+
+    <!-- Barre verticale du T -->
+    <rect x="-6" y="-70" width="12" height="140" fill="#2563eb" rx="2"/>
+
+    <!-- Accent moderne (petit carré en bas à droite) -->
+    <rect x="40" y="60" width="12" height="12" fill="#3b82f6" rx="2"/>
+  </g>
+</svg>

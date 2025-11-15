@@ -43,17 +43,9 @@
 {{- end -}}
 
 <!-- Favicon and Touch icons -->
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+<link rel="icon" type="image/png" href="{{ "img/logo.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "img/logo.png" | relURL }}">
 <link rel="manifest" href="{{ "manifest.json" | relURL }}">
-<link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | relURL }}" color="#5bbad5">
-
-<!-- debug -->
-<!--{{- if .Site.Params.debug -}}-->
-<!--<script src="https://cdn.jsdelivr.net/npm/eruda@1.2.6/eruda.min.js" integrity="sha256-Jmz4bc3kp+rRrXX2tGadNBKFLwtzMapr8kHABxSAAP8=" crossorigin="anonymous"></script>-->
-<!--<script>eruda.init();</script>-->
-<!--{{- end -}}-->
 
 <!-- Preload critical fonts -->
 <link rel="preload" href="/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -65,20 +57,6 @@
 {{ $styles := resources.Get "css/output.css" | minify | fingerprint }}
 <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
-<!--{{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}-->
-<!--<link href="{{ $style.RelPermalink }}" rel="stylesheet">-->
-<!--{{ if .Site.Params.publicCDN.enable -}}-->
-<!--  {{ if .Site.Params.fancybox }}{{ .Site.Params.publicCDN.fancyboxCSS | safeHTML }}{{ end }}-->
-<!--{{- else -}}-->
-<!--  {{ if .Site.Params.fancybox }}<link href="{{ "lib/fancybox/jquery.fancybox-3.1.20.min.css" | relURL }}" rel="stylesheet">{{ end }}-->
-<!--{{- end -}}-->
-
-<!-- custom css -->
-<!--{{ range .Site.Params.customCSS -}}-->
-<!--<link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">-->
-<!--{{ end }}-->
-
-
 
 <!--&lt;!&ndash; Polyfill for old browsers &ndash;&gt;-->
 <!--{{ `&lt;!&ndash;[if lte IE 9]>-->

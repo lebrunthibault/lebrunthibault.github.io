@@ -2,12 +2,13 @@
 prod: true
 draft: false
 title: ⚙️ Design Patterns Portfolio
-description: Mes notes de l'époque où je trouvais que l'orienté objet c'était vraiment génial
+description: Notes de l'époque où je trouvais que l'orienté objet c'était vraiment génial avant de me dire que c'est un truc de vieux
 keywords:
   - Software development
   - Object oriented programming
   - Design patterns
 date: "2022-01-01"
+color: "#bab28b"
 ---
 
 # Design patterns currently used in projects I've worked on

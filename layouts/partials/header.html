@@ -1,12 +1,8 @@
 <nav class="py-3 mb-3">
   <div class="flex justify-between items-center">
     <!-- Logo/Title -->
-    <a class="menu-item-link text-base sm:text-lg font-semibold" href="{{ "/" | relLangURL }}">
-      {{- if .Site.Params.logoTitle -}}
-      {{ .Site.Params.logoTitle }}
-      {{- else -}}
-      {{ .Site.Title }}
-      {{- end -}}
+    <a class="menu-item-link text-base sm:text-lg font-semibold flex items-center gap-2" href="{{ "/" | relLangURL }}">
+      <img src="/img/logo.png" alt="Logo" class="w-8 h-8">
     </a>
 
     <!-- Mobile menu button -->
@@ -68,5 +64,3 @@
 }
 </style>
 
-{{ $mobileMenu := resources.Get "js/mobile-menu.js" | minify | fingerprint }}
-<script src="{{ $mobileMenu.RelPermalink }}" defer></script>

@@ -1,6 +1,6 @@
 ---
 prod: true
-title: 🎵 Protocol0 - deep dive
+title: 🎵 Protocol0 - Deep dive
 description: Une plongée dans les détails techniques de ma botte secrète pour produire des hits house
 keywords:
   - Electronic music
@@ -9,6 +9,7 @@ keywords:
   - REST API
   - Open API
 date: "2022-01-01"
+color: "#b38bba"
 ---
 
 > This is technical documentation for my [Protocol0 Ableton control surface script](https://github.com/lebrunthibault/Protocol-0-Surface-Script). Context and goals on the [GitHub readme](https://github.com/lebrunthibault/Protocol-0-Surface-Script).

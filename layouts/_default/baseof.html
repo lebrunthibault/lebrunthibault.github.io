@@ -33,6 +33,9 @@
       {{ partial "footer.html" . }}
     {{- end }}
   </div>
-  {{ partial "scripts.html" . }}
+
+  <!-- JS -->
+  {{ $js := resources.Get "js/main.js" | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" defer></script>
 </body>
 </html>
