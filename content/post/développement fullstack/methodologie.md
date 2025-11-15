@@ -512,13 +512,13 @@ basculer sur Elasticsearch, que j’ai utilisé dans plusieurs projets.
 ## Sites Statiques (JAMstack)
 
 Parfois rien de tout ce que j’ai évoqué plus haut est nécessaire et seule une
-interface en Javascript est nécessaire. Dans ce cas précis (pas de bdd, pas de
+interface en Javascript suffit. Dans ce cas précis (pas de bdd, pas de
 logique serveur, d’utilisateurs etc), il est plus cohérent de déployer un site
 statique sur un CDN (type netlify ou Vercel) ce qui permet d’obtenir une haute
 disponibilité et d’excellentes performance pour un très faible coût en terme de
 dev.
 
-C’est le choix que j’ai fait pour ce blog ! ([Hugo](https://gohugo.io/), html sémantique, TailwindCSS, JS vanilla, CDN Github pages)
+C’est le choix que j’ai fait pour ce blog ! ([Hugo](https://gohugo.io/), html sémantique, TailwindCSS, JS vanilla, CDN Netlify)
 
 Dans le cas où il est nécessaire aux admins d’éditer du contenu régulièrement un
 CMS peut être préférable et intégrable de manière autonome ou associé à une
