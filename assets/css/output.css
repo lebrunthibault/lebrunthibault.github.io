@@ -434,6 +434,8 @@ html {
 h1 {
   margin-top: 24px;
   margin-bottom: 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -448,6 +450,8 @@ h1 {
 h2 {
   margin-top: 16px;
   margin-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
@@ -1085,6 +1089,10 @@ blockquote {
 
 .pt-3 {
   padding-top: 16px;
+}
+
+.pt-1 {
+  padding-top: 8px;
 }
 
 .text-center {

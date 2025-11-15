@@ -84,10 +84,10 @@
     }
 
     h1 {
-        @apply text-2xl sm:text-2xl mt-4 mb-4;
+        @apply text-2xl sm:text-2xl my-4 py-3;
     }
     h2 {
-        @apply text-xl sm:text-xl mt-3 mb-3;
+        @apply text-xl sm:text-xl my-3 py-3;
         font-weight: 500;
     }
     h3 {
