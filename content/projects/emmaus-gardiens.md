@@ -1,7 +1,7 @@
 ---
-title: "Recup gardiens, une plateforme Emmaüs Habitat"
+title: Recup gardiens, une plateforme RH Emmaüs Habitat
 date: 2025-03-01
-description: "Développement d'une plateforme de gestion des salaires dans l'habitat social"
+description: Développement d'une plateforme de gestion des salaires dans l'habitat social.
 keywords:
   - FastAPI
   - Vue.js
@@ -9,6 +9,7 @@ keywords:
   - Management d'équipe
 background: buildings.jpg
 logo: logo_emmaus_habitat.jpeg
+duration: 6 mois
 ---
 
 # Ressource Seine, dev lead

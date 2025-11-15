@@ -1,7 +1,7 @@
 ---
 title: "Kessel, plateforme d'édition numérique"
 date: 2025-03-01
-description: "Développement backend d'une plateforme d'édition numérique avec un fort traffic"
+description: Développement backend d'une plateforme d'édition numérique avec un fort traffic
 keywords:
   - FastAPI
   - Stripe
@@ -10,6 +10,7 @@ keywords:
   - AWS
 background: journal.jpeg
 logo: logo_kessel.jpeg
+duration: 1 an
 ---
 
 # kessel.media, dev backend lead

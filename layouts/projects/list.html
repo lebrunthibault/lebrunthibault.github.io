@@ -43,13 +43,19 @@
           {{- if $project.Description }}
             <p class="text-[#333] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ $project.Description }}</p>
           {{- end }}
-          {{- if $project.Params.keywords }}
+          <div class="flex justify-between">
+            {{- if $project.Params.keywords }}
             <div class="flex gap-2 flex-wrap">
               {{- range $project.Params.keywords }}
-                {{ partial "components/tag.html" (dict "text" .) }}
+              {{ partial "components/tag.html" (dict "text" .) }}
               {{- end }}
             </div>
-          {{- end }}
+            {{- end }}
+            {{- if .Params.duration }}
+            <span class="text-xs sm:text-sm px-2 py-1 bg-gray-100 rounded-xl opacity-50">{{ .Params.duration }}</span>
+            {{- end }}
+          </div>
+
         </div>
       </div>
     </a>

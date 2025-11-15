@@ -1,5 +1,5 @@
 ---
-title: "Ressource Seine, plateforme d'AgriParis Seine"
+title: Ressource Seine, plateforme à impact d'AgriParis Seine
 date: 2025-09-01
 description: "La plateforme de ressources d'AgriParis Seine pour les acteurs et actrices de l'alimentation durable dans le bassin de la Seine."
 keywords:
@@ -11,6 +11,7 @@ keywords:
   - RGPD
 background: vegetables.jpg
 logo: logo_aps.jpeg
+duration: 1 ans
 ---
 
 # Ressource Seine, dev lead

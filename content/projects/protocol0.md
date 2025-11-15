@@ -1,15 +1,16 @@
 ---
 title: "Protocol 0, script pour Ableton Live"
 date: 2024-01-01
-description: Script de customisation avancé pour Ableton Live
+description: Script de customisation avancé pour Ableton Live. Un projet technique af pour composer des hits house. 
 keywords:
   - Ableton
   - Ableton Remote Script
   - Python
   - REST API
   - Open API
-background: mixer.jpg
+background: piano.png
 logo: logo_ableton.jpeg
+duration: 3 ans
 ---
 
 # Protocol 0
@@ -32,6 +33,6 @@ J'ai écrit un article expliquant certains choix techniques du projet en particu
 
 - Python 3.11, FastAPI, Open API, Typescript
 
-## Links
+## Liens
 
 - <a href="https://github.com/lebrunthibault/protocol0" target="_blank" rel="noopener noreferrer">Repository GitHub</a>
