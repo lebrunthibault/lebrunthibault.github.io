@@ -23,8 +23,6 @@
           </h3>
           {{- if $project.Description }}
             <p class="text-[#333] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ $project.Description }}</p>
-          {{- else if $project.Summary }}
-            <p class="text-[#333] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ $project.Summary }}</p>
           {{- end }}
           {{- if $project.Params.keywords }}
             <div class="flex gap-2 flex-wrap">

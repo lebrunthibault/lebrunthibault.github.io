@@ -10,7 +10,6 @@ keywords:
   - OpenData
   - RGPD
 background: vegetables.jpg
-draft: true
 ---
 
 # Ressource Seine, dev lead

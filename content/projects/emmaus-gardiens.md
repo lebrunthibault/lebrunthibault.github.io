@@ -8,7 +8,6 @@ keywords:
   - Projet solo
   - Management d'équipe
 background: buildings.jpg
-draft: true
 ---
 
 # Ressource Seine, dev lead
