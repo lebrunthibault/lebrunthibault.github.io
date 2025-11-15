@@ -23,11 +23,13 @@
   </div>
 
   <!-- Mobile menu (hidden by default) -->
-  <ul id="mobile-menu" class="hidden md:hidden flex-col gap-4 mt-4 text-base">
+  <ul id="mobile-menu" class="hidden md:hidden flex-col gap-4 text-base">
     {{ range .Site.Menus.main -}}
-    <li>
-      <a class="menu-item-link block py-2" href="{{ .URL | safeURL }}">{{ .Name }}</a>
-    </li>
+    <a class="menu-item-link block py-2" href="{{ .URL | safeURL }}">
+      <li>
+        {{ .Name }}
+      </li>
+    </a>
     {{- end }}
   </ul>
 </nav>
