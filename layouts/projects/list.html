@@ -43,7 +43,8 @@
           {{- if $project.Description }}
             <p class="text-[#333] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ $project.Description }}</p>
           {{- end }}
-          <div class="flex justify-between">
+          <div class="grid grid-cols-[1fr_auto] items-end gap-x-4">
+            <!-- Tags -->
             {{- if $project.Params.keywords }}
             <div class="flex gap-2 flex-wrap">
               {{- range $project.Params.keywords }}
@@ -51,8 +52,12 @@
               {{- end }}
             </div>
             {{- end }}
+
+            <!-- Duration -->
             {{- if .Params.duration }}
-            <span class="text-xs sm:text-sm px-2 py-1 bg-gray-100 rounded-xl opacity-50">{{ .Params.duration }}</span>
+            <span class="text-xs sm:text-sm px-2 py-1 bg-gray-100 rounded-xl opacity-50 justify-self-end">
+    {{ .Params.duration }}
+  </span>
             {{- end }}
           </div>
 

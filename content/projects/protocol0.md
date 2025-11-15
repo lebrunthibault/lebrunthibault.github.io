@@ -4,7 +4,7 @@ date: 2024-01-01
 description: Script de customisation avancé pour Ableton Live. Un projet technique af pour composer des hits house. 
 keywords:
   - Ableton
-  - Ableton Remote Script
+  - Interfaces MIDI
   - Python
   - REST API
   - Open API

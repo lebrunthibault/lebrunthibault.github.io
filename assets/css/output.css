@@ -938,6 +938,10 @@ blockquote {
   list-style-type: disc;
 }
 
+.grid-cols-\[1fr_auto\] {
+  grid-template-columns: 1fr auto;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -948,6 +952,10 @@ blockquote {
 
 .items-start {
   align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
 }
 
 .items-center {
@@ -980,6 +988,15 @@ blockquote {
 
 .gap-4 {
   gap: 24px;
+}
+
+.gap-x-4 {
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}
+
+.justify-self-end {
+  justify-self: end;
 }
 
 .overflow-hidden {
