@@ -1,0 +1,8 @@
+{{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
+<div class="pt-2">
+<!--  <h2 class="mb-1 pb-1">{{ T "toc" }}</h2>-->
+  <div class="pr-3">
+    {{.TableOfContents}}
+  </div>
+</div>
+{{- end }}

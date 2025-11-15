@@ -1,9 +1,9 @@
 {{ define "content" -}}
-<!--<div class="ais-InstantSearch">-->
-<!--    <div id="search-bar"></div>-->
-<!--    <div id="hits"></div>-->
-<!--    <div id="pagination"></div>-->
-<!--</div>-->
+<!-- TOC Sidebar Desktop (Fixed position outside container) -->
+<aside id="toc-sidebar" class="hidden xl:block fixed top-24 w-[350px] max-h-[calc(100vh-7rem)] overflow-y-auto">
+    {{- partial "post/toc.html" . -}}
+</aside>
+
 <article>
     <!-- post-header -->
     <header>
@@ -24,14 +24,16 @@
         </div>
     </header>
 
-    <!-- TOC -->
-    {{- partial "post/toc.html" . -}}
+    <!-- TOC Mobile/Tablet -->
+    <div class="xl:hidden">
+        {{- partial "post/toc.html" . -}}
+    </div>
 
     <!-- Outdated Info Warning -->
     {{- partial "post/outdated-info-warning.html" . -}}
 
     <!-- Content -->
-    <div>
+    <div class="post-content">
         {{ .Content }}
     </div>
 
