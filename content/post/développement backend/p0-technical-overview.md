@@ -217,7 +217,7 @@ Using events is mandatory for any asynchronous stuff and usually useful for sync
   - Every time I feel the need to decouple stuff or emit events I create a simple object event and dispatch it
   - Any component can listen to any event and optionally check its payload (it's global state really but fine for this not so big codebase).
   - These events are integrated to the Sequence pattern (see below) allowing simple composition of events and actions
-  - I really like events more and more and I've used them quite a lot to decouple objects together, in a way not so far from js frameworks like vue.
+  - I really like events more and more and I've used them quite a lot to decouple objects together, in a way not so far from js frameworks like Vue.
 - NB : For closer scope low level events I'm also using the Observer pattern. 
 
 ## The Sequence class {#the-sequence-class}

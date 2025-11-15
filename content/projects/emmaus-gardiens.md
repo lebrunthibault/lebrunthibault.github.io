@@ -12,7 +12,7 @@ logo: logo_emmaus_habitat.jpeg
 duration: 6 mois
 ---
 
-# Ressource Seine, dev lead
+# Conception et développement complet d'une plateforme RH pour Emmaüs habitat
 
 J'ai développé une plateforme interne de gestion des salaires des gardiens dans le parc d'immeuble sociaux gérés par Emmaüs Habitat.
 
@@ -26,6 +26,7 @@ J'ai travaillé en totale autonomie et proposé en 30 jours une plateforme fonct
 - un export pdf à envoyer aux locataires
 - un système de rôle et de gestion des accès aux différentes pages.
 
+---------
 j'ai aussi onboardé 2 développeurs juniors sur le projet, les ai formés sur la codebase et ai supervisé leur travail pendant la durée de ma mission.
 
 ## Technologies utilisées

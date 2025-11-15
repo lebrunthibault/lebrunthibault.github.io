@@ -47,7 +47,7 @@ draft: true
 - architecture micro service (gg-secrets-explorartor, scanning-api, gg-secrets-vault) (4 ou 5 repos en tout)
 - scanning api en asynchrone
 - gestion efficace des flux de données tout en générateurs
-- docker
+- Docker
 
 
 

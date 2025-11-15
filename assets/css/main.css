@@ -116,13 +116,17 @@
         }
         ul {
             list-style-type: "- ";
-            @apply pl-6;
+            @apply pl-4;
         }
     }
 
     p {
         font-weight: 400;
         @apply text-sm sm:text-base mb-1;
+    }
+
+    hr {
+        @apply my-3;
     }
 
     blockquote {

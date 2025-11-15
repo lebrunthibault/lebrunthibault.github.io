@@ -27,7 +27,7 @@ ma contribution a notamment consisté à développer :
 ## Technologies utilisées
 
 - Le projet est codé en Node.js (back) et Vue.js / Quasar (front).
-- déploiement continu sur bitbucket, docker
+- déploiement continu sur Bitbucket, Docker
 
 
 ## Liens
