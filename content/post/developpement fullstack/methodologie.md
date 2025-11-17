@@ -379,6 +379,10 @@ Je suis d’accord avec ces pratiques et j’utilise donc l’approche utility-f
 [TailwindCSS](https://tailwindcss.com/)). Je les factorise le cas échéant avec
 des composants JS.
 
+## Site designers
+
+Je travaille régulièrement avec des site designers comme Figma et Webflow.
+
 # 🤝🏽 Une gestion de projet agile et inclusive
 
 ## Une gestion de projet agile et proche du client
