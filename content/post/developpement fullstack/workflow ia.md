@@ -12,7 +12,7 @@ date: "2025-09-01"
 color: "#8ba5ba"
 ---
 
-# Les agents IA, un pouvoir qui implique des responsabilités
+*Les agents IA, un pouvoir qui implique des responsabilités*
 
 Les agents IA ont débarqué il y a quelques mois dans le monde du développement
 et sont en train ~~de se préparer dans l'ombre à prendre le pouvoir et prévoient de faire de nous des esclaves regardant des vidéos de chats sur tiktok~~ d’opérer une vraie révolution tant leurs capacités sont
@@ -29,12 +29,14 @@ aussi évidente et bénéfique que ne le laisse penser les premières impression
 > j’ai décidé de faire un retour d’expérience et de parler de mon workflow avec
 > les agents IA, de ses avantages et ses limites.
 
-## Des questions éthiques
+# Questions éthiques
 
 Avant de discuter technique je tiens à aborder certaines questions éthiques
 entourant l’utilisation de ces outils.
 
-Tout d’abord concernant l’impact carbone. L’impact carbone d’un LLM comme Claude
+## 🌳 Impact carbone
+
+L’impact carbone d’un LLM comme Claude
 Sonnet peut être conséquent mais dépend énormément de l’usage. Aujourd’hui mon
 usage mensuel tourne autour de 10 millions de tokens soit
 
@@ -47,7 +49,7 @@ En résumé, ce n’est pas une catastrophe mais c’est un coût notable.
 
 **Pourquoi c’est acceptable ?**
 
-## Une utilisation sobre, pas du vibe coding 🤮
+## Effet rebond
 
 Tout est une question de mesure et d’impact. Là où l’utilisation de ces LLM peut
 être éthique c’est si elle vient remplacer le travail d’un dev sans effet rebond
@@ -64,16 +66,27 @@ libérer du temps pour un impact que j’estime encore faible à l’heure actue
 D’autres actions sont beaucoup plus significatives (comme manger végétarien ou
 ne pas prendre l’avion).
 
-D’autre part, mon positionnement en tant que dev expert et mon workflow avec une
-utilisation contrôlée préviennent une explosion des coûts. Quelles que soient
-les évolutions je compte garder le contrôle du code que je déploie et maintient
-aujourd’hui un équilibre développement manuel / agent IA favorable au manuel. \
-Sur beaucoup de sujets (et passé le tout premier MVP), rien ne va plus vite et
-ne génère un code aussi sémantique et maintenable qu’un développeur expérimenté.
+## Une utilisation sobre, pas du vibe coding 🤮
+
+Il est difficile de faire la part du vrai et du faux concernant ce terme de vibe coding censé
+représenter des développeurs qui ne codent presque plus que par IA.
+Ce n'est pas ce que j'ai observé autour de moi mais il va de soit que
+ce serait un usage complètement déplacé de l'IA car il s'agirait d'un code
+jetable et pas durable, quelque chose à la frontière entre l'escroquerie 
+et l'exploitation à perte d'énergies fossiles.
+
+Il est au contraire important de résister à la tentation de l'utilisation 
+intensive de ces agents qui amène de nombreux problèmes:
+- impact environnemental
+- code moins durable
+- perte de niveau du développeur
+- perte de plaisir
+
+# Une utilisation sobre des agents
 
 ## Des agents sans intention
 
-D’autre part et c’est le cas pour de nombreux domaines abordés par l’IA, un
+Quel que soit le type d'IA, un
 sujet qui me frappe malgré l’exactitude et la rapidité des modèles récents est
 la propension des agents à proposer des réponses ou il n’y a pas d’intention
 claire et j'oserais presque dire pas d’émotions.
@@ -95,19 +108,33 @@ codebases dans quelques années et me dire “encore un truc codé par une IA..�
 
 ## Savoir quand utiliser l’IA
 
-L’informatique existe depuis un moment et de nombreux outils excellents existent
-autour de nous. Il faut résister à l’envie et au confort (relatif) de passer par
-l’IA pour tout et n’importe quoi. \
+Les agents IA nous fournissent du code sur demande et entrent en concurrence avec de nombreux
+outils et techniques de code. L'informatique n'a pas attendu les IA pour proposer des solutions
+qui vont au delà du code manuel !
+Certes certaines utilisations d'agents sont uniques car ils sont capables de proposer du code
+extrêmement spécifique mais le propre des projets informatiques est justement de rarement (un euphémisme)
+rechercher l'originalité. Les seuls personnes ayant l'impression de faire quelque chose de spécifique
+sont généralement les développeurs junior et les clients ^^
+Apprendre à ne pas réinventer la roue est à la base du travail de développeur et malheureusement les
+agents ne sont pas excellent à appliquer ce principe.
+Ils proposent souvent une solution verbeuse, et ne vont pas penser à la solution élégante ou pragmatique
+(type utiliser une librairie existante ou la dernière directive css) d'eux même.
+
+Connaitre l'écosystème sur le bout des doigt et continuer de se former reste la priorité en tant
+que développeur.
+
 > J’ai envie de donner un exemple, j’ai écris ce document sur google doc et
 > souhaitait le passer en markdown pour le publier sur ce blog. J’ai d’abord pensé
 > à copier coller ce texte dans Claude avant de réaliser qu’une extension gdoc
 > existait déjà et fait le travail mieux de manière algorithmique et beaucoup plus
 > rapidement !
 
+
+
 **Abordons maintenant mes recommandations techniques sur l’utilisation
 d’agents.**
 
-## Un workflow hybride tout en contrôle
+# Un workflow hybride tout en contrôle
 
 La vraie révolution pour le développement web a été l’arrivée d’agents capables
 de travailler sur une codebase entière.

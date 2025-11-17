@@ -188,7 +188,7 @@ Un livre pourrait être écrit là dessus, mon approche consiste à:
 
 # 🐱‍💻 Un développement ouvert aux agents IA
 
-Je développe avec assistance d'un agent IA (en l'occurence [Claude Code](https://www.claude.com/)) et vous propose de consulter [ce billet](/post/développement-fullstack/workflow-ia/) résumant mes réflexions principales sur l'utilisation de ces outils.
+Je développe avec assistance d'un agent IA (en l'occurence [Claude Code](https://www.claude.com/)) et vous propose de consulter [ce billet](/post/developpement-fullstack/workflow-ia/) résumant mes réflexions principales sur l'utilisation de ces outils.
 
 D'un point de vue technique je fais en sorte que la codebase soit aussi lisible et maintenable pour un développeur humain qu'un agent IA
 (spoiler alert c'est souvent la même chose).
@@ -350,7 +350,7 @@ Je vérifie la performance des pages principales avec Lighthouse.
 Pour les sites qui ont besoin d’un SEO particulièrement performant je travaille
 avec [Nuxt](https://nuxt.com/) en SSR. Cela demande un peu plus de travail côté
 développement mais permet une indexation idéale par les moteurs de recherche et
-IA.
+IA. Cela a été le cas dans ma mission chez [Kessel](/projects/kessel), une startup dans l'édition numérique
 
 # 🎨 UX / UI ou comment rivaliser avec Da Vinci
 
@@ -369,8 +369,7 @@ Je référence de temps en temps des articles d’autorité sur ce sujet comme
 
 En revanche je ne suis pas un expert en UX et pour des projets qui attendent un
 traffic conséquent de la part d’utilisateurs extérieurs (et selon le budget) je
-préfère travailler avec une UX designer
-([https://www.linkedin.com/in/elinalapierre/](https://www.linkedin.com/in/elinalapierre/)).
+préfère travailler avec [Elina Lapierre](https://www.linkedin.com/in/elinalapierre/)
 
 ## Approche CSS
 
